@@ -252,15 +252,33 @@
                         <!--begin::Page Heading-->
                         <div class="d-flex align-items-baseline flex-wrap mr-5">
                             <!--begin::Page Title-->
-                            <h5 class="text-dark font-weight-bold my-1 mr-5">{% block niveau1 %}{% endblock %}</h5>
+                            <h5 class="text-dark font-weight-bold my-1 mr-5">
+                                {% block niveau1 %}
+                                    {% if niveau1 is defined %}
+                                        {{ niveau1 }}
+                                    {% endif %}
+                                {% endblock %}
+                            </h5>
                             <!--end::Page Title-->
                             <!--begin::Breadcrumb-->
                             <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                                 <li class="breadcrumb-item">
-                                    <a href="" class="text-muted">{% block niveau2 %}{% endblock %}</a>
+                                    <a href="" class="text-muted">
+                                        {% block niveau2 %}
+                                            {% if niveau2 is defined %}
+                                                {{ niveau2 }}
+                                            {% endif %}
+                                        {% endblock %}
+                                    </a>
                                 </li>
                                 <li class="breadcrumb-item">
-                                    <a href="" class="text-muted">{% block niveau3 %}{% endblock %}</a>
+                                    <a href="" class="text-muted">
+                                        {% block niveau3 %}
+
+                                            {% if niveau3 is defined %}
+                                                {{ niveau3 }}
+                                            {% endif %}
+                                        {% endblock %}</a>
                                 </li>
                             </ul>
                             <!--end::Breadcrumb-->
@@ -311,7 +329,7 @@
 <!--begin::Page Scripts(used by this page)-->
 <script src="{{ asset('BackEnd/assets/js/pages/widgets.js')}}"></script>
 
-{% block javascript %}{% endblock %}
+{% block javascripts %}{% endblock %}
 <!--end::Page Scripts-->
 </body>
 </html>

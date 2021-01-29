@@ -31,6 +31,7 @@ class ContratTypeOtpionsType extends AbstractType
                 'label'=>'Avance loyer',
                 'placeholder' => 'Avance de loyer à payer',
                 'help'=>'Avance loyer',
+
                 'choices' => array(
                     '1 mois' => '1',
                     '2 mois' => '2',
@@ -39,16 +40,20 @@ class ContratTypeOtpionsType extends AbstractType
                     '5 mois' => '5',
                     '6 mois' => '6',
 
-                )
+                ),
+                'required'=>false,
             ])
-            ->add('Caution')
-            ->add('CautionEE')
-            ->add('nombreMenage',null,[
-                'label'=>'Nombre de mènages',
+            ->add('Caution',null, [
+                'required'=>false,
             ])
-            ->add("fraisAgence")
+//            ->add('CautionEE')
+//          ->add('nombreMenage',null,[
+//                'label'=>'Nombre de mènages',
+//            ])
+//            ->add("fraisAgence")
             ->add('Montant')
-            ->add('AvanceAchat');
+//            ->add('AvanceAchat',null, [
+//        'required'=>'false', ]);
           //  ->add('proprietes')
         ;
     }

@@ -1,0 +1,82 @@
+{% form_theme form 'administration/partials/_form_theme_images.html.twig' %}
+{{ form_start(form) }}
+{#    {{ form_widget(form) }}#}
+
+ {{ form_row (form.Libelle) }}
+ {{ form_row (form.Description) }}
+
+<fieldset>
+
+    {{ form_row (form.ville) }}
+    {{ form_row (form.quartier) }}
+    {{ form_row (form.adresse) }}
+</fieldset>
+
+{{ form_row (form.TypeOptions.Contratypes) }}
+<div class="location">
+    {{ form_row (form.TypeOptions.Loyer) }}
+    <div class="form-group row">
+        {{ form_label(form.TypeOptions.Avance) }}
+        <div class="col-sm-4">
+            {{ form_widget(form.TypeOptions.Avance) }}
+        </div>
+        <div class="col-sm-6">
+            <input type="number" class="form-control" id="montant-loyer" readonly>
+        </div>
+    </div>
+{#    {{ form_row (form.TypeOptions.nombreMenage) }}#}
+    {{ form_row (form.TypeOptions.Caution) }}
+{#    {{ form_row (form.TypeOptions.CautionEE) }}#}
+</div>
+<div class="vente">
+    {{ form_row (form.TypeOptions.Montant) }}
+{#    {{ form_row (form.TypeOptions.AvanceAchat) }}#}
+</div>
+{{ form_row (form.ProprieteOptions.Proprietes) }}
+
+<div class="maison">
+    <div class="form-group row">
+        <div class="col-sm-4">
+            {{ form_label(form.ProprieteOptions.NbreChambre, null, {'label_attr':{'class':'col-sm-12'}}) }}
+            {{ form_widget (form.ProprieteOptions.NbreChambre) }}
+        </div>
+        <div class="col-sm-4">
+            {{ form_label(form.ProprieteOptions.NbreSalon, null, {'label_attr':{'class':'col-sm-12'}}) }}
+            {{ form_widget (form.ProprieteOptions.NbreSalon) }}
+        </div>
+        <div class="col-sm-4">
+            {{ form_label(form.ProprieteOptions.NbreCuisine, null, {'label_attr':{'class':'col-sm-12'}}) }}
+            {{ form_widget (form.ProprieteOptions.NbreCuisine) }}
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-4">
+            {{ form_label(form.ProprieteOptions.NbreEtage, null, {'label_attr':{'class':'col-sm-12'}}) }}
+            {{ form_widget (form.ProprieteOptions.NbreEtage) }}
+        </div>
+        <div class="col-sm-4">
+            {{ form_label(form.ProprieteOptions.NbreDouche, null, {'label_attr':{'class':'col-sm-12'}}) }}
+            {{ form_widget (form.ProprieteOptions.NbreDouche) }}
+        </div>
+        <div class="col-sm-4">
+            {{ form_label(form.ProprieteOptions.NbreGarage, null, {'label_attr':{'class':'col-sm-12'}}) }}
+            {{ form_widget (form.ProprieteOptions.NbreGarage) }}
+        </div>
+    </div>
+
+
+
+
+
+    {{ form_row (form.ProprieteOptions.Annedeconstruction) }}
+</div>
+<div class="parcelle">
+    {{ form_row (form.ProprieteOptions.Superfice) }}
+    {{ form_row (form.ProprieteOptions.titreFoncier) }}
+</div>
+{#{{ form_row (form.TypeOptions.fraisAgence) }}#}
+
+<div class="pull-right">
+    <button class="btn btn-success" type="submit">{{ button_label|default('Enregistrer le bien') }}</button>
+</div>
+{{ form_end(form) }}

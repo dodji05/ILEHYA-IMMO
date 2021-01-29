@@ -1,0 +1,132 @@
+{% extends 'administration/index.html.twig' %}
+
+
+
+
+ {% block body %}
+     <div class="container-fluid">
+         <div class="row">
+             <div class="col-sm-12 col-md-10 offset-md-1">
+                 <div class="card">
+                     <div class="card-header">
+                         <h2 class="card-title titre"> Ajouter un Bien Immobilier </h2>
+
+                     </div>
+                     <div class="card-body">
+
+                         {{ include('administration/proprietes/_form.html.twig') }}
+
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+ {% endblock %}
+
+{% block javascripts %}
+    <script>
+        jQuery(document).ready(function () {
+            $('.location').hide()
+            $('.vente').hide()
+            $('.maison').hide()
+            $('.parcelle').hide()
+
+        });
+        var $contrat = $('#proprietes_TypeOptions_Contratypes')
+        var $porpertyoptions = $('#proprietes_ProprieteOptions_Proprietes')
+        var $token = $('#proprietes__token')
+        var $avance = $('#proprietes_TypeOptions_Avance')
+        var $totalavance = $('#montant-loyer')
+
+        $contrat.change(function () {
+                var $form = $(this).closest('form')
+                var data = {}
+
+                data[$token.attr('name')] = $token.val()
+                data[$contrat.attr('name')] = $contrat.val()
+                if ($contrat.val() == 1) {
+                    $('.location').hide()
+                    $('.vente').show()
+                } else if ($contrat.val() == 2) {
+                    $('.location').hide()
+                    $('.vente').show()
+                }
+         else if ($contrat.val() == 3 ) {
+                    $('.location').show()
+                    $('.vente').hide()
+        }
+        else if ($contrat.val() == 4) {
+                    $('.location').show()
+                    $('.vente').hide()
+                } else if ($contrat.val() == 5) {
+                    $('.location').show()
+                    $('.vente').hide()
+                }
+                else {
+                    $('.location').hide()
+                    $('.vente').hide()
+                }
+
+
+            }
+        )
+
+        $porpertyoptions.change(function () {
+                var $form = $(this).closest('form')
+                var data = {}
+
+                data[$token.attr('name')] = $token.val()
+                data[$porpertyoptions.attr('name')] = $porpertyoptions.val()
+                if ($porpertyoptions.val() == 1) {
+                    $('.maison').show()
+                    $('.parcelle').hide()
+                } else if ($porpertyoptions.val() == 8) {
+                    $('.maison').hide()
+                    $('.parcelle').show()
+                } else {
+                    $('.maison').hide()
+                    $('.parcelle').hide()
+                }
+
+
+            }
+        )
+
+        $avance.change(function () {
+            var $form = $(this).closest('form')
+            var data = {}
+            var $loyer =  $('#proprietes_TypeOptions_Loyer')
+
+            data[$token.attr('name')] = $token.val()
+            data[$avance.attr('name')] = $avance.val()
+
+            if (($loyer !== 0 ) || ( $loyer !=null)){
+                $totalavance1 = $loyer.val() * $avance.val()
+                $totalavance.val($totalavance1)
+            }
+
+        })
+        $('.add-another-collection-widget').click(function (e) {
+            var list = $($(this).attr('data-list-selector'));
+            // Try to find the counter of the list or use the length of the list
+            var counter = list.data('widget-counter') | list.children().length;
+
+            // grab the prototype template
+            var newWidget = list.attr('data-prototype');
+            // replace the "__name__" used in the id and name of the prototype
+            // with a number that's unique to your emails
+            // end name attribute looks like name="contact[emails][2]"
+            newWidget = newWidget.replace(/__name__/g, counter);
+            // Increase the counter
+            counter++;
+            // And store it, the length cannot be used if deleting widgets is allowed
+            list.data('widget-counter', counter);
+
+            // create a new list element and add it to the list
+            var newElem = $(list.attr('data-widget-tags')).html(newWidget);
+            newElem.appendTo(list);
+        });
+    </script>
+
+{% endblock %}

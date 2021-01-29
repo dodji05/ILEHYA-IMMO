@@ -46,9 +46,13 @@ class ProprieteTypeOptionType extends AbstractType
             ->add('NbreEtage',null,[
                 'label'=>'Nombre d\' étages ',
             ])
+            ->add('Annedeconstruction',null,[
+                'label'=>'Année de construction ',
+            ])
             ->add('titreFoncier',CheckboxType::class,[
                 'label'=>'Titre Foncier',
-                'constraints' => new IsTrue(),
+
+                'required'=>false
             ])
 
            // ->add('proprietes')
