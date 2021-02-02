@@ -85,7 +85,10 @@ class ProprietesController extends AbstractController
             ]);
         }
 
-        return $this->render('administration/proprietes/new.html.twig', [
+        return $this->render('administration/proprietes/edit.html.twig', [
+            'niveau1' => $this->niveau1,
+            'niveau2' => 'Bien immobilier',
+            'niveau3' => 'Modifier',
             'product' => $proprietes,
             'form' => $form->createView(),
         ]);

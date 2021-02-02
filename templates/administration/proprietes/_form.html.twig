@@ -75,7 +75,14 @@
     {{ form_row (form.ProprieteOptions.titreFoncier) }}
 </div>
 {#{{ form_row (form.TypeOptions.fraisAgence) }}#}
-
+<div>
+    {{ form_row(form.proprietesImages) }}
+{#    {% for pd in  product.proprietesImages %}#}
+{#        <div class="col-sm-4"> {{ pd.name}}#}
+{#            <img src="{{ vich_uploader_asset('ProprietesImages', 'imageFile') }}" alt="name">#}
+{#        </div>#}
+{#    {% endfor %}#}
+</div>
 <div class="pull-right">
     <button class="btn btn-success" type="submit">{{ button_label|default('Enregistrer le bien') }}</button>
 </div>

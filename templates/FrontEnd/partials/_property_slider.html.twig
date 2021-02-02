@@ -1,0 +1,15 @@
+<div class="slider__property bg-light">
+
+    <div class="slider__property-carousel owl-carousel owl-theme">
+        {% for images in biens.proprietesImages %}
+            <div class="item">
+                <a href="#">
+                    <img src="{{ asset('images/immobiliers/') }}{{ images.name }}" alt="{{ biens.libelle }}" class="img-fluid">
+                </a>
+            </div>
+        {% endfor %}
+
+
+    </div>
+
+</div>

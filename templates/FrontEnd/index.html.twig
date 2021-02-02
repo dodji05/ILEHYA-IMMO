@@ -1,0 +1,16 @@
+{% extends 'FrontEnd/base.html.twig' %}
+{% block content %}
+    {% include 'FrontEnd/partials/_carousel.html.twig' %}
+    <!-- END CAROSUEL -->
+    <div class="clearfix"></div>
+
+    {% include 'FrontEnd/partials/_recherche.html.twig' %}
+
+    <!-- FEATURED PROPERTIES -->
+    {% include 'FrontEnd/partials/_featured.html.twig' %}
+    <!-- END FEATURED PROPERTIES -->
+
+    <!-- NOUVEAUTE PROPERTIES -->
+    {% include 'FrontEnd/partials/_nouveaute.html.twig' %}
+    <!-- END NOUVEAUTE PROPERTIES -->
+{% endblock %}
