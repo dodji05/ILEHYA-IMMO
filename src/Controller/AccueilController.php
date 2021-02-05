@@ -23,7 +23,7 @@ class AccueilController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="proprietes_show")
+     * @Route("/annonces/{id}", name="proprietes_show")
      */
     public function show(Proprietes $proprietes) : Response
     {

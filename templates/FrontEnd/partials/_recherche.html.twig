@@ -1,100 +1,266 @@
 <div class="search__area search__area-1" id="search__area-1">
     <div class="container">
-        <div class="search__area-inner">
-            <div class="row">
-                <div class="col-6 col-lg-3 col-md-3">
-                    <div class="form-group">
-                        <select class="wide select_option">
-                            <option data-display="Property Status">Property Status</option>
-                            <option>For Sale</option>
-                            <option>For Rent</option>
+{#        <div class="search__area-inner">#}
+{#            <div class="row">#}
+{#                <div class="col-6 col-lg-3 col-md-3">#}
+{#                    <div class="form-group">#}
+{#                        <select class="wide select_option">#}
+{#                            <option data-display="Status">Status</option>#}
+{#                            <option>A vendre</option>#}
+{#                            <option>A louer</option>#}
 
-                        </select>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3 col-md-3">
-                    <div class="form-group">
-                        <select class="wide select_option">
-                            <option data-display="Property Type">Property Type</option>
-                            <option>Residential</option>
-                            <option>Commercial</option>
-                            <option>Land</option>
-                            <option>Luxury</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3 col-md-3">
-                    <div class="form-group">
-                        <select class="wide select_option">
-                            <option data-display="Area From">Area From </option>
-                            <option>1500</option>
-                            <option>1200</option>
-                            <option>900</option>
-                            <option>600</option>
-                            <option>300</option>
-                            <option>100</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3 col-md-3">
-                    <div class="form-group">
-                        <select class="wide select_option">
-                            <option data-display="Locations">Locations</option>
-                            <option>United Kingdom</option>
-                            <option>American Samoa</option>
-                            <option>Belgium</option>
-                            <option>Canada</option>
-                            <option>Delaware</option>
-                            <option>Indonesia</option>
-                            <option>Malaysia</option>
-                            <option>Japan</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3 col-md-3">
-                    <div class="form-group">
-                        <select class="wide select_option">
-                            <option data-display="Bedrooms">Bedrooms</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3 col-md-3">
-                    <div class="form-group">
-                        <select class="wide select_option">
-                            <option data-display="Bathrooms">Bathrooms</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
+{#                        </select>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-6 col-lg-3 col-md-3">#}
+{#                    <div class="form-group">#}
+{#                        <select class="wide select_option">#}
+{#                            <option data-display="Type de biens">Type de biens</option>#}
+{#                            <option>Maison</option>#}
+{#                            <option>Appartement</option>#}
+{#                            <option>Parcelles</option>#}
+{#                            <option>Bureaux</option>#}
+{#                        </select>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-6 col-lg-3 col-md-3">#}
+{#                    <div class="form-group">#}
+{#                        <select class="wide select_option">#}
+{#                            <option data-display="Superfice (m<sup>2</sup>)">Superfice (m<sup>2</sup>) </option>#}
+{#                            <option>1500</option>#}
+{#                            <option>1200</option>#}
+{#                            <option>900</option>#}
+{#                            <option>600</option>#}
+{#                            <option>300</option>#}
+{#                            <option>100</option>#}
+{#                        </select>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-6 col-lg-3 col-md-3">#}
+{#                    <div class="form-group">#}
+{#                        <select class="wide select_option">#}
+{#                            <option data-display="Zones">Zones</option>#}
+{#                            <option>Cotonou</option>#}
+{#                            <option>Abomey-Calavi</option>#}
+{#                            <option>Porto-Novo</option>#}
+{#                            <option>Ouidah</option>#}
+{#                            <option>Sémé-Podji</option>#}
+{#                            <option>Allada</option>#}
+{#                            <option>Parakou</option>#}
+{#                            <option>Bohicon</option>#}
+
+{#                        </select>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-6 col-lg-3 col-md-3">#}
+{#                    <div class="form-group">#}
+{#                        <select class="wide select_option">#}
+{#                            <option data-display="Nombre de pieces">Nombre de pieces</option>#}
+{#                            <option>0</option>#}
+{#                            <option>1</option>#}
+{#                            <option>2</option>#}
+{#                            <option>3</option>#}
+{#                            <option>4</option>#}
+{#                            <option>5</option>#}
+{#                            <option>6</option>#}
+{#                            <option>7</option>#}
+{#                            <option>8</option>#}
+{#                            <option>9</option>#}
+{#                            <option>10</option>#}
+{#                            <option>10+</option>#}
+{#                        </select>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-6 col-lg-3 col-md-3">#}
+{#                    <div class="form-group">#}
+{#                        <select class="wide select_option">#}
+{#                            <option data-display="Bathrooms">Chambres</option>#}
+{#                            <option>1</option>#}
+{#                            <option>2</option>#}
+{#                            <option>3</option>#}
+{#                            <option>4</option>#}
 
 
-                        </select>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-3 col-md-3">
-                    <div class="form-group">
-                        <div class="filter__price">
-                            <input class="price-range" type="text" name="my_range" value="" />
+{#                        </select>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-12 col-lg-3 col-md-3">#}
+{#                    <div class="form-group">#}
+{#                        <div class="filter__price">#}
+{#                            <input class="price-range" type="text" name="my_range" value="" />#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-12 col-lg-3 col-md-3">#}
+{#                    <div class="form-group">#}
+{#                        <button class="btn btn-primary text-uppercase btn-block"> Rechercher <i#}
+{#                                    class="fa fa-search ml-1"></i></button>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+
+{#        </div>#}
+        <div class="bg__overlay-black p-4">
+            <div class="search__property">
+                <div class="position-relative">
+                    <ul class="nav nav-tabs nav-tabs-02 mb-3 justify-content-start" id="pills-tab" role="tablist">
+                        <li class="nav-item mr-1">
+                            <a class="nav-link active" id="buy-tab" data-toggle="pill" href="#buy" role="tab" aria-controls="buy" aria-selected="true">Acheter </a>
+                        </li>
+                        <li class="nav-item mr-1">
+                            <a class="nav-link" id="rent-tab" data-toggle="pill" href="#rent" role="tab" aria-controls="rent" aria-selected="false">Louer</a>
+                        </li>
+
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade active show" id="buy" role="tabpanel" aria-labelledby="buy-tab">
+                            <div class=" search__container">
+                                <div class="row input-group no-gutters">
+                                    <div class="col-lg-2">
+                                        <select class="select_option form-control" name="select" >
+                                            <option selected="">Type Property</option>
+                                            <option>House</option>
+                                            <option>Apartement </option>
+                                            <option>Hotel</option>
+                                            <option>Residential</option>
+                                            <option>Land</option>
+                                            <option>Luxury</option>
+
+                                        </select><div class="nice-select select_option form-control" tabindex="0"><span class="current">Type Property</span><ul class="list"><li data-value="Type Property" class="option selected">Type Property</li><li data-value="House" class="option">House</li><li data-value="Apartement" class="option">Apartement </li><li data-value="Hotel" class="option">Hotel</li><li data-value="Residential" class="option">Residential</li><li data-value="Land" class="option">Land</li><li data-value="Luxury" class="option">Luxury</li></ul></div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <select class="select_option form-control" name="select" >
+                                            <option data-display="Area From">Area From </option>
+                                            <option>1500</option>
+                                            <option>1200</option>
+                                            <option>900</option>
+                                            <option>600</option>
+                                            <option>300</option>
+                                            <option>100</option>
+
+                                        </select><div class="nice-select select_option form-control" tabindex="0"><span class="current">Area From</span><ul class="list"><li data-value="Area From" data-display="Area From" class="option selected">Area From </li><li data-value="1500" class="option">1500</li><li data-value="1200" class="option">1200</li><li data-value="900" class="option">900</li><li data-value="600" class="option">600</li><li data-value="300" class="option">300</li><li data-value="100" class="option">100</li></ul></div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <select class="select_option form-control" name="select" style="display: none;">
+                                            <option data-display="Bedrooms">Bedrooms</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                            <option>6</option>
+                                            <option>7</option>
+                                            <option>8</option>
+                                            <option>9</option>
+
+                                        </select><div class="nice-select select_option form-control" tabindex="0"><span class="current">Bedrooms</span><ul class="list"><li data-value="Bedrooms" data-display="Bedrooms" class="option selected">Bedrooms</li><li data-value="1" class="option">1</li><li data-value="2" class="option">2</li><li data-value="3" class="option">3</li><li data-value="4" class="option">4</li><li data-value="5" class="option">5</li><li data-value="6" class="option">6</li><li data-value="7" class="option">7</li><li data-value="8" class="option">8</li><li data-value="9" class="option">9</li></ul></div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <select class="select_option form-control" name="select" style="display: none;">
+                                            <option data-display="Bathrooms">Bathrooms</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+
+                                        </select><div class="nice-select select_option form-control" tabindex="0"><span class="current">Bathrooms</span><ul class="list"><li data-value="Bathrooms" data-display="Bathrooms" class="option selected">Bathrooms</li><li data-value="1" class="option">1</li><li data-value="2" class="option">2</li><li data-value="3" class="option">3</li><li data-value="4" class="option">4</li><li data-value="5" class="option">5</li></ul></div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <select class="select_option form-control" name="select" style="display: none;">
+                                            <option data-display="Locations">Locations</option>
+                                            <option>United Kingdom</option>
+                                            <option>American Samoa</option>
+                                            <option>Belgium</option>
+                                            <option>Canada</option>
+                                            <option>Delaware</option>
+
+                                        </select><div class="nice-select select_option form-control" tabindex="0"><span class="current">Locations</span><ul class="list"><li data-value="Locations" data-display="Locations" class="option selected">Locations</li><li data-value="United Kingdom" class="option">United Kingdom</li><li data-value="American Samoa" class="option">American Samoa</li><li data-value="Belgium" class="option">Belgium</li><li data-value="Canada" class="option">Canada</li><li data-value="Delaware" class="option">Delaware</li></ul></div>
+                                    </div>
+                                    <div class="col-lg-2 input-group-append">
+                                        <button class="btn btn-primary btn-block" type="submit">
+                                            <i class="fa fa-search"></i> <span class="ml-1 text-uppercase">search</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-3 col-md-3">
-                    <div class="form-group">
-                        <button class="btn btn-primary text-uppercase btn-block"> search <i
-                                    class="fa fa-search ml-1"></i></button>
+                        <div class="tab-pane fade" id="rent" role="tabpanel" aria-labelledby="rent-tab">
+                            <div class=" search__container">
+                                <div class="row input-group no-gutters">
+                                    <div class="col-lg-2">
+                                        <select class="select_option form-control" name="select">
+                                            <option selected="">Type Property</option>
+                                            <option>House</option>
+                                            <option>Apartement </option>
+                                            <option>Hotel</option>
+                                            <option>Residential</option>
+                                            <option>Land</option>
+                                            <option>Luxury</option>
+
+                                        </select><div class="nice-select select_option form-control" tabindex="0"><span class="current">Type Property</span><ul class="list"><li data-value="Type Property" class="option selected">Type Property</li><li data-value="House" class="option">House</li><li data-value="Apartement" class="option">Apartement </li><li data-value="Hotel" class="option">Hotel</li><li data-value="Residential" class="option">Residential</li><li data-value="Land" class="option">Land</li><li data-value="Luxury" class="option">Luxury</li></ul></div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <select class="select_option form-control" name="select" style="display: none;">
+                                            <option data-display="Area From">Area From </option>
+                                            <option>1500</option>
+                                            <option>1200</option>
+                                            <option>900</option>
+                                            <option>600</option>
+                                            <option>300</option>
+                                            <option>100</option>
+
+                                        </select><div class="nice-select select_option form-control" tabindex="0"><span class="current">Area From</span><ul class="list"><li data-value="Area From" data-display="Area From" class="option selected">Area From </li><li data-value="1500" class="option">1500</li><li data-value="1200" class="option">1200</li><li data-value="900" class="option">900</li><li data-value="600" class="option">600</li><li data-value="300" class="option">300</li><li data-value="100" class="option">100</li></ul></div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <select class="select_option form-control" name="select" style="display: none;">
+                                            <option data-display="Bedrooms">Bedrooms</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                            <option>6</option>
+                                            <option>7</option>
+                                            <option>8</option>
+                                            <option>9</option>
+
+                                        </select><div class="nice-select select_option form-control" tabindex="0"><span class="current">Bedrooms</span><ul class="list"><li data-value="Bedrooms" data-display="Bedrooms" class="option selected">Bedrooms</li><li data-value="1" class="option">1</li><li data-value="2" class="option">2</li><li data-value="3" class="option">3</li><li data-value="4" class="option">4</li><li data-value="5" class="option">5</li><li data-value="6" class="option">6</li><li data-value="7" class="option">7</li><li data-value="8" class="option">8</li><li data-value="9" class="option">9</li></ul></div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <select class="select_option form-control" name="select" style="display: none;">
+                                            <option data-display="Bathrooms">Bathrooms</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+
+                                        </select><div class="nice-select select_option form-control" tabindex="0"><span class="current">Bathrooms</span><ul class="list"><li data-value="Bathrooms" data-display="Bathrooms" class="option selected">Bathrooms</li><li data-value="1" class="option">1</li><li data-value="2" class="option">2</li><li data-value="3" class="option">3</li><li data-value="4" class="option">4</li><li data-value="5" class="option">5</li></ul></div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <select class="select_option form-control" name="select" style="display: none;">
+                                            <option data-display="Locations">Locations</option>
+                                            <option>United Kingdom</option>
+                                            <option>American Samoa</option>
+                                            <option>Belgium</option>
+                                            <option>Canada</option>
+                                            <option>Delaware</option>
+
+                                        </select><div class="nice-select select_option form-control" tabindex="0"><span class="current">Locations</span><ul class="list"><li data-value="Locations" data-display="Locations" class="option selected">Locations</li><li data-value="United Kingdom" class="option">United Kingdom</li><li data-value="American Samoa" class="option">American Samoa</li><li data-value="Belgium" class="option">Belgium</li><li data-value="Canada" class="option">Canada</li><li data-value="Delaware" class="option">Delaware</li></ul></div>
+                                    </div>
+                                    <div class="col-lg-2 input-group-append">
+                                        <button class="btn btn-primary btn-block" type="submit">
+                                            <i class="fa fa-search"></i> <span class="ml-1 text-uppercase">search</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
