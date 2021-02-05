@@ -47,4 +47,17 @@ class ProprietesRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function derniersannonce($type=null){
+
+        return $this->createQueryBuilder('p')
+            ->leftJoin('p.')
+            ->andWhere('p.exampleField = :val')
+
+            ->setParameter('val', $type)
+            ->orderBy('p.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }
