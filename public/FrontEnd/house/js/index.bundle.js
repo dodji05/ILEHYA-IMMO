@@ -15312,7 +15312,8 @@
             $(".option-panel").toggleClass("option-panel-collased")
         })), $(window).scroll((function () {
             $(this).scrollTop() > 80 ? $(".navbar-soft").addClass("fixed-top") : $(".navbar-soft").removeClass("fixed-top")
-        })), $(".price-range").ionRangeSlider({
+        })),
+            $(".price-range").ionRangeSlider({
             skin: "big",
             type: "double",
             grid: !0,
@@ -15321,7 +15322,8 @@
             from: 1300,
             to: 7600,
             prefix: "$"
-        }), $(".count").length && $(window).on("scroll.myCount", (function () {
+        }),
+        $(".count").length && $(window).on("scroll.myCount", (function () {
             var t = .7 * $(window).height(), e = $(".count").offset().top - t;
             $(document).scrollTop() > e && ($(window).off("scroll.myCount"), $(".count-value").each((function () {
                 $(".start-count", this).text("0");
@@ -15488,9 +15490,9 @@
                 600: {items: 1, center: !1},
                 768: {items: 2},
                 992: {items: 2},
-                1200: {items: 2},
-                1366: {items: 3},
-                1400: {items: 3}
+                1200: {items: 3},
+                1366: {items: 4},
+                1400: {items: 4}
             }
         }), $(".similiar__property-carousel").length && $(".similiar__property-carousel").owlCarousel({
             loop: !0,

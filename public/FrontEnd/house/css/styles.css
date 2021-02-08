@@ -25446,7 +25446,7 @@ input[type="number"] {
 }
 
 .bg-theme-v1 {
-    background-image: url(../images/1920x1080.jpg);
+    /*background-image: url(../images/1920x1080.jpg);*/
     width: 100%;
     background-attachment: fixed !important;
     background-position: center center;

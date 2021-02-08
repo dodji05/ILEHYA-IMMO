@@ -60,4 +60,21 @@ class ProprietesRepository extends ServiceEntityRepository
             ->getResult()
             ;
     }
+
+    public function  annoncessimilaires ($contratypes,$Options){
+        return $this->createQueryBuilder('p')
+            ->leftJoin('p.TypeOptions','t')
+            ->leftJoin('t.Contratypes','c')
+            ->leftJoin('p.ProprieteOptions','o')
+            ->leftJoin('o.Proprietes','r')
+            ->andWhere('c.id = :val1')
+            ->andWhere('r.id= :val2')
+            ->setParameter('val1', $contratypes)
+            ->setParameter('val2', $Options)
+            ->orderBy('p.id', 'ASC')
+            ->setMaxResults(5)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }

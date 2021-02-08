@@ -10,9 +10,21 @@
     {% include 'FrontEnd/partials/_featured.html.twig' %}
     <!-- END FEATURED PROPERTIES -->
 
+    <!-- Call To action -->
+    {% include'FrontEnd/partials/_call-to-action-1.html.twig' %}
+
     <!-- NOUVEAUTE PROPERTIES -->
-    {% include 'FrontEnd/partials/_nouveaute.html.twig' %}
+    {% include 'FrontEnd/partials/_recent_property.html.twig' with {'nature_annonce': 'à louer'} %}
     <!-- END NOUVEAUTE PROPERTIES -->
+
+    <!-- Call To action -->
+    {% include'FrontEnd/partials/_call-to-action-1.html.twig' %}
+
+    <!-- NOUVEAUTE PROPERTIES -->
+    {% include 'FrontEnd/partials/_recent_property.html.twig' with {'nature_annonce': 'à vendre'} %}
+
+    <!-- Call To action -->
+    {% include'FrontEnd/partials/_call-to-action-1.html.twig' %}
 
     <!-- ABOUT -->
     {% include 'FrontEnd/partials/_about.html.twig' %}
@@ -20,6 +32,5 @@
     <!-- OUR PARTNERS -->
     {% include 'FrontEnd/partials/_partners.html.twig' %}
 
-    <!-- Footer  -->
-    {% include 'FrontEnd/partials/_footer.html.twig' %}
+
 {% endblock %}
