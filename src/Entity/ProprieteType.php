@@ -38,6 +38,11 @@ class ProprieteType
      */
     private $Ordre;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=ContratType::class, inversedBy="proprieteTypes")
+     */
+    private $type;
+
     public function __construct()
     {
         $this->proprieteTypeOptions = new ArrayCollection();
@@ -111,6 +116,18 @@ class ProprieteType
     public function setOrdre(?int $Ordre): self
     {
         $this->Ordre = $Ordre;
+
+        return $this;
+    }
+
+    public function getType(): ?ContratType
+    {
+        return $this->type;
+    }
+
+    public function setType(?ContratType $type): self
+    {
+        $this->type = $type;
 
         return $this;
     }

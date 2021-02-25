@@ -3,9 +3,9 @@
     {% include 'FrontEnd/partials/_carousel.html.twig' %}
     <!-- END CAROSUEL -->
     <div class="clearfix"></div>
-
+<div class="search__area-inner">
     {% include 'FrontEnd/partials/_recherche.html.twig' %}
-
+</div>
     <!-- FEATURED PROPERTIES -->
     {% include 'FrontEnd/partials/_featured.html.twig' %}
     <!-- END FEATURED PROPERTIES -->
@@ -32,5 +32,9 @@
     <!-- OUR PARTNERS -->
     {% include 'FrontEnd/partials/_partners.html.twig' %}
 
+
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('FrontEnd/house/js/select-lies.js')}}"></script> #}
 
 {% endblock %}

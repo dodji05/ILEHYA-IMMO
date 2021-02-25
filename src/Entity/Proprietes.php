@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProprietesRepository")
@@ -38,10 +39,7 @@ class Proprietes
      */
     private $ville;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $quartier;
+
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
@@ -89,6 +87,17 @@ class Proprietes
     private $Disponibilite;
 
     /**
+     * @ORM\ManyToOne(targetEntity=Quartier::class, inversedBy="proprietes")
+     * @Assert\NotBlank()
+     */
+    private $quatier;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Messages::class, mappedBy="proprietes")
+     */
+    private $messages;
+
+    /**
      * Proprietes constructor.
      */
     public function __construct()
@@ -100,6 +109,7 @@ class Proprietes
         $this->createatAt = new \DateTime();
         $this->media = new ArrayCollection();
         $this->proprietesImages = new ArrayCollection();
+        $this->messages = new ArrayCollection();
     }
 
 
@@ -156,17 +166,7 @@ class Proprietes
         return $this;
     }
 
-    public function getQuartier(): ?string
-    {
-        return $this->quartier;
-    }
 
-    public function setQuartier(?string $quartier): self
-    {
-        $this->quartier = $quartier;
-
-        return $this;
-    }
 
     public function getIIsFeatured(): ?bool
     {
@@ -309,6 +309,48 @@ class Proprietes
     public function setDisponibilite(?bool $Disponibilite): self
     {
         $this->Disponibilite = $Disponibilite;
+
+        return $this;
+    }
+
+    public function getQuatier(): ?Quartier
+    {
+        return $this->quatier;
+    }
+
+    public function setQuatier(?Quartier $quatier): self
+    {
+        $this->quatier = $quatier;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Messages[]
+     */
+    public function getMessages(): Collection
+    {
+        return $this->messages;
+    }
+
+    public function addMessage(Messages $message): self
+    {
+        if (!$this->messages->contains($message)) {
+            $this->messages[] = $message;
+            $message->setProprietes($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMessage(Messages $message): self
+    {
+        if ($this->messages->removeElement($message)) {
+            // set the owning side to null (unless already changed)
+            if ($message->getProprietes() === $this) {
+                $message->setProprietes(null);
+            }
+        }
 
         return $this;
     }

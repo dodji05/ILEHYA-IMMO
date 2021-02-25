@@ -11,6 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class RechercheBiensController extends AbstractController
 {
+
     /**
      * @Route("/recherches", name="recherche")
      */

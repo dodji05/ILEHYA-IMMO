@@ -28,9 +28,15 @@ class ContratType
      */
     private $TypeOptions;
 
+    /**
+     * @ORM\OneToMany(targetEntity=ProprieteType::class, mappedBy="type")
+     */
+    private $proprieteTypes;
+
     public function __construct()
     {
         $this->TypeOptions = new ArrayCollection();
+        $this->proprieteTypes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -75,6 +81,36 @@ class ContratType
             // set the owning side to null (unless already changed)
             if ($createdAt->getContratypes() === $this) {
                 $createdAt->setContratypes(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ProprieteType[]
+     */
+    public function getProprieteTypes(): Collection
+    {
+        return $this->proprieteTypes;
+    }
+
+    public function addProprieteType(ProprieteType $proprieteType): self
+    {
+        if (!$this->proprieteTypes->contains($proprieteType)) {
+            $this->proprieteTypes[] = $proprieteType;
+            $proprieteType->setType($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProprieteType(ProprieteType $proprieteType): self
+    {
+        if ($this->proprieteTypes->removeElement($proprieteType)) {
+            // set the owning side to null (unless already changed)
+            if ($proprieteType->getType() === $this) {
+                $proprieteType->setType(null);
             }
         }
 

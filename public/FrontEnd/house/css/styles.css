@@ -31343,7 +31343,8 @@ body.offcanvas-active {
 
 .single__detail-features .list-unstyled.icon-checkbox {
     -moz-columns: 3;
-    columns: 3;
+    /*columns: 2;*/
+
     -moz-column-gap: 20px;
     column-gap: 20px;
     margin-bottom: 0
@@ -31386,7 +31387,8 @@ body.offcanvas-active {
     content: "\f00c";
     font-family: "FontAwesome";
     font-size: 12px;
-    color: #3454d1;
+    /*color: #3454d1;*/
+    color: #ff9000;
     text-align: center;
     line-height: 15px;
     border: 2px solid transparent;
@@ -31395,7 +31397,7 @@ body.offcanvas-active {
 }
 
 .single__detail-features .list-unstyled.icon-checkbox li::before {
-    background-color: #c1d0ff
+    background-color: #0f3f60
 }
 
 .single__detail-features-title {

@@ -1,5 +1,18 @@
 {% extends 'administration/index.html.twig' %}
-
+ {% block style%}
+ <style>
+     .small_card_header{
+         padding: 15px 0 15px 30px !important;
+     }
+     .card_spacer {
+         margin: 10px 0 15px !important;
+     }
+     .titre {
+         margin-bottom: 0px !important;
+         font-size: 20px;
+     }
+ </style>
+ {% endblock %}
 
 
 
@@ -7,17 +20,18 @@
      <div class="container-fluid">
          <div class="row">
              <div class="col-sm-12 col-md-10 offset-md-1">
-                 <div class="card">
-                     <div class="card-header">
-                         <h2 class="card-title titre"> Ajouter un Bien Immobilier </h2>
+                 {{ include('administration/proprietes/_form.html.twig') }}
 
-                     </div>
-                     <div class="card-body">
+{#                 <div class="card">#}
+{#                     <div class="card-header">#}
+{#                         <h6 class="card-title titre"> Ajouter un Bien Immobilier </h6>#}
 
-                         {{ include('administration/proprietes/_form.html.twig') }}
+{#                     </div>#}
+{#                     <div class="card-body">#}
 
-                     </div>
-                 </div>
+
+{#                     </div>#}
+{#                 </div>#}
              </div>
          </div>
      </div>
@@ -49,8 +63,8 @@
                     $('.location').hide()
                     $('.vente').show()
                 } else if ($contrat.val() == 2) {
-                    $('.location').hide()
-                    $('.vente').show()
+                    $('.location').show()
+                    $('.vente').hide()
                 }
          else if ($contrat.val() == 3 ) {
                     $('.location').show()
@@ -78,10 +92,10 @@
 
                 data[$token.attr('name')] = $token.val()
                 data[$porpertyoptions.attr('name')] = $porpertyoptions.val()
-                if ($porpertyoptions.val() == 1) {
+                if (($porpertyoptions.val() == 1) ||  ($porpertyoptions.val() == 2)) {
                     $('.maison').show()
                     $('.parcelle').hide()
-                } else if ($porpertyoptions.val() == 8) {
+                } else if ($porpertyoptions.val() == 4) {
                     $('.maison').hide()
                     $('.parcelle').show()
                 } else {
@@ -127,6 +141,97 @@
             var newElem = $(list.attr('data-widget-tags')).html(newWidget);
             newElem.appendTo(list);
         });
+
+
     </script>
 
+    <script>
+
+
+        class LinkedSelect {
+
+            /**
+             * @param {HTMLSelectElement} $select
+             */
+            constructor ($select) {
+                this.$select = $select
+                this.$target = document.querySelector(this.$select.dataset.target)
+                this.$placeholder = this.$target.firstElementChild
+              //  this.onChange = debounce(this.onChange.bind(this), 500)
+               this.onChange = this.onChange.bind(this)
+                this.$loader = null
+                this.cache = {}
+                this.$select.addEventListener('change', this.onChange)
+
+            }
+            /**
+             * Se déclenche au changement de valeur d'un select
+             * @param {Event} e
+             */
+            onChange (e) {
+                if (e.target.value === '0') {
+
+                    return
+                }
+
+                this.loadOptions(e.target.value, (options) => {
+                    this.$target.innerHTML = options
+                    this.$target.insertBefore(this.$placeholder, this.$target.firstChild)
+                    this.$target.selectedIndex = 0
+                    this.$target.style.display = null
+
+                })
+            }
+
+            /**
+             * Charge les options à partir du serveur (ou du cache)
+             * @param {string} id
+             * @param callback
+             */
+            loadOptions (id, callback) {
+                if (this.cache[id]) {
+                    callback(this.cache[id])
+                    return
+                }
+                this.showLoader()
+                let request = new XMLHttpRequest()
+                request.open('GET', this.$select.dataset.source.replace('id', id), true)
+                request.onload = () => {
+                    if (request.status >= 200 && request.status < 400) {
+                        let data = JSON.parse(request.responseText)
+                        let options = data.reduce(function (acc, option) {
+                            return acc + '<option value="' + option.value + '">' + option.label + '</option>'
+                        }, '')
+                        this.cache[id] = options
+                        this.hideLoader()
+                        callback(options)
+                    } else {
+                        alert('Impossible de charger la liste')
+                    }
+                }
+                request.onerror = function () {
+                    alert('Impossible de charger la liste')
+                }
+                request.send()
+            }
+
+            showLoader () {
+                this.$loader = document.createTextNode('Chargement...')
+                this.$target.parentNode.appendChild(this.$loader)
+            }
+            hideLoader () {
+                if (this.$loader !== null) {
+                    this.$loader.parentNode.removeChild(this.$loader)
+                    this.$loader = null
+                }
+            }
+
+        }
+
+
+        let $selects = document.querySelectorAll('.linked-select')
+        $selects.forEach(function ($select) {
+            new LinkedSelect($select)
+        })
+    </script>
 {% endblock %}

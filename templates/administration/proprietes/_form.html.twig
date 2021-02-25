@@ -1,89 +1,248 @@
 {% form_theme form 'administration/partials/_form_theme_images.html.twig' %}
-{{ form_start(form) }}
-{#    {{ form_widget(form) }}#}
+<div class="card card_spacer">
+    <div class="card-header small_card_header">
+        <h6 class="card-title titre"> Votre annonce </h6>
 
- {{ form_row (form.Libelle) }}
- {{ form_row (form.Description) }}
+    </div>
+    <div class="card-body">
+        {{ form_start(form) }}
+        {# {{ form_widget(form) }} #}
+        {{ form_row (form.Libelle) }}
+        {{ form_row (form.Description) }}
 
-<fieldset>
+    </div>
+</div>
 
-    {{ form_row (form.ville) }}
-    {{ form_row (form.quartier) }}
-    {{ form_row (form.adresse) }}
-</fieldset>
+<div class="card card_spacer">
+    <div class="card-header small_card_header">
+        <h6 class="card-title titre"> Adresse du bien </h6>
 
-{{ form_row (form.TypeOptions.Contratypes) }}
-<div class="location">
-    {{ form_row (form.TypeOptions.Loyer) }}
-    <div class="form-group row">
-        {{ form_label(form.TypeOptions.Avance) }}
-        <div class="col-sm-4">
-            {{ form_widget(form.TypeOptions.Avance) }}
+    </div>
+    <div class="card-body">
+        {# {{ form_row (form.ville) }} #}
+        {# {{ form_row (form.quatier) }} #}
+        <div class="form-group row">
+            <div class="col-sm-3">
+{#                {{ form_label(form.departement, null, {'label_attr':{'class':'col-sm-12'}}) }}#}
+                {{ form_widget (form.departement) }}
+            </div>
+            <div class="col-sm-3">
+{#                {{ form_label(form.commune, null, {'label_attr':{'class':'col-sm-12'}}) }}#}
+                {{ form_widget (form.commune) }}
+            </div>
+            <div class="col-sm-3">
+{#                {{ form_label(form.arrondissement, null, {'label_attr':{'class':'col-sm-12'}}) }}#}
+                {{ form_widget (form.arrondissement) }}
+            </div>
+            <div class="col-sm-3">
+{#                {{ form_label(form.quartier, null, {'label_attr':{'class':'col-sm-12'}}) }}#}
+                {{ form_widget (form.quartier) }}
+            </div>
+            {# <div class="col-sm-3"> #}
+            {# {{ form_label(form.adresse, null, {'label_attr':{'class':'col-sm-12'}}) }} #}
+            {# {{ form_widget (form.arrondissement) }} #}
+            {# </div> #}
         </div>
-        <div class="col-sm-6">
-            <input type="number" class="form-control" id="montant-loyer" readonly>
+        {# {{ form_row(form.departement) }} #}
+        {# {{ form_row(form.commune) }} #}
+        {# {{ form_row(form.arrondissement) }} #}
+        {# {{ form_row(form.quartier) }} #}
+        {{ form_row (form.adresse) }}
+
+    </div>
+</div>
+<div class="card card_spacer">
+    <div class="card-header small_card_header">
+        <h6 class="card-title titre"> Caracterisique du bien </h6>
+
+    </div>
+    <div class="card-body">
+
+        {{ form_row (form.TypeOptions.Contratypes) }}
+        <div class="location">
+            {{ form_row (form.TypeOptions.Loyer) }}
+            <div class="form-group row">
+                {{ form_label(form.TypeOptions.Avance) }}
+                <div class="col-sm-4">
+                    {{ form_widget(form.TypeOptions.Avance) }}
+                </div>
+                <div class="col-sm-6">
+                    <input type="number" class="form-control" id="montant-loyer" readonly>
+                </div>
+            </div>
+            {# {{ form_row (form.TypeOptions.nombreMenage) }} #}
+            {{ form_row (form.TypeOptions.Caution) }}
+            {# {{ form_row (form.TypeOptions.CautionEE) }} #}
+        </div>
+        <div class="vente">
+            {{ form_row (form.TypeOptions.Montant) }}
+            {# {{ form_row (form.TypeOptions.AvanceAchat) }} #}
+        </div>
+        {{ form_row (form.ProprieteOptions.Proprietes) }}
+
+        <div class="maison">
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    {{ form_label(form.ProprieteOptions.NbreChambre, null, {'label_attr':{'class':'col-sm-12'}}) }}
+                    {{ form_widget (form.ProprieteOptions.NbreChambre) }}
+                </div>
+                <div class="col-sm-4">
+                    {{ form_label(form.ProprieteOptions.NbreSalon, null, {'label_attr':{'class':'col-sm-12'}}) }}
+                    {{ form_widget (form.ProprieteOptions.NbreSalon) }}
+                </div>
+                <div class="col-sm-4">
+                    {{ form_label(form.ProprieteOptions.NbreCuisine, null, {'label_attr':{'class':'col-sm-12'}}) }}
+                    {{ form_widget (form.ProprieteOptions.NbreCuisine) }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    {{ form_label(form.ProprieteOptions.NbreEtage, null, {'label_attr':{'class':'col-sm-12'}}) }}
+                    {{ form_widget (form.ProprieteOptions.NbreEtage) }}
+                </div>
+                <div class="col-sm-4">
+                    {{ form_label(form.ProprieteOptions.NbreDouche, null, {'label_attr':{'class':'col-sm-12'}}) }}
+                    {{ form_widget (form.ProprieteOptions.NbreDouche) }}
+                </div>
+                <div class="col-sm-4">
+                    {{ form_label(form.ProprieteOptions.NbreGarage, null, {'label_attr':{'class':'col-sm-12'}}) }}
+                    {{ form_widget (form.ProprieteOptions.NbreGarage) }}
+                </div>
+            </div>
+
+
+            {{ form_row (form.ProprieteOptions.Annedeconstruction) }}
+        </div>
+        <div class="parcelle">
+            {{ form_row (form.ProprieteOptions.Superfice) }}
+            {{ form_row (form.ProprieteOptions.titreFoncier) }}
+        </div>
+
+        <div>
+            {{ form_row(form.proprietesImages) }}
+            {# {% for pd in  product.proprietesImages %} #}
+            {# <div class="col-sm-4"> {{ pd.name}} #}
+            {# <img src="{{ vich_uploader_asset('ProprietesImages', 'imageFile') }}" alt="name"> #}
+            {# </div> #}
+            {# {% endfor %} #}
         </div>
     </div>
-{#    {{ form_row (form.TypeOptions.nombreMenage) }}#}
-    {{ form_row (form.TypeOptions.Caution) }}
-{#    {{ form_row (form.TypeOptions.CautionEE) }}#}
 </div>
-<div class="vente">
-    {{ form_row (form.TypeOptions.Montant) }}
-{#    {{ form_row (form.TypeOptions.AvanceAchat) }}#}
-</div>
-{{ form_row (form.ProprieteOptions.Proprietes) }}
 
-<div class="maison">
-    <div class="form-group row">
-        <div class="col-sm-4">
-            {{ form_label(form.ProprieteOptions.NbreChambre, null, {'label_attr':{'class':'col-sm-12'}}) }}
-            {{ form_widget (form.ProprieteOptions.NbreChambre) }}
+{# {{ form_row (form.TypeOptions.fraisAgence) }} #}
+{#<div class="card">#}
+{#    <div class="card-header">#}
+{#        <h6 class="card-title titre"> Images du biens </h6>#}
+
+{#    </div>#}
+{#    <div class="card-body">#}
+
+
+{#    </div>#}
+{#</div>#}
+<div class="card card_spacer pb-10">
+    <div class="card-header small_card_header">
+        <h6 class="card-title titre">Plus de critères </h6>
+
+    </div>
+    <div class="card-body">
+
+        <div>
+            Autres caracterisiques <hr/>
+            <div class="form-group row">
+
+                <div class="col-sm-4">
+                    {# {{ form_label(form.departement, null, {'label_attr':{'class':'col-sm-12'}}) }} #}
+                    {{ form_row (form.ProprieteOptions.autAscenseur) }}
+                </div>
+                <div class="col-sm-4">
+                    {# {{ form_label(form.departement, null, {'label_attr':{'class':'col-sm-12'}}) }} #}
+                    {{ form_row (form.ProprieteOptions.autBalcon) }}
+                </div>
+                <div class="col-sm-4">
+                    {# {{ form_label(form.departement, null, {'label_attr':{'class':'col-sm-12'}}) }} #}
+                    {{ form_row (form.ProprieteOptions.autCave) }}
+                </div>
+                <div class="col-sm-4">
+                    {# {{ form_label(form.departement, null, {'label_attr':{'class':'col-sm-12'}}) }} #}
+                    {{ form_row (form.ProprieteOptions.autChauffage) }}
+                </div>
+                <div class="col-sm-4">
+                    {# {{ form_label(form.departement, null, {'label_attr':{'class':'col-sm-12'}}) }} #}
+                    {{ form_row (form.ProprieteOptions.autGuerite) }}
+                </div>
+                <div class="col-sm-4">
+                    {# {{ form_label(form.departement, null, {'label_attr':{'class':'col-sm-12'}}) }} #}
+                    {{ form_row (form.ProprieteOptions.autJardin) }}
+                </div>
+                <div class="col-sm-4">
+                    {# {{ form_label(form.departement, null, {'label_attr':{'class':'col-sm-12'}}) }} #}
+                    {{ form_row (form.ProprieteOptions.autParkingSouterain) }}
+                </div>
+                <div class="col-sm-4">
+                    {# {{ form_label(form.departement, null, {'label_attr':{'class':'col-sm-12'}}) }} #}
+                    {{ form_row (form.ProprieteOptions.autParking) }}
+                </div>
+                <div class="col-sm-4">
+                    {# {{ form_label(form.departement, null, {'label_attr':{'class':'col-sm-12'}}) }} #}
+                    {{ form_row (form.ProprieteOptions.autMeuble) }}
+                </div>
+                <div class="col-sm-4">
+                    {# {{ form_label(form.departement, null, {'label_attr':{'class':'col-sm-12'}}) }} #}
+                    {{ form_row (form.ProprieteOptions.autPiscine) }}
+                </div>
+                <div class="col-sm-4">
+                    {# {{ form_label(form.departement, null, {'label_attr':{'class':'col-sm-12'}}) }} #}
+                    {{ form_row (form.ProprieteOptions.autTerasse) }}
+                </div>
+                <div class="col-sm-4">
+                    {# {{ form_label(form.departement, null, {'label_attr':{'class':'col-sm-12'}}) }} #}
+                    {{ form_row (form.ProprieteOptions.autSecurite) }}
+                </div>
+
+            </div>
         </div>
-        <div class="col-sm-4">
-            {{ form_label(form.ProprieteOptions.NbreSalon, null, {'label_attr':{'class':'col-sm-12'}}) }}
-            {{ form_widget (form.ProprieteOptions.NbreSalon) }}
-        </div>
-        <div class="col-sm-4">
-            {{ form_label(form.ProprieteOptions.NbreCuisine, null, {'label_attr':{'class':'col-sm-12'}}) }}
-            {{ form_widget (form.ProprieteOptions.NbreCuisine) }}
+        <div>
+            Commodités <hr/>
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    {{ form_row (form.ProprieteOptions.comCommerces) }}
+                </div>
+
+
+                <div class="col-sm-4">
+                    {{ form_row (form.ProprieteOptions.comEcoles) }}
+                </div>
+
+
+                <div class="col-sm-4">
+                    {{ form_row (form.ProprieteOptions.comPlages) }}
+                </div>
+
+
+                <div class="col-sm-4">
+                    {{ form_row (form.ProprieteOptions.comHopitaux) }}
+                </div>
+
+
+                <div class="col-sm-4">
+                    {{ form_row (form.ProprieteOptions.comRestaurant) }}
+                </div>
+                <div class="col-sm-4">
+                    {{ form_row (form.ProprieteOptions.comPharmacie) }}
+                </div>
+
+            </div>
         </div>
     </div>
-    <div class="form-group row">
-        <div class="col-sm-4">
-            {{ form_label(form.ProprieteOptions.NbreEtage, null, {'label_attr':{'class':'col-sm-12'}}) }}
-            {{ form_widget (form.ProprieteOptions.NbreEtage) }}
-        </div>
-        <div class="col-sm-4">
-            {{ form_label(form.ProprieteOptions.NbreDouche, null, {'label_attr':{'class':'col-sm-12'}}) }}
-            {{ form_widget (form.ProprieteOptions.NbreDouche) }}
-        </div>
-        <div class="col-sm-4">
-            {{ form_label(form.ProprieteOptions.NbreGarage, null, {'label_attr':{'class':'col-sm-12'}}) }}
-            {{ form_widget (form.ProprieteOptions.NbreGarage) }}
-        </div>
+    <div class="pull-right ml-15">
+        <button class="btn btn-success" type="submit">{{ button_label|default('Enregistrer le bien') }}</button>
     </div>
-
-
-
-
-
-    {{ form_row (form.ProprieteOptions.Annedeconstruction) }}
 </div>
-<div class="parcelle">
-    {{ form_row (form.ProprieteOptions.Superfice) }}
-    {{ form_row (form.ProprieteOptions.titreFoncier) }}
-</div>
-{#{{ form_row (form.TypeOptions.fraisAgence) }}#}
-<div>
-    {{ form_row(form.proprietesImages) }}
-{#    {% for pd in  product.proprietesImages %}#}
-{#        <div class="col-sm-4"> {{ pd.name}}#}
-{#            <img src="{{ vich_uploader_asset('ProprietesImages', 'imageFile') }}" alt="name">#}
-{#        </div>#}
-{#    {% endfor %}#}
-</div>
-<div class="pull-right">
-    <button class="btn btn-success" type="submit">{{ button_label|default('Enregistrer le bien') }}</button>
-</div>
+
+
+
+{#<div class="pull-right">#}
+{#    <button class="btn btn-success" type="submit">{{ button_label|default('Enregistrer le bien') }}</button>#}
+{#</div>#}
 {{ form_end(form) }}

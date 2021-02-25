@@ -22,9 +22,16 @@ class ContratTypeOtpionsType extends AbstractType
                 'class' => 'App\Entity\ContratType',
                 'choice_label' => 'Libelle',
                 'placeholder'=>'Selectionnez le type d\'offre',
-                'label'=>'Statut',
+                'label'=>'Type',
                 'help'=>'A louer ou A vendre',
                 'required'=>'true',
+                'attr'=>[
+                    'class'=>'linked-select',
+                    'data-target'=>"#proprietes_ProprieteOptions_Proprietes",
+                    'data-source'=>"http://localhost:5050/ajax/vente/id"
+
+
+                ]
             ])
             ->add('Loyer')
             ->add('Avance',ChoiceType::class,[

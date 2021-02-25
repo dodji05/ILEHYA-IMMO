@@ -1,31 +1,33 @@
 {% extends 'FrontEnd/base.html.twig' %}
 {% block style %}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.0/nouislider.min.css" integrity="sha512-6JqGSqQ++AEggYltdgSse8pKG90U/5U0bbkZoa94uSDG/BhI5YpYcy2LyWPWjXu40lUVEgEKHZ/2hCrwQvbODw==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.0/nouislider.min.css"
+          integrity="sha512-6JqGSqQ++AEggYltdgSse8pKG90U/5U0bbkZoa94uSDG/BhI5YpYcy2LyWPWjXu40lUVEgEKHZ/2hCrwQvbODw=="
+          crossorigin="anonymous"/>
 {% endblock %}
 {% block content %}
     <div class="clearfix"></div>
     <!-- BREADCRUMB -->
-{#    <div class="bg-light">#}
-{#        <div class="container">#}
-{#            <div class="row">#}
-{#                <div class="col-lg-12">#}
-{#                    <div class="section__breadcrumb-v1">#}
-{#                        <ol class="breadcrumb mb-0 bg-light">#}
-{#                            <li class="breadcrumb-item"><a href="index.html"><i class="fa fa-home"></i> </a></li>#}
-{#                            <li class="breadcrumb-item"> <a href="#">Pages</a></li>#}
-{#                            <li class="breadcrumb-item active"> <span class="text-capitalize"> Luxury family home</span>#}
-{#                            </li>#}
+    {# <div class="bg-light"> #}
+    {# <div class="container"> #}
+    {# <div class="row"> #}
+    {# <div class="col-lg-12"> #}
+    {# <div class="section__breadcrumb-v1"> #}
+    {# <ol class="breadcrumb mb-0 bg-light"> #}
+    {# <li class="breadcrumb-item"><a href="index.html"><i class="fa fa-home"></i> </a></li> #}
+    {# <li class="breadcrumb-item"> <a href="#">Pages</a></li> #}
+    {# <li class="breadcrumb-item active"> <span class="text-capitalize"> Luxury family home</span> #}
+    {# </li> #}
 
-{#                        </ol>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
+    {# </ol> #}
+    {# </div> #}
+    {# </div> #}
+    {# </div> #}
+    {# </div> #}
+    {# </div> #}
     <!-- END BREADCRUMB -->
-<!-- RECENT PROPERTY -->
+    <!-- RECENT PROPERTY -->
     {% include 'FrontEnd/partials/_property_slider.html.twig' %}
-<!-- END RECENT PROPERTY -->
+    <!-- END RECENT PROPERTY -->
 
     <!-- SINGLE DETAIL -->
     <section>
@@ -37,24 +39,46 @@
                             <h3 class="text-capitalize">{{ biens.libelle }}</h3>
                             <span class="badge badge-success text-capitalize mb-2">{{ biens.typeOptions.contratypes.libelle }}</span>
                             <span class="badge badge-primary text-capitalize mb-2"> {{ biens.proprieteOptions.proprietes.libelle }}</span>
-                            <p>  {{ biens.quartier }}, {{ biens.adresse }}</p>
+                            <p>
+                                {# {{ biens.quartier }}, #}
+                                {{ biens.adresse }}</p>
                         </div>
                     </div>
                     <div class="col-md-3 col-lg-4">
                         <div class="single__detail-area-price">
-                            <h3 class="text-capitalize text-gray">{{   biens.typeOptions.montant ?  (biens.typeOptions.montant|number_format(0, ' ', ' ')) ~' Cfa': '' }}
+                            <h3 class="text-capitalize text-gray">{{ biens.typeOptions.montant ?  (biens.typeOptions.montant|number_format(0, ' ', ' ')) ~' Cfa': '' }}
                                 {{ biens.typeOptions.loyer ? (biens.typeOptions.loyer|number_format(0, ' ', ' '))~' Cfa/mois' : '' }}</h3>
                             <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <a href="#" class="badge badge-primary p-2 rounded"><i
-                                                class="fa fa-exchange"></i></a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#" class="badge badge-primary p-2 rounded"><i class="fa fa-heart"></i></a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#" class="badge badge-primary p-2 rounded"><i class="fa fa-print"></i></a>
-                                </li>
+                                {# <li class="list-inline-item"> #}
+                                {# <a href="#" class="badge badge-primary p-2 rounded"><i #}
+                                {# class="fa fa-exchange"></i></a> #}
+                                {# </li> #}
+                                {# <li class="list-inline-item"> #}
+                                {# <a href="#" class="badge badge-primary p-2 rounded"><i class="fa fa-heart"></i></a> #}
+                                {# </li> #}
+                                {# <li class="list-inline-item"> #}
+                                {# <a href="#" class="badge badge-primary p-2 rounded"><i class="fa fa-print"></i></a> #}
+                                {# </li> #}
+                                <button class="btn btn-social btn-social-o facebook mr-1">
+                                    <i class="fa fa-facebook-f"></i>
+                                </button>
+                                <button class="btn btn-social btn-social-o twitter mr-1">
+                                    <i class="fa fa-twitter"></i>
+                                </button>
+
+                                {# <button class="btn btn-social btn-social-o linkedin mr-1"> #}
+                                {# <i class="fa fa-linkedin"></i> #}
+                                {# </button> #}
+                                <button class="btn btn-social btn-social-o whatsapp mr-1">
+                                    <i class="fa fa-whatsapp"></i>
+                                </button>
+                                <button class="btn btn-social btn-social-o  facebook mr-1">
+                                    <i class="fa fa-phone"></i>
+                                </button>
+
+                                {# <button class="btn btn-social btn-social-o youtube mr-1"> #}
+                                {# <i class="fa fa-youtube"></i> #}
+                                {# </button> #}
                             </ul>
                         </div>
                     </div>
@@ -71,7 +95,7 @@
                                 <div class="single__detail-desc ">
                                     <h6 class="text-capitalize detail-heading mt-0">description</h6>
                                     <div class="show__more">
-                                      {{ biens.description }}
+                                        {{ biens.description }}
                                         <a href="javascript:void(0)" class="show__more-button ">En savoir plus</a>
                                     </div>
                                 </div>
@@ -90,153 +114,311 @@
                                                     {% if biens.proprieteOptions.nbreSalon %}
                                                         <li><b>Salon:</b> {{ biens.proprieteOptions.nbreSalon }}</li>
                                                     {% endif %}
-                                                    {% if biens.proprieteOptions.nbreChambre%}
-                                                        <li><b>Chambre:</b> {{ biens.proprieteOptions.nbreChambre }}</li>
+                                                    {% if biens.proprieteOptions.nbreChambre %}
+                                                        <li><b>Chambre:</b> {{ biens.proprieteOptions.nbreChambre }}
+                                                        </li>
                                                     {% endif %}
                                                     {% if biens.proprieteOptions.nbreDouche %}
                                                         <li><b>Douche:</b> {{ biens.proprieteOptions.nbreDouche }}</li>
                                                     {% endif %}
-                                                    {% if biens.proprieteOptions.nbreEtage%}
+                                                    {% if biens.proprieteOptions.nbreEtage %}
                                                         <li><b>Etages:</b> {{ biens.proprieteOptions.nbreEtage }}</li>
                                                     {% endif %}
-                                                    {% if biens.proprieteOptions.nbreCuisine%}
-                                                        <li><b>Cuisine:</b> {{ biens.proprieteOptions.nbreCuisine }}</li>
+                                                    {% if biens.proprieteOptions.nbreCuisine %}
+                                                        <li><b>Cuisine:</b> {{ biens.proprieteOptions.nbreCuisine }}
+                                                        </li>
                                                     {% endif %}
-
-
 
 
                                                 </ul>
                                             </div>
                                             <div class="col-md-6 col-lg-6">
                                                 <ul class="property__detail-info-list list-unstyled">
-                                                    {% if biens.proprieteOptions.nbreGarage%}
+                                                    {% if biens.proprieteOptions.nbreGarage %}
                                                         <li><b>Garage:</b> {{ biens.proprieteOptions.nbreGarage }}</li>
                                                     {% endif %}
-                                                    {% if biens.proprieteOptions.typeDeMaison%}
-                                                        <li><b>Type de maison:</b> {{ biens.proprieteOptions.typeDeMaison }}</li>
+                                                    {% if biens.proprieteOptions.typeDeMaison %}
+                                                        <li><b>Type de
+                                                                maison:</b> {{ biens.proprieteOptions.typeDeMaison }}
+                                                        </li>
                                                     {% endif %}
-                                                    {% if biens.proprieteOptions.titreFoncier%}
-                                                        <li><b>Titre foncier:</b> {{ biens.proprieteOptions.titreFoncier }}</li>
+                                                    {% if biens.proprieteOptions.titreFoncier %}
+                                                        <li><b>Titre
+                                                                foncier:</b> {{ biens.proprieteOptions.titreFoncier }}
+                                                        </li>
                                                     {% endif %}
-                                                    {% if biens.proprieteOptions.superfice%}
-                                                        <li><b>Superficie:</b> {{ biens.proprieteOptions.superfice }}</li>
+                                                    {% if biens.proprieteOptions.superfice %}
+                                                        <li><b>Superficie:</b> {{ biens.proprieteOptions.superfice }}
+                                                        </li>
                                                     {% endif %}
 
-                                                    {% if biens.proprieteOptions.annedeconstruction%}
-                                                        <li><b>Année de construction:</b> {{ biens.proprieteOptions.annedeconstruction |date('Y-m-d')}}</li>
+                                                    {% if biens.proprieteOptions.annedeconstruction %}
+                                                        <li><b>Année de
+                                                                construction:</b> {{ biens.proprieteOptions.annedeconstruction |date('Y-m-d') }}
+                                                        </li>
                                                     {% endif %}
-                                                    {% if  biens.typeOptions.montant%}
-                                                        <li><b>Prix:</b> {{ biens.typeOptions.montant|number_format(0, ' ', ' ')  ~' Cfa'}}</li>
+                                                    {% if  biens.typeOptions.montant %}
+                                                        <li>
+                                                            <b>Prix:</b> {{ biens.typeOptions.montant|number_format(0, ' ', ' ')  ~' Cfa' }}
+                                                        </li>
                                                     {% endif %}
-                                                    {% if  biens.typeOptions.loyer%}
-                                                        <li><b>Prix:</b> {{ biens.typeOptions.loyer|number_format(0, ' ', ' ')  ~' Cfa'}}</li>
+                                                    {% if  biens.typeOptions.loyer %}
+                                                        <li>
+                                                            <b>Prix:</b> {{ biens.typeOptions.loyer|number_format(0, ' ', ' ')  ~' Cfa' }}
+                                                        </li>
                                                     {% endif %}
 
                                                 </ul>
                                             </div>
                                         </div>
+                                        <h6 class="text-primary">Autres Caracterisiques</h6>
+                                        <div class="single__detail-features">
+                                        <div class="row">
+                                            <div class="col-md-6 col-lg-6">
+                                                <ul class="list-unstyled icon-checkbox">
+                                                    {% if biens.proprieteOptions.autPiscine %}
+                                                        <li>Piscine
+                                                        </li>
+                                                    {% endif %}
+                                                    {% if biens.proprieteOptions.autBalcon %}
+                                                        <li>Balcon
+                                                        </li>
+                                                    {% endif %}
+                                                    {% if biens.proprieteOptions.autTerasse %}
+                                                        <li>Terrase
+                                                        </li>
+                                                    {% endif %}
+                                                    {% if biens.proprieteOptions.autJardin %}
+                                                        <li>Jardin
+                                                        </li>
+                                                    {% endif %}
+
+{#                                                    <li><b>Price:</b> $484,400</li>#}
+{#                                                    <li><b>Property Size:</b> 1466 Sq Ft</li>#}
+{#                                                    <li><b>Bedrooms:</b> 4</li>#}
+{#                                                    <li><b>Bathrooms:</b> 2</li>#}
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-lg-6">
+                                                <ul class="list-unstyled icon-checkbox">
+                                                    {% if biens.proprieteOptions.autParking %}
+                                                        <li>Parking
+                                                        </li>
+                                                    {% endif %}
+                                                    {% if biens.proprieteOptions.autAscenseur %}
+                                                        <li>Ascenseur
+                                                        </li>
+                                                    {% endif %}
+                                                    {% if biens.proprieteOptions.autChauffage %}
+                                                        <li>Chauffage
+                                                        </li>
+                                                    {% endif %}
+                                                    {% if biens.proprieteOptions.autSecurite %}
+                                                        <li>securité
+                                                        </li>
+                                                    {% endif %}
+{#                                                    <li><b>Garage:</b> 1</li>#}
+{#                                                    <li><b>Garage Size:</b> 458 SqFt</li>#}
+{#                                                    <li><b>Year Built:</b> 2019-01-09</li>#}
+{#                                                    <li><b>Property Type:</b> Full Family Home</li>#}
+{#                                                    <li><b>Property Status:</b> For rent</li>#}
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-lg-6">
+                                                <ul class="list-unstyled icon-checkbox">
+
+                                                    {% if biens.proprieteOptions.autGuerite %}
+                                                        <li>Guerite
+                                                        </li>
+                                                    {% endif %}
+                                                    {% if biens.proprieteOptions.autCave %}
+                                                        <li>cave
+                                                        </li>
+                                                    {% endif %}
+{#                                                    {% if biens.proprieteOptions.autMeuble %}#}
+{#                                                        <li>Meublé#}
+{#                                                        </li>#}
+{#                                                    {% endif %}#}
+{#                                                    {% if biens.proprieteOptions.autParkingSouterain%}#}
+{#                                                        <li>Parking Souterain#}
+{#                                                        </li>#}
+{#                                                    {% endif %}#}
+
+                                                    </ul>
+                                                </div>
+
+                                            </div>
+                                            </div>
+
+                                        <h6 class="text-primary">Autres Caracterisiques</h6>
+                                        <div class="single__detail-features">
+                                            <div class="row">
+                                                <div class="col-md-6 col-lg-6">
+                                                    <ul class="list-unstyled icon-checkbox">
+                                                        {% if biens.proprieteOptions.comCommerces %}
+                                                            <li>Prés des commerces
+                                                            </li>
+                                                        {% endif %}
+                                                        {% if biens.proprieteOptions.comEcoles %}
+                                                            <li>Ecoles à proximité
+                                                            </li>
+                                                        {% endif %}
+                                                        {% if biens.proprieteOptions.comPlages %}
+                                                            <li>Proche de la place
+                                                            </li>
+                                                        {% endif %}
+                                                        {% if biens.proprieteOptions.comHopitaux %}
+                                                            <li>Proches des hopitaux
+                                                            </li>
+                                                        {% endif %}
+
+                                                        {#                                                    <li><b>Price:</b> $484,400</li>#}
+                                                        {#                                                    <li><b>Property Size:</b> 1466 Sq Ft</li>#}
+                                                        {#                                                    <li><b>Bedrooms:</b> 4</li>#}
+                                                        {#                                                    <li><b>Bathrooms:</b> 2</li>#}
+                                                    </ul>
+                                                </div>
+                                                <div class="col-md-6 col-lg-6">
+                                                    <ul class="list-unstyled icon-checkbox">
+                                                        {% if biens.proprieteOptions.comRestaurant %}
+                                                            <li>Restaurants aux alentours
+                                                            </li>
+                                                        {% endif %}
+                                                        {% if biens.proprieteOptions.comPharmacie %}
+                                                            <li>Proche d'une pharmacie
+                                                            </li>
+                                                        {% endif %}
+
+                                                        {#                                                    <li><b>Garage:</b> 1</li>#}
+                                                        {#                                                    <li><b>Garage Size:</b> 458 SqFt</li>#}
+                                                        {#                                                    <li><b>Year Built:</b> 2019-01-09</li>#}
+                                                        {#                                                    <li><b>Property Type:</b> Full Family Home</li>#}
+                                                        {#                                                    <li><b>Property Status:</b> For rent</li>#}
+                                                    </ul>
+                                                </div>
+
+                                            </div>
+                                        </div>
 
 
                                     </div>
-                                    <!-- END INFO PROPERTY DETAIL -->
-                                </div>
-                                <!-- END PROPERTY DETAILS SPEC -->
-                                <div class="clearfix"></div>
+                                        <!-- END INFO PROPERTY DETAIL -->
+                                    </div>
+                                    <!-- END PROPERTY DETAILS SPEC -->
+                                    <div class="clearfix"></div>
 
 
-                                <!-- FEATURES -->
-{#                                <div class="single__detail-features">#}
-{#                                    <h6 class="text-capitalize detail-heading">features</h6>#}
-{#                                    <ul class="list-unstyled icon-checkbox">#}
-{#                                        <li>air conditioning</li>#}
-{#                                        <li>swiming pool</li>#}
-{#                                        <li>Central Heating</li>#}
-{#                                        <li>spa & massage</li>#}
-{#                                        <li>pets allow</li>#}
+                                    <!-- FEATURES -->
+                                    {# <div class="single__detail-features"> #}
+                                {# <h6 class="text-capitalize detail-heading">features</h6> #}
+                                {# <ul class="list-unstyled icon-checkbox"> #}
+                                {# <li>air conditioning</li> #}
+                                {# <li>swiming pool</li> #}
+                                {# <li>Central Heating</li> #}
+                                {# <li>spa & massage</li> #}
+                                {# <li>pets allow</li> #}
 
-{#                                        <li>air conditioning</li>#}
-{#                                        <li>gym</li>#}
-{#                                        <li>alarm</li>#}
+                                {# <li>air conditioning</li> #}
+                                {# <li>gym</li> #}
+                                {# <li>alarm</li> #}
 
-{#                                        <li>window Covering</li>#}
-{#                                        <li>free wiFi</li>#}
-{#                                        <li>car parking </li>#}
-{#                                    </ul>#}
-{#                                </div>#}
+                                {# <li>window Covering</li> #}
+                                {# <li>free wiFi</li> #}
+                                {# <li>car parking </li> #}
+                                {# </ul> #}
+                                {# </div> #}
                                 <!-- END FEATURES -->
 
 
                                 <div class="single__detail-features">
-                                    <h6 class="text-capitalize detail-heading">Video</h6>
-                                    <div class="single__detail-features-video">
-                                        <figure class=" mb-0">
-                                            <div class="home__video-area text-center">
-                                                <img src="images/1920x1080.jpg" alt="" class="img-fluid">
-                                                <a href="https://youtu.be/dQtLx6dsbcI" class="play-video-1 ">
-                                                    <i class="icon fa fa-play text-white"></i>
-                                                </a>
+                                    <h6 class="text-capitalize detail-heading">Demande d'informations</h6>
+                                    <div class="property__detail-info">
+                                        {{ form_start(messagesforn) }}
+                                        <div class="form-group row">
+                                            <div class="col-sm-6">
+                                                {{ form_widget(messagesforn.visiteur.nom) }}
+                                            </div>
+                                            <div class="col-sm-6">
+                                                {{ form_widget(messagesforn.visiteur.prenoms) }}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-6">
+                                                {{ form_widget(messagesforn.visiteur.email) }}
+                                            </div>
+                                            <div class="col-sm-6">
+                                                {{ form_widget(messagesforn.visiteur.telephone) }}
                                             </div>
 
-                                        </figure>
+                                        </div>
+
+                                        <div class="form-group row">
+
+                                            {{ form_widget(messagesforn.message,{
+                                                placehoder: 'rt'
+                                            }) }}
+                                        </div>
+
+
+                                        {{ form_end(messagesforn) }}
+
                                     </div>
                                 </div>
 
 
-
                                 <!-- PROPERTY VIEWS -->
-{#                                <div class="single__detail-features">#}
-{#                                    <h6 class="text-capitalize detail-heading">property views</h6>#}
-{#                                    <!-- CANVAS -->#}
-{#                                    <div class="wrapper">#}
-{#                                        <canvas id="myChart" class="chart"></canvas>#}
-{#                                    </div>#}
-{#                                </div>#}
+                                {# <div class="single__detail-features"> #}
+                                {# <h6 class="text-capitalize detail-heading">property views</h6> #}
+                                {# <!-- CANVAS --> #}
+                                {# <div class="wrapper"> #}
+                                {# <canvas id="myChart" class="chart"></canvas> #}
+                                {# </div> #}
+                                {# </div> #}
                                 <!-- END PROPERTY VIEWS -->
 
                                 <!-- NEARBY -->
-{#                                <div class="single__detail-features">#}
-{#                                    <h6 class="text-capitalize detail-heading">what's nearby</h6>#}
-{#                                    <div class="single__detail-features-nearby">#}
-{#                                        <h6 class="text-capitalize"><span>#}
-{#                                                <i class="fa fa-building "></i></span>education</h6>#}
-{#                                        <ul class="list-unstyled">#}
-{#                                            <li>#}
-{#                                                <span>Eladia's Kids</span>#}
-{#                                                <p>2.5 km</p>#}
-{#                                            </li>#}
-{#                                            <li>#}
-{#                                                <span>Brooklyn Brainery</span>#}
-{#                                                <p>3.5 km</p>#}
+                                {# <div class="single__detail-features"> #}
+                                {# <h6 class="text-capitalize detail-heading">what's nearby</h6> #}
+                                {# <div class="single__detail-features-nearby"> #}
+                                {# <h6 class="text-capitalize"><span> #}
+                                {# <i class="fa fa-building "></i></span>education</h6> #}
+                                {# <ul class="list-unstyled"> #}
+                                {# <li> #}
+                                {# <span>Eladia's Kids</span> #}
+                                {# <p>2.5 km</p> #}
+                                {# </li> #}
+                                {# <li> #}
+                                {# <span>Brooklyn Brainery</span> #}
+                                {# <p>3.5 km</p> #}
 
-{#                                            </li>#}
-{#                                            <li>#}
-{#                                                <span>Wikdom Senior High Scool</span>#}
-{#                                                <p>2.5 km</p>#}
-{#                                            </li>#}
+                                {# </li> #}
+                                {# <li> #}
+                                {# <span>Wikdom Senior High Scool</span> #}
+                                {# <p>2.5 km</p> #}
+                                {# </li> #}
 
-{#                                        </ul>#}
+                                {# </ul> #}
 
-{#                                        <h6 class="text-capitalize"><span><i class="fa fa-ambulance"></i></span>health &#}
-{#                                            medical#}
-{#                                        </h6>#}
-{#                                        <ul class="list-unstyled">#}
-{#                                            <li>#}
-{#                                                <span>Eladia's Kids</span>#}
-{#                                                <p>2.5 km</p>#}
-{#                                            </li>#}
-{#                                            <li>#}
-{#                                                <span>Brooklyn Brainery</span>#}
-{#                                                <p>3.5 km</p>#}
+                                {# <h6 class="text-capitalize"><span><i class="fa fa-ambulance"></i></span>health & #}
+                                {# medical #}
+                                {# </h6> #}
+                                {# <ul class="list-unstyled"> #}
+                                {# <li> #}
+                                {# <span>Eladia's Kids</span> #}
+                                {# <p>2.5 km</p> #}
+                                {# </li> #}
+                                {# <li> #}
+                                {# <span>Brooklyn Brainery</span> #}
+                                {# <p>3.5 km</p> #}
 
-{#                                            </li>#}
-{#                                            <li>#}
-{#                                                <span>Wikdom Senior High Scool</span>#}
-{#                                                <p>2.5 km</p>#}
-{#                                            </li>#}
-{#                                        </ul>#}
-{#                                    </div>#}
-{#                                </div>#}
+                                {# </li> #}
+                                {# <li> #}
+                                {# <span>Wikdom Senior High Scool</span> #}
+                                {# <p>2.5 km</p> #}
+                                {# </li> #}
+                                {# </ul> #}
+                                {# </div> #}
+                                {# </div> #}
                                 <!-- END NEARBY -->
 
 
@@ -250,195 +432,219 @@
                             <div class="products__filter__group">
                                 <div class="products__filter__header">
 
-                                    <h5 class="text-center text-capitalize">property filter</h5>
+                                    <h5 class="text-center text-capitalize">Rehercher</h5>
                                 </div>
                                 <div class="products__filter__body">
                                     {{ form_start(form) }}
-                                    {{ form_end(form) }}
-{#                                    <div class="form-group">#}
-
-{#                                        <select class="wide select_option">#}
-{#                                            <option data-display="Property Status">Property Status</option>#}
-{#                                            <option>For Sale</option>#}
-{#                                            <option>For Rent</option>#}
-
-{#                                        </select>#}
-{#                                    </div>#}
-{#                                    <div class="form-group">#}
-{#                                        <select class="wide select_option">#}
-{#                                            <option data-display="Property Type">Property Type</option>#}
-{#                                            <option>Residential</option>#}
-{#                                            <option>Commercial</option>#}
-{#                                            <option>Land</option>#}
-{#                                            <option>Luxury</option>#}
-{#                                        </select>#}
-{#                                    </div>#}
-{#                                    <div class="form-group">#}
-{#                                        <select class="wide select_option">#}
-{#                                            <option data-display="Area From">Area From </option>#}
-{#                                            <option>1500</option>#}
-{#                                            <option>1200</option>#}
-{#                                            <option>900</option>#}
-{#                                            <option>600</option>#}
-{#                                            <option>300</option>#}
-{#                                            <option>100</option>#}
-{#                                        </select>#}
-{#                                    </div>#}
-{#                                    <div class="form-group">#}
-{#                                        <select class="wide select_option">#}
-{#                                            <option data-display="Locations">Locations</option>#}
-{#                                            <option>United Kingdom</option>#}
-{#                                            <option>American Samoa</option>#}
-{#                                            <option>Belgium</option>#}
-{#                                            <option>Canada</option>#}
-{#                                            <option>Delaware</option>#}
-{#                                        </select>#}
-{#                                    </div>#}
-{#                                    <div class="form-group">#}
-{#                                        <select class="wide select_option">#}
-{#                                            <option data-display="Bedrooms">Bedrooms</option>#}
-{#                                            <option>1</option>#}
-{#                                            <option>2</option>#}
-{#                                            <option>3</option>#}
-{#                                            <option>4</option>#}
-{#                                            <option>5</option>#}
-{#                                            <option>6</option>#}
-{#                                            <option>7</option>#}
-{#                                            <option>8</option>#}
-{#                                            <option>9</option>#}
-{#                                        </select>#}
-{#                                    </div>#}
-{#                                    <div class="form-group">#}
-{#                                        <div class="form-group">#}
-{#                                            <select class="wide select_option">#}
-{#                                                <option data-display="Bathrooms">Bathrooms</option>#}
-{#                                                <option>1</option>#}
-{#                                                <option>2</option>#}
-{#                                                <option>3</option>#}
-{#                                                <option>4</option>#}
-{#                                                <option>5</option>#}
-
-{#                                            </select>#}
-{#                                        </div>#}
-{#                                    </div>#}
-{#                                    <div class="form-group">#}
-{#                                        <label class="mb-3">Price range</label>#}
-{#                                        <div class="filter__price">#}
-{#                                            <input class="price-range" type="text" name="my_range" value="" />#}
-{#                                        </div>#}
-{#                                    </div>#}
-
-{#                                    <div class="form-group mb-0 mt-2">#}
-
-{#                                        <a class="btn btn-outline-primary btn-block text-capitalize advanced-filter"#}
-{#                                           data-toggle="collapse" href="#multiCollapseExample1"#}
-{#                                           aria-controls="multiCollapseExample1"><i class="fa fa-plus-circle"></i>#}
-{#                                            advanced#}
-{#                                            filter#}
-{#                                        </a>#}
-
-{#                                        <div class="collapse multi-collapse" id="multiCollapseExample1">#}
-{#                                            <div class="advancedfilter">#}
-{#                                                <div class="checkbox checkbox-primary">#}
-{#                                                    <input id="checkbox2" type="checkbox">#}
-{#                                                    <label for="checkbox2" class="label-brand text-capitalize">#}
-{#                                                        Air Conditioning#}
-{#                                                    </label>#}
-
-{#                                                </div>#}
-{#                                                <div class="checkbox checkbox-primary">#}
-{#                                                    <input id="checkbox3" type="checkbox">#}
-{#                                                    <label for="checkbox3" class="label-brand text-capitalize">#}
-{#                                                        Swiming Pool#}
-{#                                                    </label>#}
-
-{#                                                </div>#}
-{#                                                <div class="checkbox checkbox-primary">#}
-{#                                                    <input id="checkbox4" type="checkbox">#}
-{#                                                    <label for="checkbox4" class="label-brand text-capitalize">#}
-{#                                                        Central Heating#}
-{#                                                    </label>#}
-
-{#                                                </div>#}
-{#                                                <div class="checkbox checkbox-primary">#}
-{#                                                    <input id="checkbox5" type="checkbox">#}
-{#                                                    <label for="checkbox5" class="label-brand text-capitalize">#}
-{#                                                        Spa & Massage#}
-{#                                                    </label>#}
-
-{#                                                </div>#}
-{#                                                <div class="checkbox checkbox-primary">#}
-{#                                                    <input id="checkbox6" type="checkbox">#}
-{#                                                    <label for="checkbox6" class="label-brand text-capitalize">#}
-{#                                                        Pets Allow#}
-{#                                                    </label>#}
-
-{#                                                </div>#}
-{#                                                <div class="checkbox checkbox-primary">#}
-{#                                                    <input id="checkbox7" type="checkbox">#}
-{#                                                    <label for="checkbox7" class="label-brand text-capitalize">#}
-{#                                                        Air Conditioning#}
-{#                                                    </label>#}
-
-{#                                                </div>#}
-
-{#                                                <div class="checkbox checkbox-primary">#}
-{#                                                    <input id="checkbox8" type="checkbox">#}
-{#                                                    <label for="checkbox8" class="label-brand text-capitalize">#}
-{#                                                        Gym#}
-{#                                                    </label>#}
-
-{#                                                </div>#}
-
-{#                                                <div class="checkbox checkbox-primary">#}
-{#                                                    <input id="checkbox9" type="checkbox">#}
-{#                                                    <label for="checkbox9" class="label-brand text-capitalize">#}
-{#                                                        Alarm#}
-{#                                                    </label>#}
-
-{#                                                </div>#}
-{#                                                <div class="checkbox checkbox-primary">#}
-{#                                                    <input id="checkbox10" type="checkbox">#}
-{#                                                    <label for="checkbox10" class="label-brand text-capitalize">#}
-{#                                                        Window Covering#}
-{#                                                    </label>#}
-
-{#                                                </div>#}
-{#                                                <div class="checkbox checkbox-primary">#}
-{#                                                    <input id="checkbox11" type="checkbox">#}
-{#                                                    <label for="checkbox11" class="label-brand text-capitalize">#}
-{#                                                        Free WiFi#}
-{#                                                    </label>#}
-
-{#                                                </div>#}
-{#                                                <div class="checkbox checkbox-primary">#}
-{#                                                    <input id="checkbox12" type="checkbox">#}
-{#                                                    <label for="checkbox12" class="label-brand text-capitalize">#}
-{#                                                        Car Parking#}
-{#                                                    </label>#}
-{#                                                </div>#}
-{#                                            </div>#}
-{#                                        </div>#}
-{#                                    </div>#}
                                     <div class="form-group">
-                                                                <div class="filter__price">
-                                                                    <input  id="sliders" type="text" name="my_range" value="" />
-                                                                </div>
-                                                            </div>
-                                    <div id="slider"></div>
-                                </div>
+                                        {{ form_widget(form.departement) }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form_widget(form.commune) }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form_widget(form.arrondissement) }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form_widget(form.quartier) }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form_widget(form.typecontrat) }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form_widget(form.typeBiens) }}
+                                    </div>
+{#                                    <div class="form-group row">#}
+{#                                        <div class="col-sm-6">#}
+{#                                            {{ form_widget(form.prix_min) }}#}
+{#                                        </div>#}
+{#                                        <div class="col-sm-6">#}
+{#                                            {{ form_widget(form.prix_max) }}#}
+{#                                        </div>#}
+
+{#                                    </div>#}
+
+
+
+                                    {# <div class="form-group"> #}
+
+                                    {# <select class="wide select_option"> #}
+                                    {# <option data-display="Property Status">Property Status</option> #}
+                                    {# <option>For Sale</option> #}
+                                    {# <option>For Rent</option> #}
+
+                                    {# </select> #}
+                                    {# </div> #}
+                                    {# <div class="form-group"> #}
+                                    {# <select class="wide select_option"> #}
+                                    {# <option data-display="Property Type">Property Type</option> #}
+                                    {# <option>Residential</option> #}
+                                    {# <option>Commercial</option> #}
+                                    {# <option>Land</option> #}
+                                    {# <option>Luxury</option> #}
+                                    {# </select> #}
+                                    {# </div> #}
+                                    {# <div class="form-group"> #}
+                                    {# <select class="wide select_option"> #}
+                                    {# <option data-display="Area From">Area From </option> #}
+                                    {# <option>1500</option> #}
+                                    {# <option>1200</option> #}
+                                    {# <option>900</option> #}
+                                    {# <option>600</option> #}
+                                    {# <option>300</option> #}
+                                    {# <option>100</option> #}
+                                    {# </select> #}
+                                    {# </div> #}
+                                    {# <div class="form-group"> #}
+                                    {# <select class="wide select_option"> #}
+                                    {# <option data-display="Locations">Locations</option> #}
+                                    {# <option>United Kingdom</option> #}
+                                    {# <option>American Samoa</option> #}
+                                    {# <option>Belgium</option> #}
+                                    {# <option>Canada</option> #}
+                                    {# <option>Delaware</option> #}
+                                    {# </select> #}
+                                    {# </div> #}
+                                    {# <div class="form-group"> #}
+                                    {# <select class="wide select_option"> #}
+                                    {# <option data-display="Bedrooms">Bedrooms</option> #}
+                                    {# <option>1</option> #}
+                                    {# <option>2</option> #}
+                                    {# <option>3</option> #}
+                                    {# <option>4</option> #}
+                                    {# <option>5</option> #}
+                                    {# <option>6</option> #}
+                                    {# <option>7</option> #}
+                                    {# <option>8</option> #}
+                                    {# <option>9</option> #}
+                                    {# </select> #}
+                                    {# </div> #}
+                                    {# <div class="form-group"> #}
+                                    {# <div class="form-group"> #}
+                                    {# <select class="wide select_option"> #}
+                                    {# <option data-display="Bathrooms">Bathrooms</option> #}
+                                    {# <option>1</option> #}
+                                    {# <option>2</option> #}
+                                    {# <option>3</option> #}
+                                    {# <option>4</option> #}
+                                    {# <option>5</option> #}
+
+                                    {# </select> #}
+                                    {# </div> #}
+                                    {# </div> #}
+                                    {# <div class="form-group"> #}
+                                    {# <label class="mb-3">Price range</label> #}
+                                    {# <div class="filter__price"> #}
+                                    {# <input class="price-range" type="text" name="my_range" value="" /> #}
+                                    {# </div> #}
+                                    {# </div> #}
+
+                                    {# <div class="form-group mb-0 mt-2"> #}
+
+                                    {# <a class="btn btn-outline-primary btn-block text-capitalize advanced-filter" #}
+                                    {# data-toggle="collapse" href="#multiCollapseExample1" #}
+                                    {# aria-controls="multiCollapseExample1"><i class="fa fa-plus-circle"></i> #}
+                                    {# advanced #}
+                                    {# filter #}
+                                    {# </a> #}
+
+                                    {# <div class="collapse multi-collapse" id="multiCollapseExample1"> #}
+                                    {# <div class="advancedfilter"> #}
+                                    {# <div class="checkbox checkbox-primary"> #}
+                                    {# <input id="checkbox2" type="checkbox"> #}
+                                    {# <label for="checkbox2" class="label-brand text-capitalize"> #}
+                                    {# Air Conditioning #}
+                                    {# </label> #}
+
+                                    {# </div> #}
+                                    {# <div class="checkbox checkbox-primary"> #}
+                                    {# <input id="checkbox3" type="checkbox"> #}
+                                    {# <label for="checkbox3" class="label-brand text-capitalize"> #}
+                                    {# Swiming Pool #}
+                                    {# </label> #}
+
+                                    {# </div> #}
+                                    {# <div class="checkbox checkbox-primary"> #}
+                                    {# <input id="checkbox4" type="checkbox"> #}
+                                    {# <label for="checkbox4" class="label-brand text-capitalize"> #}
+                                    {# Central Heating #}
+                                    {# </label> #}
+
+                                    {# </div> #}
+                                    {# <div class="checkbox checkbox-primary"> #}
+                                    {# <input id="checkbox5" type="checkbox"> #}
+                                    {# <label for="checkbox5" class="label-brand text-capitalize"> #}
+                                    {# Spa & Massage #}
+                                    {# </label> #}
+
+                                    {# </div> #}
+                                    {# <div class="checkbox checkbox-primary"> #}
+                                    {# <input id="checkbox6" type="checkbox"> #}
+                                    {# <label for="checkbox6" class="label-brand text-capitalize"> #}
+                                    {# Pets Allow #}
+                                    {# </label> #}
+
+                                    {# </div> #}
+                                    {# <div class="checkbox checkbox-primary"> #}
+                                    {# <input id="checkbox7" type="checkbox"> #}
+                                    {# <label for="checkbox7" class="label-brand text-capitalize"> #}
+                                    {# Air Conditioning #}
+                                    {# </label> #}
+
+                                    {# </div> #}
+
+                                    {# <div class="checkbox checkbox-primary"> #}
+                                    {# <input id="checkbox8" type="checkbox"> #}
+                                    {# <label for="checkbox8" class="label-brand text-capitalize"> #}
+                                    {# Gym #}
+                                    {# </label> #}
+
+                                    {# </div> #}
+
+                                    {# <div class="checkbox checkbox-primary"> #}
+                                    {# <input id="checkbox9" type="checkbox"> #}
+                                    {# <label for="checkbox9" class="label-brand text-capitalize"> #}
+                                    {# Alarm #}
+                                    {# </label> #}
+
+                                    {# </div> #}
+                                    {# <div class="checkbox checkbox-primary"> #}
+                                    {# <input id="checkbox10" type="checkbox"> #}
+                                    {# <label for="checkbox10" class="label-brand text-capitalize"> #}
+                                    {# Window Covering #}
+                                    {# </label> #}
+
+                                    {# </div> #}
+                                    {# <div class="checkbox checkbox-primary"> #}
+                                    {# <input id="checkbox11" type="checkbox"> #}
+                                    {# <label for="checkbox11" class="label-brand text-capitalize"> #}
+                                    {# Free WiFi #}
+                                    {# </label> #}
+
+                                    {# </div> #}
+                                    {# <div class="checkbox checkbox-primary"> #}
+                                    {# <input id="checkbox12" type="checkbox"> #}
+                                    {# <label for="checkbox12" class="label-brand text-capitalize"> #}
+                                    {# Car Parking #}
+                                    {# </label> #}
+                                    {# </div> #}
+                                    {# </div> #}
+                                    {# </div> #}
+                                    {# </div> #}
+
 
                                 <div class="products__filter__footer">
                                     <div class="form-group mb-0">
-                                        <button class="btn btn-primary text-capitalize btn-block"><i
+                                        <button type="submit" class="btn btn-primary text-capitalize btn-block"><i
                                                     class="fa fa-search ml-1"></i> Rechercher
-                                             </button>
+                                        </button>
 
                                     </div>
                                 </div>
                             </div>
 
                         </div>
+                        {{ form_end(form) }}
                         <!-- END FORM FILTER -->
 
 
@@ -446,7 +652,12 @@
 
                     </div>
                 </div>
-
+                {# <div class="row"> #}
+                {# <div class="col-lg-12"> #}
+                {# {{ form_start(messagesforn) }} #}
+                {# {{ form_end(messagesforn) }} #}
+                {# </div> #}
+                {# </div> #}
 
                 <!-- SIMILIAR PROPERTY -->
                 <div class="row">
@@ -465,7 +676,8 @@
                                                 <div class="ribbon text-uppercase">A la Une</div>
                                                 {% for img in bien.proprietesImages %}
                                                     {% if loop.first %}
-                                                        <img src="{{ asset('images/immobiliers/') }}{{ img.name }}" alt=""
+                                                        <img src="{{ asset('images/immobiliers/') }}{{ img.name }}"
+                                                             alt=""
                                                              class="img-fluid w100 img-transition">
                                                     {% endif %}
 
@@ -487,7 +699,8 @@
 
                                                 <p class="text-capitalize">
                                                     <i class="fa fa-map-marker"></i>
-                                                    {{ bien.quartier }}, {{ bien.adresse }}
+                                                    {# {{ bien.quartier }}, #}
+                                                    {{ bien.adresse }}
                                                 </p>
                                                 <ul class="list-inline card__content">
                                                     {{ bien.proprieteOptions.nbreEtage }}#}
@@ -519,29 +732,29 @@
                                                         <li class="list-inline-item">
                                             <span>
                                                 superifice <br>
-                                                <i class="fa fa-map"></i> {{ bien.proprieteOptions.superfice  }}
+                                                <i class="fa fa-map"></i> {{ bien.proprieteOptions.superfice }}
                                             </span>
                                                         </li>
                                                     {% endif %}
 
-                                                    {#                                        <li class="list-inline-item">#}
-                                                    {#                                            <span>#}
-                                                    {#                                                beds <br>#}
-                                                    {#                                                <i class="fa fa-bed"></i> 3#}
-                                                    {#                                            </span>#}
-                                                    {#                                        </li>#}
-                                                    {#                                        <li class="list-inline-item">#}
-                                                    {#                                            <span>#}
-                                                    {#                                                rooms <br>#}
-                                                    {#                                                <i class="fa fa-inbox"></i> 3#}
-                                                    {#                                            </span>#}
-                                                    {#                                        </li>#}
-                                                    {#                                        <li class="list-inline-item">#}
-                                                    {#                                            <span>#}
-                                                    {#                                                area <br>#}
-                                                    {#                                                <i class="fa fa-map"></i> 4300 sq ft#}
-                                                    {#                                            </span>#}
-                                                    {#                                        </li>#}
+                                                    {# <li class="list-inline-item"> #}
+                                                    {# <span> #}
+                                                    {# beds <br> #}
+                                                    {# <i class="fa fa-bed"></i> 3 #}
+                                                    {# </span> #}
+                                                    {# </li> #}
+                                                    {# <li class="list-inline-item"> #}
+                                                    {# <span> #}
+                                                    {# rooms <br> #}
+                                                    {# <i class="fa fa-inbox"></i> 3 #}
+                                                    {# </span> #}
+                                                    {# </li> #}
+                                                    {# <li class="list-inline-item"> #}
+                                                    {# <span> #}
+                                                    {# area <br> #}
+                                                    {# <i class="fa fa-map"></i> 4300 sq ft #}
+                                                    {# </span> #}
+                                                    {# </li> #}
                                                 </ul>
                                             </div>
                                             <div class="card__image-footer">
@@ -550,7 +763,7 @@
                                                     <li class="list-inline-item ">
 
 
-                                                        <h6>  {{   bien.typeOptions.montant ?  (bien.typeOptions.montant|number_format(0, ' ', ' ')) ~' Cfa': '' }}
+                                                        <h6>  {{ bien.typeOptions.montant ?  (bien.typeOptions.montant|number_format(0, ' ', ' ')) ~' Cfa': '' }}
                                                             {{ bien.typeOptions.loyer ? (bien.typeOptions.loyer|number_format(0, ' ', ' '))~' Cfa/mois' : '' }}
                                                         </h6>
                                                     </li>
@@ -573,44 +786,133 @@
     <!-- END SINGLE DETAIL -->
 {% endblock %}
 {% block javascripts %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.0/nouislider.min.js" integrity="sha512-Bqlq3MLgvOWTzDmCDFKjX+ajhLgi/D8/TQwlbJaNea1mUcX7T3e3OgrRkWtvgpbSDaHgUCC4BqRSLNvPJhOskw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.0/nouislider.min.js"
+            integrity="sha512-Bqlq3MLgvOWTzDmCDFKjX+ajhLgi/D8/TQwlbJaNea1mUcX7T3e3OgrRkWtvgpbSDaHgUCC4BqRSLNvPJhOskw=="
+            crossorigin="anonymous"></script>
     <script>
 
-    $(".price-ranges").ionRangeSlider({
-    skin: "big",
-    type: "double",
-    grid: !0,
-    min: 0,
-    max: 1e4,
-    from: 1300,
-    to: 7600,
-    prefix: "$"
-    })
-
-    var slider = document.getElementById('slider');
-
-    if(slider){
-        const range =  noUiSlider.create(slider, {
-            start: [20, 80],
-            connect: true,
-            range: {
-                'min': 0,
-                'max': 100
-            }
+        $(".price-ranges").ionRangeSlider({
+            skin: "big",
+            type: "double",
+            grid: !0,
+            min: 0,
+            max: 1e4,
+            from: 1300,
+            to: 7600,
+            prefix: "$"
         })
-        const max = document.getElementById('prix_max');
-       const min= document.getElementById('prix_min');
-        range.on('slider',function (values, handle){
-            console.log(values, handle)
-            if(handle === 0){
-                min.value = Math.round(values[0])
+
+        // var slider = document.getElementById('slider');
+        //
+        // if(slider){
+        //     const range =  noUiSlider.create(slider, {
+        //         start: [20, 80],
+        //         connect: true,
+        //         range: {
+        //             'min': 0,
+        //             'max': 100
+        //         }
+        //     })
+        //     const max = document.getElementById('prix_max');
+        //    const min= document.getElementById('prix_min');
+        //     range.on('slider',function (values, handle){
+        //         console.log(values, handle)
+        //         if(handle === 0){
+        //             min.value = Math.round(values[0])
+        //         }
+        //         if(handle === 1){
+        //             max.value = Math.round(values[1])
+        //         }
+        //     })
+        // }
+        class LinkedSelect {
+
+            /**
+             * @param {HTMLSelectElement} $select
+             */
+            constructor($select) {
+                this.$select = $select
+                this.$target = document.querySelector(this.$select.dataset.target)
+                this.$placeholder = this.$target.firstElementChild
+                // this.onChange = debounce(this.onChange.bind(this), 500)
+                this.onChange = this.onChange.bind(this)
+                this.$loader = null
+                this.cache = {}
+                this.$select.addEventListener('change', this.onChange)
+
             }
-            if(handle === 1){
-                max.value = Math.round(values[1])
+
+            /**
+             * Se déclenche au changement de valeur d'un select
+             * @param {Event} e
+             */
+            onChange(e) {
+                if (e.target.value === '0') {
+
+                    return
+                }
+
+                this.loadOptions(e.target.value, (options) => {
+                    this.$target.innerHTML = options
+                    this.$target.insertBefore(this.$placeholder, this.$target.firstChild)
+                    this.$target.selectedIndex = 0
+                    this.$target.style.display = null
+
+                })
             }
+
+            /**
+             * Charge les options à partir du serveur (ou du cache)
+             * @param {string} id
+             * @param callback
+             */
+            loadOptions(id, callback) {
+                if (this.cache[id]) {
+                    callback(this.cache[id])
+                    return
+                }
+                this.showLoader()
+                let request = new XMLHttpRequest()
+                request.open('GET', this.$select.dataset.source.replace('id', id), true)
+                request.onload = () => {
+                    if (request.status >= 200 && request.status < 400) {
+                        let data = JSON.parse(request.responseText)
+                        let options = data.reduce(function (acc, option) {
+                            return acc + '<option value="' + option.value + '">' + option.label + '</option>'
+                        }, '')
+                        this.cache[id] = options
+                        this.hideLoader()
+                        callback(options)
+                    } else {
+                        alert('Impossible de charger la liste')
+                    }
+                }
+                request.onerror = function () {
+                    alert('Impossible de charger la liste')
+                }
+                request.send()
+            }
+
+            showLoader() {
+                this.$loader = document.createTextNode('Chargement...')
+                this.$target.parentNode.appendChild(this.$loader)
+            }
+
+            hideLoader() {
+                if (this.$loader !== null) {
+                    this.$loader.parentNode.removeChild(this.$loader)
+                    this.$loader = null
+                }
+            }
+
+        }
+
+
+        let $selects = document.querySelectorAll('.linked-select')
+        $selects.forEach(function ($select) {
+            new LinkedSelect($select)
         })
-    }
+    </script>
+    {# <script src="{{ asset('FrontEnd/house/js/select-lies.js')}}"></script> #}
 
-
-        </script>
 {% endblock %}

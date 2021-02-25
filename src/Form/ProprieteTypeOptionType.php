@@ -20,7 +20,7 @@ class ProprieteTypeOptionType extends AbstractType
                 'class' => 'App\Entity\ProprieteType',
                 'choice_label' => 'Libelle',
                 'placeholder'=>'Sélectionnez le type de bien',
-                'label'=>'Type',
+                'label'=>'Catégorie',
                 'required'=>'true',
                 'help'=>'Chambre salon, boutique/magasin, maison locative'
             ])
@@ -54,6 +54,65 @@ class ProprieteTypeOptionType extends AbstractType
 
                 'required'=>false
             ])
+            ->add('autAscenseur',CheckboxType::class,[
+                'label'=>'Cage d\'ascenseur ',
+            ])
+            ->add('autBalcon',CheckboxType::class,[
+                'label'=>'Balcon ',
+            ])
+            ->add('autCave',CheckboxType::class,[
+                'label'=>'cave ',
+            ])
+            ->add('autChauffage',CheckboxType::class,[
+                'label'=>'chauffage ',
+            ])
+            ->add('autGuerite',CheckboxType::class,[
+                'label'=>'Guerite ',
+            ])
+            ->add('autJardin',CheckboxType::class,[
+                'label'=>'Jardin ',
+            ])
+            ->add('autParking',CheckboxType::class,[
+                'label'=>'Parking ',
+            ])
+            ->add('autMeuble',CheckboxType::class,[
+                'label'=>'Meublé ',
+            ])
+            ->add('autParkingSouterain',CheckboxType::class,[
+                'label'=>'Année de construction ',
+            ])
+            ->add('autPiscine',CheckboxType::class,[
+                'label'=>'Piscine ',
+            ])
+            ->add('autSecurite',CheckboxType::class,[
+                'label'=>'Agent de securité ',
+            ])
+            ->add('autTerasse',CheckboxType::class,[
+                'label'=>'terrase ',
+            ])
+            ->add('comCommerces',CheckboxType::class,[
+                'label'=>'Prés des commerces ',
+            ])
+
+            ->add('comEcoles',CheckboxType::class,[
+                'label'=>'Proches d\'ecole',
+            ])
+
+            ->add('comPlages',CheckboxType::class,[
+                'label'=>'Proches de la plage ',
+            ])
+            ->add('comHopitaux',CheckboxType::class,[
+                'label'=>'Proches des hopitaux ',
+            ])
+            ->add('comRestaurant',CheckboxType::class,[
+                'label'=>'Pres des restaurants ',
+            ])
+            ->add('comPharmacie',CheckboxType::class,[
+                'label'=>'Pres des pharmacies ',
+            ])
+//            ->add('com',null,[
+//                'label'=>'Année de construction ',
+//            ])
 
            // ->add('proprietes')
         ;

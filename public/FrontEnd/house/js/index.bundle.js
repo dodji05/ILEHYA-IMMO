@@ -15468,10 +15468,10 @@
                 480: {items: 1},
                 600: {items: 2},
                 768: {items: 2},
-                992: {items: 2},
-                1200: {items: 2},
-                1366: {items: 3},
-                1400: {items: 3}
+                992: {items: 3},
+                1200: {items: 3},
+                1366: {items: 4},
+                1400: {items: 4}
             }
         }), $(".featured__property-carousel").length && $(".featured__property-carousel").owlCarousel({
             loop: !0,
@@ -15489,8 +15489,8 @@
                 480: {items: 1, center: !1},
                 600: {items: 1, center: !1},
                 768: {items: 2},
-                992: {items: 2},
-                1200: {items: 3},
+                992: {items: 3},
+                1200: {items: 4},
                 1366: {items: 4},
                 1400: {items: 4}
             }

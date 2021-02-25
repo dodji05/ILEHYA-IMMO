@@ -4,14 +4,36 @@
 namespace App\Recherche;
 
 
+use App\Entity\Commune;
+
 class SearchData
 {
 
     private $typecontrat;
     private $typeBiens;
-    private $adresse;
+    private $quartier;
     private $prix_min;
     private $prix_max;
+    private $departement;
+    private $commune;
+    private  $arrondissement;
+
+    /**
+     * @return mixed
+     */
+    public function getCommune()
+    {
+        return $this->commune;
+    }
+
+    /**
+     * @param mixed $commune
+     */
+    public function setCommune($commune):void
+    {
+        $this->commune = $commune;
+    }
+
 
     /**
      * @return mixed
@@ -48,19 +70,34 @@ class SearchData
     /**
      * @return mixed
      */
-    public function getAdresse()
+    public function getQuartier()
     {
-        return $this->adresse;
+        return $this->quartier;
     }
 
     /**
-     * @param mixed $adresse
+     * @param mixed $quartier
      */
-    public function setAdresse($adresse): void
+    public function setQuartier($quartier): void
     {
-        $this->adresse = $adresse;
+        $this->quartier = $quartier;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getDepartement()
+    {
+        return $this->departement;
+    }
+
+    /**
+     * @param mixed $departement
+     */
+    public function setDepartement($departement): void
+    {
+        $this->departement = $departement;
+    }
     /**
      * @return mixed
      */
@@ -91,6 +128,22 @@ class SearchData
     public function setPrixMax($prix_max): void
     {
         $this->prix_max = $prix_max;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getArrondissement()
+    {
+        return $this->arrondissement;
+    }
+
+    /**
+     * @param mixed $arrondissement
+     */
+    public function setArrondissement($arrondissement): void
+    {
+        $this->arrondissement = $arrondissement;
     }
 
 

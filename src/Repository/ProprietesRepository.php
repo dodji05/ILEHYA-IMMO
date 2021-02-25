@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Proprietes;
+use App\Recherche\SearchData;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -47,34 +48,173 @@ class ProprietesRepository extends ServiceEntityRepository
         ;
     }
     */
-    public function derniersannonce($type=null){
+    public function derniersannonce($type = null)
+    {
 
         return $this->createQueryBuilder('p')
             ->leftJoin('p.')
             ->andWhere('p.exampleField = :val')
-
             ->setParameter('val', $type)
             ->orderBy('p.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
-            ->getResult()
-            ;
+            ->getResult();
     }
 
-    public function  annoncessimilaires ($contratypes,$Options){
+    public function annoncessimilaires($contratypes, $Options)
+    {
         return $this->createQueryBuilder('p')
-            ->leftJoin('p.TypeOptions','t')
-            ->leftJoin('t.Contratypes','c')
-            ->leftJoin('p.ProprieteOptions','o')
-            ->leftJoin('o.Proprietes','r')
+            ->leftJoin('p.TypeOptions', 't')
+            ->leftJoin('t.Contratypes', 'c')
+            ->leftJoin('p.ProprieteOptions', 'o')
+            ->leftJoin('o.Proprietes', 'r')
             ->andWhere('c.id = :val1')
             ->andWhere('r.id= :val2')
             ->setParameter('val1', $contratypes)
             ->setParameter('val2', $Options)
-            ->orderBy('p.id', 'ASC')
+            ->orderBy('p.id', 'DESC')
             ->setMaxResults(5)
             ->getQuery()
-            ->getResult()
-            ;
+            ->getResult();
+    }
+
+    public function natureannonces($nature)
+    {
+        return $this->createQueryBuilder('p')
+            ->leftJoin('p.TypeOptions', 't')
+            ->leftJoin('t.Contratypes', 'c')
+            ->andWhere('c.id = :val1')
+            ->setParameter('val1', $nature)
+            ->orderBy('p.id', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function RechercherUnBien(SearchData $search)
+    {
+        $query = $this->createQueryBuilder('p')
+            ->leftJoin('p.TypeOptions', 't')
+            ->leftJoin('t.Contratypes', 'c')
+            ->leftJoin('p.ProprieteOptions', 'o')
+            ->leftJoin('o.Proprietes', 'r');
+        if (!empty($search->getTypecontrat())) {
+            $query = $query
+                ->andWhere('c.id = :type')
+                ->setParameter('type', $search->getTypecontrat());
+        }
+        if (!empty($search->getTypeBiens())) {
+            $query = $query
+                ->andWhere('r.id =:cat')
+                ->setParameter('cat', $search->getTypeBiens());
+        }
+//        if (!empty($search->getDepartement())) {
+//            $query = $query
+//                ->innerJoin('p.quatier', 'q')
+//                ->innerJoin('q.arrondissement', 'ar')
+//                ->innerJoin('ar.Commune', 'com')
+//                ->innerJoin('com.departement', 'dpt')
+//                ->andWhere('dpt.id =:dpt')
+//                ->setParameter('dpt', $search->getDepartement());
+////            if (!empty($search->getCommune())) {
+////                if (!empty($search->getArrondissement())) {
+////                    $query = $query
+////                        ->innerJoin('p.quatier', 'q')
+////                        ->innerJoin('q.arrondissement', 'ar')
+////                        ->andWhere('ar.id =:ar')
+////                        ->setParameter('ar', $search->getArrondissement());
+////                } else {
+//            $query = $query
+//                ->innerJoin('p.quatier', 'q')
+//                ->innerJoin('q.arrondissement', 'ar')
+//                ->innerJoin('ar.Commune', 'com')
+//                ->andWhere('com.id =:com')
+//                ->setParameter('com', $search->getCommune());
+////                }
+//        } else {
+//            $query = $query
+//                ->innerJoin('p.quatier', 'q')
+//                ->innerJoin('q.arrondissement', 'ar')
+//                ->innerJoin('ar.Commune', 'com')
+//                ->innerJoin('com.departement', 'dpt')
+//                ->andWhere('dpt.id =:dpt')
+//                ->setParameter('dpt', $search->getDepartement());
+////            }
+//
+//
+////            else {
+//
+////            }
+//        }
+
+//
+//        if (!empty($search->getQuartier())) {
+//            $query = $query
+//                ->leftJoin('p.quatier', 'q')
+//                ->andWhere('q.id =:qua')
+//                ->setParameter('qua', $search->getQuartier());
+//        } elseif (!empty($search->getArrondissement())) {
+//            $query = $query
+//                ->innerJoin('p.quatier', 'q')
+//                ->innerJoin('q.arrondissement', 'ar')
+//                ->andWhere('ar.id =:ar')
+//                ->setParameter('ar', $search->getArrondissement());
+//
+//
+//        } elseif (!empty($search->getCommune())) {
+//            $query = $query
+//                ->innerJoin('p.quatier', 'q')
+//                ->innerJoin('q.arrondissement', 'ar')
+//                ->innerJoin('ar.Commune', 'com')
+//                ->andWhere('com.id =:com')
+//                ->setParameter('com', $search->getCommune());
+//
+//        } elseif (!empty($search->getDepartement())) {
+//            $query = $query
+//                ->innerJoin('p.quatier', 'q')
+//                ->innerJoin('q.arrondissement', 'ar')
+//                ->innerJoin('ar.Commune', 'com')
+//                ->innerJoin('com.departement', 'dpt')
+//                ->andWhere('dpt.id =:dpt')
+//                ->setParameter('dpt', $search->getDepartement());
+//
+//        }
+//            ->orderBy('p.id', 'DESC')
+//            ->getQuery()
+//            ->getResult()
+        ;
+//dd($search);
+//        if (!empty($search->getDepartement())) {
+//            if (!empty($search->getCommune())) {
+//                $query = $query
+//                    ->innerJoin('p.quatier', 'q')
+//                    ->innerJoin('q.arrondissement', 'ar')
+//                    ->innerJoin('ar.Commune', 'com')
+//                    ->andWhere('com.id =:com')
+//                    ->setParameter('com', $search->getCommune());
+//
+//            } else {
+//                $query = $query
+//                    ->innerJoin('p.quatier', 'q')
+//                    ->innerJoin('q.arrondissement', 'ar')
+//                    ->innerJoin('ar.Commune', 'com')
+//                    ->innerJoin('com.departement', 'dpt')
+//                    ->andWhere('dpt.id =:dpt')
+//                    ->setParameter('dpt', $search->getDepartement());
+//            }
+//
+//
+//
+//        }
+        if (!empty($search->getCommune())) {
+            $query = $query
+                ->innerJoin('p.quatier', 'q')
+                ->innerJoin('q.arrondissement', 'ar')
+                ->innerJoin('ar.Commune', 'com')
+                ->andWhere('com.id =:com')
+                ->setParameter('com', $search->getCommune());
+
+        }
+        dd($search);
+        return $query->getQuery()->getResult();
     }
 }
