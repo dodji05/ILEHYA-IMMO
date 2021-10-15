@@ -341,8 +341,15 @@
                                             <label class="form-check-label input-radio-cards__card__label required"
                                                    for="{{ id }}">
                                                 <div class="input-radio-cards__card__label__icon">
-                                                    <img src="https://d1e9888xfd1rj0.cloudfront.net/1615977340/icons/apartment.svg?1615977342366"
-                                                         alt="icon"></div>
+                                                    {% if id =="typeBiens_1" %}
+                                                        <img src="https://d1e9888xfd1rj0.cloudfront.net/1634032936/icons/apartment.svg?1634032938526"
+                                                             alt="icon">
+                                                    {% endif %}
+                                                    {% if id =="typeBiens_0" %}
+                                                        <img src="https://d1e9888xfd1rj0.cloudfront.net/1634032936/icons/house.svg?1634032938526"
+                                                             alt="icon">
+                                                    {% endif %}
+                                                </div>
                                                 <div class="input-radio-cards__card__label__text"><span
                                                             data-v-ad130114="">{{ label }}</span></div>
 

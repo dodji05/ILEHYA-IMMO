@@ -60,7 +60,7 @@ class EstimationController extends AbstractController
 //           dd($form->getData());
             $session->set('arrondissement',89);
             $email = (new TemplatedEmail())
-                ->from('contacts@dhodji.com')
+                ->from('contact@festivaldupagnetisse.com')
                 ->to(new Address('gildas31@gmail.com'))
                 ->priority(Email::PRIORITY_HIGH)
                 ->subject('Demande d estimation')
@@ -75,7 +75,7 @@ class EstimationController extends AbstractController
                 ]);
             $mailer->send($email);
 
-            return $this->render('mail/demande_estimation_maison.html.twig',
+            return $this->render('FrontEnd/estimation-maison-fin.html.twig',
                 [
                     'formData' => $form->getData()
                 ]);

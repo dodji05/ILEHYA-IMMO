@@ -1,0 +1,53 @@
+{% extends 'FrontEnd/base.html.twig' %}
+{% block style %}
+    <link href="{{ asset('FrontEnd/house/css/jquery.steps.css') }}" rel="stylesheet">
+    <link href="{{ asset('BackEnd/assets/plugins/autocomplete/css/autoComplete.css') }}" rel="stylesheet">
+    <style>
+        .col-sm-offset-3 {
+            margin-left: 25%;
+        }
+
+        @media (min-width: 768px) {
+            .col-sm-offset-3 {
+                margin-left: 25%;
+            }
+        }
+
+        .col-sm-6 p {
+            font-size: 19px;
+            line-height: 35px;
+
+        }
+    </style>
+
+    {# <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.0/nouislider.min.css" integrity="sha512-6JqGSqQ++AEggYltdgSse8pKG90U/5U0bbkZoa94uSDG/BhI5YpYcy2LyWPWjXu40lUVEgEKHZ/2hCrwQvbODw==" crossorigin="anonymous" /> #}
+
+{% endblock %}
+ {% block navbar %}
+     {% include 'FrontEnd/partials/_navbar_fixed_top.html.twig' %}
+
+ {% endblock %}
+{% block content %}
+    <div class="clearfix" style="padding-top: 130px!important;"></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <h5 class="text-center">
+                    Votre estimation est prêt
+                </h5>
+                <p>
+                    Votre demande d'estimation a été bien prise en compte
+                </p>
+                <p>
+                    Un de nos agents vous contactera pour fournir la valeur de l'estimation
+                </p>
+
+                <h6 class="text-center">
+                    Merci pour votre confiance
+                </h6>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
