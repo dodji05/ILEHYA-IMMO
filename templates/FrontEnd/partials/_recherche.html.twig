@@ -1,22 +1,14 @@
-<div class="search__area search__area-1" id="search__area-1">
-    <div class="container">
-        {{ form_start(form) }}
+{#<div class="search__area search__area-1" id="search__area-1">#}
+{#    <div class="container">#}
+{#        {{ form_start(form) }}#}
 
-            <div class="row">
-                <div class="col-6 col-lg-3 col-md-3">
-                    <div class="form-group">
-                        {{ form_widget(form.typecontrat) }}
-{#                        <select class="wide select_option">#}
-{#                            <option data-display="Status">Status</option>#}
-{#                            <option>A vendre</option>#}
-{#                            <option>A louer</option>#}
+{#            <div class="row">#}
+{#                <div class="col-6 col-lg-3 col-md-3">#}
 
-{#                        </select>#}
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3 col-md-3">
-                    <div class="form-group">
-                        {{ form_widget(form.typeBiens) }}
+{#                </div>#}
+{#                <div class="col-6 col-lg-3 col-md-3">#}
+{#                    <div class="form-group">#}
+{#                        {{ form_widget(form.typeBiens) }}#}
 {#                        <select class="wide select_option">#}
 {#                            <option data-display="Type de biens">Type de biens</option>#}
 {#                            <option>Maison</option>#}
@@ -24,10 +16,10 @@
 {#                            <option>Parcelles</option>#}
 {#                            <option>Bureaux</option>#}
 {#                        </select>#}
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3 col-md-3">
-                    <div class="form-group">
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-6 col-lg-3 col-md-3">#}
+{#                    <div class="form-group">#}
 {#                        <select class="wide select_option">#}
 {#                            <option data-display="Superfice (m<sup>2</sup>)">Superfice (m<sup>2</sup>) </option>#}
 {#                            <option>1500</option>#}
@@ -37,11 +29,11 @@
 {#                            <option>300</option>#}
 {#                            <option>100</option>#}
 {#                        </select>#}
-                        {{ form_widget(form.departement) }}
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3 col-md-3">
-                    <div class="form-group">
+{#                        {{ form_widget(form.departement) }}#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-6 col-lg-3 col-md-3">#}
+{#                    <div class="form-group">#}
 {#                        <select class="wide select_option">#}
 {#                            <option data-display="Zones">Zones</option>#}
 {#                            <option>Cotonou</option>#}
@@ -54,11 +46,11 @@
 {#                            <option>Bohicon</option>#}
 
 {#                        </select>#}
-                        {{ form_widget(form.commune) }}
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3 col-md-3">
-                    <div class="form-group">
+{#                        {{ form_widget(form.commune) }}#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-6 col-lg-3 col-md-3">#}
+{#                    <div class="form-group">#}
 {#                        <select class="wide select_option">#}
 {#                            <option data-display="Nombre de pieces">Nombre de pieces</option>#}
 {#                            <option>0</option>#}
@@ -74,11 +66,11 @@
 {#                            <option>10</option>#}
 {#                            <option>10+</option>#}
 {#                        </select>#}
-                        {{ form_widget(form.arrondissement) }}
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3 col-md-3">
-                    <div class="form-group">
+{#                        {{ form_widget(form.arrondissement) }}#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-6 col-lg-3 col-md-3">#}
+{#                    <div class="form-group">#}
 {#                        <select class="wide select_option">#}
 {#                            <option data-display="Bathrooms">Chambres</option>#}
 {#                            <option>1</option>#}
@@ -88,24 +80,24 @@
 
 
 {#                        </select>#}
-                        {{ form_widget(form.quartier) }}
-                    </div>
-                </div>
-                <div class="col-12 col-lg-3 col-md-3">
-                    <div class="form-group">
-                        <div class="filter__price">
-                            <input class="price-range" type="text" name="my_range" value="" />
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-3 col-md-3">
-                    <div class="form-group">
-                        <button class="btn btn-primary text-uppercase btn-block"> Rechercher <i
-                                    class="fa fa-search ml-1"></i></button>
-                    </div>
-                </div>
-            </div>
-            {{ form_end(form) }}
+{#                        {{ form_widget(form.quartier) }}#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-12 col-lg-3 col-md-3">#}
+{#                    <div class="form-group">#}
+{#                        <div class="filter__price">#}
+{#                            <input class="price-range" type="text" name="my_range" value="" />#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-12 col-lg-3 col-md-3">#}
+{#                    <div class="form-group">#}
+{#                        <button class="btn btn-primary text-uppercase btn-block"> Rechercher <i#}
+{#                                    class="fa fa-search ml-1"></i></button>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            {{ form_end(form) }}#}
 
 {#        <div class="bg__overlay-black p-4">#}
 {#            <div class="search__property">#}
@@ -269,5 +261,67 @@
 {#                </div>#}
 {#            </div>#}
 {#        </div>#}
+{#    </div>#}
+{#</div>#}
+<div class="container">
+    {{ form_start(form) }}
+    <div class="bg__overlay-black-1">
+
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                {{ form_widget(form.typecontrat) }}
+
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                {{ form_widget(form.typeBiens) }}
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                {{ form_widget(form.departement) }}
+
+            </div>
+        </div>
+        <div class="col-md-3">
+
+                <div class="form-group">
+                    {{ form_widget(form.commune) }}
+
+
+            </div>
+        </div>
     </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                {{ form_widget(form.arrondissement) }}
+
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                {{ form_widget(form.quartier) }}
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                {{ form_widget(form.prix_max) }}
+{##}
+            </div>
+        </div>
+        <div class="col-md-3">
+
+                <div class="form-group">
+                    <button class="btn btn-primary text-uppercase btn-block"> Rechercher <i
+                                class="fa fa-search ml-1"></i></button>
+                </div>
+
+        </div>
+    </div>
+    </div>
+    {{ form_end(form) }}
 </div>

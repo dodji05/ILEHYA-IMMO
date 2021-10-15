@@ -30,7 +30,7 @@ class Quartier
     private $arrondissement;
 
     /**
-     * @ORM\OneToMany(targetEntity=Proprietes::class, mappedBy="quatier")
+     * @ORM\OneToMany(targetEntity=Proprietes::class, mappedBy="Quartier")
      */
     private $proprietes;
 
@@ -97,9 +97,7 @@ class Quartier
 
         return $this;
     }
-
-    public function getLibelle()
-    {
+    public function getLibelle(){
         return $this->lib_quart;
 
     }

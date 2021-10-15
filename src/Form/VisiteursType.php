@@ -13,29 +13,30 @@ class VisiteursType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom', Null, [
+            ->add('nom',Null,[
                 'attr' => [
-                    'placeholder' => 'Votre nom',
+                    'placeholder'=>'Votre nom',
                 ],
             ])
-            ->add('prenoms', null, [
+            ->add('prenoms',null,[
                 'attr' => [
-                    'placeholder' => ' Votre prénom',
+                    'placeholder'=>' Votre prénom',
                 ],
             ])
-            ->add('email', EmailType::class, [
+            ->add('email',EmailType::class,[
                 'attr' => [
-                    'placeholder' => ' Votre email',
+                    'placeholder'=>' Votre email',
 
                 ],
-                'required' => 'false'
+                'required' =>'false'
             ])
-            ->add('telephone', null, [
+            ->add('telephone',null,[
                 'attr' => [
-                    'placeholder' => ' Votre téléphone',
+                    'placeholder'=>' Votre téléphone',
                 ],
-                'required' => 'true'
-            ]);
+                'required' =>'true'
+            ])
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

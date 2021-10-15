@@ -80,9 +80,7 @@ class Departement
 
         return $this;
     }
-
-    public function getLibelle()
-    {
+    public function getLibelle(){
         return $this->lib_dep;
 
     }

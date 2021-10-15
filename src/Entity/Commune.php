@@ -39,9 +39,22 @@ class Commune
         $this->arrondissements = new ArrayCollection();
     }
 
+
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getLibCom(): ?string
+    {
+        return $this->lib_com;
+    }
+
+    public function setLibCom(?string $lib_com): self
+    {
+        $this->lib_com = $lib_com;
+
+        return $this;
     }
 
     public function getDepartement(): ?Departement
@@ -86,21 +99,8 @@ class Commune
         return $this;
     }
 
-    public function getLibelle()
-    {
-        return $this->getLibCom();
+    public function getLibelle(){
+       return $this->getLibCom();
 
-    }
-
-    public function getLibCom(): ?string
-    {
-        return $this->lib_com;
-    }
-
-    public function setLibCom(?string $lib_com): self
-    {
-        $this->lib_com = $lib_com;
-
-        return $this;
     }
 }

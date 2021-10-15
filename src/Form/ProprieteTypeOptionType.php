@@ -6,10 +6,9 @@ use App\Entity\ProprieteTypeOption;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\IsTrue;
 
 class ProprieteTypeOptionType extends AbstractType
 {
@@ -46,8 +45,10 @@ class ProprieteTypeOptionType extends AbstractType
             ->add('NbreEtage',null,[
                 'label'=>'Nombre d\' étages ',
             ])
-            ->add('Annedeconstruction',null,[
+            ->add('Annedeconstruction',DateType::class,[
+                'widget' => 'single_text',
                 'label'=>'Année de construction ',
+                'html5' => false,
             ])
             ->add('titreFoncier',CheckboxType::class,[
                 'label'=>'Titre Foncier',

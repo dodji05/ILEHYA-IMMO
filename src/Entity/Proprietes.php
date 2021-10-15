@@ -2,13 +2,17 @@
 
 namespace App\Entity;
 
+use DateTime;
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProprietesRepository")
+ *
  */
 class Proprietes
 {
@@ -76,10 +80,6 @@ class Proprietes
      */
     private $media;
 
-    /**
-     * @ORM\OneToMany(targetEntity=ProprietesImages::class, mappedBy="Proprietes",cascade={"persist"})
-     */
-    private $proprietesImages;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
@@ -90,12 +90,32 @@ class Proprietes
      * @ORM\ManyToOne(targetEntity=Quartier::class, inversedBy="proprietes")
      * @Assert\NotBlank()
      */
-    private $quatier;
+    private $Quartier;
 
     /**
      * @ORM\OneToMany(targetEntity=Messages::class, mappedBy="proprietes")
      */
     private $messages;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, cascade={"persist", "remove"})
+     */
+    private $createdBy;
+
+    /**
+     * @ORM\OneToOne(targetEntity=User::class, cascade={"persist", "remove"})
+     */
+    private $updateBy;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $UpdateAt;
+
+    /**
+     * @ORM\OneToMany(targetEntity=ProprietesImage::class, mappedBy="Proprietes")
+     */
+    private $proprietesImages;
 
     /**
      * Proprietes constructor.
@@ -106,10 +126,13 @@ class Proprietes
         $this->nbre_vues = 0;
         $this->isvisible = false;
         $this->Disponibilite = true;
-        $this->createatAt = new \DateTime();
+        $this->createatAt = new DateTime();
         $this->media = new ArrayCollection();
-        $this->proprietesImages = new ArrayCollection();
+
         $this->messages = new ArrayCollection();
+        $this->proprietesImages = new ArrayCollection();
+
+        $this->Quartier = "98";
     }
 
 
@@ -216,12 +239,12 @@ class Proprietes
         return $this;
     }
 
-    public function getCreateatAt(): ?\DateTimeInterface
+    public function getCreateatAt(): ?DateTimeInterface
     {
         return $this->createatAt;
     }
 
-    public function setCreateatAt(\DateTimeInterface $createatAt): self
+    public function setCreateatAt(DateTimeInterface $createatAt): self
     {
         $this->createatAt = $createatAt;
 
@@ -271,35 +294,7 @@ class Proprietes
         return $this;
     }
 
-    /**
-     * @return Collection|ProprietesImages[]
-     */
-    public function getProprietesImages(): Collection
-    {
-        return $this->proprietesImages;
-    }
 
-    public function addProprietesImage(ProprietesImages $proprietesImage): self
-    {
-        if (!$this->proprietesImages->contains($proprietesImage)) {
-            $this->proprietesImages[] = $proprietesImage;
-            $proprietesImage->setProprietes($this);
-        }
-
-        return $this;
-    }
-
-    public function removeProprietesImage(ProprietesImages $proprietesImage): self
-    {
-        if ($this->proprietesImages->removeElement($proprietesImage)) {
-            // set the owning side to null (unless already changed)
-            if ($proprietesImage->getProprietes() === $this) {
-                $proprietesImage->setProprietes(null);
-            }
-        }
-
-        return $this;
-    }
 
     public function getDisponibilite(): ?bool
     {
@@ -313,14 +308,14 @@ class Proprietes
         return $this;
     }
 
-    public function getQuatier(): ?Quartier
+    public function getQuartier(): ?Quartier
     {
-        return $this->quatier;
+        return $this->Quartier;
     }
 
-    public function setQuatier(?Quartier $quatier): self
+    public function setQuartier(?Quartier $Quartier): self
     {
-        $this->quatier = $quatier;
+        $this->Quartier = $Quartier;
 
         return $this;
     }
@@ -354,4 +349,72 @@ class Proprietes
 
         return $this;
     }
+
+    public function getCreatedBy(): ?User
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(?UserInterface $createdBy): self
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    public function getupdateBy(): ?User
+    {
+        return $this->updateBy;
+    }
+
+    public function setupdateBy(?UserInterface $updateBy): self
+    {
+        $this->updateBy = $updateBy;
+
+        return $this;
+    }
+
+    public function getUpdateAt(): ?DateTimeInterface
+    {
+        return $this->UpdateAt;
+    }
+
+    public function setUpdateAt(?DateTimeInterface $UpdateAt): self
+    {
+        $this->UpdateAt = $UpdateAt;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ProprietesImage[]
+     */
+    public function getProprietesImages(): Collection
+    {
+        return $this->proprietesImages;
+    }
+
+    public function addProprietesImage(ProprietesImage $proprietesImage): self
+    {
+        if (!$this->proprietesImages->contains($proprietesImage)) {
+            $this->proprietesImages[] = $proprietesImage;
+            $proprietesImage->setProprietes($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProprietesImage(ProprietesImage $proprietesImage): self
+    {
+        if ($this->proprietesImages->removeElement($proprietesImage)) {
+            // set the owning side to null (unless already changed)
+            if ($proprietesImage->getProprietes() === $this) {
+                $proprietesImage->setProprietes(null);
+            }
+        }
+
+        return $this;
+    }
+
+
 }

@@ -34,9 +34,17 @@ class Arrondissement
      */
     private $quartiers;
 
+    /**
+     * @ORM\OneToMany(targetEntity=PrixReference::class, mappedBy="zone")
+     */
+    private $prixReferences;
+
+
+
     public function __construct()
     {
         $this->quartiers = new ArrayCollection();
+        $this->prixReferences = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -97,10 +105,40 @@ class Arrondissement
 
         return $this;
     }
-
-    public function getLibelle()
-    {
+    public function getLibelle(){
         return $this->lib_arrond;
 
     }
+
+    /**
+     * @return Collection|PrixReference[]
+     */
+    public function getPrixReferences(): Collection
+    {
+        return $this->prixReferences;
+    }
+
+    public function addPrixReference(PrixReference $prixReference): self
+    {
+        if (!$this->prixReferences->contains($prixReference)) {
+            $this->prixReferences[] = $prixReference;
+            $prixReference->setZone($this);
+        }
+
+        return $this;
+    }
+
+    public function removePrixReference(PrixReference $prixReference): self
+    {
+        if ($this->prixReferences->removeElement($prixReference)) {
+            // set the owning side to null (unless already changed)
+            if ($prixReference->getZone() === $this) {
+                $prixReference->setZone(null);
+            }
+        }
+
+        return $this;
+    }
+
+
 }

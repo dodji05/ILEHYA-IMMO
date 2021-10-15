@@ -1,4 +1,4 @@
-<section class="featured__property space-area">
+<section class="featured__property space-area" style="margin-top: 60px;">
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-lg-6 mx-auto">
@@ -39,7 +39,7 @@
 
                                     </span>
                                     <h6 class="text-capitalize">
-                                        <a href="{{ path('proprietes_show',{'id': bien.id}) }}">
+                                        <a href="{{ path('proprietes_show',{'contrattype': bien.typeOptions.contratypes.slug,'proprietetype':bien.proprieteOptions.proprietes.Slug,'id': bien.id}) }}">
                                             {% if bien.libelle | length > 31  %}
                                                 {{ bien.libelle | slice(0,25)  }}...
                                                 {% else %}
@@ -53,6 +53,7 @@
                                     <p class="text-capitalize">
                                         <i class="fa fa-map-marker"></i>
 {#                                        {{ bien.quartier }},#}
+                                        {{ bien.quartier ? bien.quartier.LibQuart: '' }},
                                         {{ bien.adresse }}
                                     </p>
                                     <ul class="list-inline card__content">

@@ -3,7 +3,34 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.0/nouislider.min.css"
           integrity="sha512-6JqGSqQ++AEggYltdgSse8pKG90U/5U0bbkZoa94uSDG/BhI5YpYcy2LyWPWjXu40lUVEgEKHZ/2hCrwQvbODw=="
           crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"/>
+    <style>
+        .property-panel {
+            box-shadow: 0 10px 31px 0 rgb(7 152 255 / 9%);
+            border-radius: 2px;
+            margin-bottom: 30px;
+            float: left;
+            width: 100%;
+            background-color: #fff;
+            padding: 30px;
+            /*float: left;*/
+            /*width: 100%;*/
+        }
+
+        .panel-title {
+            color: #222;
+            margin-bottom: 10px;
+            margin-top: 0;
+
+            font-size: 20px;
+
+        }
+    </style>
 {% endblock %}
+ {% block navbar %}
+     {% include 'FrontEnd/partials/_navbar_fixed_top.html.twig' %}
+ {% endblock %}
+
 {% block content %}
     <div class="clearfix"></div>
     <!-- BREADCRUMB -->
@@ -26,28 +53,29 @@
     {# </div> #}
     <!-- END BREADCRUMB -->
     <!-- RECENT PROPERTY -->
-    {% include 'FrontEnd/partials/_property_slider.html.twig' %}
+    {% include 'FrontEnd/partials/_property_slider-2.html.twig' %}
     <!-- END RECENT PROPERTY -->
 
     <!-- SINGLE DETAIL -->
-    <section>
+    <section style="padding-top: 30px!important;">
         <div class="single__detail-area pt-0">
             <div class="container">
                 <div class="row">
                     <div class="col-md-9 col-lg-8">
                         <div class="single__detail-area-title">
-                            <h3 class="text-capitalize">{{ biens.libelle }}</h3>
+                            <h4 class="text-capitalize">{{ biens.libelle }}</h4>
                             <span class="badge badge-success text-capitalize mb-2">{{ biens.typeOptions.contratypes.libelle }}</span>
                             <span class="badge badge-primary text-capitalize mb-2"> {{ biens.proprieteOptions.proprietes.libelle }}</span>
                             <p>
                                 {# {{ biens.quartier }}, #}
+                                {{ biens.quartier ? biens.quartier.LibQuart: '' }},
                                 {{ biens.adresse }}</p>
                         </div>
                     </div>
                     <div class="col-md-3 col-lg-4">
                         <div class="single__detail-area-price">
-                            <h3 class="text-capitalize text-gray">{{ biens.typeOptions.montant ?  (biens.typeOptions.montant|number_format(0, ' ', ' ')) ~' Cfa': '' }}
-                                {{ biens.typeOptions.loyer ? (biens.typeOptions.loyer|number_format(0, ' ', ' '))~' Cfa/mois' : '' }}</h3>
+                            <h4 class="text-capitalize text-gray">{{ biens.typeOptions.montant ?  (biens.typeOptions.montant|number_format(0, ' ', ' ')) ~' Cfa': '' }}
+                                {{ biens.typeOptions.loyer ? (biens.typeOptions.loyer|number_format(0, ' ', ' '))~' Cfa/mois' : '' }}</h4>
                             <ul class="list-inline">
                                 {# <li class="list-inline-item"> #}
                                 {# <a href="#" class="badge badge-primary p-2 rounded"><i #}
@@ -92,87 +120,106 @@
                         <!-- DESCRIPTION -->
                         <div class="row">
                             <div class="col-lg-12">
-                                <div class="single__detail-desc ">
-                                    <h6 class="text-capitalize detail-heading mt-0">description</h6>
-                                    <div class="show__more">
+
+                                <div class="property-panel">
+                                    <h4 class="panel-title detail-heading">
+                                        Description
+                                    </h4>
+                                    <div class="property-description">
                                         {{ biens.description }}
-                                        <a href="javascript:void(0)" class="show__more-button ">En savoir plus</a>
                                     </div>
+
                                 </div>
                                 <div class="clearfix"></div>
 
                                 <!-- PROPERTY DETAILS SPEC -->
                                 <div class="single__detail-features">
-                                    <h6 class="text-capitalize detail-heading">Details</h6>
+
                                     <!-- INFO PROPERTY DETAIL -->
                                     <div class="property__detail-info">
-                                        <div class="row">
-                                            <div class="col-md-6 col-lg-6">
-                                                <ul class="property__detail-info-list list-unstyled">
+
+                                            <div class="property-panel">
+                                                <h4 class="panel-title detail-heading">
+                                                    Apercu
+                                                </h4>
+                                                <div class="row">
+                                                <div class="col-md-6 col-lg-6">
+                                                    <ul class="property__detail-info-list list-unstyled">
 
 
-                                                    {% if biens.proprieteOptions.nbreSalon %}
-                                                        <li><b>Salon:</b> {{ biens.proprieteOptions.nbreSalon }}</li>
-                                                    {% endif %}
-                                                    {% if biens.proprieteOptions.nbreChambre %}
-                                                        <li><b>Chambre:</b> {{ biens.proprieteOptions.nbreChambre }}
-                                                        </li>
-                                                    {% endif %}
-                                                    {% if biens.proprieteOptions.nbreDouche %}
-                                                        <li><b>Douche:</b> {{ biens.proprieteOptions.nbreDouche }}</li>
-                                                    {% endif %}
-                                                    {% if biens.proprieteOptions.nbreEtage %}
-                                                        <li><b>Etages:</b> {{ biens.proprieteOptions.nbreEtage }}</li>
-                                                    {% endif %}
-                                                    {% if biens.proprieteOptions.nbreCuisine %}
-                                                        <li><b>Cuisine:</b> {{ biens.proprieteOptions.nbreCuisine }}
-                                                        </li>
-                                                    {% endif %}
+                                                        {% if biens.proprieteOptions.nbreSalon %}
+                                                            <li><b>Salon:</b> {{ biens.proprieteOptions.nbreSalon }}</li>
+                                                        {% endif %}
+
+                                                        {% if biens.proprieteOptions.nbreDouche %}
+                                                            <li><b>Douche:</b> {{ biens.proprieteOptions.nbreDouche }}</li>
+                                                        {% endif %}
+                                                        {% if biens.proprieteOptions.nbreEtage %}
+                                                            <li><b>Etages:</b> {{ biens.proprieteOptions.nbreEtage }}</li>
+                                                        {% endif %}
+                                                        {% if biens.proprieteOptions.superfice %}
+                                                            <li><b>Superficie:</b> {{ biens.proprieteOptions.superfice }}
+                                                            </li>
+                                                        {% endif %}
+                                                        {% if biens.proprieteOptions.nbreGarage %}
+                                                            <li><b>Garage:</b> {{ biens.proprieteOptions.nbreGarage }}</li>
+                                                        {% endif %}
 
 
-                                                </ul>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-md-6 col-lg-6">
+                                                    <ul class="property__detail-info-list list-unstyled">
+                                                        {% if biens.proprieteOptions.nbreChambre %}
+                                                            <li><b>Chambre:</b> {{ biens.proprieteOptions.nbreChambre }}
+                                                            </li>
+                                                        {% endif %}
+
+                                                        {% if biens.proprieteOptions.typeDeMaison %}
+                                                            <li><b>Type de
+                                                                    maison:</b> {{ biens.proprieteOptions.typeDeMaison }}
+                                                            </li>
+                                                        {% endif %}
+                                                        {% if biens.proprieteOptions.nbreCuisine %}
+                                                            <li><b>Cuisine:</b> {{ biens.proprieteOptions.nbreCuisine }}
+                                                            </li>
+                                                        {% endif %}
+                                                        {% if biens.proprieteOptions.titreFoncier %}
+                                                            <li><b>Titre
+                                                                    foncier:</b> {{ biens.proprieteOptions.titreFoncier }}
+                                                            </li>
+                                                        {% endif %}
+
+
+                                                        {% if biens.proprieteOptions.annedeconstruction %}
+                                                            <li><b>Année de
+                                                                    construction:</b> {{ biens.proprieteOptions.annedeconstruction |date('Y-m-d') }}
+                                                            </li>
+                                                        {% endif %}
+                                                        {% if  biens.typeOptions.montant %}
+                                                            <li>
+                                                                <b>Prix:</b> {{ biens.typeOptions.montant|number_format(0, ' ', ' ')  ~' Cfa' }}
+                                                            </li>
+                                                        {% endif %}
+                                                        {% if  biens.typeOptions.loyer %}
+                                                            <li>
+                                                                <b>Prix:</b> {{ biens.typeOptions.loyer|number_format(0, ' ', ' ')  ~' Cfa' }}
+                                                            </li>
+                                                        {% endif %}
+
+                                                    </ul>
+                                                </div>
                                             </div>
-                                            <div class="col-md-6 col-lg-6">
-                                                <ul class="property__detail-info-list list-unstyled">
-                                                    {% if biens.proprieteOptions.nbreGarage %}
-                                                        <li><b>Garage:</b> {{ biens.proprieteOptions.nbreGarage }}</li>
-                                                    {% endif %}
-                                                    {% if biens.proprieteOptions.typeDeMaison %}
-                                                        <li><b>Type de
-                                                                maison:</b> {{ biens.proprieteOptions.typeDeMaison }}
-                                                        </li>
-                                                    {% endif %}
-                                                    {% if biens.proprieteOptions.titreFoncier %}
-                                                        <li><b>Titre
-                                                                foncier:</b> {{ biens.proprieteOptions.titreFoncier }}
-                                                        </li>
-                                                    {% endif %}
-                                                    {% if biens.proprieteOptions.superfice %}
-                                                        <li><b>Superficie:</b> {{ biens.proprieteOptions.superfice }}
-                                                        </li>
-                                                    {% endif %}
 
-                                                    {% if biens.proprieteOptions.annedeconstruction %}
-                                                        <li><b>Année de
-                                                                construction:</b> {{ biens.proprieteOptions.annedeconstruction |date('Y-m-d') }}
-                                                        </li>
-                                                    {% endif %}
-                                                    {% if  biens.typeOptions.montant %}
-                                                        <li>
-                                                            <b>Prix:</b> {{ biens.typeOptions.montant|number_format(0, ' ', ' ')  ~' Cfa' }}
-                                                        </li>
-                                                    {% endif %}
-                                                    {% if  biens.typeOptions.loyer %}
-                                                        <li>
-                                                            <b>Prix:</b> {{ biens.typeOptions.loyer|number_format(0, ' ', ' ')  ~' Cfa' }}
-                                                        </li>
-                                                    {% endif %}
-
-                                                </ul>
-                                            </div>
                                         </div>
-                                        <h6 class="text-primary">Autres Caracterisiques</h6>
-                                        <div class="single__detail-features">
+
+
+                                    </div>
+
+                                    <div class="property-panel">
+                                        <h4 class="panel-title detail-heading">
+                                            Autres Caractéristiques
+                                        </h4>
                                         <div class="row">
                                             <div class="col-md-6 col-lg-6">
                                                 <ul class="list-unstyled icon-checkbox">
@@ -193,10 +240,10 @@
                                                         </li>
                                                     {% endif %}
 
-{#                                                    <li><b>Price:</b> $484,400</li>#}
-{#                                                    <li><b>Property Size:</b> 1466 Sq Ft</li>#}
-{#                                                    <li><b>Bedrooms:</b> 4</li>#}
-{#                                                    <li><b>Bathrooms:</b> 2</li>#}
+                                                    {#                                                    <li><b>Price:</b> $484,400</li>#}
+                                                    {#                                                    <li><b>Property Size:</b> 1466 Sq Ft</li>#}
+                                                    {#                                                    <li><b>Bedrooms:</b> 4</li>#}
+                                                    {#                                                    <li><b>Bathrooms:</b> 2</li>#}
                                                 </ul>
                                             </div>
                                             <div class="col-md-6 col-lg-6">
@@ -217,11 +264,11 @@
                                                         <li>securité
                                                         </li>
                                                     {% endif %}
-{#                                                    <li><b>Garage:</b> 1</li>#}
-{#                                                    <li><b>Garage Size:</b> 458 SqFt</li>#}
-{#                                                    <li><b>Year Built:</b> 2019-01-09</li>#}
-{#                                                    <li><b>Property Type:</b> Full Family Home</li>#}
-{#                                                    <li><b>Property Status:</b> For rent</li>#}
+                                                    {#                                                    <li><b>Garage:</b> 1</li>#}
+                                                    {#                                                    <li><b>Garage Size:</b> 458 SqFt</li>#}
+                                                    {#                                                    <li><b>Year Built:</b> 2019-01-09</li>#}
+                                                    {#                                                    <li><b>Property Type:</b> Full Family Home</li>#}
+                                                    {#                                                    <li><b>Property Status:</b> For rent</li>#}
                                                 </ul>
                                             </div>
                                             <div class="col-md-6 col-lg-6">
@@ -235,81 +282,76 @@
                                                         <li>cave
                                                         </li>
                                                     {% endif %}
-{#                                                    {% if biens.proprieteOptions.autMeuble %}#}
-{#                                                        <li>Meublé#}
-{#                                                        </li>#}
-{#                                                    {% endif %}#}
-{#                                                    {% if biens.proprieteOptions.autParkingSouterain%}#}
-{#                                                        <li>Parking Souterain#}
-{#                                                        </li>#}
-{#                                                    {% endif %}#}
+                                                    {#                                                    {% if biens.proprieteOptions.autMeuble %}#}
+                                                    {#                                                        <li>Meublé#}
+                                                    {#                                                        </li>#}
+                                                    {#                                                    {% endif %}#}
+                                                    {#                                                    {% if biens.proprieteOptions.autParkingSouterain%}#}
+                                                    {#                                                        <li>Parking Souterain#}
+                                                    {#                                                        </li>#}
+                                                    {#                                                    {% endif %}#}
 
-                                                    </ul>
-                                                </div>
-
-                                            </div>
+                                                </ul>
                                             </div>
 
-                                        <h6 class="text-primary">Autres Caracterisiques</h6>
-                                        <div class="single__detail-features">
-                                            <div class="row">
-                                                <div class="col-md-6 col-lg-6">
-                                                    <ul class="list-unstyled icon-checkbox">
-                                                        {% if biens.proprieteOptions.comCommerces %}
-                                                            <li>Prés des commerces
-                                                            </li>
-                                                        {% endif %}
-                                                        {% if biens.proprieteOptions.comEcoles %}
-                                                            <li>Ecoles à proximité
-                                                            </li>
-                                                        {% endif %}
-                                                        {% if biens.proprieteOptions.comPlages %}
-                                                            <li>Proche de la place
-                                                            </li>
-                                                        {% endif %}
-                                                        {% if biens.proprieteOptions.comHopitaux %}
-                                                            <li>Proches des hopitaux
-                                                            </li>
-                                                        {% endif %}
-
-                                                        {#                                                    <li><b>Price:</b> $484,400</li>#}
-                                                        {#                                                    <li><b>Property Size:</b> 1466 Sq Ft</li>#}
-                                                        {#                                                    <li><b>Bedrooms:</b> 4</li>#}
-                                                        {#                                                    <li><b>Bathrooms:</b> 2</li>#}
-                                                    </ul>
-                                                </div>
-                                                <div class="col-md-6 col-lg-6">
-                                                    <ul class="list-unstyled icon-checkbox">
-                                                        {% if biens.proprieteOptions.comRestaurant %}
-                                                            <li>Restaurants aux alentours
-                                                            </li>
-                                                        {% endif %}
-                                                        {% if biens.proprieteOptions.comPharmacie %}
-                                                            <li>Proche d'une pharmacie
-                                                            </li>
-                                                        {% endif %}
-
-                                                        {#                                                    <li><b>Garage:</b> 1</li>#}
-                                                        {#                                                    <li><b>Garage Size:</b> 458 SqFt</li>#}
-                                                        {#                                                    <li><b>Year Built:</b> 2019-01-09</li>#}
-                                                        {#                                                    <li><b>Property Type:</b> Full Family Home</li>#}
-                                                        {#                                                    <li><b>Property Status:</b> For rent</li>#}
-                                                    </ul>
-                                                </div>
-
-                                            </div>
                                         </div>
 
+                                        <div class="row">
+                                            <div class="col-md-6 col-lg-6">
+                                                <ul class="list-unstyled icon-checkbox">
+                                                    {% if biens.proprieteOptions.comCommerces %}
+                                                        <li>Prés des commerces
+                                                        </li>
+                                                    {% endif %}
+                                                    {% if biens.proprieteOptions.comEcoles %}
+                                                        <li>Ecoles à proximité
+                                                        </li>
+                                                    {% endif %}
+                                                    {% if biens.proprieteOptions.comPlages %}
+                                                        <li>Proche de la place
+                                                        </li>
+                                                    {% endif %}
+                                                    {% if biens.proprieteOptions.comHopitaux %}
+                                                        <li>Proches des hopitaux
+                                                        </li>
+                                                    {% endif %}
+
+                                                    {#                                                    <li><b>Price:</b> $484,400</li>#}
+                                                    {#                                                    <li><b>Property Size:</b> 1466 Sq Ft</li>#}
+                                                    {#                                                    <li><b>Bedrooms:</b> 4</li>#}
+                                                    {#                                                    <li><b>Bathrooms:</b> 2</li>#}
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-lg-6">
+                                                <ul class="list-unstyled icon-checkbox">
+                                                    {% if biens.proprieteOptions.comRestaurant %}
+                                                        <li>Restaurants aux alentours
+                                                        </li>
+                                                    {% endif %}
+                                                    {% if biens.proprieteOptions.comPharmacie %}
+                                                        <li>Proche d'une pharmacie
+                                                        </li>
+                                                    {% endif %}
+
+                                                    {#                                                    <li><b>Garage:</b> 1</li>#}
+                                                    {#                                                    <li><b>Garage Size:</b> 458 SqFt</li>#}
+                                                    {#                                                    <li><b>Year Built:</b> 2019-01-09</li>#}
+                                                    {#                                                    <li><b>Property Type:</b> Full Family Home</li>#}
+                                                    {#                                                    <li><b>Property Status:</b> For rent</li>#}
+                                                </ul>
+                                            </div>
+
+                                        </div>
 
                                     </div>
-                                        <!-- END INFO PROPERTY DETAIL -->
-                                    </div>
-                                    <!-- END PROPERTY DETAILS SPEC -->
-                                    <div class="clearfix"></div>
+                                    <!-- END INFO PROPERTY DETAIL -->
+                                </div>
+                                <!-- END PROPERTY DETAILS SPEC -->
+                                <div class="clearfix"></div>
 
 
-                                    <!-- FEATURES -->
-                                    {# <div class="single__detail-features"> #}
+                                <!-- FEATURES -->
+                                {# <div class="single__detail-features"> #}
                                 {# <h6 class="text-capitalize detail-heading">features</h6> #}
                                 {# <ul class="list-unstyled icon-checkbox"> #}
                                 {# <li>air conditioning</li> #}
@@ -329,41 +371,57 @@
                                 {# </div> #}
                                 <!-- END FEATURES -->
 
-
-                                <div class="single__detail-features">
-                                    <h6 class="text-capitalize detail-heading">Demande d'informations</h6>
-                                    <div class="property__detail-info">
-                                        {{ form_start(messagesforn) }}
-                                        <div class="form-group row">
-                                            <div class="col-sm-6">
-                                                {{ form_widget(messagesforn.visiteur.nom) }}
-                                            </div>
-                                            <div class="col-sm-6">
-                                                {{ form_widget(messagesforn.visiteur.prenoms) }}
-                                            </div>
+                                <div class="property-panel">
+                                    <h4 class="panel-title detail-heading">
+                                        Demande d'informations
+                                    </h4>
+                                    {{ form_start(messagesforn) }}
+                                    <div class="form-group row">
+                                        <div class="col-sm-6">
+                                            {{ form_widget(messagesforn.visiteur.nom) }}
                                         </div>
-                                        <div class="form-group row">
-                                            <div class="col-sm-6">
-                                                {{ form_widget(messagesforn.visiteur.email) }}
-                                            </div>
-                                            <div class="col-sm-6">
-                                                {{ form_widget(messagesforn.visiteur.telephone) }}
-                                            </div>
-
+                                        <div class="col-sm-6">
+                                            {{ form_widget(messagesforn.visiteur.prenoms) }}
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-6">
+                                            {{ form_widget(messagesforn.visiteur.email) }}
+                                        </div>
+                                        <div class="col-sm-6">
+                                            {{ form_widget(messagesforn.visiteur.telephone) }}
                                         </div>
 
-                                        <div class="form-group row">
+                                    </div>
 
+                                    <div class="form-group row">
+                                        <div class="col-sm-12">
                                             {{ form_widget(messagesforn.message,{
                                                 placehoder: 'rt'
                                             }) }}
                                         </div>
 
-
-                                        {{ form_end(messagesforn) }}
-
                                     </div>
+                                    <div class="form-group row">
+                                        <row class="col-sm-4 ">
+                                            <button class="btn btn-outline-success" type="submit"> Envoyer un mail</button>
+                                        </row>
+                                        <row class="col-sm-4">
+                                            <a class="btn btn-outline-primary" > Appel 229 52 74 62 74</a>
+                                        </row>
+                                        <row class="col-sm-4">
+                                            {% set whatapps_message ="https://api.whatsapp.com/send?phone=+22952746274&text="%}
+
+                                            <a class="btn btn-outline-secondary" href="{{ whatapps_message ~text }}"> Whatapps</a>
+                                        </row>
+                                    </div>
+
+                                    {{ form_end(messagesforn) }}
+
                                 </div>
+
+
+
 
 
                                 <!-- PROPERTY VIEWS -->
@@ -454,15 +512,15 @@
                                     <div class="form-group">
                                         {{ form_widget(form.typeBiens) }}
                                     </div>
-{#                                    <div class="form-group row">#}
-{#                                        <div class="col-sm-6">#}
-{#                                            {{ form_widget(form.prix_min) }}#}
-{#                                        </div>#}
-{#                                        <div class="col-sm-6">#}
-{#                                            {{ form_widget(form.prix_max) }}#}
-{#                                        </div>#}
+                                    {#                                    <div class="form-group row">#}
+                                    {#                                        <div class="col-sm-6">#}
+                                    {#                                            {{ form_widget(form.prix_min) }}#}
+                                    {#                                        </div>#}
+                                    {#                                        <div class="col-sm-6">#}
+                                    {#                                            {{ form_widget(form.prix_max) }}#}
+                                    {#                                        </div>#}
 
-{#                                    </div>#}
+                                    {#                                    </div>#}
 
 
 
@@ -633,155 +691,159 @@
                                     {# </div> #}
 
 
-                                <div class="products__filter__footer">
-                                    <div class="form-group mb-0">
-                                        <button type="submit" class="btn btn-primary text-capitalize btn-block"><i
-                                                    class="fa fa-search ml-1"></i> Rechercher
-                                        </button>
+                                    <div class="products__filter__footer">
+                                        <div class="form-group mb-0">
+                                            <button type="submit" class="btn btn-primary text-capitalize btn-block"><i
+                                                        class="fa fa-search ml-1"></i> Rechercher
+                                            </button>
 
+                                        </div>
                                     </div>
                                 </div>
+
                             </div>
+                            {{ form_end(form) }}
+                            <!-- END FORM FILTER -->
+
+
+                            <!-- END FORM FILTER -->
 
                         </div>
-                        {{ form_end(form) }}
-                        <!-- END FORM FILTER -->
-
-
-                        <!-- END FORM FILTER -->
-
                     </div>
                 </div>
-                {# <div class="row"> #}
-                {# <div class="col-lg-12"> #}
-                {# {{ form_start(messagesforn) }} #}
-                {# {{ form_end(messagesforn) }} #}
-                {# </div> #}
-                {# </div> #}
+                    {# <div class="row"> #}
+                    {# <div class="col-lg-12"> #}
+                    {# {{ form_start(messagesforn) }} #}
+                    {# {{ form_end(messagesforn) }} #}
+                    {# </div> #}
+                    {# </div> #}
 
-                <!-- SIMILIAR PROPERTY -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="similiar__item">
-                            <h6 class="text-capitalize detail-heading">
-                                Biens similares
-                            </h6>
-                            <div class="similiar__property-carousel owl-carousel owl-theme">
-                                {% for bien in bienssimilaires %}
+                    <!-- SIMILIAR PROPERTY -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="similiar__item">
+                                <h6 class="text-capitalize detail-heading">
+                                    Biens similares
+                                </h6>
+                                <div class="similiar__property-carousel owl-carousel owl-theme">
+                                    {% for bien in bienssimilaires %}
 
-                                    <div class="item">
-                                        <!-- ONE -->
-                                        <div class="card__image card__box">
-                                            <div class="card__image-header h-250">
-                                                <div class="ribbon text-uppercase">A la Une</div>
-                                                {% for img in bien.proprietesImages %}
-                                                    {% if loop.first %}
-                                                        <img src="{{ asset('images/immobiliers/') }}{{ img.name }}"
-                                                             alt=""
-                                                             class="img-fluid w100 img-transition">
-                                                    {% endif %}
+                                        <div class="item">
+                                            <!-- ONE -->
+                                            <div class="card__image card__box">
+                                                <div class="card__image-header h-250">
+                                                    <div class="ribbon text-uppercase">A la Une</div>
+                                                    {% for img in bien.proprietesImages %}
+                                                        {% if loop.first %}
 
-                                                {% endfor %}
+                                                            <img src="{{ asset('images/immobiliers/') }}{{ img.name }}"
+                                                                 alt=""
+                                                                 class="img-fluid w100 img-transition">
 
-                                                <div class="info"> {{ bien.typeOptions.contratypes.libelle }}</div>
-                                            </div>
-                                            <div class="card__image-body">
+                                                        {% endif %}
+
+                                                    {% endfor %}
+
+                                                    <div class="info"> {{ bien.typeOptions.contratypes.libelle }}</div>
+                                                </div>
+                                                <div class="card__image-body">
                                     <span class="badge badge-primary text-capitalize mb-2">
                                         {{ bien.proprieteOptions.proprietes.libelle }}
 
                                     </span>
-                                                <h6 class="text-capitalize">
-                                                    <a href="{{ path('proprietes_show',{'id': bien.id}) }}">
-                                                        {{ bien.libelle }}
-                                                    </a>
+                                                    <h6 class="text-capitalize">
+                                                        <a href="{{ path('proprietes_show',{'contrattype': bien.typeOptions.contratypes.slug,'proprietetype':bien.proprieteOptions.proprietes.Slug,'id': bien.id}) }}">
+                                                            {{ bien.libelle }}
+                                                        </a>
 
-                                                </h6>
+                                                    </h6>
 
-                                                <p class="text-capitalize">
-                                                    <i class="fa fa-map-marker"></i>
-                                                    {# {{ bien.quartier }}, #}
-                                                    {{ bien.adresse }}
-                                                </p>
-                                                <ul class="list-inline card__content">
-                                                    {{ bien.proprieteOptions.nbreEtage }}#}
-                                                    {% if bien.proprieteOptions.nbreDouche %}
-                                                        <li class="list-inline-item">
+                                                    <p class="text-capitalize">
+                                                        <i class="fa fa-map-marker"></i>
+                                                        {# {{ bien.quartier }}, #}
+                                                        {{ bien.quartier ? bien.quartier.LibQuart: '' }},
+                                                        {{ bien.adresse }}
+                                                    </p>
+                                                    <ul class="list-inline card__content">
+                                                        {{ bien.proprieteOptions.nbreEtage }}#}
+                                                        {% if bien.proprieteOptions.nbreDouche %}
+                                                            <li class="list-inline-item">
                                             <span>
                                                 Douche <br>
                                                 <i class="fa fa-bath"></i> {{ bien.proprieteOptions.nbreDouche }}
                                             </span>
-                                                        </li>
-                                                    {% endif %}
-                                                    {% if bien.proprieteOptions.nbreChambre %}
-                                                        <li class="list-inline-item">
+                                                            </li>
+                                                        {% endif %}
+                                                        {% if bien.proprieteOptions.nbreChambre %}
+                                                            <li class="list-inline-item">
                                             <span>
                                                 Chambres <br>
                                                 <i class="fa fa-bed"></i> {{ bien.proprieteOptions.nbreChambre }}
                                             </span>
-                                                        </li>
-                                                    {% endif %}
-                                                    {% if bien.proprieteOptions.nbreSalon %}
-                                                        <li class="list-inline-item">
+                                                            </li>
+                                                        {% endif %}
+                                                        {% if bien.proprieteOptions.nbreSalon %}
+                                                            <li class="list-inline-item">
                                             <span>
                                                 Salon <br>
                                                 <i class="fa fa-inbox"></i> {{ bien.proprieteOptions.nbreSalon }}
                                             </span>
-                                                        </li>
-                                                    {% endif %}
-                                                    {% if bien.proprieteOptions.superfice %}
-                                                        <li class="list-inline-item">
+                                                            </li>
+                                                        {% endif %}
+                                                        {% if bien.proprieteOptions.superfice %}
+                                                            <li class="list-inline-item">
                                             <span>
                                                 superifice <br>
                                                 <i class="fa fa-map"></i> {{ bien.proprieteOptions.superfice }}
                                             </span>
+                                                            </li>
+                                                        {% endif %}
+
+                                                        {# <li class="list-inline-item"> #}
+                                                        {# <span> #}
+                                                        {# beds <br> #}
+                                                        {# <i class="fa fa-bed"></i> 3 #}
+                                                        {# </span> #}
+                                                        {# </li> #}
+                                                        {# <li class="list-inline-item"> #}
+                                                        {# <span> #}
+                                                        {# rooms <br> #}
+                                                        {# <i class="fa fa-inbox"></i> 3 #}
+                                                        {# </span> #}
+                                                        {# </li> #}
+                                                        {# <li class="list-inline-item"> #}
+                                                        {# <span> #}
+                                                        {# area <br> #}
+                                                        {# <i class="fa fa-map"></i> 4300 sq ft #}
+                                                        {# </span> #}
+                                                        {# </li> #}
+                                                    </ul>
+                                                </div>
+                                                <div class="card__image-footer">
+
+                                                    <ul class="list-inline my-auto ml-auto">
+                                                        <li class="list-inline-item ">
+
+
+                                                            <h6>  {{ bien.typeOptions.montant ?  (bien.typeOptions.montant|number_format(0, ' ', ' ')) ~' Cfa': '' }}
+                                                                {{ bien.typeOptions.loyer ? (bien.typeOptions.loyer|number_format(0, ' ', ' '))~' Cfa/mois' : '' }}
+                                                            </h6>
                                                         </li>
-                                                    {% endif %}
 
-                                                    {# <li class="list-inline-item"> #}
-                                                    {# <span> #}
-                                                    {# beds <br> #}
-                                                    {# <i class="fa fa-bed"></i> 3 #}
-                                                    {# </span> #}
-                                                    {# </li> #}
-                                                    {# <li class="list-inline-item"> #}
-                                                    {# <span> #}
-                                                    {# rooms <br> #}
-                                                    {# <i class="fa fa-inbox"></i> 3 #}
-                                                    {# </span> #}
-                                                    {# </li> #}
-                                                    {# <li class="list-inline-item"> #}
-                                                    {# <span> #}
-                                                    {# area <br> #}
-                                                    {# <i class="fa fa-map"></i> 4300 sq ft #}
-                                                    {# </span> #}
-                                                    {# </li> #}
-                                                </ul>
-                                            </div>
-                                            <div class="card__image-footer">
-
-                                                <ul class="list-inline my-auto ml-auto">
-                                                    <li class="list-inline-item ">
-
-
-                                                        <h6>  {{ bien.typeOptions.montant ?  (bien.typeOptions.montant|number_format(0, ' ', ' ')) ~' Cfa': '' }}
-                                                            {{ bien.typeOptions.loyer ? (bien.typeOptions.loyer|number_format(0, ' ', ' '))~' Cfa/mois' : '' }}
-                                                        </h6>
-                                                    </li>
-
-                                                </ul>
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    </a>
-                                {% endfor %}
+                                        </a>
+                                    {% endfor %}
 
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <!-- END SIMILIAR PROPERTY -->
                 </div>
-                <!-- END SIMILIAR PROPERTY -->
             </div>
-        </div>
     </section>
     <!-- END SINGLE DETAIL -->
 {% endblock %}
@@ -789,12 +851,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.0/nouislider.min.js"
             integrity="sha512-Bqlq3MLgvOWTzDmCDFKjX+ajhLgi/D8/TQwlbJaNea1mUcX7T3e3OgrRkWtvgpbSDaHgUCC4BqRSLNvPJhOskw=="
             crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
     <script>
 
         $(".price-ranges").ionRangeSlider({
             skin: "big",
             type: "double",
-            grid: !0,
+            grid: false,
             min: 0,
             max: 1e4,
             from: 1300,
@@ -916,3 +980,4 @@
     {# <script src="{{ asset('FrontEnd/house/js/select-lies.js')}}"></script> #}
 
 {% endblock %}
+

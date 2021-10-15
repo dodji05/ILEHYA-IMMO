@@ -39,6 +39,33 @@
  {% endblock %}
 
 {% block javascripts %}
+    <script src="{{ asset('BackEnd/assets/js/pages/bootstrap-datetimepicker.js')}}"></script>
+    <script>
+        jQuery(document).ready(function() {
+            var $wrapper = $('.js-genus-scientist-wrapper');
+            $wrapper.on('click', '.js-remove-scientist', function(e) {
+                e.preventDefault();
+                $(this).closest('.js-genus-scientist-item')
+                    .fadeOut()
+                    .remove();
+            });
+            $wrapper.on('click', '.js-genus-scientist-add', function(e) {
+                e.preventDefault();
+                // Get the data-prototype explained earlier
+                var prototype = $wrapper.data('prototype');
+                // get the new index
+                var index = $wrapper.data('index');
+                // Replace '__name__' in the prototype's HTML to
+                // instead be a number based on how many items we have
+                var newForm = prototype.replace(/__name__/g, index);
+                // increase the index with one for the next item
+                $wrapper.data('index', index + 1);
+                // Display the form in the page before the "new" link
+                $(this).before(newForm);
+            });
+        });
+    </script>
+
     <script>
         jQuery(document).ready(function () {
             $('.location').hide()
@@ -121,117 +148,22 @@
             }
 
         })
-        $('.add-another-collection-widget').click(function (e) {
-            var list = $($(this).attr('data-list-selector'));
-            // Try to find the counter of the list or use the length of the list
-            var counter = list.data('widget-counter') | list.children().length;
+        var $addTagLink = $('.add-another-collection-widget');
 
-            // grab the prototype template
-            var newWidget = list.attr('data-prototype');
-            // replace the "__name__" used in the id and name of the prototype
-            // with a number that's unique to your emails
-            // end name attribute looks like name="contact[emails][2]"
-            newWidget = newWidget.replace(/__name__/g, counter);
-            // Increase the counter
-            counter++;
-            // And store it, the length cannot be used if deleting widgets is allowed
-            list.data('widget-counter', counter);
 
-            // create a new list element and add it to the list
-            var newElem = $(list.attr('data-widget-tags')).html(newWidget);
-            newElem.appendTo(list);
-        });
+        // $('#proprietes_ProprieteOptions_Annedeconstruction').datepicker({
+        //     rtl: KTUtil.isRTL(),
+        //     todayHighlight: true,
+        //     orientation: "bottom left",
+        //     format: 'yyyy-mm-dd',
+        //
+        // });
+
+
+
 
 
     </script>
 
-    <script>
 
-
-        class LinkedSelect {
-
-            /**
-             * @param {HTMLSelectElement} $select
-             */
-            constructor ($select) {
-                this.$select = $select
-                this.$target = document.querySelector(this.$select.dataset.target)
-                this.$placeholder = this.$target.firstElementChild
-              //  this.onChange = debounce(this.onChange.bind(this), 500)
-               this.onChange = this.onChange.bind(this)
-                this.$loader = null
-                this.cache = {}
-                this.$select.addEventListener('change', this.onChange)
-
-            }
-            /**
-             * Se déclenche au changement de valeur d'un select
-             * @param {Event} e
-             */
-            onChange (e) {
-                if (e.target.value === '0') {
-
-                    return
-                }
-
-                this.loadOptions(e.target.value, (options) => {
-                    this.$target.innerHTML = options
-                    this.$target.insertBefore(this.$placeholder, this.$target.firstChild)
-                    this.$target.selectedIndex = 0
-                    this.$target.style.display = null
-
-                })
-            }
-
-            /**
-             * Charge les options à partir du serveur (ou du cache)
-             * @param {string} id
-             * @param callback
-             */
-            loadOptions (id, callback) {
-                if (this.cache[id]) {
-                    callback(this.cache[id])
-                    return
-                }
-                this.showLoader()
-                let request = new XMLHttpRequest()
-                request.open('GET', this.$select.dataset.source.replace('id', id), true)
-                request.onload = () => {
-                    if (request.status >= 200 && request.status < 400) {
-                        let data = JSON.parse(request.responseText)
-                        let options = data.reduce(function (acc, option) {
-                            return acc + '<option value="' + option.value + '">' + option.label + '</option>'
-                        }, '')
-                        this.cache[id] = options
-                        this.hideLoader()
-                        callback(options)
-                    } else {
-                        alert('Impossible de charger la liste')
-                    }
-                }
-                request.onerror = function () {
-                    alert('Impossible de charger la liste')
-                }
-                request.send()
-            }
-
-            showLoader () {
-                this.$loader = document.createTextNode('Chargement...')
-                this.$target.parentNode.appendChild(this.$loader)
-            }
-            hideLoader () {
-                if (this.$loader !== null) {
-                    this.$loader.parentNode.removeChild(this.$loader)
-                    this.$loader = null
-                }
-            }
-
-        }
-
-
-        let $selects = document.querySelectorAll('.linked-select')
-        $selects.forEach(function ($select) {
-            new LinkedSelect($select)
-        })
-    </script>
 {% endblock %}

@@ -47,4 +47,18 @@ class QuartierRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function quartiersearch(){
+        return $this->createQueryBuilder('q')
+            ->select('q.lib_quart','q.id','ar.lib_arrond','com.lib_com','dep.lib_dep')
+            ->leftJoin("q.arrondissement","ar")
+            ->leftJoin('ar.Commune','com')
+            ->leftJoin('com.departement','dep')
+            ->orderBy('q.lib_quart', 'ASC')
+            ->getQuery()
+            ->getResult()
+
+            ;
+
+}
 }

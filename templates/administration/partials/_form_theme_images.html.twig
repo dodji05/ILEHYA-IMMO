@@ -1,11 +1,21 @@
 {% block _proprietes_proprietesImages_widget %}
     <ul id="product-images-fields-list"
-        data-prototype="{{ form_widget(prototype)|e }}"
+
+
+        data-prototype="{{   form_widget(form.proprietesImages.vars.prototype|e('html_attr')) }}"
+      {#  data-prototype="{{ form_widget(prototype)|e }}"#}
         data-widget-tags="{{ '<li></li>'|e }}"
         data-widget-counter="{{ value|length }}"
     >
         {% for key,productImageForm in form.children %}
-            {{ form_widget(productImageForm) }}
+            <div class="col-md-9">
+                {{ form_widget(productImageForm)|raw }}
+                <button type="button" class="collection-remove btn btn-default" title="Delete fruit"><span class="glyphicon glyphicon-trash"></span></button>
+                <button type="button"  class="collection-add btn btn-default" title="Add fruit"  data-list-selector="#product-images-fields-list"><span class="glyphicon glyphicon-plus-sign"></span></button>
+
+            </div>
+            <div class="col-md-3">
+                </div>
 
         {% endfor %}
     </ul>

@@ -8240,7 +8240,7 @@
         };
         (function () {
             return !!r("transition")
-        })() && (t.support.transition = new String(o("transition")), t.support.transition.end = l.transition.end[t.support.transition]), h() && (t.support.animation = new String(o("animation")), t.support.animation.end = l.animation.end[t.support.animation]), c() && (t.support.transform = new String(o("transform")), t.support.transform3d = u())
+        })() && (t.support.transition = String(o("transition")), t.support.transition.end = l.transition.end[t.support.transition]), h() && (t.support.animation = String(o("animation")), t.support.animation.end = l.animation.end[t.support.animation]), c() && (t.support.transform = String(o("transform")), t.support.transform3d = u())
     }(window.Zepto || window.jQuery, window, document)
 }, function (t, e) {
     !function (t) {
@@ -15314,14 +15314,14 @@
             $(this).scrollTop() > 80 ? $(".navbar-soft").addClass("fixed-top") : $(".navbar-soft").removeClass("fixed-top")
         })),
             $(".price-range").ionRangeSlider({
-            skin: "big",
+            // skin: "big",
             type: "double",
-            grid: !0,
-            min: 0,
-            max: 1e4,
-            from: 1300,
-            to: 7600,
-            prefix: "$"
+            grid: false,
+            min: 25000,
+            max: 450000,
+            from: 100000,
+            to: 250000,
+            postfix: " Cfa"
         }),
         $(".count").length && $(window).on("scroll.myCount", (function () {
             var t = .7 * $(window).height(), e = $(".count").offset().top - t;

@@ -16,18 +16,16 @@
 
     <link rel="stylesheet" type="text/css" href="{{ asset('themes/assets/vendors/font-icomoon/style.css') }}">
 
-    {#    <link rel="stylesheet" type="text/css" href="{{ asset('themes/assets/vendors/font-awesome/css/font-awesome.min.css') }}">#}
-    {#    <link rel="stylesheet" type="text/css" href="{{ asset('themes/assets/components/core/common/core.cleanui.css') }}">#}
-    {#    <link rel="stylesheet" type="text/css" href="{{ asset('themes/assets/components/core/widgets/widgets.cleanui.css') }}">#}
-    <link rel="stylesheet" type="text/css"
-          href="{{ asset('themes/assets/components/vendors/bootstrap/css/tabs.css') }}">
+{#    <link rel="stylesheet" type="text/css" href="{{ asset('themes/assets/vendors/font-awesome/css/font-awesome.min.css') }}">#}
+{#    <link rel="stylesheet" type="text/css" href="{{ asset('themes/assets/components/core/common/core.cleanui.css') }}">#}
+{#    <link rel="stylesheet" type="text/css" href="{{ asset('themes/assets/components/core/widgets/widgets.cleanui.css') }}">#}
+    <link rel="stylesheet" type="text/css" href="{{ asset('themes/assets/components/vendors/bootstrap/css/tabs.css') }}">
 
 
     <!-- Plugins CSS -->
     <link rel="stylesheet" href="{{ asset('FrontEnd/assets/css/plugins.css') }}">
 
-    <link rel="stylesheet" type="text/css"
-          href="{{ asset('themes/assets/components/vendors/bootstrap/css/card.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('themes/assets/components/vendors/bootstrap/css/card.css') }}">
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="{{ asset('FrontEnd/assets/css/style.css') }}">
 
@@ -39,14 +37,14 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-6">
                     <div class="header-top-info">
-                        <p class="text-black">Contact - <a href="tel:21548987658">229 ** ** **</a></p>
+                        <p class="text-black">Contact -  <a href="tel:21548987658">229 ** ** **</a></p>
                     </div>
                 </div>
 
                 <div class="col-lg-6 col-md-6">
                     <div class="header-buttons">
                         <a class="header-btn btn" href="#">Ajouter un bien</a>
-                        <a class="header-btn btn-border" href="#">S'enregister</a>
+                        <a class="header-btn btn-border" href="#" >S'enregister</a>
                         <a class="header-btn text-black" href="#">Se connecter</a>
                     </div>
                 </div>
@@ -117,25 +115,15 @@
                                 <p class="card-text"> {{ topBien.description }}</p>
                             </div>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item"> Statuts: &nbsp; &nbsp;&nbsp; <span
-                                            class="label_caption">{{ topBien.typeOptions.contratypes.libelle }} </span>
-                                </li>
-                                <li class="list-group-item"> Categorie:&nbsp; &nbsp;&nbsp;<span
-                                            class="label_caption">{{ topBien.proprieteOptions.proprietes.libelle }}</span>
-                                </li>
-                                <li class="list-group-item"> Adresse:&nbsp; &nbsp;&nbsp;<span
-                                            class="label_caption">{{ topBien.adresse }}</span></li>
+                                <li class="list-group-item"> Statuts: &nbsp; &nbsp;&nbsp; <span class="label_caption">{{ topBien.typeOptions.contratypes.libelle }} </span> </li>
+                                <li class="list-group-item"> Categorie:&nbsp; &nbsp;&nbsp;<span class="label_caption">{{ topBien.proprieteOptions.proprietes.libelle}}</span></li>
+                                <li class="list-group-item"> Adresse:&nbsp; &nbsp;&nbsp;<span class="label_caption">{{ topBien.adresse}}</span></li>
                                 {% if topBien.typeOptions.contratypes.id == 2 %}
-                                    <li class="list-group-item"> Loyer :&nbsp; &nbsp;&nbsp;<span
-                                                class="label_caption"> {{ topBien.typeOptions.loyer }} Fcfa</span></li>
-                                    <li class="list-group-item"> Avance :&nbsp; &nbsp;&nbsp;<span
-                                                class="label_caption"> {{ topBien.typeOptions.avance }} Fcfa</span></li>
+                                    <li class="list-group-item"> Loyer :&nbsp; &nbsp;&nbsp;<span class="label_caption"> {{ topBien.typeOptions.loyer}} Fcfa</span></li>
+                                    <li class="list-group-item"> Avance :&nbsp; &nbsp;&nbsp;<span class="label_caption"> {{ topBien.typeOptions.avance}} Fcfa</span></li>
                                 {% elseif topBien.typeOptions.contratypes.id == 1 %}
-                                    <li class="list-group-item"> Prix de vente: &nbsp; &nbsp;&nbsp;<span
-                                                class="label_caption">{{ topBien.typeOptions.montant }} Fcfa</span></li>
-                                    <li class="list-group-item"> Nombre de
-                                        chambre: {{ topBien.proprieteOptions.nbreChambre }} | Nombre de
-                                        salon: {{ topBien.proprieteOptions.nbreSalon }} </li>
+                                    <li class="list-group-item"> Prix de vente: &nbsp; &nbsp;&nbsp;<span class="label_caption">{{ topBien.typeOptions.montant}} Fcfa</span></li>
+                                    <li class="list-group-item"> Nombre de chambre: {{ topBien.proprieteOptions.nbreChambre}} | Nombre de salon: {{ topBien.proprieteOptions.nbreSalon}} </li>
                                 {% endif %}
                             </ul>
                             {#                             <div class="card-footer">#}
@@ -168,154 +156,154 @@
                     </div><!-- single-property End -->
                 </div>
 
-                {#                <div class="col-lg-3 col-md-6 col-12">#}
-                {#                    <!-- single-property Start -->#}
-                {#                    <div class="single-property mt-30">#}
-                {#                        <div class="property-img">#}
-                {#                            <a href="properties-details.html">#}
-                {#                                <img src="assets/images/propertes/02.jpg" alt="">#}
-                {#                            </a>#}
-                {#                        </div>#}
-                {#                        <div class="property-desc">#}
-                {#                            <h4><a href="properties-details.html">Rose de Alfanez</a></h4>#}
-                {#                            <p>#}
-                {#                                <span class="location">132 Future Street, Boston, USA</span>#}
-                {#                                <span class="property-info">1600 Sqft, 4 Bed, 2 Bath, 2 Garage </span>#}
-                {#                            </p>#}
-                {#                            <div class="price-box">#}
-                {#                                <p>Price $ 1,59,000</p>#}
-                {#                            </div>#}
-                {#                        </div>#}
-                {#                    </div><!-- single-property End -->#}
-                {#                </div>#}
+{#                <div class="col-lg-3 col-md-6 col-12">#}
+{#                    <!-- single-property Start -->#}
+{#                    <div class="single-property mt-30">#}
+{#                        <div class="property-img">#}
+{#                            <a href="properties-details.html">#}
+{#                                <img src="assets/images/propertes/02.jpg" alt="">#}
+{#                            </a>#}
+{#                        </div>#}
+{#                        <div class="property-desc">#}
+{#                            <h4><a href="properties-details.html">Rose de Alfanez</a></h4>#}
+{#                            <p>#}
+{#                                <span class="location">132 Future Street, Boston, USA</span>#}
+{#                                <span class="property-info">1600 Sqft, 4 Bed, 2 Bath, 2 Garage </span>#}
+{#                            </p>#}
+{#                            <div class="price-box">#}
+{#                                <p>Price $ 1,59,000</p>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><!-- single-property End -->#}
+{#                </div>#}
 
-                {#                <div class="col-lg-3 col-md-6 col-12">#}
-                {#                    <!-- single-property Start -->#}
-                {#                    <div class="single-property mt-30">#}
-                {#                        <div class="property-img">#}
-                {#                            <a href="properties-details.html">#}
-                {#                                <img src="assets/images/propertes/03.jpg" alt="">#}
-                {#                            </a>#}
-                {#                            <span class="level-stryker-2">FOR RENT</span>#}
-                {#                        </div>#}
-                {#                        <div class="property-desc">#}
-                {#                            <h4><a href="properties-details.html">La Casanda Villa</a></h4>#}
-                {#                            <p>#}
-                {#                                <span class="location">1 DE Silicon Tower, Denver</span>#}
-                {#                                <span class="property-info">1800 Sqft, 6 Bed, 4 Bath, 3 Garage </span>#}
-                {#                            </p>#}
-                {#                            <div class="price-box">#}
-                {#                                <p>Price $2,32,000</p>#}
-                {#                            </div>#}
-                {#                        </div>#}
-                {#                    </div><!-- single-property End -->#}
-                {#                </div>#}
+{#                <div class="col-lg-3 col-md-6 col-12">#}
+{#                    <!-- single-property Start -->#}
+{#                    <div class="single-property mt-30">#}
+{#                        <div class="property-img">#}
+{#                            <a href="properties-details.html">#}
+{#                                <img src="assets/images/propertes/03.jpg" alt="">#}
+{#                            </a>#}
+{#                            <span class="level-stryker-2">FOR RENT</span>#}
+{#                        </div>#}
+{#                        <div class="property-desc">#}
+{#                            <h4><a href="properties-details.html">La Casanda Villa</a></h4>#}
+{#                            <p>#}
+{#                                <span class="location">1 DE Silicon Tower, Denver</span>#}
+{#                                <span class="property-info">1800 Sqft, 6 Bed, 4 Bath, 3 Garage </span>#}
+{#                            </p>#}
+{#                            <div class="price-box">#}
+{#                                <p>Price $2,32,000</p>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><!-- single-property End -->#}
+{#                </div>#}
 
-                {#                <div class="col-lg-3 col-md-6 col-12">#}
-                {#                    <!-- single-property Start -->#}
-                {#                    <div class="single-property mt-30">#}
-                {#                        <div class="property-img">#}
-                {#                            <a href="properties-details.html">#}
-                {#                                <img src="assets/images/propertes/04.jpg" alt="">#}
-                {#                            </a>#}
-                {#                        </div>#}
-                {#                        <div class="property-desc">#}
-                {#                            <h4><a href="properties-details.html">Rainforest de Olive</a></h4>#}
-                {#                            <p>#}
-                {#                                <span class="location">22 First street, Chicago, USA</span>#}
-                {#                                <span class="property-info">1200 Sqft, 3 Bed, 2 Bath, 1 Garage </span>#}
-                {#                            </p>#}
-                {#                            <div class="price-box">#}
-                {#                                <p>Rent $32,00/m</p>#}
-                {#                            </div>#}
-                {#                        </div>#}
-                {#                    </div><!-- single-property End -->#}
-                {#                </div>#}
+{#                <div class="col-lg-3 col-md-6 col-12">#}
+{#                    <!-- single-property Start -->#}
+{#                    <div class="single-property mt-30">#}
+{#                        <div class="property-img">#}
+{#                            <a href="properties-details.html">#}
+{#                                <img src="assets/images/propertes/04.jpg" alt="">#}
+{#                            </a>#}
+{#                        </div>#}
+{#                        <div class="property-desc">#}
+{#                            <h4><a href="properties-details.html">Rainforest de Olive</a></h4>#}
+{#                            <p>#}
+{#                                <span class="location">22 First street, Chicago, USA</span>#}
+{#                                <span class="property-info">1200 Sqft, 3 Bed, 2 Bath, 1 Garage </span>#}
+{#                            </p>#}
+{#                            <div class="price-box">#}
+{#                                <p>Rent $32,00/m</p>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><!-- single-property End -->#}
+{#                </div>#}
 
-                {#                <div class="col-lg-3 col-md-6 col-12">#}
-                {#                    <!-- single-property Start -->#}
-                {#                    <div class="single-property mt-30">#}
-                {#                        <div class="property-img">#}
-                {#                            <a href="properties-details.html">#}
-                {#                                <img src="assets/images/propertes/05.jpg" alt="">#}
-                {#                            </a>#}
-                {#                        </div>#}
-                {#                        <div class="property-desc">#}
-                {#                            <h4><a href="properties-details.html">Mariyasa de Casel </a></h4>#}
-                {#                            <p>#}
-                {#                                <span class="location">22 First street, Chicago, USA</span>#}
-                {#                                <span class="property-info">1200 Sqft, 3 Bed, 2 Bath, 1 Garage </span>#}
-                {#                            </p>#}
-                {#                            <div class="price-box">#}
-                {#                                <p>Price $ 1,59,000</p>#}
-                {#                            </div>#}
-                {#                        </div>#}
-                {#                    </div><!-- single-property End -->#}
-                {#                </div>#}
+{#                <div class="col-lg-3 col-md-6 col-12">#}
+{#                    <!-- single-property Start -->#}
+{#                    <div class="single-property mt-30">#}
+{#                        <div class="property-img">#}
+{#                            <a href="properties-details.html">#}
+{#                                <img src="assets/images/propertes/05.jpg" alt="">#}
+{#                            </a>#}
+{#                        </div>#}
+{#                        <div class="property-desc">#}
+{#                            <h4><a href="properties-details.html">Mariyasa de Casel </a></h4>#}
+{#                            <p>#}
+{#                                <span class="location">22 First street, Chicago, USA</span>#}
+{#                                <span class="property-info">1200 Sqft, 3 Bed, 2 Bath, 1 Garage </span>#}
+{#                            </p>#}
+{#                            <div class="price-box">#}
+{#                                <p>Price $ 1,59,000</p>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><!-- single-property End -->#}
+{#                </div>#}
 
-                {#                <div class="col-lg-3 col-md-6 col-12">#}
-                {#                    <!-- single-property Start -->#}
-                {#                    <div class="single-property mt-30">#}
-                {#                        <div class="property-img">#}
-                {#                            <a href="properties-details.html">#}
-                {#                                <img src="assets/images/propertes/06.jpg" alt="">#}
-                {#                            </a>#}
-                {#                            <span class="level-stryker-2">FOR RENT</span>#}
-                {#                        </div>#}
-                {#                        <div class="property-desc">#}
-                {#                            <h4><a href="properties-details.html">Rose de Alfanez</a></h4>#}
-                {#                            <p>#}
-                {#                                <span class="location">132 Future Street, Boston, USA</span>#}
-                {#                                <span class="property-info">1600 Sqft, 4 Bed, 2 Bath, 2 Garage </span>#}
-                {#                            </p>#}
-                {#                            <div class="price-box">#}
-                {#                                <p>Price $ 1,59,000</p>#}
-                {#                            </div>#}
-                {#                        </div>#}
-                {#                    </div><!-- single-property End -->#}
-                {#                </div>#}
+{#                <div class="col-lg-3 col-md-6 col-12">#}
+{#                    <!-- single-property Start -->#}
+{#                    <div class="single-property mt-30">#}
+{#                        <div class="property-img">#}
+{#                            <a href="properties-details.html">#}
+{#                                <img src="assets/images/propertes/06.jpg" alt="">#}
+{#                            </a>#}
+{#                            <span class="level-stryker-2">FOR RENT</span>#}
+{#                        </div>#}
+{#                        <div class="property-desc">#}
+{#                            <h4><a href="properties-details.html">Rose de Alfanez</a></h4>#}
+{#                            <p>#}
+{#                                <span class="location">132 Future Street, Boston, USA</span>#}
+{#                                <span class="property-info">1600 Sqft, 4 Bed, 2 Bath, 2 Garage </span>#}
+{#                            </p>#}
+{#                            <div class="price-box">#}
+{#                                <p>Price $ 1,59,000</p>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><!-- single-property End -->#}
+{#                </div>#}
 
-                {#                <div class="col-lg-3 col-md-6 col-12">#}
-                {#                    <!-- single-property Start -->#}
-                {#                    <div class="single-property mt-30">#}
-                {#                        <div class="property-img">#}
-                {#                            <a href="properties-details.html">#}
-                {#                                <img src="assets/images/propertes/07.jpg" alt="">#}
-                {#                            </a>#}
-                {#                        </div>#}
-                {#                        <div class="property-desc">#}
-                {#                            <h4><a href="properties-details.html">La Casanda Villa</a></h4>#}
-                {#                            <p>#}
-                {#                                <span class="location">1 DE Silicon Tower, Denver</span>#}
-                {#                                <span class="property-info">1800 Sqft, 6 Bed, 4 Bath, 3 Garage </span>#}
-                {#                            </p>#}
-                {#                            <div class="price-box">#}
-                {#                                <p>Price $2,32,000</p>#}
-                {#                            </div>#}
-                {#                        </div>#}
-                {#                    </div><!-- single-property End -->#}
-                {#                </div>#}
+{#                <div class="col-lg-3 col-md-6 col-12">#}
+{#                    <!-- single-property Start -->#}
+{#                    <div class="single-property mt-30">#}
+{#                        <div class="property-img">#}
+{#                            <a href="properties-details.html">#}
+{#                                <img src="assets/images/propertes/07.jpg" alt="">#}
+{#                            </a>#}
+{#                        </div>#}
+{#                        <div class="property-desc">#}
+{#                            <h4><a href="properties-details.html">La Casanda Villa</a></h4>#}
+{#                            <p>#}
+{#                                <span class="location">1 DE Silicon Tower, Denver</span>#}
+{#                                <span class="property-info">1800 Sqft, 6 Bed, 4 Bath, 3 Garage </span>#}
+{#                            </p>#}
+{#                            <div class="price-box">#}
+{#                                <p>Price $2,32,000</p>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><!-- single-property End -->#}
+{#                </div>#}
 
-                {#                <div class="col-lg-3 col-md-6 col-12">#}
-                {#                    <!-- single-property Start -->#}
-                {#                    <div class="single-property mt-30">#}
-                {#                        <div class="property-img">#}
-                {#                            <a href="properties-details.html">#}
-                {#                                <img src="assets/images/propertes/08.jpg" alt="">#}
-                {#                            </a>#}
-                {#                        </div>#}
-                {#                        <div class="property-desc">#}
-                {#                            <h4><a href="properties-details.html">Rainforest de Olive</a></h4>#}
-                {#                            <p>#}
-                {#                                <span class="location">22 First street, Chicago, USA</span>#}
-                {#                                <span class="property-info">1200 Sqft, 3 Bed, 2 Bath, 1 Garage </span>#}
-                {#                            </p>#}
-                {#                            <div class="price-box">#}
-                {#                                <p>Rent $32,00/m</p>#}
-                {#                            </div>#}
-                {#                        </div>#}
-                {#                    </div><!-- single-property End -->#}
-                {#                </div>#}
+{#                <div class="col-lg-3 col-md-6 col-12">#}
+{#                    <!-- single-property Start -->#}
+{#                    <div class="single-property mt-30">#}
+{#                        <div class="property-img">#}
+{#                            <a href="properties-details.html">#}
+{#                                <img src="assets/images/propertes/08.jpg" alt="">#}
+{#                            </a>#}
+{#                        </div>#}
+{#                        <div class="property-desc">#}
+{#                            <h4><a href="properties-details.html">Rainforest de Olive</a></h4>#}
+{#                            <p>#}
+{#                                <span class="location">22 First street, Chicago, USA</span>#}
+{#                                <span class="property-info">1200 Sqft, 3 Bed, 2 Bath, 1 Garage </span>#}
+{#                            </p>#}
+{#                            <div class="price-box">#}
+{#                                <p>Rent $32,00/m</p>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><!-- single-property End -->#}
+{#                </div>#}
 
             </div>
 
@@ -335,30 +323,26 @@
             <div class="nav-tabs-horizontal">
                 <ul class="nav nav-tabs mb-4" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" href="javascript: void(0);" data-toggle="tab" data-target="#home2"
-                           role="tab">
+                        <a class="nav-link active" href="javascript: void(0);" data-toggle="tab" data-target="#home2" role="tab">
                             <i class="icmn-home"></i>
-                            A vendre
+                           A vendre
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript: void(0);" data-toggle="tab" data-target="#profile2"
-                           role="tab">
+                        <a class="nav-link" href="javascript: void(0);" data-toggle="tab" data-target="#profile2" role="tab">
                             <i class="icmn-users"></i>
                             A louer
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript: void(0);" data-toggle="tab" data-target="#messages2"
-                           role="tab">
+                        <a class="nav-link" href="javascript: void(0);" data-toggle="tab" data-target="#messages2" role="tab">
                             <i class="icmn-database"></i>
                             Terrain à vendre
                         </a>
 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript: void(0);" data-toggle="tab" data-target="#settings2"
-                           role="tab">
+                        <a class="nav-link" href="javascript: void(0);" data-toggle="tab" data-target="#settings2" role="tab">
                             <i class="icmn-cog"></i>
                         </a>
                     </li>

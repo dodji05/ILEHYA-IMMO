@@ -4,13 +4,33 @@
 
 @charset "UTF-8";
 
-/*!
+/* 
  * animate.css -https://daneden.github.io/animate.css/
  * Version - 3.7.2
  * Licensed under the MIT license - http://opensource.org/licenses/MIT
  *
  * Copyright (c) 2019 Daniel Eden
  */
+ @font-face {
+     font-family: 'Lato';
+src: url('../font/Lato/Lato-Regular.ttf')format('truetype');
+
+
+ }
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../font/Montserrat/Montserrat-Regular.ttf')format('truetype');
+
+
+}
+@font-face {
+    font-family: 'Montserrat  Italic';
+    src: url('../font/Montserrat/Montserrat-Italic.ttf')format('truetype');
+
+
+}
+
+
 
 @-webkit-keyframes bounce {
     0%, 20%, 53%, 80%, to {
@@ -3485,6 +3505,30 @@
     position: relative;
     z-index: 1
 }
+.bg__overlay-black-1 {
+    /*background-color: #b21f2d;*/
+    height: 150px;
+    top: 70%;
+    position: absolute;
+    width: 1110px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    z-index: 1;
+}
+
+.bg__overlay-black-1::before {
+    background: rgba(0, 16, 34, 0.5);
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 0
+}
 
 .bg__overlay-black::before {
     background: rgba(0, 16, 34, 0.5);
@@ -3576,7 +3620,7 @@ section {
     --breakpoint-md: 768px;
     --breakpoint-lg: 992px;
     --breakpoint-xl: 1200px;
-    --font-family-sans-serif: "Open Sans", sans-serif;
+    --font-family-sans-serif: "Lato", sans-serif;
     --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
 }
 
@@ -3597,7 +3641,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
     margin: 0;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
@@ -9131,7 +9175,7 @@ a.close.disabled {
     z-index: 1070;
     display: block;
     margin: 0;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     font-style: normal;
     font-weight: 400;
     line-height: 1.5;
@@ -9243,7 +9287,7 @@ a.close.disabled {
     z-index: 1060;
     display: block;
     max-width: 276px;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     font-style: normal;
     font-weight: 400;
     line-height: 1.5;
@@ -13227,7 +13271,7 @@ a.text-dark:hover, a.text-dark:focus {
     --breakpoint-md: 768px;
     --breakpoint-lg: 992px;
     --breakpoint-xl: 1200px;
-    --font-family-sans-serif: "Open Sans", sans-serif;
+    --font-family-sans-serif: "Lato", sans-serif;
     --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
 }
 
@@ -13248,7 +13292,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
     margin: 0;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
@@ -18773,7 +18817,7 @@ a.close.disabled {
     z-index: 1070;
     display: block;
     margin: 0;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     font-style: normal;
     font-weight: 400;
     line-height: 1.5;
@@ -18885,7 +18929,7 @@ a.close.disabled {
     z-index: 1060;
     display: block;
     max-width: 276px;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     font-style: normal;
     font-weight: 400;
     line-height: 1.5;
@@ -24177,14 +24221,14 @@ h6 {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Open Sans", serif;
+    font-family: "Lato", serif;
     font-weight: 700;
     color: #002247
 }
 
 p {
     font-size: 14px;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     font-weight: 500;
     color: #495057;
     line-height: 1.5
@@ -24227,7 +24271,7 @@ p.has-drop-cap-fluid::first-letter {
 
 .btn {
     font-size: 13px;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     font-weight: 600
 }
 
@@ -24824,7 +24868,8 @@ input[type="number"] {
 
 .title__head {
     position: relative;
-    margin-bottom: 40px
+    margin-bottom: 40px;
+    
 }
 
 @media screen and (min-width: 320px) and (max-width: 575px) {
@@ -24840,7 +24885,7 @@ input[type="number"] {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    font-family: "Open Sans", serif;
+    font-family: "Montserrat", serif;
     margin-bottom: 15px
 }
 
@@ -24918,7 +24963,8 @@ input[type="number"] {
 }
 
 .products__filter .products__filter__group .products__filter__header {
-    padding: 2rem 1rem;
+    /*padding: 2rem 1rem;*/
+    padding: 12px 12px;
     margin-bottom: 0;
     display: block
 }
@@ -24930,7 +24976,7 @@ input[type="number"] {
     font-weight: 600;
     margin-bottom: 0;
     line-height: 24px;
-    font-family: "Open Sans", serif
+    font-family: "Lato", serif
 }
 
 .products__filter .products__filter__group:last-child {
@@ -24949,7 +24995,7 @@ input[type="number"] {
 }
 
 .products__filter .products__filter__group .products__filter__body .form-group label {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     font-weight: 500;
     font-size: 14px
 }
@@ -24959,7 +25005,7 @@ input[type="number"] {
 }
 
 .products__filter .products__filter__group .products__filter__body .form-group .nice-select span {
-    font-family: "Open Sans", sans-serif
+    font-family: "Lato", sans-serif
 }
 
 @media screen and (min-width: 320px) and (max-width: 575px) {
@@ -25009,7 +25055,7 @@ input[type="number"] {
 }
 
 .products__filter .products__filter__group .products__filter__body .form-group a {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     font-size: 15px;
     font-weight: 500
 }
@@ -25067,7 +25113,7 @@ input[type="number"] {
 }
 
 .nice-select .option {
-    font-family: "Open Sans", sans-serif
+    font-family: "Lato", sans-serif
 }
 
 .nice-select::after {
@@ -25105,25 +25151,27 @@ input[type="number"] {
 }
 
 .space-area {
-    padding-top: 160px
+    /*padding-top: 160px*/
+    padding-top: 70px
 }
 
 @media screen and (min-width: 320px) and (max-width: 575px) {
     .space-area {
-        padding-top: 40px
+        padding-top: 25px
     }
 }
 
 @media screen and (min-width: 576px) and (max-width: 768px) {
     .space-area {
-        padding-top: 40px
+        padding-top: 25px
     }
 }
 
 .search__area-1 .search__area-inner {
     box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.12);
     padding: 30px 30px 0;
-    background-color: #fff
+    background-color: #861f1f
+    /*background-color: #ffffff*/
 }
 
 @media screen and (min-width: 320px) and (max-width: 575px) {
@@ -25205,7 +25253,7 @@ input[type="number"] {
 }
 
 .search__area-inner .form-group .nice-select span {
-    font-family: "Open Sans", sans-serif
+    font-family: "Lato", sans-serif
 }
 
 @media screen and (min-width: 320px) and (max-width: 575px) {
@@ -25239,7 +25287,7 @@ input[type="number"] {
 }
 
 .download h5 {
-    font-family: "Open Sans", serif;
+    font-family: "Lato", serif;
     font-size: 18px;
     margin-bottom: 20px
 }
@@ -25260,7 +25308,7 @@ input[type="number"] {
     font-size: 14px;
     text-decoration: none;
     text-transform: capitalize;
-    font-family: "Open Sans", sans-serif
+    font-family: "Lato", sans-serif
 }
 
 .download__item i {
@@ -25284,7 +25332,7 @@ input[type="number"] {
 }
 
 .section__breadcrumb h2 {
-    font-family: "Open Sans", serif;
+    font-family: "Lato", serif;
     margin-bottom: 10px
 }
 
@@ -25326,7 +25374,7 @@ input[type="number"] {
 
 .section__breadcrumb .list-inline .list-inline-item a {
     font-size: 14px;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     text-transform: capitalize;
     transition: 0.3s ease
 }
@@ -25373,7 +25421,7 @@ input[type="number"] {
 }
 
 .section__breadcrumb-v1 .breadcrumb-item a {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     color: #000;
     font-weight: 600;
     font-size: 15px
@@ -25385,7 +25433,7 @@ input[type="number"] {
 }
 
 .section__breadcrumb-v1 .breadcrumb-item span {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     font-size: 15px;
     font-weight: 600
 }
@@ -25699,7 +25747,7 @@ input[type="number"] {
     height: 60px;
     padding: 0.5rem 1rem;
     border: 0;
-    font-family: "Open Sans", sans-serif
+    font-family: "Lato", sans-serif
 }
 
 .search__container input:focus {
@@ -25763,7 +25811,7 @@ input[type="number"] {
     border-radius: 0;
     border: 0;
     border-left: 0.5px solid #ddd;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     padding: 0.75rem 1rem
 }
 
@@ -25818,7 +25866,7 @@ input[type="number"] {
     padding: 10px 20px;
     line-height: 24px;
     border: 0;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     text-transform: capitalize;
     font-size: 14px;
     font-weight: 700;
@@ -25897,7 +25945,7 @@ input[type="number"] {
     background-color: #0e3f60;
     color: #fff;
     font-size: 14px;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     padding: 6px;
     position: absolute;
     z-index: 3;
@@ -25918,7 +25966,7 @@ input[type="number"] {
     background-color: #ff9000;
     color: #fff;
     font-size: 14px;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     padding: 6px;
     position: absolute;
     z-index: 3;
@@ -25943,7 +25991,7 @@ input[type="number"] {
     letter-spacing: 1px;
     font-size: 12px;
     color: #fff;
-    font-family: "Open Sans", sans-serif
+    font-family: "Lato", sans-serif
 }
 
 .card__image-header img.img-transition {
@@ -25973,7 +26021,7 @@ input[type="number"] {
 }
 
 .card__image-body h6 {
-    font-family: "Open Sans", serif
+    font-family: "Lato", serif
 }
 
 .card__image-body h6 a {
@@ -26003,7 +26051,7 @@ input[type="number"] {
 
 .card__image-body .list-inline-item span {
     text-align: center;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     text-transform: capitalize;
     color: #495057;
     font-weight: normal;
@@ -26059,7 +26107,7 @@ input[type="number"] {
 }
 
 .card__image-footer .list-inline-item a {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     color: #495057;
     font-size: 14px;
     line-height: 1.5;
@@ -26071,7 +26119,7 @@ input[type="number"] {
 }
 
 .card__image-footer .list-inline-item span, .card__image-footer .list-inline-item small {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     text-transform: capitalize;
     color: #495057;
     font-size: 14px
@@ -26080,7 +26128,8 @@ input[type="number"] {
 .card__hidden-content {
     position: relative;
     width: 100%;
-    background-color: #3454d1;
+   /* background-color: #3454d1;*/
+    background-color: #0f3f60;
     color: #fff;
     height: 0px;
     transition: all 0.4s;
@@ -26124,7 +26173,7 @@ input[type="number"] {
     position: relative;
     transition: all 0.5s;
     opacity: 1;
-    font-family: "Open Sans", sans-serif
+    font-family: "Lato", sans-serif
 }
 
 .card__image-hover:hover .list-inline-item {
@@ -26160,12 +26209,12 @@ input[type="number"] {
     letter-spacing: 1px;
     font-size: 14px;
     color: #fff;
-    font-family: "Open Sans", sans-serif
+    font-family: "Lato", sans-serif
 }
 
 .card__image-hover .listing-badges .featured {
     background-color: #3454d1;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     float: left;
     transform: rotate(-45deg);
     left: -67px;
@@ -26236,9 +26285,10 @@ input[type="number"] {
 }
 
 .card__image-content-desc h6, .card__image-style-2-desc h6 {
-    color: #fff;
+   /* color: #fff;*/
+   color:#ff9000;
     margin-bottom: 0;
-    font-family: "Open Sans", serif
+    font-family: "Lato", serif
 }
 
 .card__image-content-desc p, .card__image-style-2-desc p {
@@ -26306,7 +26356,7 @@ input[type="number"] {
 
 .card__image-hover-style-v3 .overlay .desc h6 {
     color: #fff;
-    font-family: "Open Sans", serif
+    font-family: "Lato", serif
 }
 
 .card__image-hover-style-v3 .overlay .desc p {
@@ -26379,7 +26429,7 @@ input[type="number"] {
 }
 
 .recent__property h2, .popular__city-large h2 {
-    font-family: "Open Sans", serif
+    font-family: "Lato", serif
 }
 
 @media screen and (min-width: 320px) and (max-width: 575px) {
@@ -26487,7 +26537,7 @@ input[type="number"] {
 .card__image-filter .filterizr-filter .btn-filter {
     float: left;
     margin: 0;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     font-size: 14px;
     cursor: pointer
 }
@@ -26623,13 +26673,13 @@ input[type="number"] {
 }
 
 .tc-image-caption4 .caption h6 {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     letter-spacing: 2px;
     font-weight: 400
 }
 
 .tc-image-caption4 .caption h2 {
-    font-family: "Open Sans", serif
+    font-family: "Lato", serif
 }
 
 .tc-image-caption4 .caption p {
@@ -26680,7 +26730,7 @@ input[type="number"] {
     color: #fff;
     font-size: 14px;
     line-height: 20px;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     padding: 6px;
     position: absolute;
     z-index: 3;
@@ -26705,7 +26755,7 @@ input[type="number"] {
     letter-spacing: 1px;
     font-size: 14px;
     color: #fff;
-    font-family: "Open Sans", sans-serif
+    font-family: "Lato", sans-serif
 }
 
 .card__image__header img.img-transition {
@@ -26737,18 +26787,18 @@ input[type="number"] {
 }
 
 .card__image__body span {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     font-size: 14px
 }
 
 .card__image__body h6 {
-    font-family: "Open Sans", serif
+    font-family: "Lato", serif
 }
 
 .card__image__body h6 a {
     color: #002247;
     text-transform: capitalize;
-    font-family: "Open Sans", serif
+    font-family: "Lato", serif
 }
 
 .card__image__body h6 a:hover {
@@ -26768,7 +26818,7 @@ input[type="number"] {
 
 .card__image__body .list-inline-item span {
     text-align: center;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     text-transform: capitalize;
     font-weight: 500;
     font-size: 14px;
@@ -26867,7 +26917,7 @@ input[type="number"] {
 
 .card__image__footer .list-inline-item a {
     text-transform: capitalize;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     color: #002247
 }
 
@@ -26876,7 +26926,7 @@ input[type="number"] {
 }
 
 .card__image__footer .list-inline-item span, .card__image__footer .list-inline-item small {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     font-size: 11px;
     text-transform: capitalize;
     font-weight: 600
@@ -26926,7 +26976,7 @@ input[type="number"] {
 }
 
 .cards__icons-footer h5 {
-    font-family: "Open Sans", serif
+    font-family: "Lato", serif
 }
 
 .cards__icons-footer p {
@@ -26958,7 +27008,7 @@ input[type="number"] {
 }
 
 .cards__icons-style-1-footer h5 {
-    font-family: "Open Sans", serif
+    font-family: "Lato", serif
 }
 
 .cards__icons-style-1-footer p {
@@ -26993,7 +27043,7 @@ input[type="number"] {
     letter-spacing: 0.3px;
     transition: all 0.3s ease;
     line-height: 26px;
-    font-family: "Open Sans", sans-serif
+    font-family: "Lato", sans-serif
 }
 
 .widget ul li a:hover {
@@ -27046,14 +27096,14 @@ input[type="number"] {
 
 .widget__archive .widget__title h5, .widget__category .widget__title h5 {
     text-transform: capitalize;
-    font-family: "Open Sans", serif;
+    font-family: "Lato", serif;
     margin-bottom: 0;
     font-size: 18px
 }
 
 .widget__archive .widget__title h6, .widget__category .widget__title h6 {
     text-transform: capitalize;
-    font-family: "Open Sans", serif
+    font-family: "Lato", serif
 }
 
 .block-quote {
@@ -27135,7 +27185,7 @@ input[type="number"] {
     text-transform: uppercase;
     color: #6c757d;
     letter-spacing: 1px;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     font-size: 12px;
     font-weight: 700;
     margin-bottom: 8px
@@ -27143,7 +27193,7 @@ input[type="number"] {
 
 .wrap__profile-author-detail h5 {
     text-transform: capitalize;
-    font-family: "Open Sans", serif
+    font-family: "Lato", serif
 }
 
 @media screen and (min-width: 320px) and (max-width: 575px) {
@@ -27224,7 +27274,7 @@ input[type="number"] {
 }
 
 .wrapper__list__instagram h4 {
-    font-family: "Open Sans", serif;
+    font-family: "Lato", serif;
     font-size: 18px
 }
 
@@ -27297,7 +27347,7 @@ input[type="number"] {
 }
 
 .slider__image__detail-large .slider__image__detail-large-one .description span {
-    font-family: "Open Sans", sans-serif
+    font-family: "Lato", sans-serif
 }
 
 .slider__image__detail-large .slider__image__detail-large-one .description .price {
@@ -27307,7 +27357,7 @@ input[type="number"] {
 .slider__image__detail-large .slider__image__detail-large-one .description .price h5 {
     color: #fff;
     font-size: 18px;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     letter-spacing: 1px;
     margin-bottom: 5px
 }
@@ -27322,7 +27372,7 @@ input[type="number"] {
 .slider__image__detail-large .slider__image__detail-large-one .description h4 {
     color: #fff;
     font-size: 20px;
-    font-family: "Open Sans", serif
+    font-family: "Lato", serif
 }
 
 @media screen and (min-width: 320px) and (max-width: 575px) {
@@ -27855,7 +27905,7 @@ input[type="number"] {
 }
 
 .slider__image__detail-large-two .slider__image__detail-large-one .description span {
-    font-family: "Open Sans", sans-serif
+    font-family: "Lato", sans-serif
 }
 
 .slider__image__detail-large-two .slider__image__detail-large-one .description .price {
@@ -27865,7 +27915,7 @@ input[type="number"] {
 .slider__image__detail-large-two .slider__image__detail-large-one .description .price h5 {
     color: #fff;
     font-size: 18px;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     letter-spacing: 1px;
     margin-bottom: 5px
 }
@@ -27880,7 +27930,7 @@ input[type="number"] {
 .slider__image__detail-large-two .slider__image__detail-large-one .description h4 {
     color: #fff;
     font-size: 20px;
-    font-family: "Open Sans", serif
+    font-family: "Lato", serif
 }
 
 @media screen and (min-width: 320px) and (max-width: 575px) {
@@ -28074,7 +28124,7 @@ input[type="number"] {
 }
 
 .slider-container .carousel-caption .carousel__content .slider__content-title h2 {
-    font-family: "Open Sans", serif;
+    font-family: "Lato", serif;
     font-size: 60px;
     margin-bottom: 20px;
     font-weight: 600;
@@ -28358,7 +28408,7 @@ input[type="number"] {
     font-weight: 700;
     font-size: 14px;
     text-transform: capitalize;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=29, Direction=99, Color=#e8e8e8)";
     box-shadow: 3px 18px 29px -18px #e8e8e8;
     filter: progid:DXImageTransform.Microsoft.Shadow(Strength=29, Direction=135, Color=#e8e8e8)
@@ -28389,7 +28439,7 @@ input[type="number"] {
 }
 
 .tabs__custom .nav-pills .nav-item .nav-link {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     font-size: 14px;
     font-weight: 600;
     text-transform: capitalize
@@ -28423,7 +28473,7 @@ input[type="number"] {
 }
 
 .tabs__custom-v2 .nav-pills .nav-item .nav-link {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     font-size: 14px;
     font-weight: 600;
     text-transform: capitalize;
@@ -28447,7 +28497,7 @@ input[type="number"] {
 }
 
 .tabs__custom-v2 .nav-pills .list-inline-item .title-text {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     font-size: 14px;
     font-weight: 600;
     color: #3454d1;
@@ -28455,7 +28505,7 @@ input[type="number"] {
 }
 
 .tabs__custom-v2 .nav-pills .list-inline-item a {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
@@ -28561,7 +28611,7 @@ input[type="number"] {
     font-size: 32px;
     text-transform: capitalize;
     padding-top: 50px;
-    font-family: "Open Sans", serif;
+    font-family: "Lato", serif;
     margin-bottom: 0
 }
 
@@ -28623,7 +28673,7 @@ input[type="number"] {
 }
 
 .box__overlay-right h5 {
-    font-family: "Open Sans", serif
+    font-family: "Lato", serif
 }
 
 .counter__item {
@@ -28676,7 +28726,7 @@ input[type="number"] {
     display: block;
     padding: 15px 25px;
     position: relative;
-    font-family: "Open Sans", sans-serif
+    font-family: "Lato", sans-serif
 }
 
 .floorplan .card .card-header a:hover {
@@ -28754,7 +28804,7 @@ input[type="number"] {
 
 .comments-area .comment-body .reply a {
     color: #fff;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     display: inline-block;
     padding: 5px 20px 6px;
     background: #3454d1;
@@ -28815,7 +28865,7 @@ input[type="number"] {
 }
 
 .comments-area .comment-metadata a {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     color: #495057
 }
 
@@ -29051,7 +29101,7 @@ input[type="number"] {
 }
 
 .our__team h2 {
-    font-family: "Open Sans", serif
+    font-family: "Lato", serif
 }
 
 .wrap-agent .title-agent {
@@ -29152,7 +29202,7 @@ input[type="number"] {
 
 .wrap-agent .desk h5 {
     text-align: center;
-    font-family: "Open Sans", serif
+    font-family: "Lato", serif
 }
 
 .wrap-agent .team-title {
@@ -29208,7 +29258,7 @@ input[type="number"] {
     font-weight: 600;
     margin-bottom: 0;
     line-height: 24px;
-    font-family: "Open Sans", serif;
+    font-family: "Lato", serif;
     margin-bottom: 10px
 }
 
@@ -29236,7 +29286,7 @@ input[type="number"] {
 }
 
 .profile__agent .profile__agent__group .profile__agent__header-avatar .list-unstyled li a {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     font-size: 14px;
     font-weight: 500;
     color: #002247
@@ -29295,7 +29345,7 @@ input[type="number"] {
 }
 
 .profile__agents-info h5 {
-    font-family: "Open Sans", serif;
+    font-family: "Lato", serif;
     font-size: 18px
 }
 
@@ -29376,7 +29426,7 @@ input[type="number"] {
     letter-spacing: 1px;
     font-size: 14px;
     color: #fff;
-    font-family: "Open Sans", sans-serif
+    font-family: "Lato", sans-serif
 }
 
 .profile__agency {
@@ -29418,7 +29468,7 @@ input[type="number"] {
 }
 
 .profile__agency-info h5 {
-    font-family: "Open Sans", serif;
+    font-family: "Lato", serif;
     font-size: 18px
 }
 
@@ -29524,7 +29574,7 @@ input[type="number"] {
     letter-spacing: 1px;
     font-size: 14px;
     color: #fff;
-    font-family: "Open Sans", sans-serif
+    font-family: "Lato", sans-serif
 }
 
 .cta, .cta-v1 {
@@ -29534,7 +29584,7 @@ input[type="number"] {
 .cta h2, .cta-v1 h2 {
     font-size: 27px;
     margin-bottom: 10px;
-    font-family: "Open Sans", serif
+    font-family: "Lato", serif
 }
 
 @media screen and (min-width: 320px) and (max-width: 575px) {
@@ -29798,7 +29848,7 @@ input[type="number"] {
     text-transform: capitalize;
     font-size: 55px;
     font-weight: 700;
-    font-family: "Open Sans", serif
+    font-family: "Lato", serif
 }
 
 @media screen and (min-width: 320px) and (max-width: 575px) {
@@ -30301,7 +30351,7 @@ body.offcanvas-active {
     color: #fff;
     padding: 10px 0;
     font-size: 13px;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     line-height: 30px
 }
 
@@ -30354,7 +30404,7 @@ body.offcanvas-active {
 .topbar .topbar-right .topbar-link li a {
     color: #fff;
     font-size: 13px;
-    font-family: "Open Sans", sans-serif
+    font-family: "Lato", sans-serif
 }
 
 .topbar .topbar-right .topbar-link li a:hover {
@@ -30430,7 +30480,7 @@ body.offcanvas-active {
     font-weight: 700;
     text-transform: uppercase;
     border: 2px solid transparent;
-    font-family: "Open Sans", sans-serif
+    font-family: "Lato", sans-serif
 }
 
 @media screen and (min-width: 320px) and (max-width: 575px) {
@@ -30451,7 +30501,7 @@ body.offcanvas-active {
 }
 
 .navbar-soft .navbar-nav .nav-item .dropdown-menu li a {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     text-transform: capitalize;
     font-weight: 500
 }
@@ -30623,7 +30673,7 @@ body.offcanvas-active {
 .wrapper__footer .widget__footer .footer-title {
     text-transform: capitalize;
     margin-bottom: 15px;
-    font-family: "Open Sans", serif;
+    font-family: "Lato", serif;
     color: #fff;
     font-size: 18px
 }
@@ -30691,7 +30741,7 @@ body.offcanvas-active {
 .wrapper__footer .widget__footer .link__category-two-column ul li a {
     text-transform: capitalize;
     font-size: 14px;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     line-height: 2;
     color: #adb5bd;
     transition: 0.3s ease
@@ -30736,7 +30786,7 @@ body.offcanvas-active {
 .wrapper__footer .widget__footer .link__category ul li a {
     text-transform: capitalize;
     font-size: 14px;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     line-height: 2;
     color: #adb5bd;
     transition: 0.3s ease
@@ -30793,7 +30843,7 @@ body.offcanvas-active {
 }
 
 .wrapper__footer .social__media .list-inline span {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     text-transform: capitalize;
     font-size: 11px;
     font-weight: 700;
@@ -30824,7 +30874,7 @@ body.offcanvas-active {
 .bg__footer-bottom-v1 span, .bg__footer-bottom span {
     color: #ced4da;
     font-size: 12px;
-    font-family: "Open Sans", sans-serif
+    font-family: "Lato", sans-serif
 }
 
 @media screen and (min-width: 320px) and (max-width: 575px) {
@@ -30852,7 +30902,7 @@ body.offcanvas-active {
 }
 
 .bg__footer-bottom-v1 .list-inline .list-inline-item a, .bg__footer-bottom .list-inline .list-inline-item a {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     color: #ced4da;
     font-size: 12px;
     text-transform: capitalize;
@@ -30941,7 +30991,8 @@ body.offcanvas-active {
 }
 
 .home__about {
-    padding-bottom: 70px
+    padding-bottom: 70px;
+    margin-top:35px
 }
 
 @media screen and (min-width: 320px) and (max-width: 575px) {
@@ -30965,7 +31016,7 @@ body.offcanvas-active {
 .home__about .title__leading h2 {
     font-size: 27px;
     margin-bottom: 15px;
-    font-family: "Open Sans", serif
+    font-family: "Lato", serif
 }
 
 @media screen and (min-width: 320px) and (max-width: 575px) {
@@ -31129,7 +31180,7 @@ body.offcanvas-active {
 }
 
 .projects__partner h2 {
-    font-family: "Open Sans", serif;
+    font-family: "Lato", serif;
     margin-bottom: 15px
 }
 
@@ -31173,8 +31224,17 @@ body.offcanvas-active {
     position: relative
 }
 
+.single__detail-area-title p {
+    font-weight: 700;
+}
+
+
 .single__detail-area-title h3 {
-    font-family: "Open Sans", serif
+    font-family: "Lato", serif
+}
+
+.single__detail-area-title h4 {
+    font-family: "Montserrat", serif
 }
 
 @media screen and (min-width: 320px) and (max-width: 575px) {
@@ -31218,7 +31278,7 @@ body.offcanvas-active {
 }
 
 .single__detail-title h3 {
-    font-family: "Open Sans", serif
+    font-family: "Lato", serif
 }
 
 @media screen and (min-width: 320px) and (max-width: 575px) {
@@ -31262,7 +31322,7 @@ body.offcanvas-active {
 }
 
 .single__detail-desc h5 {
-    font-family: "Open Sans", serif
+    font-family: "Lato", serif
 }
 
 @media screen and (min-width: 320px) and (max-width: 575px) {
@@ -31329,7 +31389,7 @@ body.offcanvas-active {
     transition: all 0.3s;
     padding: 10px 20px;
     text-transform: capitalize;
-    font-family: "Open Sans", sans-serif
+    font-family: "Lato", sans-serif
 }
 
 .single__detail-desc .show__more-button:hover {
@@ -31337,7 +31397,7 @@ body.offcanvas-active {
 }
 
 .single__detail-features h5 {
-    font-family: "Open Sans", serif;
+    font-family: "Lato", serif;
     font-size: 18px
 }
 
@@ -31371,7 +31431,7 @@ body.offcanvas-active {
     break-inside: avoid;
     display: block;
     padding: 8px 0;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     text-transform: capitalize;
     position: relative;
     font-size: 14px
@@ -31405,7 +31465,7 @@ body.offcanvas-active {
 }
 
 .single__detail-features-title h5 {
-    font-family: "Open Sans", serif
+    font-family: "Lato", serif
 }
 
 .single__detail-features-video {
@@ -31444,7 +31504,7 @@ body.offcanvas-active {
 
 .single__detail-features-nearby .list-unstyled li span {
     float: left;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     color: #495057;
     font-size: 14px
 }
@@ -31493,7 +31553,7 @@ body.offcanvas-active {
 }
 
 .single__detail-features-review .form-group label {
-    font-family: "Open Sans", sans-serif
+    font-family: "Lato", sans-serif
 }
 
 .single__detail-features-review .media img {
@@ -31509,7 +31569,7 @@ body.offcanvas-active {
     font-size: 14px;
     font-weight: 500;
     line-height: 30px;
-    font-family: "Open Sans", sans-serif
+    font-family: "Lato", sans-serif
 }
 
 .single__detail-features-review .media .media-body h6 {
@@ -31523,12 +31583,13 @@ body.offcanvas-active {
 .detail-heading {
     margin: 20px 0 15px;
     padding-bottom: 15px;
-    border-bottom: 1px solid #eaeaea;
-    font-family: "Open Sans", serif
+   /*// border-bottom: 1px solid #eaeaea;*/
+    border-bottom: 1px solid #ff9000;
+    font-family: "Lato", serif
 }
 
 .property__detail-info h6 {
-    font-family: "Open Sans", serif;
+    font-family: "Lato", serif;
     margin: 15px 0
 }
 
@@ -31539,7 +31600,7 @@ body.offcanvas-active {
 .property__detail-info-list li {
     margin-bottom: 8px;
     font-size: 14px;
-    font-family: "Open Sans", sans-serif
+    font-family: "Lato", sans-serif
 }
 
 .property__detail-info-list li b {
@@ -31564,7 +31625,7 @@ body.offcanvas-active {
 
 .widget__sidebar__header h6 {
     margin-bottom: 0;
-    font-family: "Open Sans", serif
+    font-family: "Lato", serif
 }
 
 .widget__sidebar__body {
@@ -31595,7 +31656,7 @@ body.offcanvas-active {
     text-transform: capitalize;
     letter-spacing: 0.3px;
     transition: all 0.3s ease;
-    font-family: "Open Sans", sans-serif
+    font-family: "Lato", sans-serif
 }
 
 .widget__sidebar__body .list-unstyled li a:hover {
@@ -31637,7 +31698,7 @@ body.offcanvas-active {
 }
 
 .widget__sidebar__body span {
-    font-family: "Open Sans", sans-serif
+    font-family: "Lato", sans-serif
 }
 
 .widget__sidebar__body-heading {
@@ -31646,7 +31707,7 @@ body.offcanvas-active {
 }
 
 .widget__sidebar__body-heading h6 {
-    font-family: "Open Sans", serif;
+    font-family: "Lato", serif;
     line-height: 1.4;
     font-size: 14px;
     margin-bottom: 0
@@ -31730,7 +31791,7 @@ body.offcanvas-active {
     font-size: 32px;
     line-height: 1.4;
     color: #002247;
-    font-family: "Open Sans", serif
+    font-family: "Lato", serif
 }
 
 @media screen and (min-width: 320px) and (max-width: 575px) {
@@ -31775,7 +31836,7 @@ body.offcanvas-active {
 
 .single__blog-detail-info .list-inline-item span {
     text-transform: capitalize;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     font-weight: 500
 }
 
@@ -31831,7 +31892,7 @@ body.offcanvas-active {
 }
 
 .single_navigation-next a, .single_navigation-prev a {
-    font-family: "Open Sans", serif;
+    font-family: "Lato", serif;
     color: #002247;
     font-weight: 600;
     line-height: 1.5;
@@ -31868,7 +31929,7 @@ body.offcanvas-active {
 }
 
 .wrap__contact-open-hours h5 {
-    font-family: "Open Sans", serif;
+    font-family: "Lato", serif;
     font-size: 18px
 }
 
@@ -31886,7 +31947,7 @@ body.offcanvas-active {
 }
 
 .wrap__contact-open-hours .list-unstyled li span {
-    font-family: "Open Sans", sans-serif
+    font-family: "Lato", sans-serif
 }
 
 .wrap__contact-form {
@@ -31897,7 +31958,7 @@ body.offcanvas-active {
     font-size: 18px;
     text-transform: capitalize;
     margin-bottom: 30px;
-    font-family: "Open Sans", serif
+    font-family: "Lato", serif
 }
 
 @media screen and (min-width: 320px) and (max-width: 575px) {
@@ -31907,12 +31968,12 @@ body.offcanvas-active {
 }
 
 .wrap__contact-form .form-group label {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     font-weight: 600
 }
 
 .wrap__contact-form .form-group input {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     text-transform: capitalize
 }
 
@@ -31930,7 +31991,7 @@ body.offcanvas-active {
     font-size: 14px;
     display: flex;
     margin-bottom: 15px;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Lato", sans-serif;
     font-weight: 500
 }
 
@@ -32249,5 +32310,17 @@ body.offcanvas-active {
     box-shadow: 0 2px 40px rgba(0, 0, 0, 0.08)
 }
 
-
+.property-description {
+    font-size: 16px;
+    line-height: 30px;
+}
+.img-hero{
+    position: relative;
+    overflow: hidden;
+    padding: 0!important;
+}
+.btn-cicle {
+    border: 1px solid #65d78d;
+    border-radius: 1.375rem;
+}
 /*# sourceMappingURL=styles.css.map*/

@@ -1,11 +1,21 @@
 {% extends 'FrontEnd/base.html.twig' %}
+{% block style%}
+    <style>
+        section {
+            padding: 35px 0 !important;
+        }
+    </style>
+
+{% endblock %}
 {% block content %}
+{#    {% set link = {{ path('proprietes_show',{'contrattype': bien.typeOptions.contratypes.id,'proprietetype':bien.proprieteOptions.proprietes.id,'id': bien.id}) }} %}#}
     {% include 'FrontEnd/partials/_carousel.html.twig' %}
     <!-- END CAROSUEL -->
     <div class="clearfix"></div>
-<div class="search__area-inner">
+{#<div class="search__area-inner">#}
+{#   #}
+{#</div>#}
     {% include 'FrontEnd/partials/_recherche.html.twig' %}
-</div>
     <!-- FEATURED PROPERTIES -->
     {% include 'FrontEnd/partials/_featured.html.twig' %}
     <!-- END FEATURED PROPERTIES -->
@@ -14,17 +24,29 @@
     {% include'FrontEnd/partials/_call-to-action-1.html.twig' %}
 
     <!-- NOUVEAUTE PROPERTIES -->
-    {% include 'FrontEnd/partials/_recent_property.html.twig' with {'nature_annonce': 'à louer'} %}
+    {% include 'FrontEnd/partials/_recent_property_grid.html.twig' with {'nature_annonce': 'à louer'} %}
     <!-- END NOUVEAUTE PROPERTIES -->
 
     <!-- Call To action -->
-    {% include'FrontEnd/partials/_call-to-action-1.html.twig' %}
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12 col-lg-12 text-center">
+                <img src="{{ asset('images/app/CTA/immo-2.jpg') }}" alt="" width="1200px" class="img-fluid">
+            </div>
+        </div>
+    </div>
 
     <!-- NOUVEAUTE PROPERTIES -->
-    {% include 'FrontEnd/partials/_recent_property.html.twig' with {'nature_annonce': 'à vendre'} %}
+    {% include 'FrontEnd/partials/_recent_property_grid.html.twig' with {'nature_annonce': 'à vendre'} %}
 
     <!-- Call To action -->
-    {% include'FrontEnd/partials/_call-to-action-1.html.twig' %}
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12 col-lg-12 text-center">
+                <img src="{{ asset('images/app/CTA/immo-3.jpg') }}" alt="" width="1200px" class="img-fluid">
+            </div>
+        </div>
+    </div>
 
     <!-- ABOUT -->
     {% include 'FrontEnd/partials/_about.html.twig' %}

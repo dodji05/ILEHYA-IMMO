@@ -47,4 +47,14 @@ class ArrondissementRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function getAllArrodissement($term){
+        return $this->createQueryBuilder('a')
+            ->select('a.lib_arrond','a.id')
+            ->andWhere('a.lib_arrond like :val')
+            ->setParameter('val',  '%'.$term.'%')
+            ->orderBy('a.lib_arrond', 'ASC')
+            ->getQuery()
+            ->getResult() ;
+    }
 }

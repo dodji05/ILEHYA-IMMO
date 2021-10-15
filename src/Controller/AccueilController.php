@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Messages;
 use App\Entity\Proprietes;
 use App\Entity\Visiteurs;
+use App\Form\DevisType;
 use App\Form\MessagesType;
 use App\Form\SearchPorpertyFormType;
 use App\Recherche\SearchData;
@@ -12,6 +13,7 @@ use App\Repository\ProprietesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class AccueilController extends AbstractController
@@ -34,7 +36,7 @@ class AccueilController extends AbstractController
     }
 
     /**
-     * @Route("/annonces/{id}", name="proprietes_show")
+     * @Route("/annonces/{contrattype}/{proprietetype}/{id}", name="proprietes_show")
      */
     public function show(Proprietes $proprietes, ProprietesRepository $ProprietesRepository, Request $request): Response
     {
@@ -55,13 +57,14 @@ class AccueilController extends AbstractController
             $titre= "resultat des recherches";
            // dd()
             $datasearch->setCommune($request->get('commune'));
-            $datasearch->setCommune($request->get('arrondissement'));
+            $datasearch->setArrondissement($request->get('arrondissement'));
             $datasearch->setQuartier($request->get('quartier'));
             $biens = $ProprietesRepository->RechercherUnBien($datasearch);
 
             return $this->render('FrontEnd/listing.html.twig', [
                 'titre' => $titre,
                 'biens' => $biens,
+                'text' => $text
             ]);
 
         }
@@ -93,6 +96,7 @@ class AccueilController extends AbstractController
             'biens' => $proprietes,
             'bienssimilaires' => $biensimilaires,
             'form' => $form->createView(),
+            'text' => $text,
             'messagesforn' => $formMessages->createView(),
         ]);
     }
@@ -107,16 +111,73 @@ class AccueilController extends AbstractController
         $form = $this->createForm(SearchPorpertyFormType::class, $datasearch);
 
         if ($nature === 'a-vendre') {
-            $titre = "Biens à vendre";
+            $titre = "Biens Immobiliers à vendre";
             $biens = $proprietesRepository->natureannonces(1);
         } else {
-            $titre = "Biens à louer";
+            $titre = "Biens Immobiliers à louer";
             $biens = $proprietesRepository->natureannonces(2);
         }
         return $this->render('FrontEnd/listing.html.twig', [
             'titre' => $titre,
             'biens' => $biens,
             'form' => $form->createView(),
+
         ]);
+    }
+
+    /**
+     * @Route("/demande-devis", name="accueil_demande_devis")
+     */
+    public function demandeDevis(Request $request,MailerInterface $mailer){
+        $data = new Messages();
+        $form = $this->createForm(DevisType::class, $data);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data->setType("devis");
+            $entityManager = $this->getDoctrine()->getManager();
+            $visiteurdeja = $entityManager->getRepository('App:Visiteurs')->findOneBy(['telephone' => $telephone]);
+            if ($visiteurdeja) {
+                $data->setVisiteur($visiteurdeja);
+            } else {
+                $visiteur = new Visiteurs();
+                $visiteur->setEmail($form->getData()->getVisiteur()->getEmail());
+                $visiteur->setPrenoms($form->getData()->getVisiteur()->getPrenoms());
+                $visiteur->setNom($form->getData()->getVisiteur()->getNom());
+                $visiteur->setTelephone($form->getData()->getVisiteur()->getTelephone());
+                $data->setVisiteur($visiteur);
+                $entityManager->persist($visiteur);
+            }
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($data);
+            $entityManager->flush();
+
+            /*$email = (new TemplatedEmail())
+                ->from('contacts@dhodji.com')
+                ->to(new Address('gildas31@gmail.com'))
+                ->priority(Email::PRIORITY_HIGH)
+                ->subject('Demande de deis')
+
+                // path of the Twig template to render
+                ->htmlTemplate('mail/demande-devis.html.twig')
+
+                // pass variables (name => value) to the template
+                ->context([
+
+                    'formData' => $form->getData(),
+                ]);
+            $mailer->send($email);*/
+//            return $this->render('FrontEnd/demande-devis-fin.html.twig'
+//               );
+            return $this->render('mail/demande-devis.html.twig',[
+
+                    'formData' => $form->getData(),
+                ]
+            );
+        }
+        return $this->render('FrontEnd/demande-devis.html.twig',
+            [
+                'form' => $form->createView()
+            ]);
     }
 }

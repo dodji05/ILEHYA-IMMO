@@ -1,4 +1,4 @@
-{% form_theme form 'administration/partials/_form_theme_images.html.twig' %}
+{#{% form_theme form 'administration/partials/_form_theme_images.html.twig' %}#}
 <div class="card card_spacer">
     <div class="card-header small_card_header">
         <h6 class="card-title titre"> Votre annonce </h6>
@@ -21,28 +21,28 @@
     <div class="card-body">
         {# {{ form_row (form.ville) }} #}
         {# {{ form_row (form.quatier) }} #}
-        <div class="form-group row">
-            <div class="col-sm-3">
+{#        <div class="form-group row">#}
+{#            <div class="col-sm-3">#}
 {#                {{ form_label(form.departement, null, {'label_attr':{'class':'col-sm-12'}}) }}#}
-                {{ form_widget (form.departement) }}
-            </div>
-            <div class="col-sm-3">
+{#                {{ form_widget (form.departement) }}#}
+{#            </div>#}
+{#            <div class="col-sm-3">#}
 {#                {{ form_label(form.commune, null, {'label_attr':{'class':'col-sm-12'}}) }}#}
-                {{ form_widget (form.commune) }}
-            </div>
-            <div class="col-sm-3">
+{#                {{ form_widget (form.commune) }}#}
+{#            </div>#}
+{#            <div class="col-sm-3">#}
 {#                {{ form_label(form.arrondissement, null, {'label_attr':{'class':'col-sm-12'}}) }}#}
-                {{ form_widget (form.arrondissement) }}
-            </div>
-            <div class="col-sm-3">
+{#                {{ form_widget (form.arrondissement) }}#}
+{#            </div>#}
+{#            <div class="col-sm-3">#}
 {#                {{ form_label(form.quartier, null, {'label_attr':{'class':'col-sm-12'}}) }}#}
-                {{ form_widget (form.quartier) }}
-            </div>
-            {# <div class="col-sm-3"> #}
-            {# {{ form_label(form.adresse, null, {'label_attr':{'class':'col-sm-12'}}) }} #}
-            {# {{ form_widget (form.arrondissement) }} #}
-            {# </div> #}
-        </div>
+{#                {{ form_widget (form.quartier) }}#}
+{#            </div>#}
+{#            #}{# <div class="col-sm-3"> #}
+{#            #}{# {{ form_label(form.adresse, null, {'label_attr':{'class':'col-sm-12'}}) }} #}
+{#            #}{# {{ form_widget (form.arrondissement) }} #}
+{#            #}{# </div> #}
+{#        </div>#}
         {# {{ form_row(form.departement) }} #}
         {# {{ form_row(form.commune) }} #}
         {# {{ form_row(form.arrondissement) }} #}
@@ -119,7 +119,32 @@
         </div>
 
         <div>
-            {{ form_row(form.proprietesImages) }}
+
+            <div  class="row js-genus-scientist-wrapper"
+                  data-index="{{ form.proprietesImages|length }}"
+
+                  data-prototype="{{ form_widget(form.proprietesImages.vars.prototype)|e('html_attr') }}"
+                 >
+{% for images in form.proprietesImages %}
+    <div class="col-xs-4 js-genus-scientist-item">
+        <a href="#" class="js-remove-scientist pull-right">
+            <span class="fa fa-close"></span>
+        </a>
+        {{ form_errors(images) }}
+        {{ form_row(images) }}
+
+    </div>
+                {% endfor %}
+                <a href="#" class="js-genus-scientist-add">
+                    <span class="fa fa-plus-circle"></span>
+                   ajouter une nouvelle image
+                </a>
+            </div>
+{#            {{ form_widget(form.proprietesImages) }}#}
+{#            <ul class="tags" data-prototype="{{ form_widget(form.proprietesImages.vars.prototype)|e('html_attr') }}"></ul>#}
+{#            <button type="button" class="add_item_link" data-collection-holder-class="tags">Add a tag</button>#}
+
+
             {# {% for pd in  product.proprietesImages %} #}
             {# <div class="col-sm-4"> {{ pd.name}} #}
             {# <img src="{{ vich_uploader_asset('ProprietesImages', 'imageFile') }}" alt="name"> #}
@@ -246,3 +271,4 @@
 {#    <button class="btn btn-success" type="submit">{{ button_label|default('Enregistrer le bien') }}</button>#}
 {#</div>#}
 {{ form_end(form) }}
+

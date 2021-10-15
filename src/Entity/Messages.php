@@ -30,7 +30,7 @@ class Messages
     private $dateMessage;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Visiteurs::class, inversedBy="messages")
+     * @ORM\ManyToOne(targetEntity=Visiteurs::class, inversedBy="messages",cascade={"persist"})
      */
     private $visiteur;
 
@@ -38,6 +38,16 @@ class Messages
      * @ORM\ManyToOne(targetEntity=Proprietes::class, inversedBy="messages")
      */
     private $proprietes;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $categorie;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $type;
 
     /**
      * Messages constructor.
@@ -97,6 +107,30 @@ class Messages
     public function setProprietes(?Proprietes $proprietes): self
     {
         $this->proprietes = $proprietes;
+
+        return $this;
+    }
+
+    public function getCategorie(): ?string
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(?string $categorie): self
+    {
+        $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    public function setType(?string $type): self
+    {
+        $this->type = $type;
 
         return $this;
     }

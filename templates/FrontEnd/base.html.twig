@@ -34,9 +34,13 @@
 </head>
 <body>
 <!-- HEADER -->
-<header class="header__style-one">
+
+    {% block navbar %}
+        {% include 'FrontEnd/partials/_navbar.html.twig' %}
+
+    {% endblock %}
     <!-- NAVBAR -->
-    {% include 'FrontEnd/partials/_navbar.html.twig' %}
+
     <!-- END NAVBAR -->
 </header>
 <!-- END HEADER -->

@@ -5,7 +5,6 @@ namespace App\Form;
 
 
 use App\Entity\Commune;
-use App\Entity\Proprietes;
 use App\Recherche\SearchData;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -56,7 +55,8 @@ class SearchPorpertyFormType extends AbstractType
                 'placeholder' => 'Sélectionnez la commune',
                 'choice_value' => function (?Commune $entity) {
                     return $entity ? $entity->getId() : '';},
-
+//                'choices'=> Commune::class,
+//
                 'required' => false,
 //                'help'=>'GOGOUNOU, TOGOUDO',
 //                'mapped'=>false,
@@ -84,7 +84,7 @@ class SearchPorpertyFormType extends AbstractType
                     'class' => 'linked-select',
                     'data-target' => "#quartier",
                     'data-source' => "http://localhost:5050/ajax/quartier/id",
-                    'style' => 'display: none'
+//                    'style' => 'display: none'
 
 
                 ],
@@ -102,7 +102,7 @@ class SearchPorpertyFormType extends AbstractType
 //                'help'=>'GOGOUNOU, TOGOUDO',
                 'mapped' => false,
                 'attr' => [
-                    'style' => 'display: none'
+//                    'style' => 'display: none'
                 ],
 
                 'label_attr' => [
@@ -112,7 +112,10 @@ class SearchPorpertyFormType extends AbstractType
             ])
 //            ->add('quartier')
 //            ->add('prix_min',IntegerType::class)
-//            ->add('prix_max',IntegerType::class)
+            ->add('prix_max',IntegerType::class,[
+                'attr' => [
+                'placeholder' => 'Prix maximun',]
+            ])
 
         ;
 

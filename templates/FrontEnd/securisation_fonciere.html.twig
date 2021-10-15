@@ -1,0 +1,263 @@
+{% extends 'FrontEnd/base.html.twig' %}
+{% block style %}
+    <style>
+        .en-tete {
+            position: relative;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .bandeau {
+            position: relative;
+            max-height: 650px;
+            overflow: hidden;
+        }
+
+        .bandeau > img {
+            width: 100%;
+        }
+
+        .resimg {
+            margin: 0px;
+            z-index: auto;
+            width: 1905px;
+            height: 973px;
+            background: url(/images/app/securisation_fonciere/ilehya_securisation_fonciere.png) top fixed;
+            /*padding: 0px;*/
+            /*border-width: 0px;*/
+            /*border-radius: 0px;*/
+            /*x: 0px;*/
+            /*y: -236.5px;*/
+            /*transform: translateX(0px) translateY(-236.5px);*/
+            /*filter: none;*/
+        }
+
+        #subheader {
+            /* background: url(https://www.digitalbath.fr/images/background/bg-subheader.jpg)top fixed; */
+            padding-top: 105px;
+            display: flex;
+            align-items: center;
+
+            -webkit-background-size: 100% !important;
+            -moz-background-size: 100% !important;
+            -o-background-size: 100% !important;
+            background-size: 100% !important;
+
+        }
+
+        .bg-light {
+            align-items: center;
+            /*margin: 9px;*/
+        }
+
+        .section__breadcrumb-v1 h1, h2 {
+            font-family: "lato", serif;
+            color: #134363;
+        }
+        .card-text{
+            color: #134363;
+            font-size: 15px;
+            font-family: "lato", serif;
+            font-weight: 900;
+
+            line-height: 1.5;
+            text-align: center;
+        }
+        .decr p{
+            font-size: 18px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+    </style>
+
+{% endblock %}
+ {% block navbar %}
+     {% include 'FrontEnd/partials/_navbar_fixed_top.html.twig' %}
+
+ {% endblock %}
+
+{% block content %}
+    <div class="en-tete">
+        <div class="bandeau">
+
+            <img src="{{ asset('images/app/securisation_fonciere/droit-immobilier2.jpg') }}" width="1600" height="500"
+                 class="lazyloaded" data-ll-status="loaded">
+            <noscript><img src="https://www.casalys-nutrition.fr/wp-content/themes/casalys/images/bandeau_generique.jpg"
+                           width="1600" height="485"></noscript>
+        </div>
+
+
+    </div>
+    {#    <div class="container-fluid">#}
+    {#        <div class="row resimg" style="min-width: 1905px; left: 0px; width: 1905px;">#}
+    {#                <img src="{{ asset('images/app/securisation_fonciere/ilehya_securisation_fonciere.png') }}" class="resimg">#}
+    {#        </div>#}
+    {#    </div>#}
+{#    <section id="subheader" data-speed="8" data-type="background"#}
+{#             style="background:url(/images/app/securisation_fonciere/ilehya_securisation_fonciere.png)top fixed;height: 675px;text-align: center;">#}
+{#        <!--<div data-aos="fade-up" class="aos-init aos-animate"> <h1>E-commerce</h1> <h2>La performance e-commerce pour développer votre activité de vente en ligne</h2> </div>-->#}
+
+{#    </section>#}
+    <div class="bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section__breadcrumb-v1">
+                        <div>
+                            <h1 style="text-align: center;">Ilehya Property Benin Service</h1></div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section__breadcrumb-v1">
+                        <div><h2 style="text-align: center; color:#ff9000">Sécurisation Fonciére</h2></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section style="padding-top: 30px">
+        <div class="container decr">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>
+                        Au Bénin, en milieux urbain, au regard des articles 14 et 61 du code foncier et domanial, tout
+                        citoyen de
+                        nationalité béninoise ou toute personne originaire de pays où le principe de réciprocité est de
+                        mise
+                        peut
+                        être propriétaire de biens immeuble à savoir parcelle, maison, villa etc… <br>
+                        Par contre en milieu
+                        rural, seules
+                        les personnes de nationalité Béninoise peuvent être propriétaire de bien immeuble en leur nom
+                        propre.
+                    </p>
+                    <p>Sans un minimum de sécurisation foncière d’un bien immeuble bâti ou non bâti, vous n’êtes
+                        propriétaire presque de rien, même avec une convention de vente signée par un vendeur.</p>
+                    <p>En effet Le code foncier et domanial en république du Bénin ne reconnaît qu’un seul acte comme
+                        titre
+                        de propriété définitif garantissant une jouissance totale d’un bien immeuble. </p>
+                    <p>A défaut du titre foncier, au minimum, une parcelle en milieu rural doit disposer d’une
+                        attestation
+                        de détention coutumière (ACD) et en milieu urbain d’une attestation de recasement pour permettre
+                        une
+                        jouissance plus ou moins paisible du bien d’une part et d’autre part permettre la cession par un
+                        propriétaire ou un présumé propriétaire à une tierce personne ou à une personne morale selon que
+                        le
+                        permet le code foncier et domanial. </p>
+                    <p></p>
+                </div>
+
+{#                <div class="col-md-4">#}
+{#                    <div class="text-center">#}
+{#                        <img src="{{ asset('images/app/securisation_fonciere/Securisation-fonciere-Benin.jpg') }}"#}
+{#                             alt=" ilehya securisation fonciere" class="img-fluid mx-auto d-block">#}
+{#                    </div>#}
+{#                </div>#}
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <p>
+                        En d’autre terme, aux yeux de la loi, sans au minimum l’attestation de détention coutumière ou
+                        l’attestation de recasement, vous n’êtes même pas présumé propriétaire encore moins propriétaire
+                        d’un bien immeuble
+                    </p>
+                    <p>Il ne suffit donc pas d’acquérir une parcelle auprès d’un vendeur, solder et signer une
+                        convention pour prétendre posséder en votre nom le dit bien. De même les héritiers, surtout de
+                        terres rurales, aujourd’hui ne peuvent présumer être propriétaire par héritage d’une parcelle ou
+                        d’un domaine sans détenir une attestation de détention coutumière. </p>
+                    <p>En effet Le code foncier et domanial en république du Bénin ne reconnaît qu’un seul acte comme
+                        titre
+                        de propriété définitif garantissant une jouissance totale d’un bien immeuble. </p>
+                    <p>Les formalités de sécurisation foncière au en république du Bénin quoi que peu coûteux, sont
+                        extrêmement chronophages et il faut avoir la patience et le temps nécessaire pour y
+                        arriver. </p>
+                    <p></p>
+                </div>
+
+                <div class="col-md-4">
+                    <img src="{{ asset('images/app/securisation_fonciere/Securisation-fonciere-Benin.jpg') }}"
+                         alt=" ilehya securisation fonciere" class="img-fluid mx-auto d-block">
+                </div>
+            </div>
+        </div>
+        <div class="container decr">
+            <div class="row">
+                <p>
+                    C’est pour cela que ILEHYA PROPERTY par le biais de son service technique et juridique met à votre
+                    disposition une équipe pour vous accompagner dans le processus de sécurisation de vos biens
+                    immeuble. Ainsi vous gagner du temps et de l’énergie. <br> Vous n’aurez qu’à aller vaquer à vos
+                    occupations habituelles et nous faisons toutes les diligences pour vous obtenir vos actes et titre
+                    de propriétés dans les bref délais auprès des autorités compétentes.
+                </p>
+
+            </div>
+        </div>
+        <div class="container decr">
+            <p> Nous vous accompagnons notamment dans : </p>
+            <div class="row" style=" margin-bottom: 20px;">
+
+
+                <div class="col-md-4 col-sm-2">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ asset('images/app/securisation_fonciere/Securisation-fonciere-Benin.jpg') }}" alt="Card image cap" height="230px">
+                        <div class="card-body">
+                            <p class="card-text">le levé topographique</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-4 col-sm-2">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ asset('images/app/securisation_fonciere/Securisation-fonciere-Benin.jpg') }}" alt="Card image cap" height="230px">
+                        <div class="card-body">
+                            <p class="card-text">Le paiement des impôts fonciers</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-4 col-sm-2">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ asset('images/app/securisation_fonciere/Securisation-fonciere-Benin.jpg') }}" alt="Card image cap" height="230px">
+                        <div class="card-body">
+                            <p class="card-text"> les conventions de vente </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-2">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ asset('images/app/securisation_fonciere/Securisation-fonciere-Benin.jpg') }}" alt="Card image cap" height="230px">
+                        <div class="card-body">
+                            <p class="card-text">L’obtention de l’attestation de détention coutumière</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-2">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ asset('images/app/securisation_fonciere/recasement.jpg') }}" alt="Card image cap" height="230px">
+                        <div class="card-body">
+                            <p class="card-text">Le recasement et l’obtention de l’attestation</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-2">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ asset('images/app/securisation_fonciere/Securisation-fonciere-Benin.jpg') }}" alt="Card image cap" height="230px">
+                        <div class="card-body">
+                            <p class="card-text">L’obtention du titre foncier.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row decr m-10" style="margin:1.5rem!important">
+                <p> Pour nous mandater veillez nous contacter au (+229) 99403434 ou remplir le formulaire ci-dessous et nous vous contactons.  </p>
+            </div>
+        </div>
+    </section>
+{% endblock %}

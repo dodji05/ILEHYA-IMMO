@@ -47,4 +47,18 @@ class MessagesRepository extends ServiceEntityRepository
         ;
     }
     */
+
+     /**
+      * @return Messages[] Returns an array of Messages objects
+      */
+
+    public function messages($nature) {
+        return $this->createQueryBuilder('m')
+            ->andWhere('m.type = :val')
+            ->setParameter('val', $nature)
+            ->orderBy('m.dateMessage', 'DESC')
+            ->getQuery()
+            ->getResult();
+
+    }
 }

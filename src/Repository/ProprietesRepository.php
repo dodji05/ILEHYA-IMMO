@@ -147,42 +147,41 @@ class ProprietesRepository extends ServiceEntityRepository
 //        }
 
 //
-//        if (!empty($search->getQuartier())) {
-//            $query = $query
-//                ->leftJoin('p.quatier', 'q')
-//                ->andWhere('q.id =:qua')
-//                ->setParameter('qua', $search->getQuartier());
-//        } elseif (!empty($search->getArrondissement())) {
-//            $query = $query
-//                ->innerJoin('p.quatier', 'q')
-//                ->innerJoin('q.arrondissement', 'ar')
-//                ->andWhere('ar.id =:ar')
-//                ->setParameter('ar', $search->getArrondissement());
-//
-//
-//        } elseif (!empty($search->getCommune())) {
-//            $query = $query
-//                ->innerJoin('p.quatier', 'q')
-//                ->innerJoin('q.arrondissement', 'ar')
-//                ->innerJoin('ar.Commune', 'com')
-//                ->andWhere('com.id =:com')
-//                ->setParameter('com', $search->getCommune());
-//
-//        } elseif (!empty($search->getDepartement())) {
-//            $query = $query
-//                ->innerJoin('p.quatier', 'q')
-//                ->innerJoin('q.arrondissement', 'ar')
-//                ->innerJoin('ar.Commune', 'com')
-//                ->innerJoin('com.departement', 'dpt')
-//                ->andWhere('dpt.id =:dpt')
-//                ->setParameter('dpt', $search->getDepartement());
-//
-//        }
+        if (!empty($search->getQuartier())) {
+            $query = $query
+                ->leftJoin('p.quatier', 'q')
+                ->andWhere('q.id =:qua')
+                ->setParameter('qua', $search->getQuartier());
+        } elseif (!empty($search->getArrondissement())) {
+            $query = $query
+                ->innerJoin('p.quatier', 'q')
+                ->innerJoin('q.arrondissement', 'ar')
+                ->andWhere('ar.id =:ar')
+                ->setParameter('ar', $search->getArrondissement());
+
+
+        } elseif (!empty($search->getCommune())) {
+            $query = $query
+                ->innerJoin('p.quatier', 'q')
+                ->innerJoin('q.arrondissement', 'ar')
+                ->innerJoin('ar.Commune', 'com')
+                ->andWhere('com.id =:com')
+                ->setParameter('com', $search->getCommune());
+
+        } elseif (!empty($search->getDepartement())) {
+            $query = $query
+                ->innerJoin('p.quatier', 'q')
+                ->innerJoin('q.arrondissement', 'ar')
+                ->innerJoin('ar.Commune', 'com')
+                ->innerJoin('com.departement', 'dpt')
+                ->andWhere('dpt.id =:dpt')
+                ->setParameter('dpt', $search->getDepartement());
+
+        }
 //            ->orderBy('p.id', 'DESC')
 //            ->getQuery()
 //            ->getResult()
-        ;
-//dd($search);
+        //dd($search);
 //        if (!empty($search->getDepartement())) {
 //            if (!empty($search->getCommune())) {
 //                $query = $query
@@ -205,16 +204,16 @@ class ProprietesRepository extends ServiceEntityRepository
 //
 //
 //        }
-        if (!empty($search->getCommune())) {
-            $query = $query
-                ->innerJoin('p.quatier', 'q')
-                ->innerJoin('q.arrondissement', 'ar')
-                ->innerJoin('ar.Commune', 'com')
-                ->andWhere('com.id =:com')
-                ->setParameter('com', $search->getCommune());
-
-        }
-        dd($search);
+//        if (!empty($search->getCommune())) {
+//            $query = $query
+//                ->innerJoin('p.quatier', 'q')
+//                ->innerJoin('q.arrondissement', 'ar')
+//                ->innerJoin('ar.Commune', 'com')
+//                ->andWhere('com.id =:com')
+//                ->setParameter('com', $search->getCommune());
+//
+//        }
+       // dd($search);
         return $query->getQuery()->getResult();
     }
 }
