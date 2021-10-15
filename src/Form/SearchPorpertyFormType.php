@@ -5,6 +5,7 @@ namespace App\Form;
 
 
 use App\Entity\Commune;
+use App\Entity\Proprietes;
 use App\Recherche\SearchData;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;

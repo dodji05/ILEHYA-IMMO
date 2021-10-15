@@ -29,7 +29,24 @@ src: url('../font/Lato/Lato-Regular.ttf')format('truetype');
 
 
 }
+@font-face {
+    font-family: 'Montserrat Bold';
+    src: url('../font/Montserrat/Montserrat-Bold.ttf')format('truetype');
 
+
+}
+@font-face {
+    font-family: 'Montserrat ExtraBold';
+    src: url('../font/Montserrat/Montserrat-ExtraBold.ttf')format('truetype');
+
+
+}
+@font-face {
+    font-family: 'Montserrat Black';
+    src: url('../font/Montserrat/Montserrat-Black.ttf')format('truetype');
+
+
+}
 
 
 @-webkit-keyframes bounce {

@@ -478,10 +478,16 @@
 
 {% endblock %}
 {% block javascripts %}
+    {# <script src="https://code.jquery.com/jquery-1.12.4.js"></script> #}
+    {# <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> #}
+          {# <script type="text/javascript" src="{{ asset('FrontEnd/house/js/jquery-ui.js') }}"></script> #}
+    <script type="text/javascript" src="{{ asset('FrontEnd/house/js/jquery-1.12.4.js') }}"></script>
     <script type="text/javascript" src="{{ asset('FrontEnd/house/js/jquery.steps.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('FrontEnd/house/js/jquery-ui.js') }}"></script>
+
+  
     <script type="text/javascript" src="{{ asset('BackEnd/assets/plugins/autocomplete/js/autoComplete.js') }}"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
     <script>
 
 

@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use DateTime;
-use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProprietesRepository")
@@ -100,13 +100,14 @@ class Proprietes
     /**
      * @ORM\ManyToOne(targetEntity=User::class, cascade={"persist", "remove"})
      */
-    private $createdBy;
+    private $createdBy;   
 
     /**
-     * @ORM\OneToOne(targetEntity=User::class, cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity=User::class, cascade={"persist", "remove"})
      */
     private $updateBy;
 
+   
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
@@ -126,7 +127,7 @@ class Proprietes
         $this->nbre_vues = 0;
         $this->isvisible = false;
         $this->Disponibilite = true;
-        $this->createatAt = new DateTime();
+        $this->createatAt = new \DateTime();
         $this->media = new ArrayCollection();
 
         $this->messages = new ArrayCollection();
@@ -239,12 +240,12 @@ class Proprietes
         return $this;
     }
 
-    public function getCreateatAt(): ?DateTimeInterface
+    public function getCreateatAt(): ?\DateTimeInterface
     {
         return $this->createatAt;
     }
 
-    public function setCreateatAt(DateTimeInterface $createatAt): self
+    public function setCreateatAt(\DateTimeInterface $createatAt): self
     {
         $this->createatAt = $createatAt;
 
@@ -362,24 +363,26 @@ class Proprietes
         return $this;
     }
 
-    public function getupdateBy(): ?User
+    public function getUpdateBy(): ?User
     {
         return $this->updateBy;
     }
 
-    public function setupdateBy(?UserInterface $updateBy): self
+    public function setUpdateBy(?UserInterface $updateBy): self
     {
         $this->updateBy = $updateBy;
 
         return $this;
     }
 
-    public function getUpdateAt(): ?DateTimeInterface
+  
+
+    public function getUpdateAt(): ?\DateTimeInterface
     {
         return $this->UpdateAt;
     }
 
-    public function setUpdateAt(?DateTimeInterface $UpdateAt): self
+    public function setUpdateAt(?\DateTimeInterface $UpdateAt): self
     {
         $this->UpdateAt = $UpdateAt;
 

@@ -9,14 +9,15 @@ use App\Estimation\EstimationMaisonData;
 use App\Form\EstimationMaisonType;
 use App\Form\EstimationTerrainType;
 use App\Form\EstimationType;
+
 use App\Repository\PrixReferenceRepository;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
-use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Address;
 use Symfony\Component\Mime\Email;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class EstimationController extends AbstractController
@@ -66,7 +67,7 @@ class EstimationController extends AbstractController
                 ->subject('Demande d estimation')
 
                 // path of the Twig template to render
-                ->htmlTemplate('mail/demande_estimation_maison-2.html.twig')
+                ->htmlTemplate('mail/demande_estimation_maison.html.twig')
 
                 // pass variables (name => value) to the template
                 ->context([
@@ -83,7 +84,7 @@ class EstimationController extends AbstractController
 //        else{
 //            dd($form->isSubmitted() );
 //        }
-        return $this->render('FrontEnd/estimation_maison.html.twig',
+        return $this->render('FrontEnd/estimation_maison-2.html.twig',
             [
                 'form' => $form->createView()
             ]);

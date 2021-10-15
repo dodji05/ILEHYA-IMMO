@@ -7,7 +7,10 @@ use App\Entity\ProprietesImage;
 use App\Form\ProprietesType;
 use App\Repository\ProprietesRepository;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Persistence\PersistentObject;
+use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -112,6 +115,7 @@ class ProprietesController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
     /**
      * @Route("/featured/{id}", name="admin_proprietes_edit_featured", methods={"GET","POST"})
      */
@@ -139,6 +143,37 @@ class ProprietesController extends AbstractController
                 'code'=>200,
                 'status'=>$proprietes->getIIsFeatured(),
                 'message'=>'La propriete n\' est plus en avant'
+            ]);
+        }
+    }
+
+    /**
+     * @Route("/retirer/{id}", name="admin_proprietes_edit_retirer", methods={"GET","POST"})
+     */
+    public function retrait(Proprietes $proprietes, ProprietesRepository $proprietesRepository) {
+        $entityManager = $this->getDoctrine()->getManager();
+        if($proprietes->getDisponibilite() == false) {
+            $proprietes->setDisponibilite(true);
+            $proprietes->setupdateBy(null);
+            $entityManager->persist($proprietes);
+            $entityManager->flush();
+            $this->addFlash('success', 'La propriete à été retiree avec succes!');
+            return $this->json([
+                'code'=>200,
+                'status'=>$proprietes->getDisponibilite(),
+                'message'=>'La propriete a été retirée'
+            ]);
+        }
+        else {
+            $proprietes->setDisponibilite(false);
+            $proprietes->setupdateBy(null);
+            $entityManager->persist($proprietes);
+            $entityManager->flush();
+            $this->addFlash('success', 'La propriete est de nouveau active');
+            return $this->json([
+                'code'=>200,
+                'status'=>$proprietes->getDisponibilite(),
+                'message'=>'La propriete est de nouveau active'
             ]);
         }
     }

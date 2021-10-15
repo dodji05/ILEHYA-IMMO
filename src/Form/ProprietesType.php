@@ -2,10 +2,16 @@
 
 namespace App\Form;
 
+use App\Entity\Commune;
 use App\Entity\Proprietes;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ProprietesType extends AbstractType
@@ -115,7 +121,7 @@ class ProprietesType extends AbstractType
                      'entry_type' => ProprietesImagesType::class,
                      'allow_add' => true,
                      'allow_delete' => true,
-                     'prototype' => true,
+
                      'by_reference' => false,
                      'entry_options' => ['label' => false],
                  ])

@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -191,12 +190,12 @@ class ProprieteTypeOption
         return $this;
     }
 
-    public function getCreateadAt(): ?DateTimeInterface
+    public function getCreateadAt(): ?\DateTimeInterface
     {
         return $this->CreateadAt;
     }
 
-    public function setCreateadAt(?DateTimeInterface $CreateadAt): self
+    public function setCreateadAt(?\DateTimeInterface $CreateadAt): self
     {
         $this->CreateadAt = $CreateadAt;
 
@@ -287,12 +286,12 @@ class ProprieteTypeOption
         return $this;
     }
 
-    public function getAnnedeconstruction(): ?DateTimeInterface
+    public function getAnnedeconstruction(): ?\DateTimeInterface
     {
         return $this->Annedeconstruction;
     }
 
-    public function setAnnedeconstruction(?DateTimeInterface $Annedeconstruction): self
+    public function setAnnedeconstruction(?\DateTimeInterface $Annedeconstruction): self
     {
         $this->Annedeconstruction = $Annedeconstruction;
 

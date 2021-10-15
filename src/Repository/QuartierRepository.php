@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Quartier;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\AbstractQuery;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**

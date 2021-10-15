@@ -181,7 +181,8 @@ class ProprietesRepository extends ServiceEntityRepository
 //            ->orderBy('p.id', 'DESC')
 //            ->getQuery()
 //            ->getResult()
-        //dd($search);
+        ;
+//dd($search);
 //        if (!empty($search->getDepartement())) {
 //            if (!empty($search->getCommune())) {
 //                $query = $query

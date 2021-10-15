@@ -8240,7 +8240,7 @@
         };
         (function () {
             return !!r("transition")
-        })() && (t.support.transition = String(o("transition")), t.support.transition.end = l.transition.end[t.support.transition]), h() && (t.support.animation = String(o("animation")), t.support.animation.end = l.animation.end[t.support.animation]), c() && (t.support.transform = String(o("transform")), t.support.transform3d = u())
+        })() && (t.support.transition = new String(o("transition")), t.support.transition.end = l.transition.end[t.support.transition]), h() && (t.support.animation = new String(o("animation")), t.support.animation.end = l.animation.end[t.support.animation]), c() && (t.support.transform = new String(o("transform")), t.support.transform3d = u())
     }(window.Zepto || window.jQuery, window, document)
 }, function (t, e) {
     !function (t) {

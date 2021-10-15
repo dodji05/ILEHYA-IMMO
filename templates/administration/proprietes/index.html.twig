@@ -71,7 +71,7 @@
                                              <div class="dropdown-menu">
                                                 <a class="dropdown-item js-featured" href="{{ path('admin_proprietes_edit_featured',{'id':bien.id}) }}"> <i class="fas fa-star"></i> Mettre en avant  </a>
                                                 <a class="dropdown-item" href="{{ path('admin_proprietes_edit',{'id':bien.id}) }}"> <i class="fas fa-edit"></i>  Modifier</a>
-                                                 <a class="dropdown-item" href="#"> <i class="fas fa-minus-circle"></i> Retirer</a>
+                                                 <a class="dropdown-item js-retrait" href="{{ path('admin_proprietes_edit_retirer',{'id':bien.id}) }}"> <i class="fas fa-minus-circle"></i> Retirer</a>
                                                  <a class="dropdown-item" href="#"> <i class="fas fa-trash"></i>  Supprimer</a>
                                              </div>
                                          </div>
@@ -104,8 +104,26 @@
                 else icone.classList.replace('far','fas');
             });
         }
+
+        function onclickRetrait(event){
+            event.preventDefault();
+
+            const url = this.href;
+            var parent = this.closest('tr');
+
+            const  icone = parent.querySelector('i')
+
+            axios.get(url).then(function(response){
+                console.log(response)
+                if(icone.classList.contains('fas')) icone.classList.replace('fas','far');
+                else icone.classList.replace('far','fas');
+            });
+        }
         document.querySelectorAll('a.js-featured').forEach(function (link){
             link.addEventListener('click',onclickFeatured);
+        })
+         document.querySelectorAll('a.js-retrait').forEach(function (link){
+            link.addEventListener('click',onclickRetrait);
         })
     </script>
 {#    <script>#}
