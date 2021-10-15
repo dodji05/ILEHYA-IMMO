@@ -1,0 +1,73 @@
+{% extends 'FrontEnd/base.html.twig' %}
+{% block style %}
+    <link href="{{ asset('FrontEnd/house/css/jquery.steps.css') }}" rel="stylesheet">
+    <link href="{{ asset('BackEnd/assets/plugins/autocomplete/css/autoComplete.css') }}" rel="stylesheet">
+
+    {# <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.0/nouislider.min.css" integrity="sha512-6JqGSqQ++AEggYltdgSse8pKG90U/5U0bbkZoa94uSDG/BhI5YpYcy2LyWPWjXu40lUVEgEKHZ/2hCrwQvbODw==" crossorigin="anonymous" /> #}
+    <style>
+        .boxify {
+            border-radius: 1.25rem;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #cbcbcb;
+            -webkit-box-shadow: 0 1px 8px 0 rgb(0 0 0 / 8%);
+            box-shadow: 0 1px 8px 0 rgb(0 0 0 / 8%);
+            background-color: #fff;
+        }
+
+        .css-1ecdjof {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .col-sm-offset-3 {
+            margin-left: 25%;
+        }
+
+        @media (min-width: 768px) {
+            .col-sm-offset-3 {
+                margin-left: 25%;
+            }
+        }
+
+        .css-1biltnr {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 15px;
+            display: block;
+        }
+
+        .btn-primary-custom {
+            color: #fff;
+            background-color: #0f3f60;
+            border-color: #ffeba5;
+            padding: 10px 30px;
+            font-size: 14px;
+            line-height: 18px;
+            border-radius: 50px;
+        }
+
+
+    </style>
+{% endblock %}
+ {% block navbar %}
+     {% include 'FrontEnd/partials/_navbar_fixed_top.html.twig' %}
+
+ {% endblock %}
+{% block content %}
+    <div class="clearfix" style="padding-top: 130px!important;"></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 boxify css-1ecdjof">
+                <h4>
+                    Merci de votre confiance.
+                </h4>
+                <h4>
+                    ILEYA PROPERTY vous retourneras un devis dans un bref delai.
+                </h4>
+            </div>
+        </div>
+    </div>
+{% endblock %}

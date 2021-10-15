@@ -1,0 +1,842 @@
+{% extends 'FrontEnd/base.html.twig' %}
+{% block style %}
+    <link href="{{ asset('FrontEnd/house/css/jquery.steps.css') }}" rel="stylesheet">
+    <link href="{{ asset('FrontEnd/house/vendor/nouislider/css/nouislider.css') }}" rel="stylesheet">
+    <style>
+        .estimation-row {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #f2f2f2;
+        }
+
+        .estimation-row__label {
+            width: calc(100% - 3.375rem);
+            font-size: .875rem;
+            line-height: 1.1;
+            color: #1c3452;
+            font-family: Montserrat, sans-serif;
+        }
+
+        @media only screen and (min-width: 36rem) {
+            .estimation-row__icon {
+                width: 5.625rem;
+                padding: 0 1.25rem 0 0;
+            }
+        }
+
+        .estimation-row__icon {
+            width: 3.375rem;
+            padding: 0 .875rem 0 0;
+        }
+
+        .estimation-row > * {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .estimation-row__label {
+            width: calc(100% - 3.375rem);
+            font-size: .875rem;
+            line-height: 1.1;
+            color: #1c3452;
+            font-family: Montserrat, sans-serif;
+        }
+
+        @media only screen and (min-width: 36rem) {
+            .estimation-row__label {
+                width: calc(100% - 5.625rem);
+                font-size: 1rem;
+            }
+        }
+
+        .estimation-row__input--full-icon {
+            width: 100%;
+            margin-top: .625rem;
+            margin-bottom: .625rem;
+        }
+
+        @media only screen and (min-width: 36rem) {
+            .estimation-row__input {
+                width: 11.875rem;
+            }
+        }
+
+        @media only screen and (min-width: 36rem) {
+            .estimation-row__input--full-icon {
+                width: calc(100% - 5.625rem);
+                margin-left: 5.625rem;
+                margin-top: 0;
+            }
+        }
+
+        .ranger-input {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            width: 100%;
+        }
+
+        .input-range-with-value__slider {
+            height: 40px;
+            width: calc(100% - 120px - 1.25rem);
+            margin-right: 1.25rem;
+
+        }
+
+        .surfacehabitable {
+            width: 100%;
+            font-weight: 700;
+            font-family: PT Sans, sans-serif;
+            color: #1c3452;
+            position: relative;
+        }
+
+        .input-group--stepper__button, .input-group--stepper__button--append, .input-group__append {
+            background-color: rgba(0, 0, 0, 0);
+            border-color: rgba(0, 0, 0, 0);
+            padding: 0 .75rem 0 .75rem;
+            border-radius: .375em;
+            /*margin-right: .125rem;*/
+            font-family: PT Sans, sans-serif;
+            font-weight: 700;
+            font-size: 1.125rem;
+            color: #3f6da7;
+            text-transform: uppercase;
+            line-height: 2rem;
+            min-height: 2rem;
+            min-width: 2.125rem;
+            border: 1px solid #6288b9;
+            background-color: #ebf0f6;
+        }
+
+        .input-group--append, .input-group--prepend, .input-group--stepper {
+            border: 1px solid #6288b9;
+            border-radius: .5rem;
+        }
+
+        .input--range {
+            width: 100%;
+            font-weight: 700;
+            font-family: PT Sans, sans-serif;
+            color: #1c3452;
+            position: relative;
+        }
+
+        .input-range-with-value__input {
+            width: 160px;
+        }
+
+        .input-range-with-value__input .input-group__append .input-group__abbr {
+            text-transform: lowercase;
+            color: #1c3452;
+        }
+
+        .surfacehabitable {
+
+            width: 100%;
+            background: rgba(0, 0, 0, 0);
+            margin-top: 10px;
+            height: 25px;
+            margin-bottom: -8px;
+            padding: 0;
+            outline: none;
+        }
+
+        .label--medium {
+            width: calc(100% - 17.5rem);
+            margin-left: 1.8rem;
+        }
+
+        @media only screen and (min-width: 36rem) {
+            .estimation-row__input--medium {
+                padding-left: 1.875rem;
+            }
+        }
+
+        .input-group--append, .input-group--prepend, .input-group--stepper {
+            border: 1px solid #6288b9;
+            border-radius: .5rem;
+        }
+
+        .input-group--stepper__button {
+            cursor: pointer;
+            position: relative;
+            font-size: 1.125rem;
+        }
+
+        .input--text {
+            line-height: 2.375rem;
+            padding: 0 .75rem;
+            border: 1px solid #6288b9;
+            border-radius: .5rem;
+            font-size: 1rem;
+            color: #28476d;
+            outline: none;
+            width: 100%;
+            min-height: 2.5rem;
+            background-color: #f7f9fb;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+        .input-group--stepper__main {
+            text-align: center;
+            background-color: #fff;
+            min-height: 2.375rem;
+        }
+
+        .input-group--stepper__button--prepend {
+            padding: 0 .75rem 0 .75rem;
+            border-radius: .375em;
+            margin-left: .125rem;
+            -webkit-box-ordinal-group: 0;
+            -webkit-order: -1;
+            -ms-flex-order: -1;
+            order: -1;
+        }
+
+        .input-group--stepper__button {
+            cursor: pointer;
+            position: relative;
+            font-size: 1.125rem;
+        }
+
+        .input-group--stepper__main {
+            text-align: center;
+            background-color: #fff;
+            min-height: 2.375rem;
+        }
+
+        .input-group__main--append {
+            border: 0;
+            background-color: #fff;
+        }
+
+        .input-group__from, .input-group__main, .input-group__to {
+            min-width: 0;
+        }
+
+        /*@media only screen and (min-width: 36rem){*/
+        /*    .estimation-row__icon {*/
+        /*        width: 5.625rem;*/
+        /*        padding: 0 1.25rem 0 0;*/
+        /*    }*/
+        /*}*/
+        .estimation-row__input .input--switch {
+            margin-bottom: 0;
+        }
+
+        @media only screen and (min-width: 36rem) {
+            .estimation-row__input label {
+                font-size: 1rem;
+            }
+        }
+
+        .input--switch {
+            position: relative;
+            display: inline-block;
+            margin-bottom: .625rem;
+            width: 100%;
+        }
+
+        .input--checkbox {
+            position: relative;
+            margin: .75rem 0 .875rem 0;
+            margin-top: 0;
+        }
+
+        /*.input--checkbox__input {*/
+        /*    !*position: absolute;*!*/
+        /*    left: 0;*/
+        /*    opacity: 0;*/
+        /*}*/
+        .form-check-label:after {
+            background-image: url(../img/icon-checkmark.svg);
+        }
+
+        .form-check-label:after {
+            background: url(/images/icons/icon-checkmark.svg) no-repeat;
+            background-size: 1.25rem 1.25rem;
+            content: "";
+            display: block;
+            position: absolute;
+            fill: #fff;
+            height: 1.25rem;
+            width: 1.25rem;
+            left: 0;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+            opacity: 0;
+            line-height: 100%;
+            color: #fff;
+            margin: auto;
+        }
+
+        /*.form-check-label {*/
+        /*    position: relative;*/
+        /* */
+        /*    margin: 0;*/
+        /*    display: inline-block;*/
+        /*    vertical-align: middle;*/
+        /*    cursor: pointer;*/
+        /*    font-weight: 400;*/
+        /*    font-family: PT Sans,sans-serif;*/
+        /*    font-size: 1rem;*/
+        /*    line-height: 1.25rem;*/
+        /*    color: #1c3452;*/
+        /*}*/
+        .estimation-row__label--space {
+            padding-bottom: .625rem;
+        }
+
+        .estimation-row__input--large {
+            width: 100%;
+        }
+
+        .estimation-row__input--large {
+            max-width: 300px;
+        }
+
+        .screen__form {
+
+        }
+
+        .screen__form {
+            /*width: 100%;*/
+            /*padding-top: 1rem;*/
+            padding-left: 1.25rem;
+            /*padding-right: 1.25rem;*/
+        }
+
+        .estimation-form {
+            width: 100%;
+        }
+
+        .wizard.vertical > .content {
+            width: 50%;
+        }
+
+        .wizard > .content {
+            background: #fff;
+        }
+
+        .wizard.vertical > .steps {
+            padding: 3.5rem 3vw 0 2.1875rem;
+        }
+
+        .wizard.vertical > .steps {
+            background: #ffeba5;
+        }
+
+        .wizard > .steps .current a, .wizard > .steps .current a:hover, .wizard > .steps .current a:active {
+            background: transparent;
+            font-size: 1.525rem;
+            margin-bottom: 1rem;
+            color: #0e3f60;
+            /*cursor: default;*/
+        }
+
+        .wizard > .steps .disabled a, .wizard > .steps .disabled a:hover, .wizard > .steps .disabled a:active {
+            background: transparent;
+            font-size: .925rem;
+            margin-bottom: 1rem;
+            /*color: #aaa;*/
+            /*cursor: default;*/
+        }
+
+        .wizard > .steps .done a, .wizard > .steps .done a:hover, .wizard > .steps .done a:active {
+            /* background: #9dc8e2; */
+            color: #0e3f60;
+        }
+
+    </style>
+    {# <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.0/nouislider.min.css" integrity="sha512-6JqGSqQ++AEggYltdgSse8pKG90U/5U0bbkZoa94uSDG/BhI5YpYcy2LyWPWjXu40lUVEgEKHZ/2hCrwQvbODw==" crossorigin="anonymous" /> #}
+{% endblock %}
+ {% block navbar %}
+     {% include 'FrontEnd/partials/_navbar_fixed_top.html.twig' %}
+
+ {% endblock %}
+{% block content %}
+    <div class="clearfix"><BR> <BR> <br> <br></div>
+    {# {{ form_start(form, {'attr':{'id' :'wizard_with_validation'}}) }} #}
+    {{ form_start(form) }}
+    <div class="pull-right ml-15">
+        <button class="btn btn-success" type="submit">{{ button_label|default('Enregistrer le bien') }}</button>
+    </div>
+    {{ form_end(form) }}
+
+    <div class="container-fluid" style="padding-top: 130px!important;">
+        <div class="row">
+            <div id="example-basic">
+
+                <h3>Quels sont les espaces disponibles</h3>
+                <section class="estimation-form">
+                    <div class="estimation-row">
+                        <div class="estimation-row__icon">
+                            <img src="https://d1e9888xfd1rj0.cloudfront.net/1615977340/icons/surface.svg?1615977342366"
+                                 alt="icon" class="illustration-icon">
+                        </div>
+                        <div class="estimation-row__label">
+                            <label>
+                                Superficie habitable de la maison
+                            </label>
+                        </div>
+                        <div class="estimation-row__input estimation-row__input--full-icon">
+                            <div class="ranger-input">
+                                <div class="input-range-with-value__slider">
+                                    <div class="input--range">
+                                        <input type="range" min="0" max="15000000" id="sur"
+                                               class="surfacehabitable">
+                                    </div>
+                                </div>
+                                <div class="input-range-with-value__input">
+                                    <div class="input-group input-group--append">
+                                        {{ form_widget (form.esp_surface_habitable) }}
+                                        <div class="input-group__append">
+                                            <abbr class="input-group__abbr">m²</abbr>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="estimation-row">
+                        <div class="estimation-row__icon">
+                            <img src="https://d1e9888xfd1rj0.cloudfront.net/1615977340/icons/surface.svg?1615977342366"
+                                 alt="icon" class="illustration-icon">
+                        </div>
+                        <div class="estimation-row__label label--medium">
+                            <label>
+                                Nombre de chambres
+                            </label>
+                        </div>
+                        <div class=" estimation-row__input estimation-row__input--medium">
+
+                            <div class="input-group input-group--stepper">
+                                <button class="input-group--stepper__button input-group--stepper__button--prepend">
+                                    -
+                                </button>
+                                {{ form_widget (form.esp_nombre_chambre, {'attr':{'class':'input-group__main input-group--stepper__main input-group__main--prepend input-group__main--append input--text'}}) }}
+                                <button class="input-group--stepper__button input-group--stepper__button--append">
+                                    +
+                                </button>
+                            </div>
+
+                        </div>
+                        <div class="estimation-row__icon"><img
+                                    src="https://d1e9888xfd1rj0.cloudfront.net/1615977340/icons/bedrooms.svg?1615977342366"
+                                    alt="icon" class="illustration-icon"></div>
+
+                    </div>
+                    <div class="estimation-row">
+                        <div class="estimation-row__icon">
+                            <img src="https://d1e9888xfd1rj0.cloudfront.net/1615977340/icons/surface.svg?1615977342366"
+                                 alt="icon" class="illustration-icon">
+                        </div>
+                        <div class="estimation-row__label label--medium">
+                            <label>
+                                Nombre de salles de bains ?
+                            </label>
+                        </div>
+                        <div class=" estimation-row__input estimation-row__input--medium">
+
+                            <div class="input-group input-group--stepper">
+                                <button class="input-group--stepper__button input-group--stepper__button--prepend">
+                                    -
+                                </button>
+                                {{ form_widget (form.esp_nombre_bains, {'attr':{'class':'input-group__main input-group--stepper__main input-group__main--prepend input-group__main--append input--text'}}) }}
+                                <button class="input-group--stepper__button input-group--stepper__button--append">
+                                    +
+                                </button>
+                            </div>
+
+                        </div>
+                        {{ form_label(form.esp_nombre_bains, null, {'label_attr':{'class':'estimation-row__label'}}) }}
+                        {{ form_widget (form.esp_nombre_bains) }}
+                    </div>
+                    <div class="estimation-row">
+                        <div class="estimation-row__icon">
+                            <img src="https://d1e9888xfd1rj0.cloudfront.net/1615977340/icons/terrace.svg?1615977342366"
+                                 alt="icon" class="illustration-icon">
+                        </div>
+                        <div class="estimation-row__label label--medium">
+                            <label>
+                                Y a-t-il un jardin ?
+                            </label>
+                        </div>
+                        <div class="custom-control custom-switch">
+                            <div class="custom-control custom-switch">
+                                {{ form_widget (form.esp_jardin, {'label_attr':{'class':'input--switch__input'}} ) }}
+
+                                <label for="checkbox_classified_property_outdoor_garden_exists"
+                                       class="component-input-switch input--switch ">
+                                    {{ form_widget (form.esp_jardin, {'label_attr':{'class':'input--switch__input'}} ) }}
+                                    <input type="checkbox" id="checkbox_classified_property_outdoor_garden_exists"
+                                           name="classified_property_outdoor_garden_exists"
+                                           class="input--switch__input">
+                                    <span class="input--switch__label"></span>
+                                </label>
+                            </div>
+                            {{ form_label(form.esp_jardin, null, {'label_attr':{'class':'estimation-row__label'}}) }}
+
+                        </div>
+                </section>
+                <h3>Quelles sont les caractéristiques de la maison ?</h3>
+                <section>
+                    <div class="estimation-row">
+                        <div class="estimation-row__icon">
+                            <img src="https://d1e9888xfd1rj0.cloudfront.net/1615977340/icons/surface.svg?1615977342366"
+                                 alt="icon" class="illustration-icon">
+                        </div>
+                        <div class="estimation-row__label label--medium">
+                            <label>
+                                Année de construction?
+                            </label>
+                        </div>
+                        <div class=" estimation-row__input estimation-row__input--medium">
+
+                            <div class="input-group input-group--stepper">
+
+                                {{ form_widget (form.caract_annee_construction, {'attr':{'class':'input-group__main input-group--stepper__main input-group__main--prepend input-group__main--append input--text'}}) }}
+                            </div>
+
+                        </div>
+                        {{ form_widget (form.caract_annee_construction) }}
+                    </div>
+                    <div class="estimation-row">
+                        <div class="estimation-row__label label--medium">
+                            <label>
+                                Nombre de facades?
+                            </label>
+                        </div>
+                        <div class=" estimation-row__input estimation-row__input--medium">
+
+                            <div class="input-group input-group--stepper">
+                                <button class="input-group--stepper__button input-group--stepper__button--prepend">
+                                    -
+                                </button>
+                                {{ form_widget (form.caract_nombres_facades, {'attr':{'class':'input-group__main input-group--stepper__main input-group__main--prepend input-group__main--append input--text'}}) }}
+                                <button class="input-group--stepper__button input-group--stepper__button--append">
+                                    +
+                                </button>
+                            </div>
+
+                        </div>
+                        {{ form_label(form.caract_nombres_facades, null, {'label_attr':{'class':'estimation-row__label'}}) }}
+                        {{ form_widget (form.caract_nombres_facades) }}
+                    </div>
+                    <div class="estimation-row">
+                        <div class="estimation-row__icon">
+                            <img src="https://d1e9888xfd1rj0.cloudfront.net/1615977340/icons/terrace.svg?1615977342366"
+                                 alt="icon" class="illustration-icon">
+                        </div>
+                        <div class="estimation-row__label label--medium">
+                            <label>
+                                Aménagements
+                            </label>
+                        </div>
+                        <div class="estimation-row__input estimation-row__input--full-icon estimation-row__input--font-body">
+                            <div class="input--checkbox">
+                                {{ form_widget (form.caract_amenagements , {'attr':{'class':'input--checkbox__input'}}) }}
+                                {{ form_label(form.caract_amenagements, null, {'label_attr':{'class':'input--checkbox__label'}}) }}
+                            </div>
+                        </div>
+                        {{ form_label(form.caract_amenagements, null, {'label_attr':{'class':'input--checkbox__label'}}) }}
+
+                    </div>
+
+                </section>
+                <h3>Pager</h3>
+                <section>
+                    <div class="estimation-row">
+                        <div class="estimation-row__icon">
+                            <img src="https://d1e9888xfd1rj0.cloudfront.net/1615977340/icons/property-view.svg?1615977342366"
+                                 alt="icon" class="illustration-icon">
+                            <img src="https://d1e9888xfd1rj0.cloudfront.net/1615977340/icons/terrace.svg?1615977342366"
+                                 alt="icon" class="illustration-icon">
+                        </div>
+                        <div class="estimation-row__label label--medium">
+                            <label>
+                                Dans quel état est actuellement le bâtiment ?
+                            </label>
+                        </div>
+                        <div class="estimation-row__input estimation-row__input--full-icon">
+                            {{ form_widget(form.caract_etat) }}
+
+                        </div>
+                    </div>
+                    <div class="estimation-row">
+                        <div class="estimation-row__icon">
+                            <img src="https://d1e9888xfd1rj0.cloudfront.net/1615977340/icons/property-view.svg?1615977342366"
+                                 alt="icon" class="illustration-icon">
+                            <img src="https://d1e9888xfd1rj0.cloudfront.net/1615977340/icons/terrace.svg?1615977342366"
+                                 alt="icon" class="illustration-icon">
+                        </div>
+                        <div class="estimation-row__label label--medium">
+                            <label>
+                                De quelle vue bénéficie le bien ?
+                            </label>
+                        </div>
+                        <div class="estimation-row__input estimation-row__input--full-icon">
+                            {{ form_widget (form.caract_vue) }}
+                        </div>
+                        {{ form_label(form.caract_vue, null, {'label_attr':{'class':'estimation-row__label'}}) }}
+                        {{ form_widget (form.caract_vue) }}
+                    </div>
+                    <div class="estimation-row">
+                        <div class="estimation-row__icon">
+                            <img src="https://d1e9888xfd1rj0.cloudfront.net/1615977340/icons/property-view.svg?1615977342366"
+                                 alt="icon" class="illustration-icon">
+                            <img src="https://d1e9888xfd1rj0.cloudfront.net/1615977340/icons/terrace.svg?1615977342366"
+                                 alt="icon" class="illustration-icon">
+                        </div>
+                        <div class="estimation-row__label label--medium">
+                            <label>
+                                Quel est le standing du bien ?
+                            </label>
+                        </div>
+                        <div class="estimation-row__input estimation-row__input--full-icon">
+                            {{ form_widget (form.caract_standing) }}
+                        </div>
+
+                    </div>
+                </section>
+                <h3>Pager</h3>
+                <section>
+                    <div class="estimation-row">
+                        <div class="estimation-row__icon">
+                            <img src="https://d1e9888xfd1rj0.cloudfront.net/1615977340/icons/terrace.svg?1615977342366"
+                                 alt="icon" class="illustration-icon">
+                        </div>
+                        <div class="estimation-row__label label--medium">
+                            <label>
+                                Quels autres éléments influencent le prix ?
+                            </label>
+                        </div>
+                        <div class="estimation-row__input estimation-row__input--full-icon estimation-row__input--font-body">
+                            <div class="input--checkbox">
+                                {{ form_widget (form.pls_influence_prix , {'attr':{'class':'input--checkbox__input'}}) }}
+                                {{ form_label(form.caract_amenagements, null, {'label_attr':{'class':'input--checkbox__label'}}) }}
+                            </div>
+                        </div>
+                        {{ form_label(form.pls_influence_prix, null, {'label_attr':{'class':'estimation-row__label'}}) }}
+                        {{ form_widget (form.pls_influence_prix) }}
+                    </div>
+                </section>
+                <h3>Pager</h3>
+                <section>
+                    <div class="estimation-row">
+                        <div class="estimation-row__icon">
+                            <img src="https://d1e9888xfd1rj0.cloudfront.net/1615977340/icons/property-view.svg?1615977342366"
+                                 alt="icon" class="illustration-icon">
+                            <img src="https://d1e9888xfd1rj0.cloudfront.net/1615977340/icons/terrace.svg?1615977342366"
+                                 alt="icon" class="illustration-icon">
+                        </div>
+                        <div class="estimation-row__label">
+                            <label>
+                                Êtes-vous propriétaire du bien ?
+                            </label>
+                        </div>
+                        <div class="estimation-row__input estimation-row__input--full-icon">
+                            {{ form_widget (form.proprietaire) }}
+                        </div>
+
+                        {{ form_label(form.proprietaire, null, {'label_attr':{'class':'estimation-row__label'}}) }}
+                        {{ form_widget (form.proprietaire) }}
+                    </div>
+                    <div class="estimation-row">
+                        <div class="estimation-row__label  estimation-row__label--space">
+                            <label>
+                                Indiquez votre adresse e-mail
+                            </label>
+                        </div>
+                        <div class="estimation-row__input estimation-row__input--large">
+                            {{ form_widget (form.mail, {'attr':{'class':'input--text input-text'}}) }}
+                        </div>
+                        {{ form_label(form.mail, null, {'label_attr':{'class':'estimation-row__label'}}) }}
+                        {{ form_widget (form.mail) }}
+                    </div>
+                    <div class="estimation-row">
+                        <div class="estimation-row__label  estimation-row__label--space">
+                            <label>
+                                Indiquez votre adresse e-mail
+                            </label>
+                        </div>
+                        <div class="estimation-row__input estimation-row__input--large">
+                            {{ form_widget (form.telephone, {'attr':{'class':'input--text input-text'}}) }}
+                        </div>
+                        {{ form_label(form.telephone, null, {'label_attr':{'class':'estimation-row__label'}}) }}
+                        {{ form_widget (form.telephone) }}
+                    </div>
+                </section>
+            </div>
+        </div>
+        <button type="submit">valide</button>
+    </div>
+    {{ form_end(form) }}
+
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('FrontEnd/house/js/jquery.steps.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('FrontEnd/house/js/form-wizard.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('FrontEnd/house/vendor/nouislider/js/nouislider.js') }}"></script>
+    <script>
+
+
+        class LinkedSelect {
+
+            /**
+             * @param {HTMLSelectElement} $select
+             */
+            constructor($select) {
+                this.$select = $select
+                this.$target = document.querySelector(this.$select.dataset.target)
+                this.$placeholder = this.$target.firstElementChild
+                //  this.onChange = debounce(this.onChange.bind(this), 500)
+                this.onChange = this.onChange.bind(this)
+                this.$loader = null
+                this.cache = {}
+                this.$select.addEventListener('change', this.onChange)
+
+            }
+
+            /**
+             * Se déclenche au changement de valeur d'un select
+             * @param {Event} e
+             */
+            onChange(e) {
+                if (e.target.value === '0') {
+
+                    return
+                }
+
+                this.loadOptions(e.target.value, (options) => {
+                    this.$target.innerHTML = options
+                    this.$target.insertBefore(this.$placeholder, this.$target.firstChild)
+                    this.$target.selectedIndex = 0
+                    this.$target.style.display = null
+
+                })
+            }
+
+            /**
+             * Charge les options à partir du serveur (ou du cache)
+             * @param {string} id
+             * @param callback
+             */
+            loadOptions(id, callback) {
+                if (this.cache[id]) {
+                    callback(this.cache[id])
+                    return
+                }
+                this.showLoader()
+                let request = new XMLHttpRequest()
+                request.open('GET', this.$select.dataset.source.replace('id', id), true)
+                request.onload = () => {
+                    if (request.status >= 200 && request.status < 400) {
+                        let data = JSON.parse(request.responseText)
+                        let options = data.reduce(function (acc, option) {
+                            return acc + '<option value="' + option.value + '">' + option.label + '</option>'
+                        }, '')
+                        this.cache[id] = options
+                        this.hideLoader()
+                        callback(options)
+                    } else {
+                        alert('Impossible de charger la liste')
+                    }
+                }
+                request.onerror = function () {
+                    alert('Impossible de charger la liste')
+                }
+                request.send()
+            }
+
+            showLoader() {
+                this.$loader = document.createTextNode('Chargement...')
+                this.$target.parentNode.appendChild(this.$loader)
+            }
+
+            hideLoader() {
+                if (this.$loader !== null) {
+                    this.$loader.parentNode.removeChild(this.$loader)
+                    this.$loader = null
+                }
+            }
+
+        }
+
+
+        let $selects = document.querySelectorAll('.linked-select')
+        $selects.forEach(function ($select) {
+            new LinkedSelect($select)
+        })
+    </script>
+    <script>
+        $("#example-basic").steps({
+            headerTag: "h3",
+            bodyTag: "section",
+            transitionEffect: "slideLeft",
+            autoFocus: true,
+            stepsOrientation: "vertical",
+            onFinished: function (event, currentIndex) {
+                $("#wizard_with_validation").submit()
+            }
+
+        });
+
+        const slider = document.getElementById('price-slider')
+        const sliders = document.getElementById('sur')
+        sliders.addEventListener('change', updateValue);
+        const surface = document.getElementById('estimation_maison_esp_surface_habitable')
+        surface.value = sliders.value
+        sliders.oninput = function () {
+            sliders.value = this.value
+
+        }
+
+        function updateValue(e) {
+            surface.value = this.value
+        }
+
+        if (slider) {
+            const min = 500//document.getElementById('min')
+            const max = 1000000//document.getElementById('max')
+            const surface = document.getElementById('estimation_maison_esp_surface_habitable')
+            const minValue = Math.floor(parseInt(slider.dataset.min, 10) / 10) * 10
+            const maxValue = Math.ceil(parseInt(slider.dataset.max, 10) / 10) * 10
+            const range = noUiSlider.create(slider, {
+                start: [min || minValue, max || maxValue],
+                connect: true,
+                step: 10,
+                range: {
+                    'min': minValue,
+                    'max': maxValue
+                }
+            })
+            range.on('slide', function (values, handle) {
+                if (handle === 0) {
+                    surface.value = Math.round(values[0])
+                }
+                // if (handle === 1) {
+                //     max  = Math.round(values[1])
+                // }
+            })
+            range.on('end', function (values, handle) {
+                if (handle === 0) {
+                    surface.dispatchEvent(new Event('change'))
+                }
+                // else {
+                //     max.dispatchEvent(new Event('change'))
+                // }
+            })
+        }
+    </script>
+{% endblock %}

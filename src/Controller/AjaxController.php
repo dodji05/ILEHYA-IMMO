@@ -3,17 +3,19 @@
 namespace App\Controller;
 
 use App\Repository\ArrondissementRepository;
-use App\Repository\QuartierRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\Encoder\JsonEncode;
-use Symfony\Component\Serializer\Encoder\JsonEncoder;
-use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\SerializerInterface;
+use const JSON_HEX_AMP;
+use const JSON_HEX_APOS;
+use const JSON_HEX_QUOT;
+use const JSON_HEX_TAG;
+use const JSON_UNESCAPED_UNICODE;
 
 /**
  * @Route("/ajax")
@@ -23,7 +25,8 @@ class AjaxController extends AbstractController
     /**
      * @Route("/rechercher/quartier", name="ajax_search_quartier")
      */
-    public function quartier(Request $request,ArrondissementRepository $ArrondissementRepository,SerializerInterface $serializer) {
+    public function quartier(Request $request, ArrondissementRepository $ArrondissementRepository, SerializerInterface $serializer)
+    {
 
 //        $encoder = new JsonEncoder();
 //        $defaultContext = [
@@ -44,7 +47,7 @@ class AjaxController extends AbstractController
 //        return new Response(json_encode($serialiserData));
 
         $annonces = $ArrondissementRepository->getAllArrodissement($request->get('term'));
-        dd($annonces);
+
 
 
         $nornalizers = [ new ObjectNormalizer()];
@@ -53,7 +56,7 @@ class AjaxController extends AbstractController
 
         $serialiserData = $serializer->serialize($annonces, 'json');
 
-        $jsonEncodeOptions = \JSON_HEX_TAG | \JSON_HEX_APOS | \JSON_HEX_AMP | \JSON_HEX_QUOT | \JSON_UNESCAPED_UNICODE;
+        $jsonEncodeOptions = JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT | JSON_UNESCAPED_UNICODE;
 
         //  dd($serialiserData);
         foreach ($annonces as $item){

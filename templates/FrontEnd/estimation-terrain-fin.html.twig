@@ -1,0 +1,59 @@
+{% extends 'FrontEnd/base.html.twig' %}
+{% block style %}
+    <link href="{{ asset('FrontEnd/house/css/jquery.steps.css') }}" rel="stylesheet">
+    <link href="{{ asset('BackEnd/assets/plugins/autocomplete/css/autoComplete.css') }}" rel="stylesheet">
+    <style>
+        .col-sm-offset-3 {
+            margin-left: 25%;
+        }
+
+        @media (min-width: 768px) {
+            .col-sm-offset-3 {
+                margin-left: 25%;
+            }
+        }
+
+        .col-sm-6 p {
+            font-size: 19px;
+            line-height: 35px;
+
+        }
+    </style>
+
+    {# <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.0/nouislider.min.css" integrity="sha512-6JqGSqQ++AEggYltdgSse8pKG90U/5U0bbkZoa94uSDG/BhI5YpYcy2LyWPWjXu40lUVEgEKHZ/2hCrwQvbODw==" crossorigin="anonymous" /> #}
+
+{% endblock %}
+ {% block navbar %}
+     {% include 'FrontEnd/partials/_navbar_fixed_top.html.twig' %}
+
+ {% endblock %}
+{% block content %}
+    <div class="clearfix" style="padding-top: 130px!important;"></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <h5 class="text-center">
+                    Votre estimation est prêt
+                </h5>
+                <p class="text-justify">
+                    D'après l'arrêté Année 2020 n1830/MEF/CAB/SGM/DGI/DLC/282SGG20 <br>
+                    fixant les valeurs d'acquittions de référence dans le cadre de la perception de la taxe de
+                    plus-value immobilière
+
+                </p>
+                <p class="text-justify">
+                    L'estimation de votre bien se situant au dans l'arrondissement {{ arrondissement }} en
+                    zone {{ zone }}
+                    est de <span
+                            style="color: green; font-size: 20px">{{ estimation |number_format(0, ' ', ' ') }} CFA</span>
+                </p>
+
+                <h6 class="text-center">
+                    Merci pour votre confiance
+                </h6>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

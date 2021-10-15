@@ -9,15 +9,14 @@ use App\Estimation\EstimationMaisonData;
 use App\Form\EstimationMaisonType;
 use App\Form\EstimationTerrainType;
 use App\Form\EstimationType;
-
 use App\Repository\PrixReferenceRepository;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Address;
 use Symfony\Component\Mime\Email;
-use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class EstimationController extends AbstractController
@@ -91,7 +90,7 @@ class EstimationController extends AbstractController
     }
 
     /**
-     * @Route("/Estimer-nom-bien/terrain", name="estimation_terrain")
+     * @Route("/Estimer-nom-bien/estimer-un-terrain", name="estimation_terrain")
      */
     public function estimationTerrain(Request $request,MailerInterface $mailer, SessionInterface $session,PrixReferenceRepository $prixReferenceRepository){
         $data = new EstimationMaisonData();
@@ -114,7 +113,7 @@ class EstimationController extends AbstractController
 
 
         }
-        return $this->render('FrontEnd/estimation_maison.html.twig',
+        return $this->render('FrontEnd/estimation_terrain.html.twig',
             [
                 'form' => $form->createView()
             ]);
