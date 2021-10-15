@@ -1,0 +1,139 @@
+{% apply inline_css(source("@styles/styles.css")) %}
+    <html>
+    <body>
+    <h3 class="text-center"> Demande d'estimation de : </h3>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <table class="table table-striped table-bordered">
+                    <tr>
+                        <td>
+                            Superficie:
+                        </td>
+                        <td>
+                            {{ formData.EspSurfaceHabitable }}
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Nombre de chambres:
+                        </td>
+                        <td>
+                            {{ formData.EspNombreChambre }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Nombre de salles de bains:
+                        </td>
+                        <td>
+                            {{ formData.EspNombreBains }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            jardin
+                        </td>
+                        <td>
+                            {{ formData.EspJardin }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            année de construction
+                        </td>
+                        <td>
+                            {{ formData.CaractAnneeConstruction }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Nombre de façades :
+                        </td>
+                        <td>
+                            {{ formData.CaractNombresFacades }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Aménagements:
+                        </td>
+                        <td>
+                            {% for ame in formData.CaractAmenagements %}
+                                {{ ame }}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Etat est actuellement du bâtiment:
+                        </td>
+                        <td>
+                            {{ formData.CaractEtat }}
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            Quel est le standing du bien :
+                        </td>
+                        <td>
+                            {{ formData.CaractStanding }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            De quelle vue bénéficie le bien :
+                        </td>
+                        <td>
+                            {{ formData.CaractVue }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Eléments pouvant influencer le prix :
+                        </td>
+                        <td>
+                            {% for price in formData.PlsInfluencePrix %}
+                                {{ price }}
+                            {% endfor %}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            propriétaire du bien :
+                        </td>
+                        <td>
+                            {{ formData.Proprietaire }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Email :
+                        </td>
+                        <td>
+                            {{ formData.Mail }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Telephone :
+                        </td>
+                        <td>
+                            {{ formData.Telephone }}
+                        </td>
+                    </tr>
+
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+    </body>
+    </html>
+
+{% endapply %}
