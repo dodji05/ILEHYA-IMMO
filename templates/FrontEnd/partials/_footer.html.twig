@@ -10,7 +10,7 @@
                             <img src="{{ asset('images/app/ilehya-logo.png') }}" alt="" class="logo-footer">
                         </figure>
                         <p>
-                            ILEHYA PROPERTY BENIN SCI : est une Societe Civil Immobiliere au capital social de 2 000 000
+                            ILEHYA PROPERTY BENIN SCI : est une Societe Civil Immobiliere au capital social de 2 000 000 FCFA
                         </p>
 
                         <ul class="list-unstyled mb-0 mt-3">
@@ -33,24 +33,24 @@
                         <div class="link__category-two-column">
                             <ul class="list-unstyled ">
                                 <li class="list-inline-item">
-                                    <a href="#">Qui sommes-nous?</a>
+                                    <a href="{{ path('a_propos') }}">Qui sommes-nous?</a>
                                 </li>
                                 <li class="list-inline-item">
                                     <a href="#">Estimez mon bien</a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="#">Acheter</a>
+                                    <a href="{{ path('proprietes_listing',{'nature':'a-vendre'}) }}">Acheter</a>
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="#">Louer</a>
+                                    <a href="{{ path('proprietes_listing',{'nature':'a-louer'}) }}">Louer</a>
                                 </li>
                                 <li class="list-inline-item">
                                     <a href="#">location saisonniere</a>
                                 </li>
 
-                                <li class="list-inline-item">
-                                    <a href="#">Terrain</a>
-                                </li>
+{#                                <li class="list-inline-item">#}
+{#                                    <a href="#">Terrain</a>#}
+{#                                </li>#}
 
                                 <li class="list-inline-item">
                                     <a href="#">contact</a>
@@ -127,7 +127,7 @@
                     <ul class="list-inline ">
                         <li class="list-inline-item">
                             <a href="#">
-                                privacy
+                               Conditions d'utilisation
                             </a>
                         </li>
                         <li class="list-inline-item">
@@ -140,11 +140,7 @@
                                 about
                             </a>
                         </li>
-                        <li class="list-inline-item">
-                            <a href="#">
-                                faq
-                            </a>
-                        </li>
+
                     </ul>
                 </div>
             </div>

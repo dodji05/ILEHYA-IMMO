@@ -6,6 +6,8 @@ use App\Entity\Souszone;
 use App\Estimation\EstimationMaisonData;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -20,9 +22,21 @@ class EstimationTerrainType extends AbstractType
 
 
             ])
-            ->add('superficeTerrain')
-            ->add('mail')
-            ->add('telephone');
+            ->add('superficeTerrain',IntegerType::class,[
+                "attr"=> [
+                    'label'=> 'Superfice du terrain en metre carré'
+                ]
+            ])
+            ->add('mail',EmailType::class,[
+                "attr"=> [
+                    'label'=> 'Votre adresse mail'
+                ]
+            ])
+            ->add('telephone',null,[
+                "attr"=> [
+                    'label'=> 'Votre numéro de téléphone'
+                ]
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

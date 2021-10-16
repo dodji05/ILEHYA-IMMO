@@ -8,22 +8,50 @@
 {% endblock %}
 {% block content %}
 
-    <div class="clearfix"></div>
-     <div class="search__area bg__shadow">
+
+        <section class="section__breadcrumb bg-theme-overlay" style="margin-top: 80px;margin-bottom: 0!important; ">
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-8 text-center">
+                        <h2 class="text-capitalize text-white ">{{ titre }}</h2>
+{#                        <ul class="list-inline ">#}
+{#                            <li class="list-inline-item">#}
+{#                                <a href="#" class="text-white">#}
+{#                                    home#}
+{#                                </a>#}
+{#                            </li>#}
+{#                            <li class="list-inline-item">#}
+{#                                <a href="#" class="text-white">#}
+{#                                    property#}
+{#                                </a>#}
+{#                            </li>#}
+{#                            <li class="list-inline-item">#}
+{#                                <a href="#" class="text-white">#}
+{#                                    property list#}
+{#                                </a>#}
+{#                            </li>#}
+
+{#                        </ul>#}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+     <section class="search__area bg__shadow" style="padding: 00px!important; ">
      <div class="container">
      <div class="search__area-inner">
-     {% include 'FrontEnd/partials/_recherche.html.twig' %}
+     {% include 'FrontEnd/partials/_recherche_form.html.twig' %}
      </div>
      </div>
-     </div>
+     </section>
 
 
 
     <!-- LISTING LIST -->
     <section style="padding-top: 30px">
         <div class="container">
-            <h3>{{ titre }}</h3>
-            <hr>
+
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row">

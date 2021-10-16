@@ -352,6 +352,16 @@
             /* background: #9dc8e2; */
             color: #0e3f60;
         }
+        .titlestep {
+
+            text-align: justify;
+            font-size: 23px;
+        }
+        .titlestep p{
+
+            font-size: 15px;
+            text-align: justify;
+        }
 
     </style>
     {# <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.0/nouislider.min.css" integrity="sha512-6JqGSqQ++AEggYltdgSse8pKG90U/5U0bbkZoa94uSDG/BhI5YpYcy2LyWPWjXu40lUVEgEKHZ/2hCrwQvbODw==" crossorigin="anonymous" /> #}
@@ -361,327 +371,57 @@
 
  {% endblock %}
 {% block content %}
-    <div class="clearfix"><BR> <BR> <br> <br></div>
-    {# {{ form_start(form, {'attr':{'id' :'wizard_with_validation'}}) }} #}
-    {{ form_start(form) }}
-    <div class="pull-right ml-15">
-        <button class="btn btn-success" type="submit">{{ button_label|default('Enregistrer le bien') }}</button>
+    <!-- BREADCRUMB -->
+    <div class="bg-theme-overlay" style="margin-top: 50px;margin-bottom: 60px;">
+        <section class="section__breadcrumb ">
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-8 text-center">
+                        <h2 class="text-capitalize text-white">ESTIMATION D'UN TERRAIN NU</h2>
+
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-    {{ form_end(form) }}
+    <!-- END BREADCRUMB -->
+    <div class="clearfix"></div>
+    {# {{ fo rm_start(form, {'attr':{'id' :'wizard_with_validation'}}) }} #}
 
-    <div class="container-fluid" style="padding-top: 130px!important;">
+    <div class="container" style="margin-bottom: 80px">
         <div class="row">
-            <div id="example-basic">
+            <div class="col-md-4" style="padding: 10px">
 
-                <h3>Quels sont les espaces disponibles</h3>
-                <section class="estimation-form">
-                    <div class="estimation-row">
-                        <div class="estimation-row__icon">
-                            <img src="https://d1e9888xfd1rj0.cloudfront.net/1615977340/icons/surface.svg?1615977342366"
-                                 alt="icon" class="illustration-icon">
-                        </div>
-                        <div class="estimation-row__label">
-                            <label>
-                                Superficie habitable de la maison
-                            </label>
-                        </div>
-                        <div class="estimation-row__input estimation-row__input--full-icon">
-                            <div class="ranger-input">
-                                <div class="input-range-with-value__slider">
-                                    <div class="input--range">
-                                        <input type="range" min="0" max="15000000" id="sur"
-                                               class="surfacehabitable">
-                                    </div>
-                                </div>
-                                <div class="input-range-with-value__input">
-                                    <div class="input-group input-group--append">
-                                        {{ form_widget (form.esp_surface_habitable) }}
-                                        <div class="input-group__append">
-                                            <abbr class="input-group__abbr">m²</abbr>
-                                        </div>
-                                    </div>
-                                </div>
+{#                    <img src="{{ asset('images/app/ilehya-logo.png') }}" class="covid-image max-h-70px" alt="" />#}
+                    {# <img class="covid-image" src="./img/covid-check.png"> #}
 
+                    <h2 class="titlestep">Vous souhaitez connaître la valeur de votre bien : parcelle, maison, immeuble de tous genres ?</h2>
+                    <br>
+                    <h2 class="titlestep" >Remplissez le formulaire ci-contre</h2> <br>
+                    <p> Évitez de faire trainer votre bien sur le marché à cause d’un prix au-dessus de celui du marché de la
+                        même manière, ne vendez pas votre bien à un prix trop bas en utilisant dès à présent notre outil
+                        gratuit d’estimation en ligne !
+                    </p>
 
-                            </div>
-                        </div>
-                    </div>
+            </div>
+            <div class="col-md-8">
+                {% form_theme form 'bootstrap_4_layout.html.twig' %}
+                <div class="form-group">
+                    <br>
+                    <h4> Arrondissement : {{ zone }} </h4>
+                </div>
+                {{ form_start(form) }}
 
+<button> elle</button>
+                {{ form_end(form) }}
 
-                    <div class="estimation-row">
-                        <div class="estimation-row__icon">
-                            <img src="https://d1e9888xfd1rj0.cloudfront.net/1615977340/icons/surface.svg?1615977342366"
-                                 alt="icon" class="illustration-icon">
-                        </div>
-                        <div class="estimation-row__label label--medium">
-                            <label>
-                                Nombre de chambres
-                            </label>
-                        </div>
-                        <div class=" estimation-row__input estimation-row__input--medium">
-
-                            <div class="input-group input-group--stepper">
-                                <button class="input-group--stepper__button input-group--stepper__button--prepend">
-                                    -
-                                </button>
-                                {{ form_widget (form.esp_nombre_chambre, {'attr':{'class':'input-group__main input-group--stepper__main input-group__main--prepend input-group__main--append input--text'}}) }}
-                                <button class="input-group--stepper__button input-group--stepper__button--append">
-                                    +
-                                </button>
-                            </div>
-
-                        </div>
-                        <div class="estimation-row__icon"><img
-                                    src="https://d1e9888xfd1rj0.cloudfront.net/1615977340/icons/bedrooms.svg?1615977342366"
-                                    alt="icon" class="illustration-icon"></div>
-
-                    </div>
-                    <div class="estimation-row">
-                        <div class="estimation-row__icon">
-                            <img src="https://d1e9888xfd1rj0.cloudfront.net/1615977340/icons/surface.svg?1615977342366"
-                                 alt="icon" class="illustration-icon">
-                        </div>
-                        <div class="estimation-row__label label--medium">
-                            <label>
-                                Nombre de salles de bains ?
-                            </label>
-                        </div>
-                        <div class=" estimation-row__input estimation-row__input--medium">
-
-                            <div class="input-group input-group--stepper">
-                                <button class="input-group--stepper__button input-group--stepper__button--prepend">
-                                    -
-                                </button>
-                                {{ form_widget (form.esp_nombre_bains, {'attr':{'class':'input-group__main input-group--stepper__main input-group__main--prepend input-group__main--append input--text'}}) }}
-                                <button class="input-group--stepper__button input-group--stepper__button--append">
-                                    +
-                                </button>
-                            </div>
-
-                        </div>
-                        {{ form_label(form.esp_nombre_bains, null, {'label_attr':{'class':'estimation-row__label'}}) }}
-                        {{ form_widget (form.esp_nombre_bains) }}
-                    </div>
-                    <div class="estimation-row">
-                        <div class="estimation-row__icon">
-                            <img src="https://d1e9888xfd1rj0.cloudfront.net/1615977340/icons/terrace.svg?1615977342366"
-                                 alt="icon" class="illustration-icon">
-                        </div>
-                        <div class="estimation-row__label label--medium">
-                            <label>
-                                Y a-t-il un jardin ?
-                            </label>
-                        </div>
-                        <div class="custom-control custom-switch">
-                            <div class="custom-control custom-switch">
-                                {{ form_widget (form.esp_jardin, {'label_attr':{'class':'input--switch__input'}} ) }}
-
-                                <label for="checkbox_classified_property_outdoor_garden_exists"
-                                       class="component-input-switch input--switch ">
-                                    {{ form_widget (form.esp_jardin, {'label_attr':{'class':'input--switch__input'}} ) }}
-                                    <input type="checkbox" id="checkbox_classified_property_outdoor_garden_exists"
-                                           name="classified_property_outdoor_garden_exists"
-                                           class="input--switch__input">
-                                    <span class="input--switch__label"></span>
-                                </label>
-                            </div>
-                            {{ form_label(form.esp_jardin, null, {'label_attr':{'class':'estimation-row__label'}}) }}
-
-                        </div>
-                </section>
-                <h3>Quelles sont les caractéristiques de la maison ?</h3>
-                <section>
-                    <div class="estimation-row">
-                        <div class="estimation-row__icon">
-                            <img src="https://d1e9888xfd1rj0.cloudfront.net/1615977340/icons/surface.svg?1615977342366"
-                                 alt="icon" class="illustration-icon">
-                        </div>
-                        <div class="estimation-row__label label--medium">
-                            <label>
-                                Année de construction?
-                            </label>
-                        </div>
-                        <div class=" estimation-row__input estimation-row__input--medium">
-
-                            <div class="input-group input-group--stepper">
-
-                                {{ form_widget (form.caract_annee_construction, {'attr':{'class':'input-group__main input-group--stepper__main input-group__main--prepend input-group__main--append input--text'}}) }}
-                            </div>
-
-                        </div>
-                        {{ form_widget (form.caract_annee_construction) }}
-                    </div>
-                    <div class="estimation-row">
-                        <div class="estimation-row__label label--medium">
-                            <label>
-                                Nombre de facades?
-                            </label>
-                        </div>
-                        <div class=" estimation-row__input estimation-row__input--medium">
-
-                            <div class="input-group input-group--stepper">
-                                <button class="input-group--stepper__button input-group--stepper__button--prepend">
-                                    -
-                                </button>
-                                {{ form_widget (form.caract_nombres_facades, {'attr':{'class':'input-group__main input-group--stepper__main input-group__main--prepend input-group__main--append input--text'}}) }}
-                                <button class="input-group--stepper__button input-group--stepper__button--append">
-                                    +
-                                </button>
-                            </div>
-
-                        </div>
-                        {{ form_label(form.caract_nombres_facades, null, {'label_attr':{'class':'estimation-row__label'}}) }}
-                        {{ form_widget (form.caract_nombres_facades) }}
-                    </div>
-                    <div class="estimation-row">
-                        <div class="estimation-row__icon">
-                            <img src="https://d1e9888xfd1rj0.cloudfront.net/1615977340/icons/terrace.svg?1615977342366"
-                                 alt="icon" class="illustration-icon">
-                        </div>
-                        <div class="estimation-row__label label--medium">
-                            <label>
-                                Aménagements
-                            </label>
-                        </div>
-                        <div class="estimation-row__input estimation-row__input--full-icon estimation-row__input--font-body">
-                            <div class="input--checkbox">
-                                {{ form_widget (form.caract_amenagements , {'attr':{'class':'input--checkbox__input'}}) }}
-                                {{ form_label(form.caract_amenagements, null, {'label_attr':{'class':'input--checkbox__label'}}) }}
-                            </div>
-                        </div>
-                        {{ form_label(form.caract_amenagements, null, {'label_attr':{'class':'input--checkbox__label'}}) }}
-
-                    </div>
-
-                </section>
-                <h3>Pager</h3>
-                <section>
-                    <div class="estimation-row">
-                        <div class="estimation-row__icon">
-                            <img src="https://d1e9888xfd1rj0.cloudfront.net/1615977340/icons/property-view.svg?1615977342366"
-                                 alt="icon" class="illustration-icon">
-                            <img src="https://d1e9888xfd1rj0.cloudfront.net/1615977340/icons/terrace.svg?1615977342366"
-                                 alt="icon" class="illustration-icon">
-                        </div>
-                        <div class="estimation-row__label label--medium">
-                            <label>
-                                Dans quel état est actuellement le bâtiment ?
-                            </label>
-                        </div>
-                        <div class="estimation-row__input estimation-row__input--full-icon">
-                            {{ form_widget(form.caract_etat) }}
-
-                        </div>
-                    </div>
-                    <div class="estimation-row">
-                        <div class="estimation-row__icon">
-                            <img src="https://d1e9888xfd1rj0.cloudfront.net/1615977340/icons/property-view.svg?1615977342366"
-                                 alt="icon" class="illustration-icon">
-                            <img src="https://d1e9888xfd1rj0.cloudfront.net/1615977340/icons/terrace.svg?1615977342366"
-                                 alt="icon" class="illustration-icon">
-                        </div>
-                        <div class="estimation-row__label label--medium">
-                            <label>
-                                De quelle vue bénéficie le bien ?
-                            </label>
-                        </div>
-                        <div class="estimation-row__input estimation-row__input--full-icon">
-                            {{ form_widget (form.caract_vue) }}
-                        </div>
-                        {{ form_label(form.caract_vue, null, {'label_attr':{'class':'estimation-row__label'}}) }}
-                        {{ form_widget (form.caract_vue) }}
-                    </div>
-                    <div class="estimation-row">
-                        <div class="estimation-row__icon">
-                            <img src="https://d1e9888xfd1rj0.cloudfront.net/1615977340/icons/property-view.svg?1615977342366"
-                                 alt="icon" class="illustration-icon">
-                            <img src="https://d1e9888xfd1rj0.cloudfront.net/1615977340/icons/terrace.svg?1615977342366"
-                                 alt="icon" class="illustration-icon">
-                        </div>
-                        <div class="estimation-row__label label--medium">
-                            <label>
-                                Quel est le standing du bien ?
-                            </label>
-                        </div>
-                        <div class="estimation-row__input estimation-row__input--full-icon">
-                            {{ form_widget (form.caract_standing) }}
-                        </div>
-
-                    </div>
-                </section>
-                <h3>Pager</h3>
-                <section>
-                    <div class="estimation-row">
-                        <div class="estimation-row__icon">
-                            <img src="https://d1e9888xfd1rj0.cloudfront.net/1615977340/icons/terrace.svg?1615977342366"
-                                 alt="icon" class="illustration-icon">
-                        </div>
-                        <div class="estimation-row__label label--medium">
-                            <label>
-                                Quels autres éléments influencent le prix ?
-                            </label>
-                        </div>
-                        <div class="estimation-row__input estimation-row__input--full-icon estimation-row__input--font-body">
-                            <div class="input--checkbox">
-                                {{ form_widget (form.pls_influence_prix , {'attr':{'class':'input--checkbox__input'}}) }}
-                                {{ form_label(form.caract_amenagements, null, {'label_attr':{'class':'input--checkbox__label'}}) }}
-                            </div>
-                        </div>
-                        {{ form_label(form.pls_influence_prix, null, {'label_attr':{'class':'estimation-row__label'}}) }}
-                        {{ form_widget (form.pls_influence_prix) }}
-                    </div>
-                </section>
-                <h3>Pager</h3>
-                <section>
-                    <div class="estimation-row">
-                        <div class="estimation-row__icon">
-                            <img src="https://d1e9888xfd1rj0.cloudfront.net/1615977340/icons/property-view.svg?1615977342366"
-                                 alt="icon" class="illustration-icon">
-                            <img src="https://d1e9888xfd1rj0.cloudfront.net/1615977340/icons/terrace.svg?1615977342366"
-                                 alt="icon" class="illustration-icon">
-                        </div>
-                        <div class="estimation-row__label">
-                            <label>
-                                Êtes-vous propriétaire du bien ?
-                            </label>
-                        </div>
-                        <div class="estimation-row__input estimation-row__input--full-icon">
-                            {{ form_widget (form.proprietaire) }}
-                        </div>
-
-                        {{ form_label(form.proprietaire, null, {'label_attr':{'class':'estimation-row__label'}}) }}
-                        {{ form_widget (form.proprietaire) }}
-                    </div>
-                    <div class="estimation-row">
-                        <div class="estimation-row__label  estimation-row__label--space">
-                            <label>
-                                Indiquez votre adresse e-mail
-                            </label>
-                        </div>
-                        <div class="estimation-row__input estimation-row__input--large">
-                            {{ form_widget (form.mail, {'attr':{'class':'input--text input-text'}}) }}
-                        </div>
-                        {{ form_label(form.mail, null, {'label_attr':{'class':'estimation-row__label'}}) }}
-                        {{ form_widget (form.mail) }}
-                    </div>
-                    <div class="estimation-row">
-                        <div class="estimation-row__label  estimation-row__label--space">
-                            <label>
-                                Indiquez votre adresse e-mail
-                            </label>
-                        </div>
-                        <div class="estimation-row__input estimation-row__input--large">
-                            {{ form_widget (form.telephone, {'attr':{'class':'input--text input-text'}}) }}
-                        </div>
-                        {{ form_label(form.telephone, null, {'label_attr':{'class':'estimation-row__label'}}) }}
-                        {{ form_widget (form.telephone) }}
-                    </div>
-                </section>
             </div>
         </div>
-        <button type="submit">valide</button>
     </div>
-    {{ form_end(form) }}
+
+
+{#    <div class="form-group"><label for="estimation_terrain_superficeTerrain" class="required">Superfice terrain</label><input type="number" id="estimation_terrain_superficeTerrain" name="estimation_terrain[superficeTerrain]" required="required" label="Superfice du terrain en metre carré" class="form-control"></div>#}
+
 
 {% endblock %}
 {% block javascripts %}

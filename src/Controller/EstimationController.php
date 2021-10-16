@@ -10,6 +10,7 @@ use App\Form\EstimationMaisonType;
 use App\Form\EstimationTerrainType;
 use App\Form\EstimationType;
 use App\Repository\PrixReferenceRepository;
+use App\Repository\ArrondissementRepository;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -61,7 +62,7 @@ class EstimationController extends AbstractController
             $session->set('arrondissement',89);
             $email = (new TemplatedEmail())
                 ->from('contact@festivaldupagnetisse.com')
-                ->to(new Address('gildas31@gmail.com'))
+                ->to(new Address('germainedikou@gmail.com'))
                 ->priority(Email::PRIORITY_HIGH)
                 ->subject('Demande d estimation')
 
@@ -92,7 +93,7 @@ class EstimationController extends AbstractController
     /**
      * @Route("/Estimer-nom-bien/estimer-un-terrain", name="estimation_terrain")
      */
-    public function estimationTerrain(Request $request,MailerInterface $mailer, SessionInterface $session,PrixReferenceRepository $prixReferenceRepository){
+    public function estimationTerrain(Request $request,MailerInterface $mailer, SessionInterface $session,PrixReferenceRepository $prixReferenceRepository,ArrondissementRepository $arrondissementRepository){
         $data = new EstimationMaisonData();
         $form = $this->createForm(EstimationTerrainType::class, $data);
         $form->handleRequest($request);
@@ -115,7 +116,8 @@ class EstimationController extends AbstractController
         }
         return $this->render('FrontEnd/estimation_terrain.html.twig',
             [
-                'form' => $form->createView()
+                'form' => $form->createView(),
+                'zone'=> $arrondissementRepository->find($session->get("arrondissement"))->getLibelle(),
             ]);
 
     }

@@ -15,7 +15,7 @@ class StaticController extends AbstractController
     public function securisation()
     {
         return $this->render('FrontEnd/securisation_fonciere.html.twig',[
-            'sous-titre'=>"Securisation  Fonciere"
+            'sous-titre'=>"Service de Sécurisation Fonciere"
         ]);
     }
 
@@ -25,7 +25,7 @@ class StaticController extends AbstractController
     public function aPropos()
     {
         return $this->render('FrontEnd/apropos.html.twig',[
-            'soustitre'=> "Qui somme nous ? "
+            'soustitre'=> "Qui sommes-nous ? "
         ]);
     }
 
@@ -43,7 +43,7 @@ class StaticController extends AbstractController
     public function projet()
     {
         return $this->render('FrontEnd/projet_de_construction.html.twig',[
-            'soustitre'=>"Construction"
+            'soustitre'=>"Service de Construction"
         ]);
     }
 }
