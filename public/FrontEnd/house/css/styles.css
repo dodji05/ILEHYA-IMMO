@@ -24891,7 +24891,7 @@ input[type="number"] {
 
 @media screen and (min-width: 320px) and (max-width: 575px) {
     .title__head {
-        margin-bottom: 20px
+        margin-bottom: 18px
     }
 }
 
@@ -24908,13 +24908,13 @@ input[type="number"] {
 
 @media screen and (min-width: 320px) and (max-width: 575px) {
     .title__head h2 {
-        font-size: 24px
+        font-size: 16px
     }
 }
 
 @media screen and (min-width: 576px) and (max-width: 768px) {
     .title__head h2 {
-        font-size: 24px
+        font-size: 17px
     }
 }
 
@@ -26045,7 +26045,8 @@ input[type="number"] {
     color: #002247;
     text-transform: capitalize;
     line-height: 1.5;
-    font-size: 15px
+    /* font-size: 15px */
+    font-size: 12px;
 }
 
 .card__image-body h6 a:hover {

@@ -2,20 +2,11 @@
 
 namespace App\Controller;
 
-use App\Repository\ArrondissementRepository;
+use App\Repository\QuartierRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Serializer\Encoder\JsonEncode;
-use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
-use Symfony\Component\Serializer\Serializer;
-use Symfony\Component\Serializer\SerializerInterface;
-use const JSON_HEX_AMP;
-use const JSON_HEX_APOS;
-use const JSON_HEX_QUOT;
-use const JSON_HEX_TAG;
-use const JSON_UNESCAPED_UNICODE;
 
 /**
  * @Route("/ajax")
@@ -25,50 +16,31 @@ class AjaxController extends AbstractController
     /**
      * @Route("/rechercher/quartier", name="ajax_search_quartier")
      */
-    public function quartier(Request $request, ArrondissementRepository $ArrondissementRepository, SerializerInterface $serializer)
+    public function quartier(Request $request, QuartierRepository $ArrondissementRepository)
     {
 
-//        $encoder = new JsonEncoder();
-//        $defaultContext = [
-//            AbstractNormalizer::CIRCULAR_REFERENCE_HANDLER => function ($object, $format, $context) {
-//                return $object->getLibDep();
-//            },
-//        ];
-//
-//        $nornalizers = new ObjectNormalizer(null, null, null, null, null, null, $defaultContext);
-//
-//
-//        $serializer = new Serializer([$nornalizers], [$encoder]);
-//
-//
-//        $serialiserData = $serializer->serialize($quartierRepository->quartiersearch(), 'json');
-//
-//
-//        return new Response(json_encode($serialiserData));
 
-        $annonces = $ArrondissementRepository->getAllArrodissement($request->get('term'));
+//        $annonces = $ArrondissementRepository->getAllArrodissement($request->get('term'));
+        $annonces = $ArrondissementRepository->quartiersearch($request->get('term'));
+//        dd($annonces);
 
-
-
-        $nornalizers = [ new ObjectNormalizer()];
-        $encoders = [ new JsonEncode()];
-        $serializer = new Serializer( $nornalizers, $encoders);
-
-        $serialiserData = $serializer->serialize($annonces, 'json');
-
-        $jsonEncodeOptions = JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT | JSON_UNESCAPED_UNICODE;
 
         //  dd($serialiserData);
-        foreach ($annonces as $item){
+        foreach ($annonces as $item) {
             $data[] = [
-                'value' => $item['lib_arrond'],
-                'id'=> $item['id'],
+                'id' => $item['id'],
+                'value' => $item['lib_quart'],
+                'arrodissement' => $item['lib_arrond'],
+                'commune' => $item['lib_com'],
+                'departement' => $item['lib_dep'],
+
             ];
 
         }
 
         return new Response(json_encode($data));
     }
+
 
     /**
      * @Route("/{type}/{id}", name="ajax_filtre_quartier")

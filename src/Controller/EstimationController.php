@@ -9,6 +9,7 @@ use App\Estimation\EstimationMaisonData;
 use App\Form\EstimationMaisonType;
 use App\Form\EstimationTerrainType;
 use App\Form\EstimationType;
+use App\Repository\ArrondissementRepository;
 use App\Repository\PrixReferenceRepository;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -61,7 +62,7 @@ class EstimationController extends AbstractController
             $session->set('arrondissement',89);
             $email = (new TemplatedEmail())
                 ->from('contact@festivaldupagnetisse.com')
-                ->to(new Address('gildas31@gmail.com'))
+                ->to(new Address('germainedikou@gmail.com'))
                 ->priority(Email::PRIORITY_HIGH)
                 ->subject('Demande d estimation')
 
@@ -92,15 +93,16 @@ class EstimationController extends AbstractController
     /**
      * @Route("/Estimer-nom-bien/estimer-un-terrain", name="estimation_terrain")
      */
-    public function estimationTerrain(Request $request,MailerInterface $mailer, SessionInterface $session,PrixReferenceRepository $prixReferenceRepository){
+    public function estimationTerrain(Request $request, MailerInterface $mailer, SessionInterface $session, PrixReferenceRepository $prixReferenceRepository, ArrondissementRepository $arrondissementRepository)
+    {
         $data = new EstimationMaisonData();
         $form = $this->createForm(EstimationTerrainType::class, $data);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-           $arrodissement =  $session->get("arrondissement");
-            $superfice =  $form->getData()->getsuperficeTerrain();
+            $arrodissement = $session->get("arrondissement");
+            $superfice = $form->getData()->getsuperficeTerrain();
             $zone = $form->getData()->getZone()->getId();
-            $reference = $prixReferenceRepository->findOneBy([ 'souszone'=>$zone,'zone'=>$arrodissement,]);
+            $reference = $prixReferenceRepository->findOneBy(['souszone' => $zone, 'zone' => $arrodissement,]);
             $estimation = $reference->getPrix() * $superfice;
 
 
@@ -115,7 +117,8 @@ class EstimationController extends AbstractController
         }
         return $this->render('FrontEnd/estimation_terrain.html.twig',
             [
-                'form' => $form->createView()
+                'form' => $form->createView(),
+                'zone' => $arrondissementRepository->find($session->get("arrondissement"))->getLibelle(),
             ]);
 
     }

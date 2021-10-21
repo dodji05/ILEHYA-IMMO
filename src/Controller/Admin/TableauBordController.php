@@ -18,7 +18,7 @@ class TableauBordController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('administration/index.html.twig', [
+        return $this->render('administration/dasboard.html.twig', [
 
         ]);
     }

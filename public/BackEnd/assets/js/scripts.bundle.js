@@ -2403,7 +2403,7 @@ var KTOffcanvas = function(elementId, options) {
             return (the.state == 'shown' ? true : false);
         },
 
-        toggle: function() {;
+        toggle: function () {
             Plugin.eventTrigger('toggle');
 
             if (the.state == 'shown') {
@@ -9570,7 +9570,7 @@ var KTLayoutBrand = function() {
             _element = KTUtil.getById(id);
 
             if (!_element) {
-                return;
+
             }
 		},
 
@@ -9836,7 +9836,7 @@ var KTLayoutHeader = function() {
             _elementForMobile = KTUtil.getById(idForMobile);
 
             if (!_element) {
-                return;
+
             }
 		},
 
@@ -10045,7 +10045,7 @@ var KTLayoutSubheader = function() {
             _element = KTUtil.getById(id);
 
             if (!_element) {
-                return;
+
             }
 		},
 

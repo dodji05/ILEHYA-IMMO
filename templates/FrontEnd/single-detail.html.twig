@@ -97,9 +97,14 @@
                                 {# <button class="btn btn-social btn-social-o linkedin mr-1"> #}
                                 {# <i class="fa fa-linkedin"></i> #}
                                 {# </button> #}
-                                <button class="btn btn-social btn-social-o whatsapp mr-1">
+                                {% set whatapps_message ="https://api.whatsapp.com/send?phone=+22952746274&text=" %}
+                                <a class="btn btn-social btn-social-o whatsapp mr-1"
+                                   href="{{ whatapps_message ~text }}">
+
+
                                     <i class="fa fa-whatsapp"></i>
-                                </button>
+
+                                </a>
                                 <button class="btn btn-social btn-social-o  facebook mr-1">
                                     <i class="fa fa-phone"></i>
                                 </button>
@@ -752,7 +757,7 @@
 
                                     </span>
                                                     <h6 class="text-capitalize">
-                                                        <a href="{{ path('proprietes_show',{'contrattype': bien.typeOptions.contratypes.slug,'proprietetype':bien.proprieteOptions.proprietes.Slug,'id': bien.id}) }}">
+                                                        <a href="{{ path('proprietes_show',{'contrattype': bien.typeOptions.contratypes.slug,'proprietetype':bien.proprieteOptions.proprietes.Slug,'slug': bien.slug}) }}">
                                                             {{ bien.libelle }}
                                                         </a>
 

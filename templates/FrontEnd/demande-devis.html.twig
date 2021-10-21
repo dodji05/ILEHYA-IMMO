@@ -56,12 +56,22 @@
 
  {% endblock %}
 {% block content %}
-    <div class="clearfix" style="padding-top: 130px!important;"></div>
-    <h4 class="text-center">Demande de devis sans engagement de votre part</h4>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6 col-sm-offset-3 boxify css-1ecdjof">
-                {{ form_start(form) }}
+    <section class="section__breadcrumb bg-theme-overlay" style="margin-top: 80px;margin-bottom: 0!important; ">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-8 text-center">
+                    <h2 class="text-capitalize text-white ">Demande de devis</h2>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h4 class="text-center mb-10">Demande de devis sans engagement de votre part</h4>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3 boxify css-1ecdjof">
+                    {{ form_start(form) }}
                 <div class="form-group row">
                     {{ form_widget(form.categorie) }}
                 </div>
@@ -86,7 +96,8 @@
                         type="submit">{{ button_label|default('Envoyer votre demande') }}</button>
 
                 {{ form_end(form) }}
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 {% endblock %}

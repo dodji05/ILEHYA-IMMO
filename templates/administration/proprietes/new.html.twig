@@ -1,15 +1,20 @@
 {% extends 'administration/index.html.twig' %}
- {% block style%}
- <style>
-     .small_card_header{
-         padding: 15px 0 15px 30px !important;
-     }
-     .card_spacer {
-         margin: 10px 0 15px !important;
-     }
-     .titre {
-         margin-bottom: 0px !important;
-         font-size: 20px;
+ {% block style %}
+     <link href="{{ asset('BackEnd/assets/plugins/autocomplete/css/autoComplete.css') }}" rel="stylesheet">
+     {# <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> #}
+     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+     <style>
+         .small_card_header {
+             padding: 15px 0 15px 30px !important;
+         }
+
+         .card_spacer {
+             margin: 10px 0 15px !important;
+         }
+
+         .titre {
+             margin-bottom: 0px !important;
+             font-size: 20px;
      }
  </style>
  {% endblock %}
@@ -39,17 +44,59 @@
  {% endblock %}
 
 {% block javascripts %}
-    <script src="{{ asset('BackEnd/assets/js/pages/bootstrap-datetimepicker.js')}}"></script>
+
+    <script type="text/javascript" src="{{ asset('FrontEnd/house/js/jquery-ui.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('BackEnd/assets/plugins/autocomplete/js/autoComplete.js') }}"></script>
+
+    {# <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script>
+    <script src="{{ asset('BackEnd/assets/js/pages/bootstrap-datetimepicker.js')}}"></script> #}
+
     <script>
-        jQuery(document).ready(function() {
+        $(function () {
+            document
+                .querySelector("#birds")
+                .setAttribute("placeholder", "Selectionnez le quartier ou le village");
+
+            $("#birds").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "/ajax/rechercher/quartier",
+                        dataType: "json",
+                        data: {
+                            term: request.term
+                        },
+                        success: function (data) {
+                            response(data);
+                        }
+                    });
+                },
+                minLength: 3,
+                select: function (event, ui) {
+                    $("#birds").val(ui.item.value);
+                    $("#proprietes_quartiers").val(ui.item.id);
+                    $("#project-description").html(ui.item.desc);
+                    $("#project-icon").attr("src", "images/" + ui.item.icon);
+
+                    return false;
+                }
+            })
+                .autocomplete("instance")._renderItem = function (ul, item) {
+                return $("<li>")
+                    .append("<div>" + item.value + " ( " + item.arrodissement + "," + item.commune + "," + item.departement + " ) " + " </div> ")
+                    .appendTo(ul);
+            };
+        });
+    </script>
+    <script>
+        jQuery(document).ready(function () {
             var $wrapper = $('.js-genus-scientist-wrapper');
-            $wrapper.on('click', '.js-remove-scientist', function(e) {
+            $wrapper.on('click', '.js-remove-scientist', function (e) {
                 e.preventDefault();
                 $(this).closest('.js-genus-scientist-item')
                     .fadeOut()
                     .remove();
             });
-            $wrapper.on('click', '.js-genus-scientist-add', function(e) {
+            $wrapper.on('click', '.js-genus-scientist-add', function (e) {
                 e.preventDefault();
                 // Get the data-prototype explained earlier
                 var prototype = $wrapper.data('prototype');

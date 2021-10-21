@@ -1,4 +1,4 @@
-{#{% form_theme form 'administration/partials/_form_theme_images.html.twig' %}#}
+{# {% form_theme form 'administration/partials/_form_theme_images.html.twig' %} #}
 <div class="card card_spacer">
     <div class="card-header small_card_header">
         <h6 class="card-title titre"> Votre annonce </h6>
@@ -19,41 +19,24 @@
 
     </div>
     <div class="card-body">
-        {# {{ form_row (form.ville) }} #}
-        {# {{ form_row (form.quatier) }} #}
-{#        <div class="form-group row">#}
-{#            <div class="col-sm-3">#}
-{#                {{ form_label(form.departement, null, {'label_attr':{'class':'col-sm-12'}}) }}#}
-{#                {{ form_widget (form.departement) }}#}
-{#            </div>#}
-{#            <div class="col-sm-3">#}
-{#                {{ form_label(form.commune, null, {'label_attr':{'class':'col-sm-12'}}) }}#}
-{#                {{ form_widget (form.commune) }}#}
-{#            </div>#}
-{#            <div class="col-sm-3">#}
-{#                {{ form_label(form.arrondissement, null, {'label_attr':{'class':'col-sm-12'}}) }}#}
-{#                {{ form_widget (form.arrondissement) }}#}
-{#            </div>#}
-{#            <div class="col-sm-3">#}
-{#                {{ form_label(form.quartier, null, {'label_attr':{'class':'col-sm-12'}}) }}#}
-{#                {{ form_widget (form.quartier) }}#}
-{#            </div>#}
-{#            #}{# <div class="col-sm-3"> #}
-{#            #}{# {{ form_label(form.adresse, null, {'label_attr':{'class':'col-sm-12'}}) }} #}
-{#            #}{# {{ form_widget (form.arrondissement) }} #}
-{#            #}{# </div> #}
-{#        </div>#}
-        {# {{ form_row(form.departement) }} #}
-        {# {{ form_row(form.commune) }} #}
-        {# {{ form_row(form.arrondissement) }} #}
-        {# {{ form_row(form.quartier) }} #}
+        <div class="ui-widget">
+            <div class="form-group row">
+                <label class="col-form-label col-sm-2 required" for="proprietes_adresse">Quartier/ville : </label>
+                <div class="col-sm-10"><input id="birds" class="form-control"></div>
+
+
+            </div>
+        </div>
         {{ form_row (form.adresse) }}
 
     </div>
+
+
 </div>
+
 <div class="card card_spacer">
     <div class="card-header small_card_header">
-        <h6 class="card-title titre"> Caracterisique du bien </h6>
+        <h6 class="card-title titre"> Caracterisiques du bien </h6>
 
     </div>
     <div class="card-body">
@@ -117,54 +100,39 @@
             {{ form_row (form.ProprieteOptions.Superfice) }}
             {{ form_row (form.ProprieteOptions.titreFoncier) }}
         </div>
-
-        <div>
-
-            <div  class="row js-genus-scientist-wrapper"
-                  data-index="{{ form.proprietesImages|length }}"
-
-                  data-prototype="{{ form_widget(form.proprietesImages.vars.prototype)|e('html_attr') }}"
-                 >
-{% for images in form.proprietesImages %}
-    <div class="col-xs-4 js-genus-scientist-item">
-        <a href="#" class="js-remove-scientist pull-right">
-            <span class="fa fa-close"></span>
-        </a>
-        {{ form_errors(images) }}
-        {{ form_row(images) }}
-
-    </div>
-                {% endfor %}
-                <a href="#" class="js-genus-scientist-add">
-                    <span class="fa fa-plus-circle"></span>
-                   ajouter une nouvelle image
-                </a>
+        <div class="form-group row">
+            <div class="col-sm-12">
+                {{ form_label(form.img, null, {'label_attr':{'class':'col-sm-12'}}) }}
+                {{ form_widget (form.img) }}
             </div>
-{#            {{ form_widget(form.proprietesImages) }}#}
-{#            <ul class="tags" data-prototype="{{ form_widget(form.proprietesImages.vars.prototype)|e('html_attr') }}"></ul>#}
-{#            <button type="button" class="add_item_link" data-collection-holder-class="tags">Add a tag</button>#}
-
-
-            {# {% for pd in  product.proprietesImages %} #}
-            {# <div class="col-sm-4"> {{ pd.name}} #}
-            {# <img src="{{ vich_uploader_asset('ProprietesImages', 'imageFile') }}" alt="name"> #}
-            {# </div> #}
-            {# {% endfor %} #}
         </div>
+
+
+        {# {{ form_widget(form.proprietesImages) }} #}
+        {# <ul class="tags" data-prototype="{{ form_widget(form.proprietesImages.vars.prototype)|e('html_attr') }}"></ul> #}
+        {# <button type="button" class="add_item_link" data-collection-holder-class="tags">Add a tag</button> #}
+
+
+        {# {% for pd in  product.proprietesImages %} #}
+        {# <div class="col-sm-4"> {{ pd.name}} #}
+        {# <img src="{{ vich_uploader_asset('ProprietesImages', 'imageFile') }}" alt="name"> #}
+        {# </div> #}
+        {# {% endfor %} #}
     </div>
 </div>
 
+
 {# {{ form_row (form.TypeOptions.fraisAgence) }} #}
-{#<div class="card">#}
-{#    <div class="card-header">#}
-{#        <h6 class="card-title titre"> Images du biens </h6>#}
+{# <div class="card"> #}
+{# <div class="card-header"> #}
+{# <h6 class="card-title titre"> Images du biens </h6> #}
 
-{#    </div>#}
-{#    <div class="card-body">#}
+{# </div> #}
+{# <div class="card-body"> #}
 
 
-{#    </div>#}
-{#</div>#}
+{# </div> #}
+{# </div> #}
 <div class="card card_spacer pb-10">
     <div class="card-header small_card_header">
         <h6 class="card-title titre">Plus de critères </h6>
@@ -173,7 +141,8 @@
     <div class="card-body">
 
         <div>
-            Autres caracterisiques <hr/>
+            Autres caracterisiques
+            <hr/>
             <div class="form-group row">
 
                 <div class="col-sm-4">
@@ -228,7 +197,8 @@
             </div>
         </div>
         <div>
-            Commodités <hr/>
+            Commodités
+            <hr/>
             <div class="form-group row">
                 <div class="col-sm-4">
                     {{ form_row (form.ProprieteOptions.comCommerces) }}
@@ -266,9 +236,8 @@
 </div>
 
 
-
-{#<div class="pull-right">#}
-{#    <button class="btn btn-success" type="submit">{{ button_label|default('Enregistrer le bien') }}</button>#}
-{#</div>#}
+{# <div class="pull-right"> #}
+{# <button class="btn btn-success" type="submit">{{ button_label|default('Enregistrer le bien') }}</button> #}
+{# </div> #}
 {{ form_end(form) }}
 

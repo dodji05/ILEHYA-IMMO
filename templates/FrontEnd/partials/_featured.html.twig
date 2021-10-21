@@ -1,4 +1,4 @@
-<section class="featured__property space-area" style="margin-top: 60px;">
+<section class="featured__property" style="margin-top: 60px;">
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-lg-6 mx-auto">
@@ -14,119 +14,11 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <div class="featured__property-carousel owl-carousel owl-theme">
+                <div class="recent__property-carousel owl-carousel owl-theme">
 
                     {% for bien in biens %}
 
-                        <div class="item">
-                            <!-- ONE -->
-                            <div class="card__image card__box">
-                                <div class="card__image-header h-250">
-                                    <div class="ribbon text-uppercase">A la Une</div>
-                                    {% for img in bien.proprietesImages %}
-                                        {% if loop.first %}
-                                            <img src="{{ asset('images/immobiliers/') }}{{ img.name }}" alt=""
-                                                 class="img-fluid w100 img-transition">
-                                        {% endif %}
-
-                                    {% endfor %}
-
-                                    <div class="info"> {{ bien.typeOptions.contratypes.libelle }}</div>
-                                </div>
-                                <div class="card__image-body">
-                                    <span class="badge badge-primary text-capitalize mb-2">
-                                        {{ bien.proprieteOptions.proprietes.libelle }}
-
-                                    </span>
-                                    <h6 class="text-capitalize">
-                                        <a href="{{ path('proprietes_show',{'contrattype': bien.typeOptions.contratypes.slug,'proprietetype':bien.proprieteOptions.proprietes.Slug,'id': bien.id}) }}">
-                                            {% if bien.libelle | length > 31  %}
-                                                {{ bien.libelle | slice(0,25)  }}...
-                                                {% else %}
-                                                    {{ bien.libelle  }}
-                                            {% endif %}
-
-                                        </a>
-
-                                    </h6>
-
-                                    <p class="text-capitalize">
-                                        <i class="fa fa-map-marker"></i>
-{#                                        {{ bien.quartier }},#}
-                                        {{ bien.quartier ? bien.quartier.LibQuart: '' }},
-                                        {{ bien.adresse }}
-                                    </p>
-                                    <ul class="list-inline card__content">
-                                        {{ bien.proprieteOptions.nbreEtage }}#}
-                                        {% if bien.proprieteOptions.nbreDouche %}
-                                            <li class="list-inline-item">
-                                            <span>
-                                                Douche <br>
-                                                <i class="fa fa-bath"></i> {{ bien.proprieteOptions.nbreDouche }}
-                                            </span>
-                                            </li>
-                                        {% endif %}
-                                        {% if bien.proprieteOptions.nbreChambre %}
-                                            <li class="list-inline-item">
-                                            <span>
-                                                Chambres <br>
-                                                <i class="fa fa-bed"></i> {{ bien.proprieteOptions.nbreChambre }}
-                                            </span>
-                                            </li>
-                                        {% endif %}
-                                        {% if bien.proprieteOptions.nbreSalon %}
-                                            <li class="list-inline-item">
-                                            <span>
-                                                Salon <br>
-                                                <i class="fa fa-inbox"></i> {{ bien.proprieteOptions.nbreSalon }}
-                                            </span>
-                                            </li>
-                                        {% endif %}
-                                        {% if bien.proprieteOptions.superfice %}
-                                            <li class="list-inline-item">
-                                            <span>
-                                                superifice <br>
-                                                <i class="fa fa-map"></i> {{ bien.proprieteOptions.superfice  }}
-                                            </span>
-                                            </li>
-                                        {% endif %}
-
-{#                                        <li class="list-inline-item">#}
-{#                                            <span>#}
-{#                                                beds <br>#}
-{#                                                <i class="fa fa-bed"></i> 3#}
-{#                                            </span>#}
-{#                                        </li>#}
-{#                                        <li class="list-inline-item">#}
-{#                                            <span>#}
-{#                                                rooms <br>#}
-{#                                                <i class="fa fa-inbox"></i> 3#}
-{#                                            </span>#}
-{#                                        </li>#}
-{#                                        <li class="list-inline-item">#}
-{#                                            <span>#}
-{#                                                area <br>#}
-{#                                                <i class="fa fa-map"></i> 4300 sq ft#}
-{#                                            </span>#}
-{#                                        </li>#}
-                                    </ul>
-                                </div>
-                                <div class="card__image-footer">
-
-                                    <ul class="list-inline my-auto ml-auto">
-                                        <li class="list-inline-item ">
-
-
-                                            <h6>  {{   bien.typeOptions.montant ?  (bien.typeOptions.montant|number_format(0, ' ', ' ')) ~' Cfa': '' }}
-                                                {{ bien.typeOptions.loyer ? (bien.typeOptions.loyer|number_format(0, ' ', ' '))~' Cfa/mois' : '' }}
-                                            </h6>
-                                        </li>
-
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        </a>
+                        {% include "FrontEnd/partials/_item.html.twig" %}
                     {% endfor %}
 
 

@@ -4,6 +4,16 @@
         section {
             padding: 35px 0 !important;
         }
+
+        /*.owl-next, .owl.prev {*/
+        /*    margin:35px;*/
+        /*}*/
+
+        .card__image-body h6 a {
+
+            /* font-size: 15px */
+            font-size: 12px !important;
+        }
     </style>
 
 {% endblock %}
@@ -15,7 +25,7 @@
 {#<div class="search__area-inner">#}
 {#   #}
 {#</div>#}
-    {% include 'FrontEnd/partials/_recherche.html.twig' %}
+    {# {% include 'FrontEnd/partials/_recherche.html.twig' %} #}
     <!-- FEATURED PROPERTIES -->
     {% include 'FrontEnd/partials/_featured.html.twig' %}
     <!-- END FEATURED PROPERTIES -->
@@ -24,7 +34,7 @@
     {% include'FrontEnd/partials/_call-to-action-1.html.twig' %}
 
     <!-- NOUVEAUTE PROPERTIES -->
-    {% include 'FrontEnd/partials/_recent_property_grid.html.twig' with {'nature_annonce': 'à louer'} %}
+    {% include 'FrontEnd/partials/_recent_porperty.html.twig' with {'nature_annonce': 'à louer'} %}
     <!-- END NOUVEAUTE PROPERTIES -->
 
     <!-- Call To action -->
@@ -37,7 +47,7 @@
     </div>
 
     <!-- NOUVEAUTE PROPERTIES -->
-    {% include 'FrontEnd/partials/_recent_property_grid.html.twig' with {'nature_annonce': 'à vendre'} %}
+    {% include 'FrontEnd/partials/_recent_porperty.html.twig' with {'nature_annonce': 'à vendre'} %}
 
     <!-- Call To action -->
     <div class="container">
@@ -49,7 +59,7 @@
     </div>
 
     <!-- ABOUT -->
-    {% include 'FrontEnd/partials/_about.html.twig' %}
+    {# {% include 'FrontEnd/partials/_about.html.twig' %} #}
 
     <!-- OUR PARTNERS -->
     {% include 'FrontEnd/partials/_partners.html.twig' %}
