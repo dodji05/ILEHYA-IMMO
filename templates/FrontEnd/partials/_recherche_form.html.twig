@@ -1,62 +1,59 @@
+{{ form_start(form) }}
 
 
-    {{ form_start(form) }}
+<div class="row">
+    <div class="col-md-3">
+        <div class="form-group">
+            {{ form_widget(form.typecontrat) }}
 
-
-
-        <div class="row">
-            <div class="col-md-3">
-                <div class="form-group">
-                    {{ form_widget(form.typecontrat) }}
-
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group">
-                    {{ form_widget(form.typeBiens) }}
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group">
-                    {{ form_widget(form.departement) }}
-
-                </div>
-            </div>
-            <div class="col-md-3">
-
-                <div class="form-group">
-                    {{ form_widget(form.commune) }}
-
-
-                </div>
-            </div>
         </div>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="form-group">
-                    {{ form_widget(form.arrondissement) }}
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            {{ form_widget(form.typeBiens) }}
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            {{ form_widget(form.departement) }}
 
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group">
-                    {{ form_widget(form.quartier) }}
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group">
-                    {{ form_widget(form.prix_max) }}
-                    {##}
-                </div>
-            </div>
-            <div class="col-md-3">
+        </div>
+    </div>
+    <div class="col-md-3">
 
-                <div class="form-group">
-                    <button class="btn btn-primary text-uppercase btn-block"> Rechercher <i
-                                class="fa fa-search ml-1"></i></button>
-                </div>
+        <div class="form-group">
+            {{ form_widget(form.commune) }}
 
-            </div>
+
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <div class="form-group">
+            {{ form_widget(form.arrondissement) }}
+
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            {{ form_widget(form.quartier) }}
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            {{ form_widget(form.prix_max) }}
+            {# #}
+        </div>
+    </div>
+    <div class="col-md-3">
+
+        <div class="form-group">
+            <button class="btn btn-primary text-uppercase btn-block"> Rechercher <i
+                        class="fa fa-search ml-1"></i></button>
         </div>
 
-    {{ form_end(form) }}
+    </div>
+</div>
+
+{{ form_end(form) }}

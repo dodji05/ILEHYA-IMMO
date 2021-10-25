@@ -10,13 +10,10 @@ use App\Form\MessagesType;
 use App\Form\SearchPorpertyFormType;
 use App\Recherche\SearchData;
 use App\Repository\ProprietesRepository;
-use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\MailerInterface;
-use Symfony\Component\Mime\Address;
-use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 
 class AccueilController extends AbstractController
@@ -39,7 +36,7 @@ class AccueilController extends AbstractController
     }
 
     /**
-     * @Route("/annonces/{contrattype}/{proprietetype}/{id}", name="proprietes_show")
+     * @Route("/annonces/{contrattype}/{proprietetype}/{slug}", name="proprietes_show")
      */
     public function show(Proprietes $proprietes, ProprietesRepository $ProprietesRepository, Request $request): Response
     {

@@ -22,19 +22,19 @@ class EstimationTerrainType extends AbstractType
 
 
             ])
-            ->add('superficeTerrain',IntegerType::class,[
-                "attr"=> [
-                    'label'=> 'Superfice du terrain en metre carré'
+            ->add('superficeTerrain', IntegerType::class, [
+                "attr" => [
+                    'label' => 'Superfice du terrain en metre carré'
                 ]
             ])
-            ->add('mail',EmailType::class,[
-                "attr"=> [
-                    'label'=> 'Votre adresse mail'
+            ->add('mail', EmailType::class, [
+                "attr" => [
+                    'label' => 'Votre adresse mail'
                 ]
             ])
-            ->add('telephone',null,[
-                "attr"=> [
-                    'label'=> 'Votre numéro de téléphone'
+            ->add('telephone', null, [
+                "attr" => [
+                    'label' => 'Votre numéro de téléphone'
                 ]
             ]);
     }

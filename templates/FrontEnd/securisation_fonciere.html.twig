@@ -198,39 +198,46 @@ Sécurisation Fonciére
             </div>
         </div>
         <div class="container decr">
-            <p> Nous vous accompagnons notamment dans : </p>
+            <p> Nous vous accompagnons notamment pour: </p>
             <div class="row" style=" margin-bottom: 20px;">
 
-                <div class="col-md-3 col-sm-2">
+                 <div class="col-md-4 col-sm-2">
                     <div class="card">
-                        <img class="card-img-top" src="{{ asset('images/app/securisation_fonciere/Securisation-fonciere-Benin.jpg') }}" alt="Card image cap" height="230px">
-                        <div class="card-body">
-                            <p class="card-text"> Les conventions de vente </p>
-                        </div>
-                    </div>
-
-                </div>
-                 <div class="col-md-3 col-sm-2">
-                    <div class="card">
+                    <a href="{{path('infos_fonciere_new')}}">
                         <img class="card-img-top" src="{{ asset('images/app/securisation_fonciere/Attestation-detention-coutumiere.jpg') }}" alt="Card image cap" height="230px">
+                       </a>
                         <div class="card-body">
-                            <p class="card-text">L’obtention de l’attestation de détention coutumière</p>
+                         <a href="{{path('infos_fonciere_new')}}">
+                            <p class="card-text">L’obtention de L’ ADC</p>
+                       </a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-2">
+                <div class="col-md-4 col-sm-2">
                     <div class="card">
+                     <a href="{{path('infos_fonciere_new')}}">
                         <img class="card-img-top" src="{{ asset('images/app/securisation_fonciere/recasement.jpg') }}" alt="Card image cap" height="230px">
+                       </a> 
                         <div class="card-body">
-                            <p class="card-text">Formalités de recasement</p>
+                            <p class="card-text">
+                             <a href="{{path('infos_fonciere_new')}}">
+                            Le recasement
+                            </a>
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-2">
+                <div class="col-md-4 col-sm-2">
                     <div class="card">
+                     <a href="{{path('infos_fonciere_new')}}">
                         <img class="card-img-top" src="{{ asset('images/app/securisation_fonciere/Securisation-fonciere-Benin.jpg') }}" alt="Card image cap" height="230px">
+                        </a>
                         <div class="card-body">
-                            <p class="card-text">Processus d'obtention du titre foncier.</p>
+                            <p class="card-text">
+                             <a href="{{path('infos_fonciere_new')}}">
+                            L’obtention du TF
+                            </a>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -238,7 +245,11 @@ Sécurisation Fonciére
            
             <div class="row decr m-10" style="margin:1.5rem!important">
                 <p> Pour nous mandater veillez nous contacter au (+229) 99403434 ou remplir le formulaire ci-dessous et nous vous contactons.  </p>
-            </div>
+            </div>  
+            <div style="margin-top: 25px">
+
+            <h1 style="text-align: center;"><a href="{{ path('infos_fonciere_new') }}">Demander un devis</a></h1>
+        </div>
         </div>
     </section>
 {% endblock %}

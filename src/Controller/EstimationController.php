@@ -9,8 +9,8 @@ use App\Estimation\EstimationMaisonData;
 use App\Form\EstimationMaisonType;
 use App\Form\EstimationTerrainType;
 use App\Form\EstimationType;
-use App\Repository\PrixReferenceRepository;
 use App\Repository\ArrondissementRepository;
+use App\Repository\PrixReferenceRepository;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -93,15 +93,16 @@ class EstimationController extends AbstractController
     /**
      * @Route("/Estimer-nom-bien/estimer-un-terrain", name="estimation_terrain")
      */
-    public function estimationTerrain(Request $request,MailerInterface $mailer, SessionInterface $session,PrixReferenceRepository $prixReferenceRepository,ArrondissementRepository $arrondissementRepository){
+    public function estimationTerrain(Request $request, MailerInterface $mailer, SessionInterface $session, PrixReferenceRepository $prixReferenceRepository, ArrondissementRepository $arrondissementRepository)
+    {
         $data = new EstimationMaisonData();
         $form = $this->createForm(EstimationTerrainType::class, $data);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-           $arrodissement =  $session->get("arrondissement");
-            $superfice =  $form->getData()->getsuperficeTerrain();
+            $arrodissement = $session->get("arrondissement");
+            $superfice = $form->getData()->getsuperficeTerrain();
             $zone = $form->getData()->getZone()->getId();
-            $reference = $prixReferenceRepository->findOneBy([ 'souszone'=>$zone,'zone'=>$arrodissement,]);
+            $reference = $prixReferenceRepository->findOneBy(['souszone' => $zone, 'zone' => $arrodissement,]);
             $estimation = $reference->getPrix() * $superfice;
 
 
@@ -117,7 +118,7 @@ class EstimationController extends AbstractController
         return $this->render('FrontEnd/estimation_terrain.html.twig',
             [
                 'form' => $form->createView(),
-                'zone'=> $arrondissementRepository->find($session->get("arrondissement"))->getLibelle(),
+                'zone' => $arrondissementRepository->find($session->get("arrondissement"))->getLibelle(),
             ]);
 
     }
