@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit InfosFonciere{% endblock %}
+
+{% block body %}
+    <h1>Edit InfosFonciere</h1>
+
+    {{ include('infos_fonciere/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('infos_fonciere_index') }}">back to list</a>
+
+    {{ include('infos_fonciere/_delete_form.html.twig') }}
+{% endblock %}
