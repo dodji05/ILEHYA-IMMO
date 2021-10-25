@@ -2,16 +2,11 @@
 
 namespace App\Form;
 
-use App\Entity\Commune;
 use App\Entity\Proprietes;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
-use Symfony\Component\Form\Extension\Core\Type\FormType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\FormEvent;
-use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ProprietesType extends AbstractType
@@ -19,6 +14,9 @@ class ProprietesType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('quartiers', HiddenType::class, [
+                'mapped' => false,
+            ])
             ->add('Libelle',null,[
                 'label'=>'Nom',
                 'attr' => [
@@ -26,23 +24,22 @@ class ProprietesType extends AbstractType
                 ],
 
             ])
-
-            ->add('TypeOptions', ContratTypeOtpionsType::class,[
-                'required' =>'true'
-            ] )
-            ->add('ProprieteOptions',ProprieteTypeOptionType::class,[
-                'required'=>false
+            ->add('TypeOptions', ContratTypeOtpionsType::class, [
+                'required' => 'true'
+            ])
+            ->add('ProprieteOptions', ProprieteTypeOptionType::class, [
+                'required' => false
             ])
 
-      //      ->add('ville')
-//            ->add('quatier',EntityType::class,[
-//                'class' => 'App\Entity\Quartier',
-//                'choice_label' => 'lib_quart',
-//                'placeholder'=>'Sélectionnez le quartier',
-//                'label'=>'Quartier',
-//                'required'=>'true',
-//                'help'=>'HAYA, DON-ZOUKOUTOUDJA'
-//            ] )
+//            ->add('ville')
+////            ->add('quatier',EntityType::class,[
+////                'class' => 'App\Entity\Quartier',
+////                'choice_label' => 'lib_quart',
+////                'placeholder'=>'Sélectionnez le quartier',
+////                'label'=>'Quartier',
+////                'required'=>'true',
+////                'help'=>'HAYA, DON-ZOUKOUTOUDJA'
+////            ] )
 //            ->add('departement',EntityType::class,[
 //                'class' => 'App\Entity\Departement',
 //                'choice_label' => 'lib_dep',
@@ -108,23 +105,29 @@ class ProprietesType extends AbstractType
 //
 //
 //            ] )
-//
+
             ->add('adresse')
-            ->add('Description',null,[
-                'attr' => [
-                'placeholder'=>'Décrivez l\'appartement, la boutique, ou la maison, etc...',
+            ->add('Description', null, [
+                    'attr' => [
+                        'placeholder' => 'Décrivez l\'appartement, la boutique, ou la maison, etc...',
 
-            ]
-            ]
+                    ]
+                ]
             )
-                 ->add('proprietesImages', CollectionType::class, [
-                     'entry_type' => ProprietesImagesType::class,
-                     'allow_add' => true,
-                     'allow_delete' => true,
-
-                     'by_reference' => false,
-                     'entry_options' => ['label' => false],
-                 ])
+//                 ->add('proprietesImages', CollectionType::class, [
+//                     'entry_type' => ProprietesImagesType::class,
+//                     'allow_add' => true,
+//                     'allow_delete' => true,
+//
+//                     'by_reference' => false,
+//                     'entry_options' => ['label' => false],
+//                 ])
+            ->add('img', FileType::class, [
+                'label' => 'les photos',
+                'multiple' => true,
+                'mapped' => false,
+                'required' => true
+            ])
 
         ;
     }

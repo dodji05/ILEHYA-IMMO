@@ -6,11 +6,8 @@ use App\Entity\Proprietes;
 use App\Entity\ProprietesImage;
 use App\Form\ProprietesType;
 use App\Repository\ProprietesRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Persistence\PersistentObject;
-use Doctrine\ORM\EntityManager;
+use App\Repository\QuartierRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -37,38 +34,46 @@ class ProprietesController extends AbstractController
     /**
      * @Route("/new", name="admin_proprietes_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, QuartierRepository $quartierRepository): Response
     {
         $propriete = new Proprietes();
 
-       $image = new ProprietesImage();
-        $originalMedia = new ArrayCollection();
-
-        for ($i=0;$i<2;$i++){
-            $media = new ProprietesImage();
-            $media->setProprietes($propriete);
-            $originalMedia->add($media);
-
-            $propriete->addProprietesImage($media);
-
-        }
         $form = $this->createForm(ProprietesType::class, $propriete);
 
         $form->handleRequest($request);
 
-         if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
+            (int)$id_quartier = $form->get('quartiers')->getData();
+            $quart = $quartierRepository->find($id_quartier);
 
-             $proprieteImages = $propriete->getProprietesImages();
-            dd($proprieteImages);
-             foreach($proprieteImages as $key => $proprieteImage){
-                 $proprieteImage->setProprietes($propriete);
-                 $proprieteImages->set($key,$proprieteImage);
-             }
+            $propriete->setQuartier($quart);
 
-             $entityManager = $this->getDoctrine()->getManager();
-              $entityManager->persist($propriete);
-              $entityManager->flush();
+            $entityManager = $this->getDoctrine()->getManager();
 
+            $images = $form->get('img')->getData();
+
+            // On boucle sur les images
+            foreach ($images as $image) {
+                // On génère un nouveau nom de fichier
+                $fichier = md5(uniqid()) . '.' . $image->guessExtension();
+
+                // On copie le fichier dans le dossier uploads
+                $image->move(
+                    $this->getParameter('dessinateurs'),
+                    $fichier
+                );
+
+                // On crée l'image dans la base de données
+
+                $dessin1 = new ProprietesImage();
+                $dessin1->setProprietes($propriete);
+                $dessin1->setName($fichier);
+                $entityManager->persist($dessin1);
+
+            }
+
+            $entityManager->persist($propriete);
+            $entityManager->flush();
 
 
             return $this->redirectToRoute('admin_proprietes_index');
@@ -99,7 +104,7 @@ class ProprietesController extends AbstractController
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($proprietes);
-            dd($proprietes);
+
             $entityManager->flush();
 
             return $this->redirectToRoute('product_index', [

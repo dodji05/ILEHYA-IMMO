@@ -8240,7 +8240,7 @@
         };
         (function () {
             return !!r("transition")
-        })() && (t.support.transition = new String(o("transition")), t.support.transition.end = l.transition.end[t.support.transition]), h() && (t.support.animation = new String(o("animation")), t.support.animation.end = l.animation.end[t.support.animation]), c() && (t.support.transform = new String(o("transform")), t.support.transform3d = u())
+        })() && (t.support.transition = String(o("transition")), t.support.transition.end = l.transition.end[t.support.transition]), h() && (t.support.animation = String(o("animation")), t.support.animation.end = l.animation.end[t.support.animation]), c() && (t.support.transform = String(o("transform")), t.support.transform3d = u())
     }(window.Zepto || window.jQuery, window, document)
 }, function (t, e) {
     !function (t) {
@@ -15368,7 +15368,7 @@
                 0: {items: 1, center: !1},
                 480: {items: 1, center: !1},
                 600: {items: 1, center: !1},
-                768: {items: 2},
+                768: {items: 1},
                 992: {items: 2},
                 1200: {items: 1},
                 1366: {items: 1},
@@ -15459,7 +15459,7 @@
             margin: 20,
             nav: !0,
             dots: !0,
-            autoplay: !0,
+            autoplay: 0,
             navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
             smartSpeed: 1200,
             autoHeight: !0,
@@ -15477,11 +15477,11 @@
             loop: !0,
             margin: 30,
             dots: !0,
-            nav: !1,
+            nav: 1,
             rtl: !1,
             autoplayHoverPause: !1,
-            autoplay: !0,
-            singleItem: !0,
+            autoplay: 0,
+            singleItem: !1,
             smartSpeed: 1200,
             navText: ['<i class="fa fa-arrow-left"></i>', '<i class="fa fa-arrow-right"></i>'],
             responsive: {
@@ -15489,8 +15489,8 @@
                 480: {items: 1, center: !1},
                 600: {items: 1, center: !1},
                 768: {items: 2},
-                992: {items: 3},
-                1200: {items: 4},
+                992: {items: 2},
+                1200: {items: 2},
                 1366: {items: 4},
                 1400: {items: 4}
             }
