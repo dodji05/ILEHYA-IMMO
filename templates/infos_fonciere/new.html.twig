@@ -1,9 +1,5 @@
 {% extends 'FrontEnd/base.html.twig' %}
 {% block style %}
-    <link href="{{ asset('FrontEnd/house/css/jquery.steps.css') }}" rel="stylesheet">
-    <link href="{{ asset('BackEnd/assets/plugins/autocomplete/css/autoComplete.css') }}" rel="stylesheet">
-
-    {# <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.0/nouislider.min.css" integrity="sha512-6JqGSqQ++AEggYltdgSse8pKG90U/5U0bbkZoa94uSDG/BhI5YpYcy2LyWPWjXu40lUVEgEKHZ/2hCrwQvbODw==" crossorigin="anonymous" /> #}
     <style>
         .boxify {
             border-radius: 1.25rem;
@@ -47,9 +43,8 @@
             line-height: 18px;
             border-radius: 50px;
         }
-
-
     </style>
+
 {% endblock %}
  {% block navbar %}
      {% include 'FrontEnd/partials/_navbar_fixed_top.html.twig' %}
@@ -66,19 +61,17 @@
             </div>
         </div>
     </section>
-
     <section>
+
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 col-sm-offset-3 boxify css-1ecdjof">
-                    <h4>
-                        Merci de votre confiance.
-                    </h4>
-                    <h4>
-                        ILEYA PROPERTY BENIN a bien pris en compte votre demande vous reponndra dans un bref delai.
-                    </h4>
+                    {{ include('infos_fonciere/_form.html.twig') }}
+
                 </div>
             </div>
         </div>
     </section>
+
+
 {% endblock %}

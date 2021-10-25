@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}InfosFonciere{% endblock %}
+
+{% block body %}
+    <h1>InfosFonciere</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ infos_fonciere.id }}</td>
+        </tr>
+        <tr>
+            <th>SituationGeographique</th>
+            <td>{{ infos_fonciere.situationGeographique }}</td>
+        </tr>
+        <tr>
+            <th>Demandes</th>
+            <td>{{ infos_fonciere.demandes }}</td>
+        </tr>
+        <tr>
+            <th>NomProprietaire</th>
+            <td>{{ infos_fonciere.nomProprietaire }}</td>
+        </tr>
+        <tr>
+            <th>PrenomsProprietaire</th>
+            <td>{{ infos_fonciere.prenomsProprietaire }}</td>
+        </tr>
+        <tr>
+            <th>NationaliteProprietaire</th>
+            <td>{{ infos_fonciere.nationaliteProprietaire }}</td>
+        </tr>
+        <tr>
+            <th>NomDemandeur</th>
+            <td>{{ infos_fonciere.nomDemandeur }}</td>
+        </tr>
+        <tr>
+            <th>PrenomDemandeur</th>
+            <td>{{ infos_fonciere.prenomDemandeur }}</td>
+        </tr>
+        <tr>
+            <th>ContactDemandeur</th>
+            <td>{{ infos_fonciere.contactDemandeur }}</td>
+        </tr>
+        <tr>
+            <th>EmailDemandeur</th>
+            <td>{{ infos_fonciere.emailDemandeur }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('infos_fonciere_index') }}">back to list</a>
+
+    <a href="{{ path('infos_fonciere_edit', {'id': infos_fonciere.id}) }}">edit</a>
+
+    {{ include('infos_fonciere/_delete_form.html.twig') }}
+{% endblock %}

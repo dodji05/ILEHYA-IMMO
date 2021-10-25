@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}InfosFonciere index{% endblock %}
+
+{% block body %}
+    <h1>InfosFonciere index</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>SituationGeographique</th>
+            <th>Demandes</th>
+            <th>NomProprietaire</th>
+            <th>PrenomsProprietaire</th>
+            <th>NationaliteProprietaire</th>
+            <th>NomDemandeur</th>
+            <th>PrenomDemandeur</th>
+            <th>ContactDemandeur</th>
+            <th>EmailDemandeur</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for infos_fonciere in infos_foncieres %}
+            <tr>
+                <td>{{ infos_fonciere.id }}</td>
+                <td>{{ infos_fonciere.situationGeographique }}</td>
+                <td>{{ infos_fonciere.demandes }}</td>
+                <td>{{ infos_fonciere.nomProprietaire }}</td>
+                <td>{{ infos_fonciere.prenomsProprietaire }}</td>
+                <td>{{ infos_fonciere.nationaliteProprietaire }}</td>
+                <td>{{ infos_fonciere.nomDemandeur }}</td>
+                <td>{{ infos_fonciere.prenomDemandeur }}</td>
+                <td>{{ infos_fonciere.contactDemandeur }}</td>
+                <td>{{ infos_fonciere.emailDemandeur }}</td>
+                <td>
+                    <a href="{{ path('infos_fonciere_show', {'id': infos_fonciere.id}) }}">show</a>
+                    <a href="{{ path('infos_fonciere_edit', {'id': infos_fonciere.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('infos_fonciere_new') }}">Create new</a>
+{% endblock %}

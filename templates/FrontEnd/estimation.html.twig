@@ -260,6 +260,58 @@
         /*    color: #1c3452;*/
         /*    padding-bottom: 1.25rem;*/
         /*}*/
+        @media (max-width: 767px) {
+            .landing-wrapper {
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-align: center;
+                -webkit-align-items: center;
+                -ms-flex-align: center;
+                align-items: center;
+                /* -webkit-box-orient: horizontal; */
+                -webkit-box-direction: reverse;
+                -webkit-flex-direction: row;
+                -ms-flex-direction: row;
+                flex-direction: row;
+            }
+
+            #autoComplete {
+                width: auto
+            }
+
+            .title--2--dark {
+                font-size: 16px;
+            }
+
+            .title--1 {
+
+                font-size: 1.4rem;
+            }
+
+            .img-hero {
+                display: none
+            }
+
+            .justeprix {
+                margin: 35px
+            }
+
+            .item_icom {
+                text-align: center;
+            }
+
+            h2 .textitle--3 {
+                text-align: center;
+                font-size: 1.3rem
+            }
+
+            .title--2--dark {
+                font-size: 16px;
+            }
+
+        }
     </style>
     {# <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.0/nouislider.min.css" integrity="sha512-6JqGSqQ++AEggYltdgSse8pKG90U/5U0bbkZoa94uSDG/BhI5YpYcy2LyWPWjXu40lUVEgEKHZ/2hCrwQvbODw==" crossorigin="anonymous" /> #}
 {% endblock %}
@@ -268,13 +320,13 @@
 
  {% endblock %}
 {% block content %}
-    <div class="clearfix"></div>
-    <div class="container-fluid" style="padding-top: 100px!important;">
-        <div class="row">
-            <div class="col-md-6 landing-wrapper">
-                <div class="form-wrapper">
-                    <p class="title--1">Estimez votre bien maintenant... et contactez un agent ensuite...</p>
-                    {{ form_start(form) }}
+    <section>
+        <div class="container-fluid" style="padding-left: 1.25rem !important;">
+            <div class="row">
+                <div class="col-md-6 landing-wrapper">
+                    <div class="form-wrapper">
+                        <p class="title--1">Estimez votre bien maintenant... et contactez un agent ensuite...</p>
+                        {{ form_start(form) }}
                     <div class="col-sm-12">
                         <div class="form-group row">
                             <h6 style="font-size:16px"> Quartier ou village</h6>
@@ -311,6 +363,9 @@
 
                             {% form_theme form _self %}
 
+ 
+ 
+ 
    {% block choice_widget_expanded %}
       <div {{ block('widget_container_attributes') }}>
          {% for child in form.status %}
@@ -380,10 +435,11 @@
                 </div>
 
             </div>
-        </div>
+            </div>
 
-    </div>
-    <section>
+        </div>
+    </section>
+    <section class="justeprix">
         <div class="container">
             <div class="row">
                 <p>
