@@ -32,6 +32,13 @@
             </div>
         </div>
     </section>
+
+    <!-- RECHERCHE PAR CATEGORIE -->
+    {% include 'FrontEnd/partials/_recherche_par_categorie.html.twig' %}
+    <!-- END RECHERCHE PAR CATEGORIE -->
+    <!-- A VENDRE DANS LES GRANDES VILLES -->
+    {% include 'FrontEnd/partials/_avendre_grande_ville.html.twig' %}
+    <!-- END VENDRE DANS LES GRANDES VILLES -->
     <!-- FEATURED PROPERTIES -->
     {% include 'FrontEnd/partials/_featured.html.twig' %}
     <!-- END FEATURED PROPERTIES -->
@@ -63,6 +70,8 @@
             </div>
         </div>
     </div>
+
+    {% include 'FrontEnd/partials/_recent_porperty.html.twig' with {'nature_annonce': 'Meuble'} %}
 
     <!-- ABOUT -->
     {# {% include 'FrontEnd/partials/_about.html.twig' %} #}

@@ -4,7 +4,11 @@
             <div class="col-md-8 col-lg-6 mx-auto">
                 <div class="title__head">
                     <h2 class="text-center text-capitalize">
-                        Dernières publications {{ nature_annonce }}
+                        {% if nature_annonce == 'Meuble' %}
+                        Dérnières publications Appartements meublés
+                        {%  else%}
+                        Dérnières publications {{ nature_annonce }}
+                        {% endif %}
                     </h2>
 
                 </div>
@@ -113,7 +117,7 @@
                                 </div>
                             {% endif %}
                         {% endfor %}
-                    {% else %}
+                    {% elseif nature_annonce == 'à louer' %}
                         {% for bien in biens %}
                             {% if bien.typeOptions.contratypes.libelle != "A vendre" %}
                                 <div class="item">
@@ -221,6 +225,8 @@
                                 </div>
                             {% endif %}
                         {% endfor %}
+                        {% else %}
+                        ici
                     {% endif %}
                 </div>
             </div>
