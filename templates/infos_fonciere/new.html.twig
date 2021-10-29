@@ -1,7 +1,7 @@
 {% extends 'FrontEnd/base.html.twig' %}
 {% block style %}
-<style>
-   .boxify {
+    <style>
+        .boxify {
             border-radius: 1.25rem;
             border-style: solid;
             border-width: 1px;
@@ -43,8 +43,8 @@
             line-height: 18px;
             border-radius: 50px;
         }
-</style>
-  
+    </style>
+
 {% endblock %}
  {% block navbar %}
      {% include 'FrontEnd/partials/_navbar_fixed_top.html.twig' %}
@@ -55,23 +55,23 @@
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="col-md-8 text-center">
-                    <h2 class="text-capitalize text-white ">Demande d'informations</h2>
+                    <h2 class="text-capitalize text-white ">Demande de renseignement</h2>
 
                 </div>
             </div>
         </div>
-    </section> 
- <section>
-       
+    </section>
+    <section>
+
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 col-sm-offset-3 boxify css-1ecdjof">
-                {{ include('infos_fonciere/_form.html.twig') }}
+                    {{ include('infos_fonciere/_form.html.twig') }}
 
                 </div>
             </div>
         </div>
-</section>
-    
-   
+    </section>
+
+
 {% endblock %}

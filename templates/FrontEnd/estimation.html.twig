@@ -261,47 +261,55 @@
         /*    padding-bottom: 1.25rem;*/
         /*}*/
         @media (max-width: 767px) {
-            .landing-wrapper{
+            .landing-wrapper {
                 display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    /* -webkit-box-orient: horizontal; */
-    -webkit-box-direction: reverse;
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-align: center;
+                -webkit-align-items: center;
+                -ms-flex-align: center;
+                align-items: center;
+                /* -webkit-box-orient: horizontal; */
+                -webkit-box-direction: reverse;
+                -webkit-flex-direction: row;
+                -ms-flex-direction: row;
+                flex-direction: row;
             }
-            #autoComplete{
-                width:auto
+
+            #autoComplete {
+                width: auto
             }
+
             .title--2--dark {
-    font-size: 16px;
-}
-.title--1 {
-   
-    font-size: 1.4rem;
-}
-.img-hero{
-    display: none
-}
-.justeprix {
-    margin:35px
-}
-.item_icom{
-    text-align: center;
-}
-h2 .textitle--3 {
-    text-align:center;
-    font-size: 1.3rem
-}
-.title--2--dark {
-    font-size: 16px;
-}
+                font-size: 16px;
+            }
+
+            .title--1 {
+
+                font-size: 1.4rem;
+            }
+
+            .img-hero {
+                display: none
+            }
+
+            .justeprix {
+                margin: 35px
+            }
+
+            .item_icom {
+                text-align: center;
+            }
+
+            h2 .textitle--3 {
+                text-align: center;
+                font-size: 1.3rem
+            }
+
+            .title--2--dark {
+                font-size: 16px;
+            }
 
         }
     </style>
@@ -313,12 +321,12 @@ h2 .textitle--3 {
  {% endblock %}
 {% block content %}
     <section>
-    <div class="container-fluid" style="padding-left: 1.25rem !important;">
-        <div class="row">
-            <div class="col-md-6 landing-wrapper">
-                <div class="form-wrapper">
-                    <p class="title--1">Estimez votre bien maintenant... et contactez un agent ensuite...</p>
-                    {{ form_start(form) }}
+        <div class="container-fluid" style="padding-left: 1.25rem !important;">
+            <div class="row">
+                <div class="col-md-6 landing-wrapper">
+                    <div class="form-wrapper">
+                        <p class="title--1">Estimez votre bien maintenant... et contactez un agent ensuite...</p>
+                        {{ form_start(form) }}
                     <div class="col-sm-12">
                         <div class="form-group row">
                             <h6 style="font-size:16px"> Quartier ou village</h6>
@@ -427,9 +435,9 @@ h2 .textitle--3 {
                 </div>
 
             </div>
-        </div>
+            </div>
 
-    </div>
+        </div>
     </section>
     <section class="justeprix">
         <div class="container">

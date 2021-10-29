@@ -55,7 +55,6 @@ class InfosFonciereController extends AbstractController
         ]);
     }
 
-  
 
     /**
      * @Route("/{id}/edit", name="infos_fonciere_edit", methods={"GET","POST"})
@@ -82,7 +81,7 @@ class InfosFonciereController extends AbstractController
      */
     public function delete(Request $request, InfosFonciere $infosFonciere): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$infosFonciere->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $infosFonciere->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($infosFonciere);
             $entityManager->flush();
