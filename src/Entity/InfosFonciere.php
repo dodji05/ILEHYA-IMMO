@@ -62,6 +62,11 @@ class InfosFonciere
      */
     private $emailDemandeur;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $message;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -171,6 +176,18 @@ class InfosFonciere
     public function setEmailDemandeur(?string $emailDemandeur): self
     {
         $this->emailDemandeur = $emailDemandeur;
+
+        return $this;
+    }
+
+    public function getMessage(): ?string
+    {
+        return $this->message;
+    }
+
+    public function setMessage(?string $message): self
+    {
+        $this->message = $message;
 
         return $this;
     }

@@ -50,20 +50,7 @@ class InfosFonciereType extends AbstractType
                     "placeholder" => "Nationalité  du propriétaire",
                 ]
             ])
-            ->add('nomDemandeur', null, [
-                "label" => "Nom",
-                "attr" => [
 
-                    "placeholder" => "Mon nom",
-                ]
-            ])
-            ->add('prenomDemandeur', null, [
-                "label" => "Prénoms",
-                "attr" => [
-
-                    "placeholder" => "Mon prénom",
-                ]
-            ])
             ->add('contactDemandeur', null, [
                 "label" => "Téléphone",
                 "attr" => [
@@ -76,6 +63,13 @@ class InfosFonciereType extends AbstractType
                 "attr" => [
 
                     "placeholder" => "Mon E-mail",
+                ]
+            ])
+            ->add('message', null, [
+                "label" => "Votre message",
+                "attr" => [
+
+                    "placeholder" => "Votre message",
                 ]
             ]);
     }
