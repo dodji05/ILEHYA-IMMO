@@ -1,0 +1,69 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-lg-6 mx-auto">
+                <div class="title__head">
+                    <h2 class="text-center text-capitalize">
+                        À VENDRE DANS LES GRANDES VILLES
+                    </h2>
+
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-6 col-md-3">
+                <a href=" {{ path('proprietes_villes_listing',{'ville': 'COTONOU'}) }} ">
+                    <div style="background: url('{{ asset('images/app/icones/Cotonou.jpg') }}'); height: 200px">
+                        <div class="images_caption">
+                            Cotonou
+                        </div>
+                        {# <div class="link__overlay"> #}
+                        {# <div class="image-link_text"> #}
+                        {# uuuuuuuuuu #}
+                        {# </div> #}
+
+                        {# </div> #}
+                    </div>
+                    {# <img src="{{ asset('images/app/icones/Cotonou.jpg') }}" class="img-fluid w100 img-transition" style="max-height: 250px"> #}
+
+            </div>
+            </a>
+
+            <div class="col-6 col-md-3">
+                <a href=" {{ path('proprietes_villes_listing',{'ville': 'ABOMEY-CALAVI'}) }} ">
+                    <div style="background: url('{{ asset('images/app/icones/Abomey-Calavi.jpg') }}'); height: 200px">
+                        <div class="images_caption">
+                            Abomey-Calavi
+                        </div>
+                    </div>
+                    {# <img src="{{ asset('images/app/icones/Abomey-Calavi.jpg') }}" class="img-fluid w100 img-transition" style="max-height: 250px"> #}
+
+                </a>
+            </div>
+            <div class="col-6 col-md-3">
+                <a href=" {{ path('proprietes_villes_listing',{'ville': 'PARAKOU'}) }} ">
+                    <div style="background: url('{{ asset('images/app/icones/parakou.jpg') }}'); height: 200px">
+                        <div class="images_caption">
+                            Parakou
+                        </div>
+                    </div>
+                </a>
+                {# <img src="{{ asset('images/app/icones/parakou.jpg') }}" class="img-fluid w100 img-transition" style="max-height: 250px"> #}
+            </div>
+            <div class="col-6 col-md-3">
+                <a href=" {{ path('proprietes_villes_listing',{'ville': 'PORTO-NOVO'}) }} ">
+                    <div style="background: url('{{ asset('images/app/icones/Porto Novo.jpg') }}'); height: 200px">
+                        <div class="images_caption">
+                            Porto-Novo
+                        </div>
+                    </div>
+                </a>
+                {# <img src="{{ asset('images/app/icones/Porto Novo.jpg') }}" class="img-fluid w100 img-transition" style="max-height: 250px"> #}
+            </div>
+        </div>
+    </div>
+</section>

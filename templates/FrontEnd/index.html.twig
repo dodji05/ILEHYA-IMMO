@@ -14,6 +14,28 @@
             /* font-size: 15px */
             font-size: 12px !important;
         }
+
+        .link__overlay {
+            border-radius: 4px;
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(hsla(0, 0%, 100%, 0)), to(rgba(27, 51, 83, .75)));
+            background-image: -webkit-linear-gradient(top, hsla(0, 0%, 100%, 0), rgba(27, 51, 83, .75));
+            background-image: linear-gradient(
+                    180deg, hsla(0, 0%, 100%, 0), rgba(27, 51, 83, .75));
+        }
+
+        .images_caption {
+            width: 100%;
+            font-weight: 900;
+            font-size: 24px;
+            color: #fff;
+            position: absolute;
+            text-align: center;
+            bottom: 0.75rem;
+        }
     </style>
 
 {% endblock %}
@@ -32,6 +54,13 @@
             </div>
         </div>
     </section>
+
+    <!-- RECHERCHE PAR CATEGORIE -->
+    {% include 'FrontEnd/partials/_recherche_par_categorie.html.twig' %}
+    <!-- END RECHERCHE PAR CATEGORIE -->
+    <!-- A VENDRE DANS LES GRANDES VILLES -->
+    {% include 'FrontEnd/partials/_avendre_grande_ville.html.twig' %}
+    <!-- END VENDRE DANS LES GRANDES VILLES -->
     <!-- FEATURED PROPERTIES -->
     {% include 'FrontEnd/partials/_featured.html.twig' %}
     <!-- END FEATURED PROPERTIES -->
@@ -40,7 +69,7 @@
     {% include'FrontEnd/partials/_call-to-action-1.html.twig' %}
 
     <!-- NOUVEAUTE PROPERTIES -->
-    {% include 'FrontEnd/partials/_recent_porperty.html.twig' with {'nature_annonce': 'à louer'} %}
+    {% include 'FrontEnd/partials/_recent_porperty.html.twig' with {'nature_annonce': 2} %}
     <!-- END NOUVEAUTE PROPERTIES -->
 
     <!-- Call To action -->
@@ -53,7 +82,7 @@
     </div>
 
     <!-- NOUVEAUTE PROPERTIES -->
-    {% include 'FrontEnd/partials/_recent_porperty.html.twig' with {'nature_annonce': 'à vendre'} %}
+    {% include 'FrontEnd/partials/_recent_porperty.html.twig' with {'nature_annonce': 1} %}
 
     <!-- Call To action -->
     <div class="container">
@@ -63,6 +92,8 @@
             </div>
         </div>
     </div>
+
+    {% include 'FrontEnd/partials/_recent_porperty.html.twig' with {'nature_annonce': 'Meuble'} %}
 
     <!-- ABOUT -->
     {# {% include 'FrontEnd/partials/_about.html.twig' %} #}

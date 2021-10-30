@@ -4,8 +4,6 @@
 namespace App\Form;
 
 
-use App\Entity\Commune;
-use App\Entity\Proprietes;
 use App\Recherche\SearchData;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -35,36 +33,31 @@ class SearchPorpertyFormType extends AbstractType
                 'required' => false,
 
             ])
-            ->add('departement', EntityType::class, [
-                'class' => 'App\Entity\Departement',
-                'choice_label' => 'lib_dep',
-                'placeholder' => 'Sélectionnez le departement',
-                'label' => 'Département',
-                'required' => false,
-//                'help'=>'GOGOUNOU, TOGOUDO',
+//             ->add('departement', EntityType::class, [
+//                 'class' => 'App\Entity\Departement',
+//                 'choice_label' => 'lib_dep',
+//                 'placeholder' => 'Sélectionnez le departement',
+//                 'label' => 'Département',
+//                 'required' => false,
+// //                'help'=>'GOGOUNOU, TOGOUDO',
 
-                'attr' => [
-                    'class' => 'linked-select',
-                    'data-target' => "#commune",
-                    'data-source' => "http://localhost:5050/ajax/commune/id"
+//                 'attr' => [
+//                     'class' => 'linked-select',
+//                     'data-target' => "#commune",
+//                     'data-source' => "http://localhost:5050/ajax/commune/id"
 
 
-                ]
+//                 ]
 
-            ])
-            ->add('commune', ChoiceType::class, [
+//             ])
+            ->add('commune', EntityType::class, [
                 'placeholder' => 'Sélectionnez la commune',
-                'choice_value' => function (?Commune $entity) {
-                    return $entity ? $entity->getId() : '';},
-//                'choices'=> Commune::class,
-//
-                'required' => false,
-//                'help'=>'GOGOUNOU, TOGOUDO',
-//                'mapped'=>false,
+                'class' => 'App\Entity\Commune',
+                'choice_label' => 'lib_com',
                 'attr' => [
                     'class' => 'linked-select',
-                    'data-target' => "#arrondissement",
-                    'data-source' => "http://localhost:5050/ajax/arrondissement/id",
+                    'data-target' => "#quartier",
+                    'data-source' => "ajax/arrondissement/id",
                     //   'style'=>'display: none'
 
 
@@ -74,27 +67,27 @@ class SearchPorpertyFormType extends AbstractType
                 ],
 
             ])
-            ->add('arrondissement', ChoiceType::class, [
+//             ->add('arrondissement', ChoiceType::class, [
 
-                'placeholder' => 'Sélectionnez larrondissement',
+//                 'placeholder' => 'Sélectionnez larrondissement',
 
-                'required' => false,
-//                'help'=>'GOGOUNOU, TOGOUDO',
-//                'mapped' => false,
-                'attr' => [
-                    'class' => 'linked-select',
-                    'data-target' => "#quartier",
-                    'data-source' => "http://localhost:5050/ajax/quartier/id",
-//                    'style' => 'display: none'
-
-
-                ],
-                'label_attr' => [
-//                    'style'=>'display: none'
-                ],
+//                 'required' => false,
+// //                'help'=>'GOGOUNOU, TOGOUDO',
+// //                'mapped' => false,
+//                 'attr' => [
+//                     'class' => 'linked-select',
+//                     'data-target' => "#quartier",
+//                     'data-source' => "http://localhost:5050/ajax/quartier/id",
+// //                    'style' => 'display: none'
 
 
-            ])
+//                 ],
+//                 'label_attr' => [
+// //                    'style'=>'display: none'
+//                 ],
+
+
+//             ])
             ->add('quartier', ChoiceType::class, [
 
                 'placeholder' => 'Sélectionnez le quartier',

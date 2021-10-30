@@ -55,7 +55,7 @@ class AjaxController extends AbstractController
             $Resultat = $em->getRepository('App:Commune')->findBy(['departement'=>$id]);
           //  $foreign = 'region_id';
         } else if ($type === 'arrondissement') {
-            $Resultat = $em->getRepository('App:Arrondissement')->findBy(['Commune'=>$id]);
+            $Resultat = $em->getRepository('App:Quartier')->quartierParVille($id);
           //  $foreign =  'department_id';
         }
         else if ($type === 'quartier') {

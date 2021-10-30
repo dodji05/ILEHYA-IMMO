@@ -120,7 +120,7 @@
                                                                 <span
                                                                         class="badge badge-primary text-capitalize mb-2">{{ bien.proprieteOptions.proprietes.libelle }}</span>
                                                                     <h6>
-                                                                        <a href="{{ path('proprietes_show',{'contrattype': bien.typeOptions.contratypes.slug,'proprietetype':bien.proprieteOptions.proprietes.Slug,'id': bien.id}) }}">
+                                                                        <a href="{{ path('proprietes_show',{'contrattype': bien.typeOptions.contratypes.slug,'proprietetype':bien.proprieteOptions.proprietes.Slug,'slug': bien.slug}) }}">
                                                                             {% if bien.libelle | length > 31 %}
                                                                                 {{ bien.libelle | slice(0,25) }}...
                                                                             {% else %}
@@ -248,7 +248,7 @@
                                                         <span
                                                                 class="badge badge-primary text-capitalize mb-2"> {{ bien.proprieteOptions.proprietes.libelle }}</span>
                                                             <h6 class="text-capitalize">
-                                                                <a href="{{ path('proprietes_show',{'contrattype': bien.typeOptions.contratypes.slug,'proprietetype':bien.proprieteOptions.proprietes.Slug,'id': bien.id}) }}">
+                                                                <a href="{{ path('proprietes_show',{'contrattype': bien.typeOptions.contratypes.slug,'proprietetype':bien.proprieteOptions.proprietes.Slug,'slug': bien.slug}) }}">
                                                                     {% if bien.libelle | length > 31 %}
                                                                         {{ bien.libelle | slice(0,25) }}...
                                                                     {% else %}

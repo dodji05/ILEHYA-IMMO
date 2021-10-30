@@ -4,8 +4,6 @@
 namespace App\Recherche;
 
 
-use App\Entity\Commune;
-
 class SearchData
 {
 

@@ -180,4 +180,59 @@ class AccueilController extends AbstractController
                 'form' => $form->createView()
             ]);
     }
+
+    /**
+     * @Route("/recherche/categorie/{nature}/", name="proprietes_categorie_listing")
+     */
+    public function rechercheCategorie(ProprietesRepository $proprietesRepository, Request $request): Response
+    {
+        $nature = $request->get('nature');
+        $datasearch = new SearchData();
+        $form = $this->createForm(SearchPorpertyFormType::class, $datasearch);
+
+
+        switch ($nature) {
+            case 'a-vendre':
+                $titre = "Biens Immobiliers à vendre";
+                $biens = $proprietesRepository->natureannonces(1);
+                break;
+            case 'a-louer':
+                $titre = "Biens Immobiliers à louer";
+                $biens = $proprietesRepository->natureannonces(2);
+                break;
+
+            default:
+                $titre = "Biens Immobiliers à louer" . $nature;
+                $biens = $proprietesRepository->proprieteParCategorie($nature);
+                break;
+
+        }
+        return $this->render('FrontEnd/listing.html.twig', [
+            'titre' => $titre,
+            'biens' => $biens,
+            'form' => $form->createView(),
+
+        ]);
+    }
+
+    /**
+     * @Route("/annonce/ville/{ville}", name="proprietes_villes_listing")
+     */
+    public function proprietesParVille(ProprietesRepository $proprietesRepository, Request $request): Response
+    {
+        $ville = $request->get('ville');
+        $datasearch = new SearchData();
+        $form = $this->createForm(SearchPorpertyFormType::class, $datasearch);
+
+        $biens = $proprietesRepository->proprietesParVille($ville);
+        $titre = "Biens Immobiliers à vendre a " . $ville;
+
+        return $this->render('FrontEnd/listing.html.twig', [
+            'titre' => $titre,
+            'biens' => $biens,
+            'form' => $form->createView(),
+
+        ]);
+    }
+
 }

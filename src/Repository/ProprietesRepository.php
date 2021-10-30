@@ -90,6 +90,34 @@ class ProprietesRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function proprieteParCategorie($categorie)
+    {
+        return $this->createQueryBuilder('p')
+            ->innerJoin('p.ProprieteOptions', 'op')
+            ->innerJoin('op.Proprietes', 't')
+            ->andWhere('t.Slug = :val1')
+            ->setParameter('val1', $categorie)
+            ->orderBy('p.id', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function proprietesParVille($ville)
+    {
+        return $this->createQueryBuilder('p')
+            ->innerJoin('p.Quartier', 'q')
+            ->innerJoin('q.arrondissement', 'ar')
+            ->innerJoin('ar.Commune', 'com')
+            ->innerJoin('p.TypeOptions', 't')
+            ->innerJoin('t.Contratypes', 'c')
+            ->where('c.id = 1')
+            ->andWhere('com.lib_com = :val1')
+            ->setParameter('val1', $ville)
+            ->orderBy('p.id', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
     public function RechercherUnBien(SearchData $search)
     {
         $query = $this->createQueryBuilder('p')
@@ -181,8 +209,7 @@ class ProprietesRepository extends ServiceEntityRepository
 //            ->orderBy('p.id', 'DESC')
 //            ->getQuery()
 //            ->getResult()
-        ;
-//dd($search);
+        //dd($search);
 //        if (!empty($search->getDepartement())) {
 //            if (!empty($search->getCommune())) {
 //                $query = $query

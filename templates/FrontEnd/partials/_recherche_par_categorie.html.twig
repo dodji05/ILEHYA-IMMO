@@ -1,0 +1,57 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-lg-6 mx-auto">
+                <div class="title__head">
+                    <h2 class="text-center text-capitalize">
+                        recherche par catégorie
+                    </h2>
+
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-6 col-md-3">
+                <a href="{{ path('proprietes_categorie_listing',{'nature':'maison'}) }}">
+                    <figure class="figure">
+                        <img src="{{ asset('images/app/icones/villa.jpeg') }}" class="figure-img img-fluid z-depth-1"
+                             alt="..." style="width:  100%">
+                        <figcaption class="figure-caption text-center">Villa</figcaption>
+                    </figure>
+                </a>
+            </div>
+            <div class="col-6 col-md-3">
+                <a href="{{ path('proprietes_categorie_listing',{'nature':'parcelle-vide'}) }}">
+                    <figure class="figure">
+                        <img src="{{ asset('images/app/icones/villa.jpeg') }}" class="figure-img img-fluid z-depth-1"
+                             alt="..." style="width: 100%">
+                        <figcaption class="figure-caption text-center">Parcelle Vide.</figcaption>
+                    </figure>
+                </a>
+            </div>
+            <div class="col-6 col-md-3">
+                <a href="{{ path('proprietes_categorie_listing',{'nature':'appartement-vide'}) }}">
+                    <figure class="figure">
+                        <img src="{{ asset('images/app/icones/villa.jpeg') }}" class="figure-img img-fluid z-depth-1"
+                             alt="..." style="width:  100%">
+                        <figcaption class="figure-caption text-center">Apppartement vides</figcaption>
+                    </figure>
+                </a>
+            </div>
+            <div class="col-6 col-md-3">
+                <a href="{{ path('proprietes_categorie_listing',{'nature':'bureau'}) }}">
+                    <figure class="figure">
+                        <img src="{{ asset('images/app/icones/villa.jpeg') }}" class="figure-img img-fluid z-depth-1"
+                             alt="..." style="width: 100%">
+                        <figcaption class="figure-caption text-center">Bureau & Commerces</figcaption>
+                    </figure>
+                </a>
+
+            </div>
+        </div>
+    </div>
+</section>
