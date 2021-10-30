@@ -43,7 +43,7 @@ class StaticController extends AbstractController
     public function projet()
     {
         return $this->render('FrontEnd/projet_de_construction.html.twig',[
-            'soustitre' => "Service de Construction"
+            'soustitre' => "Projet en Construction"
         ]);
     }
 }
