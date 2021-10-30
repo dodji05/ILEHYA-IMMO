@@ -653,7 +653,7 @@
             $("#autoComplete").autocomplete({
                 source: function (request, response) {
                     $.ajax({
-                        url: "/ajax/arrondissement/quartier",
+                        url: "/ajax/rechercher/arrondissement",
                         dataType: "json",
                         data: {
                             term: request.term
@@ -675,7 +675,7 @@
             })
                 .autocomplete("instance")._renderItem = function (ul, item) {
                 return $("<li>")
-                    .append("<div>" + item.value + " ( " + item.arrodissement + "," + item.commune + "," + item.departement + " ) " + " </div> ")
+                    .append("<div>" + item.value + " ( " + item.commune + "," + item.departement + " ) " + " </div> ")
 
                     .appendTo(ul);
             };

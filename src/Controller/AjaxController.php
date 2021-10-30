@@ -30,13 +30,15 @@ class AjaxController extends AbstractController
         foreach ($annonces as $item) {
             $data[] = [
                 'id' => $item['id'],
-                'value' => $item['lib_arrond'],
+                'value' => $item['lib_quart'],
+                'arrodissement' => $item['lib_arrond'],
                 'commune' => $item['lib_com'],
                 'departement' => $item['lib_dep'],
 
             ];
 
         }
+
 
         return new Response(json_encode($data));
     }
@@ -54,18 +56,17 @@ class AjaxController extends AbstractController
 
 
         //  dd($serialiserData);
+
         foreach ($annonces as $item) {
             $data[] = [
                 'id' => $item['id'],
-                'value' => $item['lib_quart'],
-                'arrodissement' => $item['lib_arrond'],
+                'value' => $item['lib_arrond'],
                 'commune' => $item['lib_com'],
                 'departement' => $item['lib_dep'],
 
             ];
 
         }
-
         return new Response(json_encode($data));
     }
 
