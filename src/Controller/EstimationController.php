@@ -9,8 +9,8 @@ use App\Estimation\EstimationMaisonData;
 use App\Form\EstimationMaisonType;
 use App\Form\EstimationTerrainType;
 use App\Form\EstimationType;
-use App\Repository\ArrondissementRepository;
 use App\Repository\PrixReferenceRepository;
+use App\Repository\QuartierRepository;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -93,7 +93,7 @@ class EstimationController extends AbstractController
     /**
      * @Route("/Estimer-nom-bien/estimer-un-terrain", name="estimation_terrain")
      */
-    public function estimationTerrain(Request $request, MailerInterface $mailer, SessionInterface $session, PrixReferenceRepository $prixReferenceRepository, ArrondissementRepository $arrondissementRepository)
+    public function estimationTerrain(Request $request, MailerInterface $mailer, SessionInterface $session, PrixReferenceRepository $prixReferenceRepository, QuartierRepository $quartierRepository)
     {
         $data = new EstimationMaisonData();
         $form = $this->createForm(EstimationTerrainType::class, $data);
@@ -104,13 +104,22 @@ class EstimationController extends AbstractController
             $zone = $form->getData()->getZone()->getId();
             $reference = $prixReferenceRepository->findOneBy(['souszone' => $zone, 'zone' => $arrodissement,]);
             $estimation = $reference->getPrix() * $superfice;
+            $voie = $form->getData()->getSituation();
+            $prixMoyen = 0;
+
+            if ($voie == "oui") {
+                $prixMoyen = $estimation * 2;
+            } else {
+                $prixMoyen = $estimation * 1.5;
+            }
 
 
             return $this->render('FrontEnd/estimation-terrain-fin.html.twig',
                 [
                     'estimation' => $estimation,
-                    'arrondissement'=>$reference->getZone()->getLibelle(),
-                    'zone'=>$reference->getSouszone()->getLibelleSouszone()
+                    'prixMoyen' => $prixMoyen,
+                    'arrondissement' => $reference->getZone()->getLibelle(),
+                    'zone' => $reference->getSouszone()->getLibelleSouszone()
                 ]);
 
 
@@ -118,7 +127,7 @@ class EstimationController extends AbstractController
         return $this->render('FrontEnd/estimation_terrain.html.twig',
             [
                 'form' => $form->createView(),
-                'zone' => $arrondissementRepository->find($session->get("arrondissement"))->getLibelle(),
+                'zone' => $quartierRepository->find($session->get("arrondissement"))->getLibelle(),
             ]);
 
     }

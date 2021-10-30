@@ -24,6 +24,7 @@ class EstimationMaisonData
     private $projet_vente;
     private $superfice_terrain;
     private $zone;
+    private $situation;
 
     /**
      * @return mixed
@@ -314,7 +315,21 @@ class EstimationMaisonData
         $this->zone = $zone;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getSituation()
+    {
+        return $this->situation;
+    }
 
+    /**
+     * @param mixed $situation
+     */
+    public function setSituation($situation): void
+    {
+        $this->situation = $situation;
+    }
 
 
 }

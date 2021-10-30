@@ -44,7 +44,9 @@
                 </p>
                 <p class="text-justify">
                     L'estimation de votre bien se situant au dans l'arrondissement {{ arrondissement }} en
-                    zone {{ zone }}
+                    zone {{ zone }}.
+                    Prix minimum fixé par l’État : {{ estimation |number_format(0, ' ', ' ') }} CFA <br>
+                    Prix moyen du marché: {{ prixMoyen |number_format(0, ' ', ' ') }} CFA
                     est de <span
                             style="color: green; font-size: 20px">{{ estimation |number_format(0, ' ', ' ') }} CFA</span>
                 </p>

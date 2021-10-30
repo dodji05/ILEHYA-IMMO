@@ -6,6 +6,7 @@ use App\Entity\Souszone;
 use App\Estimation\EstimationMaisonData;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -20,12 +21,20 @@ class EstimationTerrainType extends AbstractType
                 'class' => Souszone::class,
                 'choice_label' => 'libelleSouszone'
 
-
             ])
             ->add('superficeTerrain', IntegerType::class, [
                 "attr" => [
                     'label' => 'Superfice du terrain en metre carré'
                 ]
+            ])
+            ->add('situation', ChoiceType::class, [
+                'choices' => [
+                    'Oui' => 'oui',
+                    'Non' => 'non'
+                ],
+                'expanded' => true,
+                'multiple' => false,
+                "label" => 'La parcelle est-elle située au bord de la voie ou du goudron?',
             ])
             ->add('mail', EmailType::class, [
                 "attr" => [

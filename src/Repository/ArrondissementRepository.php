@@ -50,11 +50,13 @@ class ArrondissementRepository extends ServiceEntityRepository
 
     public function getAllArrodissement($term){
         return $this->createQueryBuilder('a')
-            ->select('a.lib_arrond','a.id')
+            ->select('a.lib_arrond', 'a.id', 'com.lib_com', 'dep.lib_dep')
             ->andWhere('a.lib_arrond like :val')
-            ->setParameter('val',  '%'.$term.'%')
+            ->leftJoin('a.Commune', 'com')
+            ->leftJoin('com.departement', 'dep')
+            ->setParameter('val', '%' . $term . '%')
             ->orderBy('a.lib_arrond', 'ASC')
             ->getQuery()
-            ->getResult() ;
+            ->getResult();
     }
 }
