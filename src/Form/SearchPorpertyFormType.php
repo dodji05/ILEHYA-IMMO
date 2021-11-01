@@ -7,7 +7,6 @@ namespace App\Form;
 use App\Recherche\SearchData;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -51,7 +50,7 @@ class SearchPorpertyFormType extends AbstractType
 
 //             ])
             ->add('commune', EntityType::class, [
-                'placeholder' => 'Sélectionnez la commune',
+                'placeholder' => 'Sélectionnez la ville',
                 'class' => 'App\Entity\Commune',
                 'choice_label' => 'lib_com',
                 'attr' => [
@@ -88,27 +87,27 @@ class SearchPorpertyFormType extends AbstractType
 
 
 //             ])
-            ->add('quartier', ChoiceType::class, [
-
-                'placeholder' => 'Sélectionnez le quartier',
-
-                'required' => false,
-//                'help'=>'GOGOUNOU, TOGOUDO',
-                'mapped' => false,
-                'attr' => [
-//                    'style' => 'display: none'
-                ],
-
-                'label_attr' => [
-//                    'style'=>'display: none'
-                ],
-
-            ])
+//            ->add('quartier', ChoiceType::class, [
+//
+//                'placeholder' => 'Sélectionnez le quartier',
+//
+//                'required' => false,
+////                'help'=>'GOGOUNOU, TOGOUDO',
+//                'mapped' => false,
+//                'attr' => [
+////                    'style' => 'display: none'
+//                ],
+//
+//                'label_attr' => [
+////                    'style'=>'display: none'
+//                ],
+//
+//            ])
 //            ->add('quartier')
 //            ->add('prix_min',IntegerType::class)
-            ->add('prix_max',IntegerType::class,[
+            ->add('prix_max', IntegerType::class, [
                 'attr' => [
-                'placeholder' => 'Prix maximun',]
+                    'placeholder' => 'Prix maximun',]
             ])
 
         ;

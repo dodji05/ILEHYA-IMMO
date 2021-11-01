@@ -34,7 +34,7 @@ class StaticController extends AbstractController
      */
     public function services()
     {
-        return $this->render('FrontEnd/index.html.twig');
+        return $this->render('FrontEnd/nos-services.html.twig');
     }
 
     /**

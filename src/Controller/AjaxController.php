@@ -60,9 +60,9 @@ class AjaxController extends AbstractController
         foreach ($annonces as $item) {
             $data[] = [
                 'id' => $item['id'],
-                'value' => $item['lib_arrond'],
-                'commune' => $item['lib_com'],
-                'departement' => $item['lib_dep'],
+                'value' => ucfirst(strtolower($item['lib_arrond'])),
+                'commune' => ucfirst(strtolower($item['lib_com'])),
+                'departement' => ucfirst(strtolower($item['lib_dep'])),
 
             ];
 

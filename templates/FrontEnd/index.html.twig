@@ -36,6 +36,20 @@
             text-align: center;
             bottom: 0.75rem;
         }
+
+        .owl-dots {
+            display: none;
+        }
+
+        @media screen and (min-width: 320px) and (max-width: 575px) {
+            .recent__property-carousel .owl-dots {
+                display: none !important;
+            }
+        }
+
+        .figure-img {
+            max-height: 145px;
+        }
     </style>
 
 {% endblock %}
@@ -47,7 +61,7 @@
     {# <div class="search__area-inner"> #}
     {# #}
     {# </div> #}
-    <section class="search__area bg__shadow" style="padding: 00px!important; ">
+    <section class="search__area bg-light" style="padding: 00px!important; ">
         <div class="container">
             <div class="search__area-inner">
                 {% include 'FrontEnd/partials/_recherche_form.html.twig' %}

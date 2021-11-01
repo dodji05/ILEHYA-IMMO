@@ -325,21 +325,22 @@
             <div class="row">
                 <div class="col-md-6 landing-wrapper">
                     <div class="form-wrapper">
-                        <p class="title--1">Estimez votre bien maintenant... et contactez un agent ensuite...</p>
+                        <p class="title--1">Estimez votre bien maintenant... Et contactez-nous si besoin d'une
+                            expertise.</p>
                         {{ form_start(form) }}
-                    <div class="col-sm-12">
-                        <div class="form-group row">
-                            <h6 style="font-size:16px"> Quartier ou village</h6>
-                            <div class="autoComplete_wrapper">
+                        <div class="col-sm-12">
+                            <div class="form-group row">
+                                <h6 style="font-size:16px"> Arrondissement</h6>
+                                <div class="autoComplete_wrapper">
 
-                            </div>
-                            <div class="ui-widget">
+                                </div>
+                                <div class="ui-widget">
 
-                                <input id="autoComplete">
-                            </div>
+                                    <input id="autoComplete">
+                                </div>
 
 
-                            {# <div class="col-sm-3"> #}
+                                {# <div class="col-sm-3"> #}
                             {# {{ form_label(form.adresse, null, {'label_attr':{'class':'col-sm-12'}}) }} #}
                             {# {{ form_widget (form.arrondissement) }} #}
                             {# </div> #}
@@ -648,7 +649,7 @@
         $(function () {
             document
                 .querySelector("#autoComplete")
-                .setAttribute("placeholder", "Selectionnez le quartier ou le village");
+                .setAttribute("placeholder", "Selectionnez l'arrondissement");
 
             $("#autoComplete").autocomplete({
                 source: function (request, response) {

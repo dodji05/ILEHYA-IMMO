@@ -58,11 +58,19 @@ Sécurisation Fonciére
         }
 
         .section__breadcrumb-v1 h1, h2 {
-           /* font-family: "lato", serif;*/
-            color: #134363;
-                        font-family:"Montserrat Bold"
+            /* font-family: "lato", serif;*/
+            color: #ff9000;
+            font-family: "Montserrat Bold"
         }
-        .card-text{
+
+        @media screen and (min-width: 320px) and (max-width: 575px) {
+
+            .section__breadcrumb-v1 h1 {
+                font-size: 18px;
+            }
+        }
+
+        .card-text {
             color: #134363;
             font-size: 15px;
             font-family: "lato", serif;
@@ -71,7 +79,8 @@ Sécurisation Fonciére
             line-height: 1.5;
             text-align: center;
         }
-        .decr p{
+
+        .decr p {
             font-size: 18px;
             line-height: 1.6;
             text-align: justify;

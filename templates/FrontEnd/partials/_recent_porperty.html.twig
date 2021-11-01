@@ -3,13 +3,13 @@
         <div class="row">
             <div class="col-md-8 col-lg-6 mx-auto">
                 <div class="title__head">
-                    <h2 class="text-center text-capitalize">
+                    <h2 class="text-center">
                         {% if nature_annonce == 2 %}
-                            Dérnières publications A louer
+                            Dérnières publications à louer
                         {% elseif  nature_annonce == 'Meuble' %}
-                            Dérnières publications Appartements meublés
+                            Dérnières publications appartements meublés
                         {% else %}
-                            Dérnières publications A vendre
+                            Dérnières publications à vendre
                         {% endif %}
                     </h2>
 
@@ -36,6 +36,29 @@
                             {% endif %}
                         {% endfor %}
                     {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12" style="text-align: center">
+
+                <div style="margin-top: 10px">
+
+                    <h1 style="text-align: center;">
+                        {% if nature_annonce == 2 %}
+                        Dérnières publications à louer
+                        <a href="{{ path('proprietes_listing',{'nature':'a-louer'}) }}"
+                           class="btn btn-success btn-cicle">
+                            {% elseif  nature_annonce == 'Meuble' %}
+                            <a href="{{ path('proprietes_categorie_listing',{'nature':'appartement-meuble'}) }}"
+                               class="btn btn-success btn-cicle">
+                                {% else %}
+                                <a href="{{ path('proprietes_listing',{'nature':'a-vendre'}) }}"
+                                   class="btn btn-success btn-cicle">
+                                    {% endif %}
+                                    Voir plus</a>
+                    </h1>
                 </div>
             </div>
         </div>

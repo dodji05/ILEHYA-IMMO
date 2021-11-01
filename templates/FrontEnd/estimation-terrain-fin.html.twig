@@ -32,9 +32,9 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-sm-6 col-sm-offset-3">
+            <div class="col-md-12 mb-15">
                 <h5 class="text-center">
-                    Votre estimation est prêt
+                    Votre estimation est prêt <br>
                 </h5>
                 <p class="text-justify">
                     D'après l'arrêté Année 2020 n1830/MEF/CAB/SGM/DGI/DLC/282SGG20 <br>
@@ -45,9 +45,15 @@
                 <p class="text-justify">
                     L'estimation de votre bien se situant au dans l'arrondissement {{ arrondissement }} en
                     zone {{ zone }}. <br>
-                    Prix minimum fixé par l’État : {{ estimation |number_format(0, ' ', ' ') }} CFA <br>
-                    Prix moyen du marché: {{ prixMoyen |number_format(0, ' ', ' ') }} CFA
-
+                </p>
+                <p class="text-justify">
+                    Le prix préférentiel de l’État fixé par arrêté représentant en même temps le prix minimum auquel
+                    vous pouvez céder votre parcelle ou domaine est de : <span
+                            style="color: red"> {{ estimation |number_format(0, ' ', ' ') }} FCFA </span>
+                </p>
+                <p class="text-justify">
+                    Le prix moyen sur la base de notre système de calcul est de : <span
+                            style="color: green">  {{ estimation |number_format(0, ' ', ' ') }} FCFA </span> <br>
                 </p>
 
                 <h6 class="text-center">

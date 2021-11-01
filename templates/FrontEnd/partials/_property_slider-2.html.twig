@@ -4,13 +4,20 @@
         <div class="row">
 <!-- SLIDER IMAGE DETAIL -->
 <div class="slider__image__detail-large-two owl-carousel owl-theme">
+    {% set totalphoto = biens.proprietesImages | length %}
     {% for images in biens.proprietesImages %}
         <div class="item">
             <div class="slider__image__detail-large-one">
                 <a data-fancybox="gallery" href="{{ asset('images/immobiliers/') }}{{ images.name }}">
 
-                <img src="{{ asset('images/immobiliers/') }}{{ images.name }}" alt="{{ biens.libelle }}" class="img-fluid w-100 img-transition">
-            </a>
+                    <img src="{{ asset('images/immobiliers/') }}{{ images.name }}" alt="{{ biens.libelle }}"
+                         class="img-fluid w-100 img-transition">
+                    <div class="description">
+                        <i class="fa fa-camera"></i> <span style="color: white"> {{ totalphoto }} </span>
+
+
+                    </div>
+                </a>
             </div>
         </div>
     {% endfor %}

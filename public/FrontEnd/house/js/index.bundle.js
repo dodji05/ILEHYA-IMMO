@@ -15458,14 +15458,15 @@
             loop: !0,
             margin: 20,
             nav: !0,
-            dots: !0,
+            dots: !1,
             autoplay: 0,
+
             navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
             smartSpeed: 1200,
             autoHeight: !0,
             responsive: {
-                0: {items: 1},
-                480: {items: 1},
+                0: {items: 1, stagePadding: 60,},
+                480: {items: 1, stagePadding: 60,},
                 600: {items: 2},
                 768: {items: 2},
                 992: {items: 3},
@@ -15476,7 +15477,7 @@
         }), $(".featured__property-carousel").length && $(".featured__property-carousel").owlCarousel({
             loop: !0,
             margin: 30,
-            dots: !0,
+            dots: !1,
             nav: 1,
             rtl: !1,
             autoplayHoverPause: !1,
