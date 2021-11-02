@@ -73,6 +73,15 @@ class EstimationMaisonType extends AbstractType
                 'expanded' => true,
                 'multiple' => true
             ])
+            ->add('situation', ChoiceType::class, [
+                'choices' => [
+                    'Oui' => 'oui',
+                    'Non' => 'non'
+                ],
+                'expanded' => true,
+                'multiple' => false,
+                "label" => 'La maison est-elle située au bord de la voie ou du goudron?',
+            ])
             ->add('proprietaire', ChoiceType::class, [
                 'choices' => [
                     'Oui' => 'oui',

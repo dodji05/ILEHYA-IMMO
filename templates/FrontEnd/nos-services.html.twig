@@ -1,0 +1,343 @@
+{% extends 'FrontEnd/base.html.twig' %}
+{% block titre %}
+    Sécurisation Fonciére
+{% endblock %}
+{% block style %}
+    <style>
+        .btn-cicle {
+            background-color: #504363 !important;
+        }
+
+        .en-tete {
+            position: relative;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .bandeau {
+            position: relative;
+            max-height: 650px;
+            overflow: hidden;
+        }
+
+        .bandeau > img {
+            width: 100%;
+        }
+
+        .resimg {
+            margin: 0px;
+            z-index: auto;
+            width: 1905px;
+            height: 973px;
+            background: url(/images/app/securisation_fonciere/ilehya_securisation_fonciere.png) top fixed;
+            /*padding: 0px;*/
+            /*border-width: 0px;*/
+            /*border-radius: 0px;*/
+            /*x: 0px;*/
+            /*y: -236.5px;*/
+            /*transform: translateX(0px) translateY(-236.5px);*/
+            /*filter: none;*/
+        }
+
+        #subheader {
+            /* background: url(https://www.digitalbath.fr/images/background/bg-subheader.jpg)top fixed; */
+            padding-top: 105px;
+            display: flex;
+            align-items: center;
+
+            -webkit-background-size: 100% !important;
+            -moz-background-size: 100% !important;
+            -o-background-size: 100% !important;
+            background-size: 100% !important;
+
+        }
+
+        .bg-light {
+            align-items: center;
+            /*margin: 9px;*/
+        }
+
+        .section__breadcrumb-v1 h1, h2 {
+            /* font-family: "lato", serif;*/
+            color: #ff9000;
+            font-family: "Montserrat Bold"
+        }
+
+        .card-text {
+            color: #134363;
+            font-size: 15px;
+            font-family: "lato", serif;
+            font-weight: 900;
+
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .decr p {
+            font-size: 18px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .card {
+            background: #fff;
+            /*height: 220px;*/
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0px 5px 20px 0px rgba(0, 81, 250, 0.1);
+            transition: all 0.5s ease;
+        }
+
+        .card-body .icon {
+            height: 80px;
+        }
+
+        .wrapper {
+            display: grid;
+            margin: 100px 30px auto;
+            grid-gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        }
+
+        @media (max-width: 700px) {
+            .wrapper {
+                margin: 200px auto;
+            }
+        }
+
+        @media screen and (min-width: 320px) and (max-width: 575px) {
+            .col-6 {
+                margin-bottom: 15px !important;
+                text-align: left;
+            }
+
+            .card-subtitle {
+
+                font-size: 13px
+            }
+
+            .section__breadcrumb-v1 h1 {
+                font-size: 18px;
+            }
+        }
+
+        .wrapper .box {
+            width: 350px;
+            margin: 0 auto;
+            position: relative;
+            perspective: 1000px;
+        }
+
+        .wrapper .box .front-face {
+            background: #fff;
+            height: 220px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0px 5px 20px 0px rgba(0, 81, 250, 0.1);
+            transition: all 0.5s ease;
+        }
+
+        .box .front-face .icon {
+            height: 80px;
+        }
+
+        .card-body .icon i {
+            font-size: 65px;
+        }
+
+        .box .front-face span,
+        .box .back-face span {
+            font-size: 22px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .card-body .icon i,
+        .card-subtitle {
+            background: linear-gradient(-135deg, #0f3f60, #69879c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .box .back-face {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            height: 220px;
+            width: 100%;
+            padding: 30px;
+            color: #fff;
+            opacity: 0;
+            transform-style: preserve-3d;
+            backface-visibility: hidden;
+            background: linear-gradient(-135deg, #c850c0, #4158d0);
+            transform: translateY(110px) rotateX(-90deg);
+            box-shadow: 0px 5px 20px 0px rgba(0, 81, 250, 0.1);
+            transition: all 0.5s ease;
+        }
+
+        .box .back-face p {
+            margin-top: 10px;
+            text-align: justify;
+        }
+
+        .box:hover .back-face {
+            opacity: 1;
+            transform: rotateX(0deg);
+        }
+
+        .box:hover .front-face {
+            opacity: 0;
+            transform: translateY(-110px) rotateX(90deg);
+        }
+    </style>
+
+{% endblock %}
+ {% block navbar %}
+     {% include 'FrontEnd/partials/_navbar_fixed_top.html.twig' %}
+
+ {% endblock %}
+
+{% block content %}
+    {# <div class="en-tete"> #}
+    {# <div class="bandeau"> #}
+
+    {# <img src="{{ asset('images/app/securisation_fonciere/droit-immobilier2.jpg') }}" width="1600" height="500" #}
+    {# class="lazyloaded" data-ll-status="loaded"> #}
+    {# <noscript><img src="https://www.casalys-nutrition.fr/wp-content/themes/casalys/images/bandeau_generique.jpg" #}
+    {# width="1600" height="485"></noscript> #}
+    {# </div> #}
+
+
+    {# </div> #}
+    {# <div class="container-fluid"> #}
+    {# <div class="row resimg" style="min-width: 1905px; left: 0px; width: 1905px;"> #}
+    {# <img src="{{ asset('images/app/securisation_fonciere/ilehya_securisation_fonciere.png') }}" class="resimg"> #}
+    {# </div> #}
+    {# </div> #}
+    {# <section id="subheader" data-speed="8" data-type="background" #}
+    {# style="background:url(/images/app/securisation_fonciere/ilehya_securisation_fonciere.png)top fixed;height: 675px;text-align: center;"> #}
+    {# <!--<div data-aos="fade-up" class="aos-init aos-animate"> <h1>E-commerce</h1> <h2>La performance e-commerce pour développer votre activité de vente en ligne</h2> </div>--> #}
+
+    {# </section> #}
+    <div class="bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section__breadcrumb-v1">
+                        <div style="padding: 20px;">
+                            <h1 style="text-align: center;">Nos services</h1></div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <section style="padding-top: 30px">
+
+        <div class="container" style="margin-bottom: 25px">
+            <div class="row">
+                <div class="col-md-3 col-6">
+                    <div class="card">
+                        <div class="card-body text-center">
+
+                            <div class="icon text-center">
+                                <i class="fa fa-code"></i></div>
+
+                            <h6 class="card-subtitle mb-2 text-muted">Sécurisation foncière.</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="card">
+                        <div class="card-body text-center">
+
+                            <div class="icon text-center">
+                                <i class="fa fa-code"></i></div>
+
+                            <h6 class="card-subtitle mb-2 text-muted">Levé topographique et morcellement.</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="card">
+                        <div class="card-body text-center">
+
+                            <div class="icon text-center">
+                                <i class="fa fa-code"></i></div>
+
+                            <h6 class="card-subtitle mb-2 text-muted">Achat et vente de biens immobiliers.</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="card">
+                        <div class="card-body text-center">
+
+                            <div class="icon text-center">
+                                <i class="fa fa-code"></i></div>
+
+                            <h6 class="card-subtitle mb-2 text-muted"> Estimation et expertise immobilière.</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container ">
+            <div class="row">
+                <div class="col-md-3 col-6">
+                    <div class="card">
+                        <div class="card-body text-center">
+
+                            <div class="icon text-center">
+                                <i class="fa fa-code"></i></div>
+
+                            <h6 class="card-subtitle mb-2 text-muted">Crédit hypothéquaire et levée de fonds.</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="card">
+                        <div class="card-body text-center">
+
+                            <div class="icon text-center">
+                                <i class="fa fa-code"></i></div>
+
+                            <h6 class="card-subtitle mb-2 text-muted">Architecture et études génie civil. </h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="card">
+                        <div class="card-body text-center">
+
+                            <div class="icon text-center">
+                                <i class="fa fa-code"></i></div>
+
+                            <h6 class="card-subtitle mb-2 text-muted">Construction, rénovation et démolition.</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="card">
+                        <div class="card-body text-center">
+
+                            <div class="icon text-center">
+                                <i class="fa fa-code"></i></div>
+
+                            <h6 class="card-subtitle mb-2 text-muted"> Conseil en immobilier résidentiel. </h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+{% endblock %}

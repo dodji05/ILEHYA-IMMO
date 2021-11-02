@@ -4,6 +4,10 @@ Sécurisation Fonciére
 {% endblock %}
 {% block style %}
     <style>
+        .btn-cicle {
+            background-color: #504363 !important;
+        }
+
         .en-tete {
             position: relative;
             margin: 0 auto;
@@ -54,11 +58,19 @@ Sécurisation Fonciére
         }
 
         .section__breadcrumb-v1 h1, h2 {
-           /* font-family: "lato", serif;*/
-            color: #134363;
-                        font-family:"Montserrat Bold"
+            /* font-family: "lato", serif;*/
+            color: #ff9000;
+            font-family: "Montserrat Bold"
         }
-        .card-text{
+
+        @media screen and (min-width: 320px) and (max-width: 575px) {
+
+            .section__breadcrumb-v1 h1 {
+                font-size: 18px;
+            }
+        }
+
+        .card-text {
             color: #134363;
             font-size: 15px;
             font-family: "lato", serif;
@@ -67,7 +79,8 @@ Sécurisation Fonciére
             line-height: 1.5;
             text-align: center;
         }
-        .decr p{
+
+        .decr p {
             font-size: 18px;
             line-height: 1.6;
             text-align: justify;
@@ -81,24 +94,24 @@ Sécurisation Fonciére
  {% endblock %}
 
 {% block content %}
-    <div class="en-tete">
-        <div class="bandeau">
+    {# <div class="en-tete"> #}
+    {# <div class="bandeau"> #}
 
-            <img src="{{ asset('images/app/securisation_fonciere/droit-immobilier2.jpg') }}" width="1600" height="500"
-                 class="lazyloaded" data-ll-status="loaded">
-            <noscript><img src="https://www.casalys-nutrition.fr/wp-content/themes/casalys/images/bandeau_generique.jpg"
-                           width="1600" height="485"></noscript>
-        </div>
+    {# <img src="{{ asset('images/app/securisation_fonciere/droit-immobilier2.jpg') }}" width="1600" height="500" #}
+    {# class="lazyloaded" data-ll-status="loaded"> #}
+    {# <noscript><img src="https://www.casalys-nutrition.fr/wp-content/themes/casalys/images/bandeau_generique.jpg" #}
+    {# width="1600" height="485"></noscript> #}
+    {# </div> #}
 
 
-    </div>
-    {#    <div class="container-fluid">#}
-    {#        <div class="row resimg" style="min-width: 1905px; left: 0px; width: 1905px;">#}
-    {#                <img src="{{ asset('images/app/securisation_fonciere/ilehya_securisation_fonciere.png') }}" class="resimg">#}
-    {#        </div>#}
-    {#    </div>#}
-{#    <section id="subheader" data-speed="8" data-type="background"#}
-{#             style="background:url(/images/app/securisation_fonciere/ilehya_securisation_fonciere.png)top fixed;height: 675px;text-align: center;">#}
+    {# </div> #}
+    {# <div class="container-fluid"> #}
+    {# <div class="row resimg" style="min-width: 1905px; left: 0px; width: 1905px;"> #}
+    {# <img src="{{ asset('images/app/securisation_fonciere/ilehya_securisation_fonciere.png') }}" class="resimg"> #}
+    {# </div> #}
+    {# </div> #}
+    {# <section id="subheader" data-speed="8" data-type="background" #}
+    {# style="background:url(/images/app/securisation_fonciere/ilehya_securisation_fonciere.png)top fixed;height: 675px;text-align: center;"> #}
 {#        <!--<div data-aos="fade-up" class="aos-init aos-animate"> <h1>E-commerce</h1> <h2>La performance e-commerce pour développer votre activité de vente en ligne</h2> </div>-->#}
 
 {#    </section>#}
@@ -107,20 +120,13 @@ Sécurisation Fonciére
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section__breadcrumb-v1">
-                        <div>
-                            <h1 style="text-align: center;">Ilehya Property Bénin Service</h1></div>
+                        <div style="padding: 20px;">
+                            <h1 style="text-align: center;">Sécurisation Fonciére</h1></div>
 
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section__breadcrumb-v1">
-                        <div><h2 style="text-align: center; color:#ff9000">Sécurisation Fonciére</h2></div>
 
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
     <section style="padding-top: 30px">
@@ -210,7 +216,7 @@ Sécurisation Fonciére
                         </a>
                         <div class="card-body">
                             <a href="{{ path('infos_fonciere_new') }}">
-                                <p class="card-text">L’obtention de L’ ADC</p>
+                                <p class="card-text">Accompagnement pour l’obtention de L’ADC</p>
                             </a>
                         </div>
                     </div>
@@ -225,7 +231,7 @@ Sécurisation Fonciére
                         <div class="card-body">
                             <p class="card-text">
                                 <a href="{{ path('infos_fonciere_new') }}">
-                                    Le recasement
+                                    Accompagnement pour le recasement
                                 </a>
                             </p>
                         </div>
@@ -241,7 +247,7 @@ Sécurisation Fonciére
                         <div class="card-body">
                             <p class="card-text">
                                 <a href="{{ path('infos_fonciere_new') }}">
-                                    L’obtention du TF
+                                    Accompagnement pour l’obtention du TF
                                 </a>
                             </p>
                         </div>
@@ -255,7 +261,8 @@ Sécurisation Fonciére
             </div>
             <div style="margin-top: 25px">
 
-                <h1 style="text-align: center;"><a href="{{ path('infos_fonciere_new') }}">Demander un devis</a></h1>
+                <h1 style="text-align: center;"><a href="{{ path('infos_fonciere_new') }}"
+                                                   class="btn btn-success btn-cicle">Demander un devis</a></h1>
             </div>
         </div>
     </section>

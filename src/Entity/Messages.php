@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\MessagesRepository;
+use DateTime;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -52,7 +54,7 @@ class Messages
      */
     public function __construct()
     {
-        $this->dateMessage = new \DateTime();
+        $this->dateMessage = new DateTime();
     }
 
 
@@ -73,12 +75,12 @@ class Messages
         return $this;
     }
 
-    public function getDateMessage(): ?\DateTimeInterface
+    public function getDateMessage(): ?DateTimeInterface
     {
         return $this->dateMessage;
     }
 
-    public function setDateMessage(?\DateTimeInterface $dateMessage): self
+    public function setDateMessage(?DateTimeInterface $dateMessage): self
     {
         $this->dateMessage = $dateMessage;
 

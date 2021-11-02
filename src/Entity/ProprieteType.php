@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -70,12 +71,12 @@ class ProprieteType
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeInterface
+    public function getCreatedAt(): ?DateTimeInterface
     {
         return $this->CreatedAt;
     }
 
-    public function setCreatedAt(?\DateTimeInterface $CreatedAt): self
+    public function setCreatedAt(?DateTimeInterface $CreatedAt): self
     {
         $this->CreatedAt = $CreatedAt;
 

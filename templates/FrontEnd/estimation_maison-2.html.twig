@@ -17,13 +17,10 @@
                 <img src="{{ asset('images/app/ilehya-logo.png') }}" class="covid-image max-h-70px" alt="" />
                 {# <img class="covid-image" src="./img/covid-check.png"> #}
 
-                <h2>Vous souhaitez connaître la valeur de votre bien : parcelle, maison, immeuble de tous genres ?</h2>
+                <h2 class="titlestep">Vous souhaitez connaître la valeur estimative de votre maison ou villa ? </h2>
                 <br>
-                <h3>Remplissez le formulaire ci-contre</h3> <br>
-                <p>Évitez de faire trainer votre bien sur le marché à cause d’un prix au-dessus de celui du marché de la
-                    même manière, ne vendez pas votre bien à un prix trop bas en utilisant dès à présent notre outil
-                    gratuit d’estimation en ligne !
-                </p>
+                <h3 class="titlestep">Remplissez le formulaire ci-contre</h3> <br>
+
             </div>
             <!-- FORMS -->
             <div class="col-lg-8 mx-0 px-0">
@@ -273,6 +270,24 @@
                             <div class="step">
                                 <h4> Allez, plus que quelques questions …</h4>
                                 <section>
+                                    <div class="estimation-row">
+                                        <div class="estimation-row__icon">
+                                            <img src="https://d1e9888xfd1rj0.cloudfront.net/1615977340/icons/terrace.svg?1615977342366"
+                                                 alt="icon" class="illustration-icon">
+                                        </div>
+                                        <div class="estimation-row__label label--medium">
+                                            <label>
+                                                La maison est-elle située au bord de la voie ou du goudron?
+                                            </label>
+                                        </div>
+                                        <div class="estimation-row__input estimation-row__input--full-icon estimation-row__input--font-body">
+                                            <div class="input--checkbox">
+                                                {{ form_widget (form.situation , {'attr':{'class':'input--checkbox__input'}}) }}
+
+                                            </div>
+                                        </div>
+
+                                    </div>
                                     <div class="estimation-row">
                                         <div class="estimation-row__icon">
                                             <img src="https://d1e9888xfd1rj0.cloudfront.net/1615977340/icons/terrace.svg?1615977342366"

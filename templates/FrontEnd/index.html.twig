@@ -21,11 +21,12 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background-image: -webkit-gradient(linear,left top, left bottom,from(hsla(0,0%,100%,0)),to(rgba(27,51,83,.75)));
-            background-image: -webkit-linear-gradient(top,hsla(0,0%,100%,0),rgba(27,51,83,.75));
+            background-image: -webkit-gradient(linear, left top, left bottom, from(hsla(0, 0%, 100%, 0)), to(rgba(27, 51, 83, .75)));
+            background-image: -webkit-linear-gradient(top, hsla(0, 0%, 100%, 0), rgba(27, 51, 83, .75));
             background-image: linear-gradient(
-                    180deg,hsla(0,0%,100%,0),rgba(27,51,83,.75));
+                    180deg, hsla(0, 0%, 100%, 0), rgba(27, 51, 83, .75));
         }
+
         .images_caption {
             width: 100%;
             font-weight: 900;
@@ -33,8 +34,21 @@
             color: #fff;
             position: absolute;
             text-align: center;
-            bottom: 0.75rem
-        ;
+            bottom: 0.75rem;
+        }
+
+        .owl-dots {
+            display: none;
+        }
+
+        @media screen and (min-width: 320px) and (max-width: 575px) {
+            .recent__property-carousel .owl-dots {
+                display: none !important;
+            }
+        }
+
+        .figure-img {
+            max-height: 145px;
         }
     </style>
 
@@ -47,7 +61,7 @@
     {# <div class="search__area-inner"> #}
     {# #}
     {# </div> #}
-    <section class="search__area bg__shadow" style="padding: 00px!important; ">
+    <section class="search__area bg-light" style="padding: 00px!important; ">
         <div class="container">
             <div class="search__area-inner">
                 {% include 'FrontEnd/partials/_recherche_form.html.twig' %}
@@ -69,7 +83,7 @@
     {% include'FrontEnd/partials/_call-to-action-1.html.twig' %}
 
     <!-- NOUVEAUTE PROPERTIES -->
-    {% include 'FrontEnd/partials/_recent_porperty.html.twig' with {'nature_annonce': 'à louer'} %}
+    {% include 'FrontEnd/partials/_recent_porperty.html.twig' with {'nature_annonce': 2} %}
     <!-- END NOUVEAUTE PROPERTIES -->
 
     <!-- Call To action -->
@@ -82,7 +96,7 @@
     </div>
 
     <!-- NOUVEAUTE PROPERTIES -->
-    {% include 'FrontEnd/partials/_recent_porperty.html.twig' with {'nature_annonce': 'à vendre'} %}
+    {% include 'FrontEnd/partials/_recent_porperty.html.twig' with {'nature_annonce': 1} %}
 
     <!-- Call To action -->
     <div class="container">

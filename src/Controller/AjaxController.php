@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\ArrondissementRepository;
 use App\Repository\QuartierRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,7 +26,7 @@ class AjaxController extends AbstractController
 //        dd($annonces);
 
 
-        //  dd($serialiserData);
+        //  dd($serialiserData); a.lib_arrond', 'a.id', 'com.lib_com', 'dep.lib_dep
         foreach ($annonces as $item) {
             $data[] = [
                 'id' => $item['id'],
@@ -38,6 +39,34 @@ class AjaxController extends AbstractController
 
         }
 
+
+        return new Response(json_encode($data));
+    }
+
+    /**
+     * @Route("/rechercher/arrondissement", name="ajax_search_arrondissement")
+     */
+    public function arrondissement(Request $request, ArrondissementRepository $ArrondissementRepository)
+    {
+
+
+        $annonces = $ArrondissementRepository->getAllArrodissement($request->get('term'));
+//        $annonces = $ArrondissementRepository->quartiersearch($request->get('term'));
+//        dd($annonces);
+
+
+        //  dd($serialiserData);
+
+        foreach ($annonces as $item) {
+            $data[] = [
+                'id' => $item['id'],
+                'value' => ucfirst(strtolower($item['lib_arrond'])),
+                'commune' => ucfirst(strtolower($item['lib_com'])),
+                'departement' => ucfirst(strtolower($item['lib_dep'])),
+
+            ];
+
+        }
         return new Response(json_encode($data));
     }
 
@@ -53,25 +82,22 @@ class AjaxController extends AbstractController
         $id = $request->get('id');
         if ($type === 'commune') {
             $Resultat = $em->getRepository('App:Commune')->findBy(['departement'=>$id]);
-          //  $foreign = 'region_id';
+            //  $foreign = 'region_id';
         } else if ($type === 'arrondissement') {
-            $Resultat = $em->getRepository('App:Arrondissement')->findBy(['Commune'=>$id]);
-          //  $foreign =  'department_id';
-        }
-        else if ($type === 'quartier') {
-            $Resultat = $em->getRepository('App:Quartier')->findBy(['arrondissement'=>$id]);
+            $Resultat = $em->getRepository('App:Quartier')->quartierParVille($id);
             //  $foreign =  'department_id';
-        }
-        else if ($type === 'vente'){
-           // throw new Exception('Unknown type ' . $type);
-            if($id == 1){
-                $Resultat = $em->getRepository('App:ProprieteType')->findBy(['type'=>$id]);
+        } else if ($type === 'quartier') {
+            $Resultat = $em->getRepository('App:Quartier')->findBy(['arrondissement' => $id]);
+            //  $foreign =  'department_id';
+        } else if ($type === 'vente') {
+            // throw new Exception('Unknown type ' . $type);
+            if ($id == 1) {
+                $Resultat = $em->getRepository('App:ProprieteType')->findBy(['type' => $id]);
             } else {
                 $Resultat = $em->getRepository('App:ProprieteType')->findAll();
             }
 
-        }
-        else {
+        } else {
 
         }
 //        if($Resultat)
@@ -93,10 +119,10 @@ class AjaxController extends AbstractController
             ];
 
         }
-       // dd($type,$id,$Resultat,$data);
+        // dd($type,$id,$Resultat,$data);
 
         return new Response(json_encode($data));
-       // return json_encode($Resultat);
+        // return json_encode($Resultat);
 
         dd($type,$id,$Resultat);
         return $this->render('ajax/index.html.twig', [

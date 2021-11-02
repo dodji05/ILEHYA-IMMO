@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use DateTime;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -15,7 +17,6 @@ class ContratTypeOptions
      * @ORM\Column(type="integer")
      */
     private $id;
-
 
 
     /**
@@ -78,7 +79,7 @@ class ContratTypeOptions
      */
     public function __construct()
     {
-        $this->CreatedAt = new \DateTime();
+        $this->CreatedAt = new DateTime();
     }
 
 
@@ -100,12 +101,12 @@ class ContratTypeOptions
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeInterface
+    public function getCreatedAt(): ?DateTimeInterface
     {
         return $this->CreatedAt;
     }
 
-    public function setCreatedAt(?\DateTimeInterface $CreatedAt): self
+    public function setCreatedAt(?DateTimeInterface $CreatedAt): self
     {
         $this->CreatedAt = $CreatedAt;
 

@@ -25,6 +25,10 @@
             font-size: 20px;
 
         }
+
+        .slider__image__detail-large-one .description {
+            height: 26px !important;
+        }
     </style>
 {% endblock %}
  {% block navbar %}
@@ -77,16 +81,16 @@
                             <h4 class="text-capitalize text-gray">{{ biens.typeOptions.montant ?  (biens.typeOptions.montant|number_format(0, ' ', ' ')) ~' Cfa': '' }}
                                 {{ biens.typeOptions.loyer ? (biens.typeOptions.loyer|number_format(0, ' ', ' '))~' Cfa/mois' : '' }}</h4>
                             <ul class="list-inline">
-                                {# <li class="list-inline-item"> #}
-                                {# <a href="#" class="badge badge-primary p-2 rounded"><i #}
-                                {# class="fa fa-exchange"></i></a> #}
-                                {# </li> #}
-                                {# <li class="list-inline-item"> #}
-                                {# <a href="#" class="badge badge-primary p-2 rounded"><i class="fa fa-heart"></i></a> #}
-                                {# </li> #}
-                                {# <li class="list-inline-item"> #}
-                                {# <a href="#" class="badge badge-primary p-2 rounded"><i class="fa fa-print"></i></a> #}
-                                {# </li> #}
+                                <li class="list-inline-item">
+                                    <a href="#" class="badge badge-primary p-2 rounded"><i
+                                                class="fa fa-exchange"></i></a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#" class="badge badge-primary p-2 rounded"><i class="fa fa-heart"></i></a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#" class="badge badge-primary p-2 rounded"><i class="fa fa-print"></i></a>
+                                </li>
                                 <button class="btn btn-social btn-social-o facebook mr-1">
                                     <i class="fa fa-facebook-f"></i>
                                 </button>
@@ -499,23 +503,19 @@
                                 </div>
                                 <div class="products__filter__body">
                                     {{ form_start(form) }}
-                                    <div class="form-group">
-                                        {{ form_widget(form.departement) }}
-                                    </div>
+
                                     <div class="form-group">
                                         {{ form_widget(form.commune) }}
                                     </div>
+
                                     <div class="form-group">
-                                        {{ form_widget(form.arrondissement) }}
-                                    </div>
-                                    <div class="form-group">
-                                        {{ form_widget(form.quartier) }}
+                                        {# {{ form_widget(form.quartier) }} #}
                                     </div>
                                     <div class="form-group">
                                         {{ form_widget(form.typecontrat) }}
                                     </div>
                                     <div class="form-group">
-                                        {{ form_widget(form.typeBiens) }}
+                                        {# {{ form_widget(form.typeBiens) }} #}
                                     </div>
                                     {#                                    <div class="form-group row">#}
                                     {#                                        <div class="col-sm-6">#}

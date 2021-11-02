@@ -77,19 +77,23 @@
                         <!--begin::Form group-->
                         <div class="form-group">
                             <label class="font-size-h6 font-weight-bolder text-dark">Email</label>
-                            <input class="form-control form-control-solid h-auto py-6 px-6 rounded-lg" type="email" value="{{ last_username }}" name="email" autocomplete="off" />
+                            <input class="form-control form-control-solid h-auto py-6 px-6 rounded-lg" type="email" value="{{ last_username }}"
+                                   name="email" autocomplete="off"/>
                         </div>
                         <!--end::Form group-->
                         <!--begin::Form group-->
                         <div class="form-group">
                             <div class="d-flex justify-content-between mt-n5">
                                 <label class="font-size-h6 font-weight-bolder text-dark pt-5">Mot de passe</label>
-                                <a href="javascript:;" class="text-primary font-size-h6 font-weight-bolder text-hover-primary pt-5" id="kt_login_forgot">Mot de passe oublie?</a>
+                                <a href="javascript:"
+                                   class="text-primary font-size-h6 font-weight-bolder text-hover-primary pt-5"
+                                   id="kt_login_forgot">Mot de passe oublie?</a>
                             </div>
-                            <input class="form-control form-control-solid h-auto py-6 px-6 rounded-lg" type="password" name="password" autocomplete="off" />
+                            <input class="form-control form-control-solid h-auto py-6 px-6 rounded-lg" type="password"
+                                   name="password" autocomplete="off"/>
                         </div>
                         <input type="hidden" name="_csrf_token"
-                                   value="{{ csrf_token('authenticate') }}"
+                               value="{{ csrf_token('authenticate') }}"
                             >
                         <!--end::Form group-->
                         <!--begin::Action-->

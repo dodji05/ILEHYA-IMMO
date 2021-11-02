@@ -1,10 +1,10 @@
-<section>
+<section class=" bg-light" style="padding: 7px !important;">
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-lg-6 mx-auto">
                 <div class="title__head">
-                    <h2 class="text-center text-capitalize">
-                        À VENDRE DANS LES GRANDES VILLES
+                    <h2 class="text-center">
+                        À vendre dans les grandes villes
                     </h2>
 
                 </div>
@@ -12,47 +12,126 @@
             <div class="clearfix"></div>
         </div>
     </div>
-    <div class="clearfix"></div>
+    {# <div class="clearfix"></div> #}
+    {# <div class="container"> #}
+    {# <div class="row"> #}
+    {# <div class="col-6 col-md-3"> #}
+    {# <a href=" {{ path('proprietes_villes_listing',{'ville': 'COTONOU'}) }} "> #}
+    {# <div style="background: url('{{ asset('images/app/icones/Cotonou.jpg') }}'); height: 200px"> #}
+    {# <div class="images_caption"> #}
+    {# Cotonou #}
+    {# </div> #}
+    {# #}{# <div class="link__overlay"> #}
+    {# #}{# <div class="image-link_text"> #}
+    {# #}{# uuuuuuuuuu #}
+    {# #}{# </div> #}
+
+    {# #}{# </div> #}
+    {# </div> #}
+    {# #}{# <img src="{{ asset('images/app/icones/Cotonou.jpg') }}" class="img-fluid w100 img-transition" style="max-height: 250px"> #}
+
+    {# </div> #}
+    {# </a> #}
+
+    {# <div class="col-6 col-md-3"> #}
+    {# <a href=" {{ path('proprietes_villes_listing',{'ville': 'ABOMEY-CALAVI'}) }} "> #}
+    {# <div style="background: url('{{ asset('images/app/icones/Abomey-Calavi.jpg') }}'); height: 200px"> #}
+    {# <div class="images_caption"> #}
+    {# Abomey-Calavi #}
+    {# </div> #}
+    {# </div> #}
+    {# #}{# <img src="{{ asset('images/app/icones/Abomey-Calavi.jpg') }}" class="img-fluid w100 img-transition" style="max-height: 250px"> #}
+
+    {# </a> #}
+    {# </div> #}
+    {# <div class="col-6 col-md-3"> #}
+    {# <a href=" {{ path('proprietes_villes_listing',{'ville': 'PARAKOU'}) }} "> #}
+    {# <div style="background: url('{{ asset('images/app/icones/parakou.jpg') }}'); height: 200px"> #}
+    {# <div class="images_caption"> #}
+    {# Parakou #}
+    {# </div> #}
+    {# </div> #}
+    {# </a> #}
+    {# #}{# <img src="{{ asset('images/app/icones/parakou.jpg') }}" class="img-fluid w100 img-transition" style="max-height: 250px"> #}
+    {# </div> #}
+    {# <div class="col-6 col-md-3"> #}
+    {# <a href=" {{ path('proprietes_villes_listing',{'ville': 'PORTO-NOVO'}) }} "> #}
+    {# <div style="background: url('{{ asset('images/app/icones/Porto Novo.jpg') }}'); height: 200px"> #}
+    {# <div class="images_caption"> #}
+    {# Porto-Novo #}
+    {# </div> #}
+    {# </div> #}
+    {# </a> #}
+    {# #}{# <img src="{{ asset('images/app/icones/Porto Novo.jpg') }}" class="img-fluid w100 img-transition" style="max-height: 250px"> #}
+    {# </div> #}
+    {# </div> #}
+    {# </div> #}
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-3">
-                <div style="background: url('{{ asset('images/app/icones/Cotonou.jpg') }}'); height: 200px">
-                    <div class="images_caption">
-                        Cotonou
+            <div class="col-md-6 col-lg-3">
+                <!-- CARD IMAGE -->
+                <a href="{{ path('proprietes_villes_listing',{'ville': 'COTONOU'}) }}">
+                    <div class="card__image-hover-style-v3">
+                        <div class="card__image-hover-style-v3-thumb h-230">
+                            <img src="{{ asset('images/app/icones/Cotonou.jpg') }}" alt="" class="img-fluid w-100">
+                        </div>
+                        <div class="overlay">
+                            <div class="desc">
+                                <h6 class="text-capitalize">Cotonou</h6>
+                                {# <p class="text-capitalize">70 properties</p> #}
+                            </div>
+                        </div>
                     </div>
-{#                    <div class="link__overlay">#}
-{#                        <div class="image-link_text">#}
-{#                            uuuuuuuuuu#}
-{#                        </div>#}
-
-{#                    </div>#}
-                </div>
-{#                <img src="{{ asset('images/app/icones/Cotonou.jpg') }}" class="img-fluid w100 img-transition" style="max-height: 250px">#}
+                </a>
             </div>
-            <div class="col-12 col-md-3">
-                <div style="background: url('{{ asset('images/app/icones/Abomey-Calavi.jpg') }}'); height: 200px">
-                    <div class="images_caption">
-                        Abomey-Calavi
+            <div class="col-md-6 col-lg-3">
+                <!-- CARD IMAGE -->
+                <a href="{{ path('proprietes_villes_listing',{'ville': 'ABOMEY-CALAVI'}) }}">
+                    <div class="card__image-hover-style-v3">
+                        <div class="card__image-hover-style-v3-thumb h-230">
+                            <img src="{{ asset('images/app/icones/Abomey-Calavi.jpg') }}" alt=""
+                                 class="img-fluid w-100">
+                        </div>
+                        <div class="overlay">
+                            <div class="desc">
+                                <h6 class="text-capitalize">Abomey-Calavi</h6>
+                                {# <p class="text-capitalize">70 properties</p> #}
+                            </div>
+                        </div>
                     </div>
-                </div>
-{#                <img src="{{ asset('images/app/icones/Abomey-Calavi.jpg') }}" class="img-fluid w100 img-transition" style="max-height: 250px">#}
+                </a>
             </div>
-
-            <div class="col-12 col-md-3">
-                <div style="background: url('{{ asset('images/app/icones/parakou.jpg') }}'); height: 200px">
-                    <div class="images_caption">
-                        Parakou
+            <div class="col-md-6 col-lg-3">
+                <!-- CARD IMAGE -->
+                <a href="{{ path('proprietes_villes_listing',{'ville': 'PARAKOU'}) }}">
+                    <div class="card__image-hover-style-v3">
+                        <div class="card__image-hover-style-v3-thumb h-230">
+                            <img src="{{ asset('images/app/icones/parakou.jpg') }}" alt="" class="img-fluid w-100">
+                        </div>
+                        <div class="overlay">
+                            <div class="desc">
+                                <h6 class="text-capitalize">Parakou</h6>
+                                {# <p class="text-capitalize">70 properties</p> #}
+                            </div>
+                        </div>
                     </div>
-                </div>
-{#                <img src="{{ asset('images/app/icones/parakou.jpg') }}" class="img-fluid w100 img-transition" style="max-height: 250px">#}
+                </a>
             </div>
-            <div class="col-12 col-md-3">
-                <div style="background: url('{{ asset('images/app/icones/Porto Novo.jpg') }}'); height: 200px">
-                    <div class="images_caption">
-                        Porto-Novo
+            <div class="col-md-6 col-lg-3">
+                <!-- CARD IMAGE -->
+                <a href="{{ path('proprietes_villes_listing',{'ville': 'PORTO-NOVO'}) }}">
+                    <div class="card__image-hover-style-v3">
+                        <div class="card__image-hover-style-v3-thumb h-230">
+                            <img src="{{ asset('images/app/icones/Porto Novo.jpg') }}" alt="" class="img-fluid w-100">
+                        </div>
+                        <div class="overlay">
+                            <div class="desc">
+                                <h6 class="text-capitalize">Porto-Novo</h6>
+                                {# <p class="text-capitalize">70 properties</p> #}
+                            </div>
+                        </div>
                     </div>
-                </div>
-{#                <img src="{{ asset('images/app/icones/Porto Novo.jpg') }}" class="img-fluid w100 img-transition" style="max-height: 250px">#}
+                </a>
             </div>
         </div>
     </div>

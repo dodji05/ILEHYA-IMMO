@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
-{{ form_start(form) }}
-    {{ form_widget(form) }}
+{{ form_widget(form) }}
+
 <button class="btn btn-primary-custom">{{ button_label|default('Envoyez ma demande') }}</button>
-=======
- {% form_theme form 'bootstrap_4_layout.html.twig' %} 
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn btn-primary-custom">{{ button_label|default('Envoyez ma demande') }}</button>
->>>>>>> origin/main
+
 {{ form_end(form) }}

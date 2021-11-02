@@ -4,12 +4,9 @@
 namespace App\Form;
 
 
-use App\Entity\Commune;
-use App\Entity\Proprietes;
 use App\Recherche\SearchData;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -35,36 +32,31 @@ class SearchPorpertyFormType extends AbstractType
                 'required' => false,
 
             ])
-            ->add('departement', EntityType::class, [
-                'class' => 'App\Entity\Departement',
-                'choice_label' => 'lib_dep',
-                'placeholder' => 'Sélectionnez le departement',
-                'label' => 'Département',
-                'required' => false,
-//                'help'=>'GOGOUNOU, TOGOUDO',
+//             ->add('departement', EntityType::class, [
+//                 'class' => 'App\Entity\Departement',
+//                 'choice_label' => 'lib_dep',
+//                 'placeholder' => 'Sélectionnez le departement',
+//                 'label' => 'Département',
+//                 'required' => false,
+// //                'help'=>'GOGOUNOU, TOGOUDO',
 
+//                 'attr' => [
+//                     'class' => 'linked-select',
+//                     'data-target' => "#commune",
+//                     'data-source' => "http://localhost:5050/ajax/commune/id"
+
+
+//                 ]
+
+//             ])
+            ->add('commune', EntityType::class, [
+                'placeholder' => 'Sélectionnez la ville',
+                'class' => 'App\Entity\Commune',
+                'choice_label' => 'lib_com',
                 'attr' => [
                     'class' => 'linked-select',
-                    'data-target' => "#commune",
-                    'data-source' => "http://localhost:5050/ajax/commune/id"
-
-
-                ]
-
-            ])
-            ->add('commune', ChoiceType::class, [
-                'placeholder' => 'Sélectionnez la commune',
-                'choice_value' => function (?Commune $entity) {
-                    return $entity ? $entity->getId() : '';},
-//                'choices'=> Commune::class,
-//
-                'required' => false,
-//                'help'=>'GOGOUNOU, TOGOUDO',
-//                'mapped'=>false,
-                'attr' => [
-                    'class' => 'linked-select',
-                    'data-target' => "#arrondissement",
-                    'data-source' => "http://localhost:5050/ajax/arrondissement/id",
+                    'data-target' => "#quartier",
+                    'data-source' => "ajax/arrondissement/id",
                     //   'style'=>'display: none'
 
 
@@ -74,48 +66,48 @@ class SearchPorpertyFormType extends AbstractType
                 ],
 
             ])
-            ->add('arrondissement', ChoiceType::class, [
+//             ->add('arrondissement', ChoiceType::class, [
 
-                'placeholder' => 'Sélectionnez larrondissement',
+//                 'placeholder' => 'Sélectionnez larrondissement',
 
-                'required' => false,
-//                'help'=>'GOGOUNOU, TOGOUDO',
+//                 'required' => false,
+// //                'help'=>'GOGOUNOU, TOGOUDO',
+// //                'mapped' => false,
+//                 'attr' => [
+//                     'class' => 'linked-select',
+//                     'data-target' => "#quartier",
+//                     'data-source' => "http://localhost:5050/ajax/quartier/id",
+// //                    'style' => 'display: none'
+
+
+//                 ],
+//                 'label_attr' => [
+// //                    'style'=>'display: none'
+//                 ],
+
+
+//             ])
+//            ->add('quartier', ChoiceType::class, [
+//
+//                'placeholder' => 'Sélectionnez le quartier',
+//
+//                'required' => false,
+////                'help'=>'GOGOUNOU, TOGOUDO',
 //                'mapped' => false,
-                'attr' => [
-                    'class' => 'linked-select',
-                    'data-target' => "#quartier",
-                    'data-source' => "http://localhost:5050/ajax/quartier/id",
-//                    'style' => 'display: none'
-
-
-                ],
-                'label_attr' => [
-//                    'style'=>'display: none'
-                ],
-
-
-            ])
-            ->add('quartier', ChoiceType::class, [
-
-                'placeholder' => 'Sélectionnez le quartier',
-
-                'required' => false,
-//                'help'=>'GOGOUNOU, TOGOUDO',
-                'mapped' => false,
-                'attr' => [
-//                    'style' => 'display: none'
-                ],
-
-                'label_attr' => [
-//                    'style'=>'display: none'
-                ],
-
-            ])
+//                'attr' => [
+////                    'style' => 'display: none'
+//                ],
+//
+//                'label_attr' => [
+////                    'style'=>'display: none'
+//                ],
+//
+//            ])
 //            ->add('quartier')
 //            ->add('prix_min',IntegerType::class)
-            ->add('prix_max',IntegerType::class,[
+            ->add('prix_max', IntegerType::class, [
                 'attr' => [
-                'placeholder' => 'Prix maximun',]
+                    'placeholder' => 'Prix maximun',]
             ])
 
         ;

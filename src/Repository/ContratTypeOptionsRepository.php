@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\ContratTypeOptions;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+
 /**
  * @method ContratTypeOptions|null find($id, $lockMode = null, $lockVersion = null)
  * @method ContratTypeOptions|null findOneBy(array $criteria, array $orderBy = null)
