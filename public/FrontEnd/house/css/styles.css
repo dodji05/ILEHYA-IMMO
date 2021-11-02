@@ -26483,13 +26483,13 @@ input[type="number"] {
 .recent__property-carousel .owl-nav .owl-prev {
     left: auto;
     right: 40px;
-    top: -35%
+    top: -13%
 }
 
 .recent__property-carousel .owl-nav .owl-next {
     right: -5px;
     left: auto;
-    top: -35%
+    top: -13%
 }
 
 @media screen and (min-width: 320px) and (max-width: 575px) {
