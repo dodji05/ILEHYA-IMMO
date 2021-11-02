@@ -550,11 +550,14 @@
         }
 
         if (slider) {
-            const min = 500//document.getElementById('min')
+            const min = 100//document.getElementById('min')
             const max = 1000000//document.getElementById('max')
             const surface = document.getElementById('estimation_maison_esp_surface_habitable')
             const minValue = Math.floor(parseInt(slider.dataset.min, 10) / 10) * 10
             const maxValue = Math.ceil(parseInt(slider.dataset.max, 10) / 10) * 10
+            console.log(minValue)
+            console.log(maxValue)
+
             const range = noUiSlider.create(slider, {
                 start: [min || minValue, max || maxValue],
                 connect: true,
