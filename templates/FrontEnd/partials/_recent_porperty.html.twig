@@ -8,6 +8,8 @@
                             Dérnières publications à louer
                         {% elseif  nature_annonce == 'Meuble' %}
                             Dérnières publications appartements meublés
+                        {% elseif  nature_annonce == 'terre' %}
+                            Domaines & terres agricoles
                         {% else %}
                             Dérnières publications à vendre
                         {% endif %}
@@ -26,6 +28,12 @@
                     {% if nature_annonce == 'Meuble' %}
                         {% for bien in biens %}
                             {% if bien.ProprieteOptions.Proprietes.id == 5 %}
+                                {% include "FrontEnd/partials/_item.html.twig" %}
+                            {% endif %}
+                        {% endfor %}
+                    {% elseif nature_annonce == 'terre' %}
+                        {% for bien in biens %}
+                            {% if bien.ProprieteOptions.Proprietes.id == 7 %}
                                 {% include "FrontEnd/partials/_item.html.twig" %}
                             {% endif %}
                         {% endfor %}

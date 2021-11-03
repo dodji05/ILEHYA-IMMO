@@ -408,7 +408,9 @@
 
             </div>
             <div class="col-md-8">
+
                 {% form_theme form 'bootstrap_4_layout.html.twig' %}
+
                 <div class="form-group">
                     <br>
                     <h4> Arrondissement : {{ zone }} </h4>
@@ -428,161 +430,161 @@
 
 {% endblock %}
 {% block javascripts %}
-    <script type="text/javascript" src="{{ asset('FrontEnd/house/js/jquery.steps.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('FrontEnd/house/js/form-wizard.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('FrontEnd/house/vendor/nouislider/js/nouislider.js') }}"></script>
-    <script>
+{#    <script type="text/javascript" src="{{ asset('FrontEnd/house/js/jquery.steps.js') }}"></script>#}
+{#    <script type="text/javascript" src="{{ asset('FrontEnd/house/js/form-wizard.js') }}"></script>#}
+{#    <script type="text/javascript" src="{{ asset('FrontEnd/house/vendor/nouislider/js/nouislider.js') }}"></script>#}
+{#    <script>#}
 
 
-        class LinkedSelect {
+{#        class LinkedSelect {#}
 
-            /**
-             * @param {HTMLSelectElement} $select
-             */
-            constructor($select) {
-                this.$select = $select
-                this.$target = document.querySelector(this.$select.dataset.target)
-                this.$placeholder = this.$target.firstElementChild
-                //  this.onChange = debounce(this.onChange.bind(this), 500)
-                this.onChange = this.onChange.bind(this)
-                this.$loader = null
-                this.cache = {}
-                this.$select.addEventListener('change', this.onChange)
+{#            /**#}
+{#             * @param {HTMLSelectElement} $select#}
+{#             */#}
+{#            constructor($select) {#}
+{#                this.$select = $select#}
+{#                this.$target = document.querySelector(this.$select.dataset.target)#}
+{#                this.$placeholder = this.$target.firstElementChild#}
+{#                //  this.onChange = debounce(this.onChange.bind(this), 500)#}
+{#                this.onChange = this.onChange.bind(this)#}
+{#                this.$loader = null#}
+{#                this.cache = {}#}
+{#                this.$select.addEventListener('change', this.onChange)#}
 
-            }
+{#            }#}
 
-            /**
-             * Se déclenche au changement de valeur d'un select
-             * @param {Event} e
-             */
-            onChange(e) {
-                if (e.target.value === '0') {
+{#            /**#}
+{#             * Se déclenche au changement de valeur d'un select#}
+{#             * @param {Event} e#}
+{#             */#}
+{#            onChange(e) {#}
+{#                if (e.target.value === '0') {#}
 
-                    return
-                }
+{#                    return#}
+{#                }#}
 
-                this.loadOptions(e.target.value, (options) => {
-                    this.$target.innerHTML = options
-                    this.$target.insertBefore(this.$placeholder, this.$target.firstChild)
-                    this.$target.selectedIndex = 0
-                    this.$target.style.display = null
+{#                this.loadOptions(e.target.value, (options) => {#}
+{#                    this.$target.innerHTML = options#}
+{#                    this.$target.insertBefore(this.$placeholder, this.$target.firstChild)#}
+{#                    this.$target.selectedIndex = 0#}
+{#                    this.$target.style.display = null#}
 
-                })
-            }
+{#                })#}
+{#            }#}
 
-            /**
-             * Charge les options à partir du serveur (ou du cache)
-             * @param {string} id
-             * @param callback
-             */
-            loadOptions(id, callback) {
-                if (this.cache[id]) {
-                    callback(this.cache[id])
-                    return
-                }
-                this.showLoader()
-                let request = new XMLHttpRequest()
-                request.open('GET', this.$select.dataset.source.replace('id', id), true)
-                request.onload = () => {
-                    if (request.status >= 200 && request.status < 400) {
-                        let data = JSON.parse(request.responseText)
-                        let options = data.reduce(function (acc, option) {
-                            return acc + '<option value="' + option.value + '">' + option.label + '</option>'
-                        }, '')
-                        this.cache[id] = options
-                        this.hideLoader()
-                        callback(options)
-                    } else {
-                        alert('Impossible de charger la liste')
-                    }
-                }
-                request.onerror = function () {
-                    alert('Impossible de charger la liste')
-                }
-                request.send()
-            }
+{#            /**#}
+{#             * Charge les options à partir du serveur (ou du cache)#}
+{#             * @param {string} id#}
+{#             * @param callback#}
+{#             */#}
+{#            loadOptions(id, callback) {#}
+{#                if (this.cache[id]) {#}
+{#                    callback(this.cache[id])#}
+{#                    return#}
+{#                }#}
+{#                this.showLoader()#}
+{#                let request = new XMLHttpRequest()#}
+{#                request.open('GET', this.$select.dataset.source.replace('id', id), true)#}
+{#                request.onload = () => {#}
+{#                    if (request.status >= 200 && request.status < 400) {#}
+{#                        let data = JSON.parse(request.responseText)#}
+{#                        let options = data.reduce(function (acc, option) {#}
+{#                            return acc + '<option value="' + option.value + '">' + option.label + '</option>'#}
+{#                        }, '')#}
+{#                        this.cache[id] = options#}
+{#                        this.hideLoader()#}
+{#                        callback(options)#}
+{#                    } else {#}
+{#                        alert('Impossible de charger la liste')#}
+{#                    }#}
+{#                }#}
+{#                request.onerror = function () {#}
+{#                    alert('Impossible de charger la liste')#}
+{#                }#}
+{#                request.send()#}
+{#            }#}
 
-            showLoader() {
-                this.$loader = document.createTextNode('Chargement...')
-                this.$target.parentNode.appendChild(this.$loader)
-            }
+{#            showLoader() {#}
+{#                this.$loader = document.createTextNode('Chargement...')#}
+{#                this.$target.parentNode.appendChild(this.$loader)#}
+{#            }#}
 
-            hideLoader() {
-                if (this.$loader !== null) {
-                    this.$loader.parentNode.removeChild(this.$loader)
-                    this.$loader = null
-                }
-            }
+{#            hideLoader() {#}
+{#                if (this.$loader !== null) {#}
+{#                    this.$loader.parentNode.removeChild(this.$loader)#}
+{#                    this.$loader = null#}
+{#                }#}
+{#            }#}
 
-        }
+{#        }#}
 
 
-        let $selects = document.querySelectorAll('.linked-select')
-        $selects.forEach(function ($select) {
-            new LinkedSelect($select)
-        })
-    </script>
-    <script>
-        $("#example-basic").steps({
-            headerTag: "h3",
-            bodyTag: "section",
-            transitionEffect: "slideLeft",
-            autoFocus: true,
-            stepsOrientation: "vertical",
-            onFinished: function (event, currentIndex) {
-                $("#wizard_with_validation").submit()
-            }
+{#        let $selects = document.querySelectorAll('.linked-select')#}
+{#        $selects.forEach(function ($select) {#}
+{#            new LinkedSelect($select)#}
+{#        })#}
+{#    </script>#}
+{#    <script>#}
+{#        $("#example-basic").steps({#}
+{#            headerTag: "h3",#}
+{#            bodyTag: "section",#}
+{#            transitionEffect: "slideLeft",#}
+{#            autoFocus: true,#}
+{#            stepsOrientation: "vertical",#}
+{#            onFinished: function (event, currentIndex) {#}
+{#                $("#wizard_with_validation").submit()#}
+{#            }#}
 
-        });
+{#        });#}
 
-        const slider = document.getElementById('price-slider')
-        const sliders = document.getElementById('sur')
-        sliders.addEventListener('change', updateValue);
-        const surface = document.getElementById('estimation_maison_esp_surface_habitable')
-        surface.value = sliders.value
-        sliders.oninput = function () {
-            sliders.value = this.value
+{#        const slider = document.getElementById('price-slider')#}
+{#        const sliders = document.getElementById('sur')#}
+{#        sliders.addEventListener('change', updateValue);#}
+{#        const surface = document.getElementById('estimation_maison_esp_surface_habitable')#}
+{#        surface.value = sliders.value#}
+{#        sliders.oninput = function () {#}
+{#            sliders.value = this.value#}
 
-        }
+{#        }#}
 
-        function updateValue(e) {
-            surface.value = this.value
-        }
+{#        function updateValue(e) {#}
+{#            surface.value = this.value#}
+{#        }#}
 
-        if (slider) {
-            const min = 100//document.getElementById('min')
-            const max = 1000000//document.getElementById('max')
-            const surface = document.getElementById('estimation_maison_esp_surface_habitable')
-            const minValue = Math.floor(parseInt(slider.dataset.min, 10) / 10) * 10
-            const maxValue = Math.ceil(parseInt(slider.dataset.max, 10) / 10) * 10
-            console.log(minValue)
-            console.log(maxValue)
+{#        if (slider) {#}
+{#            const min = 100//document.getElementById('min')#}
+{#            const max = 1000000//document.getElementById('max')#}
+{#            const surface = document.getElementById('estimation_maison_esp_surface_habitable')#}
+{#            const minValue = Math.floor(parseInt(slider.dataset.min, 10) / 10) * 10#}
+{#            const maxValue = Math.ceil(parseInt(slider.dataset.max, 10) / 10) * 10#}
+{#            console.log(minValue)#}
+{#            console.log(maxValue)#}
 
-            const range = noUiSlider.create(slider, {
-                start: [min || minValue, max || maxValue],
-                connect: true,
-                step: 10,
-                range: {
-                    'min': minValue,
-                    'max': maxValue
-                }
-            })
-            range.on('slide', function (values, handle) {
-                if (handle === 0) {
-                    surface.value = Math.round(values[0])
-                }
-                // if (handle === 1) {
-                //     max  = Math.round(values[1])
-                // }
-            })
-            range.on('end', function (values, handle) {
-                if (handle === 0) {
-                    surface.dispatchEvent(new Event('change'))
-                }
-                // else {
-                //     max.dispatchEvent(new Event('change'))
-                // }
-            })
-        }
-    </script>
+{#            const range = noUiSlider.create(slider, {#}
+{#                start: [min || minValue, max || maxValue],#}
+{#                connect: true,#}
+{#                step: 10,#}
+{#                range: {#}
+{#                    'min': minValue,#}
+{#                    'max': maxValue#}
+{#                }#}
+{#            })#}
+{#            range.on('slide', function (values, handle) {#}
+{#                if (handle === 0) {#}
+{#                    surface.value = Math.round(values[0])#}
+{#                }#}
+{#                // if (handle === 1) {#}
+{#                //     max  = Math.round(values[1])#}
+{#                // }#}
+{#            })#}
+{#            range.on('end', function (values, handle) {#}
+{#                if (handle === 0) {#}
+{#                    surface.dispatchEvent(new Event('change'))#}
+{#                }#}
+{#                // else {#}
+{#                //     max.dispatchEvent(new Event('change'))#}
+{#                // }#}
+{#            })#}
+{#        }#}
+{#    </script>#}
 {% endblock %}

@@ -90,7 +90,9 @@
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-md-12 col-lg-12 text-center">
+                <a href="{{ path('estimation ') }}">
                 <img src="{{ asset('images/app/CTA/immo-2.jpg') }}" alt="" width="1200px" class="img-fluid">
+                </a>
             </div>
         </div>
     </div>
@@ -102,12 +104,26 @@
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-md-12 col-lg-12 text-center">
+                <a href="{{ path('proprietes_categorie_listing',{'nature':'appartement-meuble'}) }}">
                 <img src="{{ asset('images/app/CTA/immo-3.jpg') }}" alt="" width="1200px" class="img-fluid">
+                </a>
             </div>
         </div>
     </div>
 
     {% include 'FrontEnd/partials/_recent_porperty.html.twig' with {'nature_annonce': 'Meuble'} %}
+
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12 col-lg-12 text-center">
+                <a href="{{ path('proprietes_categorie_listing',{'nature':'appartement-meuble'}) }}">
+                    <img src="{{ asset('images/app/CTA/immo-3.jpg') }}" alt="" width="1200px" class="img-fluid">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    {% include 'FrontEnd/partials/_recent_porperty.html.twig' with {'nature_annonce': 'terre'} %}
 
     <!-- ABOUT -->
     {# {% include 'FrontEnd/partials/_about.html.twig' %} #}
