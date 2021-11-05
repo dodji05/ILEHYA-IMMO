@@ -1,7 +1,7 @@
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-lg-6 mx-auto">
+            <div class="col-md-8 col-lg-6 col-8 mx-auto">
                 <div class="title__head">
                     <h2 class="text-center">
                         {% if nature_annonce == 2 %}
@@ -16,6 +16,21 @@
                     </h2>
 
                 </div>
+            </div>
+            <div class="col-4 more_mobile">
+
+                {% if nature_annonce == 2 %}
+                    <a href="{{ path('proprietes_listing',{'nature':'a-louer'}) }}" >
+                {% elseif  nature_annonce == 'Meuble' %}
+                    <a href="{{ path('proprietes_categorie_listing',{'nature':'appartement-meuble'}) }}">
+                {% else %}
+                    <a href="{{ path('proprietes_listing',{'nature':'a-vendre'}) }}">
+                {% endif %}
+                            Voir plus
+                        </a>
+
+
+
             </div>
             <div class="clearfix"></div>
         </div>
@@ -48,27 +63,27 @@
             </div>
         </div>
 
-{#        <div class="row">#}
-{#            <div class="col-md-12" style="text-align: center">#}
+        {#        <div class="row">#}
+        {#            <div class="col-md-12" style="text-align: center">#}
 
-{#                <div style="margin-top: 10px">#}
+        {#                <div style="margin-top: 10px">#}
 
-{#                    <h1 style="text-align: center;">#}
-{#                        {% if nature_annonce == 2 %}#}
+        {#                    <h1 style="text-align: center;">#}
+        {#                        {% if nature_annonce == 2 %}#}
 
-{#                        <a href="{{ path('proprietes_listing',{'nature':'a-louer'}) }}"#}
-{#                           class="btn btn-success btn-cicle">#}
-{#                            {% elseif  nature_annonce == 'Meuble' %}#}
-{#                            <a href="{{ path('proprietes_categorie_listing',{'nature':'appartement-meuble'}) }}"#}
-{#                               class="btn btn-success btn-cicle">#}
-{#                                {% else %}#}
-{#                                <a href="{{ path('proprietes_listing',{'nature':'a-vendre'}) }}"#}
-{#                                   class="btn btn-success btn-cicle">#}
-{#                                    {% endif %}#}
-{#                                    Voir plus</a>#}
-{#                    </h1>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
+        {#                        <a href="{{ path('proprietes_listing',{'nature':'a-louer'}) }}"#}
+        {#                           class="btn btn-success btn-cicle">#}
+        {#                            {% elseif  nature_annonce == 'Meuble' %}#}
+        {#                            <a href="{{ path('proprietes_categorie_listing',{'nature':'appartement-meuble'}) }}"#}
+        {#                               class="btn btn-success btn-cicle">#}
+        {#                                {% else %}#}
+        {#                                <a href="{{ path('proprietes_listing',{'nature':'a-vendre'}) }}"#}
+        {#                                   class="btn btn-success btn-cicle">#}
+        {#                                    {% endif %}#}
+        {#                                    Voir plus</a>#}
+        {#                    </h1>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#        </div>#}
     </div>
 </section>
