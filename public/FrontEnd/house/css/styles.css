@@ -25684,7 +25684,19 @@ input[type="number"] {
 }
 
 .bg-theme-overlay {
-    background-image: url(../images/1920x1080.jpg);
+    background-image: url(../../../images/app/bannieres/bannieres.jpg);
+    width: 100%;
+    background-position: center 50%;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    position: relative
+}
+
+.bg-theme-static {
+
     width: 100%;
     background-position: center 50%;
     background-size: cover;
@@ -25697,15 +25709,22 @@ input[type="number"] {
 
 @media screen and (min-width: 320px) and (max-width: 575px) {
     .bg-theme-overlay {
-        background-attachment: fixed
+        /*background-attachment: fixed*/
+    }
+    .section__breadcrumb {
+        margin-top:0!important;
     }
 }
 
 @media screen and (min-width: 576px) and (max-width: 768px) {
     .bg-theme-overlay {
-        background-attachment: fixed
+        /*background-attachment: fixed*/
+    }
+    .section__breadcrumb {
+        margin-top:0!important;
     }
 }
+
 
 .bg-theme-footer {
     background-image: url(../images/1920x1080.jpg);
@@ -26483,13 +26502,13 @@ input[type="number"] {
 .recent__property-carousel .owl-nav .owl-prev {
     left: auto;
     right: 40px;
-    top: -35%
+    top: -13%
 }
 
 .recent__property-carousel .owl-nav .owl-next {
     right: -5px;
     left: auto;
-    top: -35%
+    top: -13%
 }
 
 @media screen and (min-width: 320px) and (max-width: 575px) {

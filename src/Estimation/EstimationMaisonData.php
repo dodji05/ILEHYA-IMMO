@@ -25,6 +25,24 @@ class EstimationMaisonData
     private $superfice_terrain;
     private $zone;
     private $situation;
+    private $ojectifs;
+
+    /**
+     * @return mixed
+     */
+    public function getOjectifs()
+    {
+        return $this->ojectifs;
+    }
+
+    /**
+     * @param mixed $ojectifs
+     */
+    public function setOjectifs($ojectifs): void
+    {
+        $this->ojectifs = $ojectifs;
+    }
+
 
     /**
      * @return mixed

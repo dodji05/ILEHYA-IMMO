@@ -40,16 +40,35 @@
         .owl-dots {
             display: none;
         }
-
+        .more_mobile {
+            display: none;
+        }
         @media screen and (min-width: 320px) and (max-width: 575px) {
             .recent__property-carousel .owl-dots {
                 display: none !important;
+            }
+            .title__head h2::before, .title__head h2::after {
+                display: none;
+                text-align: left;
+            }
+            .title__head h2 {
+            justify-content: flex-start;
+        }
+            .more_mobile {
+                display: inline;
+                font-size: 12px;
+                font-weight: 900;
+                justify-content: flex-end;
+            }
+            .featured__property {
+
             }
         }
 
         .figure-img {
             max-height: 145px;
         }
+
     </style>
 
 {% endblock %}
@@ -90,7 +109,9 @@
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-md-12 col-lg-12 text-center">
+                <a href="{{ path('estimation ') }}">
                 <img src="{{ asset('images/app/CTA/immo-2.jpg') }}" alt="" width="1200px" class="img-fluid">
+                </a>
             </div>
         </div>
     </div>
@@ -102,12 +123,26 @@
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-md-12 col-lg-12 text-center">
+                <a href="{{ path('proprietes_categorie_listing',{'nature':'appartement-meuble'}) }}">
                 <img src="{{ asset('images/app/CTA/immo-3.jpg') }}" alt="" width="1200px" class="img-fluid">
+                </a>
             </div>
         </div>
     </div>
 
     {% include 'FrontEnd/partials/_recent_porperty.html.twig' with {'nature_annonce': 'Meuble'} %}
+
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12 col-lg-12 text-center">
+                <a href="{{ path('proprietes_categorie_listing',{'nature':'appartement-meuble'}) }}">
+                    <img src="{{ asset('images/app/CTA/immo-3.jpg') }}" alt="" width="1200px" class="img-fluid">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    {% include 'FrontEnd/partials/_recent_porperty.html.twig' with {'nature_annonce': 'terre'} %}
 
     <!-- ABOUT -->
     {# {% include 'FrontEnd/partials/_about.html.twig' %} #}

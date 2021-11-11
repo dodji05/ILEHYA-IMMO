@@ -9,6 +9,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -36,6 +37,27 @@ class EstimationTerrainType extends AbstractType
                 'multiple' => false,
                 "label" => 'La parcelle est-elle située au bord de la voie ou du goudron?',
             ])
+            ->add('proprietaire', ChoiceType::class, [
+                'choices' => [
+                    'Oui' => 'oui',
+                    'Non' => 'non',
+
+                ],
+                'expanded' => true,
+                'multiple' => false,
+                "label" => 'Etes-vous proprietaire?',
+            ])
+            ->add('ojectifs', ChoiceType::class,[
+                    'choices' => [
+                        'Mettre en vente' => 'Mettre en vente',
+                        'Projet d\'achat' => 'Projet d\'achat',
+
+                    ],
+                    'expanded' => true,
+                    'multiple' => false,
+                    "label" => 'Objectif pour lequelle vous voulez faire l\'estimation',
+                ]
+             )
             ->add('mail', EmailType::class, [
                 "attr" => [
                     'label' => 'Votre adresse mail'

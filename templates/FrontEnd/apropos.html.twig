@@ -1,6 +1,6 @@
 {% extends 'FrontEnd/base.html.twig' %}
-{% block titre %} 
-Qui sommes-nous?
+{% block titre %}
+    Qui sommes-nous?
 {% endblock %}
 {% block style %}
     <style>
@@ -81,6 +81,58 @@ Qui sommes-nous?
             line-height: 1.6;
             text-align: justify;
         }
+        .title--3 {
+            font-size: 1.3rem;
+            /*font-family: 'Montserrat',sans-serif;*/
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        @media only screen and (min-width: 62rem) {
+            .item_title_text {
+                text-align: left;
+            }
+        }
+
+        .item_title_text {
+            text-align: center;
+        }
+
+        .container p {
+            font-size: 18px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        @media only screen and (min-width: 62rem) {
+            .item_icom {
+                text-align: left;
+            }
+        }
+
+        .item_icom {
+            margin-top: 1.25rem;
+            margin-bottom: 1.25rem;
+            /*text-align: center;*/
+        }
+
+        .item_icom img {
+            height: 4.5rem;
+        }
+        .item_icom {
+            text-align: center;
+        }
+        @media screen and (min-width: 320px) and (max-width: 575px) {
+
+            .align-items-center img {
+                width: 100%;
+            }
+            .align-items-center h3{
+                font-size: 25px;
+            }
+
+        }
     </style>
 
 {% endblock %}
@@ -90,17 +142,17 @@ Qui sommes-nous?
  {% endblock %}
 
 {% block content %}
-    {# <div class="en-tete"> #}
-    {# <div class="bandeau"> #}
-
-    {# <img src="{{ asset('images/app/apropos/apropos-ilehya.jpeg') }}" width="1600" height="485" #}
-    {# class="lazyloaded" data-ll-status="loaded"> #}
-    {# <noscript><img src="{{ asset('images/app/apropos/apropos-ilehya.jpeg') }}" #}
-    {# width="1600" height="485"></noscript> #}
-    {# </div> #}
+{#    <section class="section__breadcrumb bg-theme-static"#}
+{#             style="margin-top: 15px;margin-bottom: 0!important; background:url({{ asset('images/app/construction/construction.jpg')cover fixed }})">#}
+{#        <div class="container" style="height: 485px">#}
+{#            <div class="row d-flex justify-content-center">#}
+{#                <div class="col-md-8 text-center">#}
 
 
-    {# </div> #}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </section>#}
     <div class="bg-light">
         <div class="container">
             <div class="row">
@@ -117,53 +169,83 @@ Qui sommes-nous?
     </div>
     <section style="padding-top: 30px">
         <div class="container decr">
-            <div class="row">
-                <div class="col-md-12">
-                    <p>
-                        Ilehya Property Bénin est une société à responsabilité limité au capitale sociale de 2.000.000
-                        FCFA enregistrée sous le numéro ABC 15B640 au Gufe d’Abomey-Calavi et ayant son siège social à
-                        Godomey Finanafa c/lot – 00BP0000 Abomey-Calavi, république du BÉNIN en activité depuis le
-                        03/03/2015. <br>
-                        Sa raison sociale est : Gestion et promotion immobilière, construction et rénovation,
-                        architecture, agencement d’espace et décoration.
-
-                    </p>
-                    <p>Ainsi dans cette perspective nous accompagnons nos clients dans tous processus d’acquisition de
-                        biens immobiliers de toutes natures, l’administration, la gestion par bail ou autrement, la
-                        disposition des biens dont il sera propriétaire par voix d’acquisition, d’échanges, location,
-                        d’achats/ventes de domaines, terrains, parcelles, bâtis ou nus. </p>
-                    <p>La gestion et la promotion immobilière ne pouvant véritablement trouver du contenus et être
-                        possible sans l’architecture et l’ingénierie du bâtiment, fort de nos expériences et d’une
-                        ressource humaine de qualité constituée de jeunes architectes chevronnés et d’ingénieur en
-                        Génie-civile, nous nous investissons à vous concevoir votre plan bâtiment sur mesure avec un
-                        devis pointu et à suivre les travaux d’exécution avec méthode et rigueur quitte à vous remettre
-                        votre clé un jour avant le délais convenu. </p>
-                    <p>Nous somme de même engagé dans les travaux de rénovation de toute sorte de manière à redonner vie
-                        à vos bâtisses chargés d’histoire mais usées par le temps. </p>
-                    <p></p>
+            <div class="row d-flex align-items-center">
+                <div class="col-md-2 col-3">
+                    <img src="{{ asset('images/app/apropos/icone.jpg') }}" alt="" width="175px">
                 </div>
-
-{#                <div class="col-md-4">#}
-{#                    <div class="text-center">#}
-{#                        <img src="{{ asset('images/app/securisation_fonciere/Securisation-fonciere-Benin.jpg') }}"#}
-{#                             alt=" ilehya securisation fonciere" class="img-fluid mx-auto d-block">#}
-{#                    </div>#}
-{#                </div>#}
+                <div class="col-md-10 col-9">
+                    <h3 style="color: #212529"> Une société civile immobiliere formelle depuis 2015 </h3>
+                </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <p>
+                        Ilehya Property Bénin est une société civile immobilière au capitale sociale de 2.000.000
+                        FCFA enregistrée sous le numéro ABC 15B640 au Gufe d’Abomey-Calavi et ayant son siège social à
+                        Godomey Finanafa c/lot – BP 271 Godomey, république du BÉNIN en activité depuis le
+                        03/03/2015. <br>
+
+
+                    </p>
+                </div>
+            </div>
+            <div class="row d-flex align-items-center">
+                <div class="col-md-2 col-3">
+                    <img src="{{ asset('images/app/apropos/notre-mission.jpg') }}" alt="" width="175px">
+                </div>
+                <div class="col-md-10 col-9">
+                    <h3 style="color: #13171b; font-weight: 900"> Notre mission </h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p>Nous accompagnons nos clients dans tous processus d’acquisition de
+                        biens immobiliers de toutes natures, l’administration, la gestion par bail ou autrement, la
+                        disposition des biens dont il sera propriétaire par voix d’acquisition, d’échanges, location,
+                        d’achats/ventes de domaines, terrains, parcelles, bâtis ou nus. </p>
+                </div>
+            </div>
+            <div class="row d-flex align-items-center">
+                <div class="col-md-2 col-3">
+                    <img src="{{ asset('images/app/apropos/nos-solutions.jpg') }}" alt="" width="175px">
+                </div>
+                <div class="col-md-10 col-9">
+                   <h3 style="color: #212529"> Nos atouts et solutions </h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p>La gestion et la promotion immobilière ne pouvant véritablement trouver du contenus et être
+                        possible sans l’architecture et l’ingénierie du bâtiment, fort de nos expériences et d’une
+                        ressource humaine de qualité constituée d'architectes et d’ingénieur en
+                        Génie-civile, nous nous investissons à vous concevoir votre plan bâtiment sur mesure avec un
+                        devis pointu et à suivre les travaux d’exécution avec méthode et rigueur quitte à vous remettre
+                        votre clé un jour avant le délais convenu. </p>
+                    <p>Nous sommes de même engagé dans les travaux de rénovation de toute sorte de manière à redonner vie
+                        à vos bâtisses chargés d’histoire mais usées par le temps. </p>
+                </div>
+            </div>
+
+            <div class="row d-flex align-items-center">
+                <div class="col-md-2 col-3 item_icom">
+                    <img src="{{ asset('images/app/apropos/investir-ilehya-property.jpg') }}" alt="" width="175px">
+                </div>
+                <div class="col-md-10 col-9">
+                    <h3 style="color: #212529"> Investir dans l'immobilier</h3>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-12">
+
+                    <p>
                         Ilehya Property Bénin a également pour mission de faire tous placements de capitaux sous formes
                         de financement participatif par la souscription pour l’acquisition de biens immobiliers à fort
                         potentiel commercial et dont la remise en vente sur le marché à court ou à moyen terme génèrera
-                        d’importants bénéfices qui seront redistribués sous forme de dividendes aux souscripteurs et en
-                        générale toutes opérations d’investissement par financement participatif en tous pays au BÉNIN.
+                        d’importants bénéfices qui seront redistribués sous forme de dividendes aux souscripteurs.
                     </p>
-                    <p>Plus besoin de prendre le risque de voir le fruit de vos efforts parti en fumé pour des raisons
-                        de tous ordres, ni jouer au hasard des capitaux durement gagnés.
-                        Nous vous offrons la possibilité d’investir dans un cadre institutionnel garanti par un acte
-                        notarié et sans le moindre risque tout en gagnant un net supérieur à 10% l’an.
-                    </p>
+
                     <p>Ilehya Property Bénin s’attaque à relever le défi pour aussi faciliter l’acquisition à la
                         propriété de ses filles et fils de la diaspora. </p>
                     <p>Ce challenge a besoin d’importants capitaux reparti sur trois axes à savoir : </p>
@@ -189,98 +271,98 @@ Qui sommes-nous?
                     </p>
                 </div>
 
-{#                <div class="col-md-4">#}
-{#                    <img src="{{ asset('images/app/securisation_fonciere/Securisation-fonciere-Benin.jpg') }}"#}
-{#                         alt=" ilehya securisation fonciere" class="img-fluid mx-auto d-block">#}
-{#                </div>#}
+                {#                <div class="col-md-4">#}
+                {#                    <img src="{{ asset('images/app/securisation_fonciere/Securisation-fonciere-Benin.jpg') }}"#}
+                {#                         alt=" ilehya securisation fonciere" class="img-fluid mx-auto d-block">#}
+                {#                </div>#}
             </div>
         </div>
-{#        <div class="container descr">#}
-{#            <div class="row">#}
-{#                <p>#}
-{#                    C’est pour cela que ILEHYA PROPERTY par le biais de son service technique et juridique met à votre#}
-{#                    disposition une équipe pour vous accompagner dans le processus de sécurisation de vos biens#}
-{#                    immeuble. Ainsi vous gagner du temps et de l’énergie. <br> Vous n’aurez qu’à aller vaquer à vos#}
-{#                    occupations habituelles et nous faisons toutes les diligences pour vous obtenir vos actes et titre#}
-{#                    de propriétés dans les bref délais auprès des autorités compétentes.#}
-{#                </p>#}
+        {#        <div class="container descr">#}
+        {#            <div class="row">#}
+        {#                <p>#}
+        {#                    C’est pour cela que ILEHYA PROPERTY par le biais de son service technique et juridique met à votre#}
+        {#                    disposition une équipe pour vous accompagner dans le processus de sécurisation de vos biens#}
+        {#                    immeuble. Ainsi vous gagner du temps et de l’énergie. <br> Vous n’aurez qu’à aller vaquer à vos#}
+        {#                    occupations habituelles et nous faisons toutes les diligences pour vous obtenir vos actes et titre#}
+        {#                    de propriétés dans les bref délais auprès des autorités compétentes.#}
+        {#                </p>#}
 
-{#            </div>#}
-{#        </div>#}
-{#        <div class="container descr">#}
-{#            <p> Nous vous accompagnons notamment dans : </p>#}
-{#            <div class="row" style=" margin-bottom: 20px;">#}
+        {#            </div>#}
+        {#        </div>#}
+        {#        <div class="container descr">#}
+        {#            <p> Nous vous accompagnons notamment dans : </p>#}
+        {#            <div class="row" style=" margin-bottom: 20px;">#}
 
 
-{#                <div class="col-md-4 col-sm-2">#}
-{#                    <div class="card">#}
-{#                        <img class="card-img-top"#}
-{#                             src="{{ asset('images/app/securisation_fonciere/Securisation-fonciere-Benin.jpg') }}"#}
-{#                             alt="Card image cap">#}
-{#                        <div class="card-body">#}
-{#                            <p class="card-text">Dans le levé topographique</p>#}
-{#                        </div>#}
-{#                    </div>#}
+        {#                <div class="col-md-4 col-sm-2">#}
+        {#                    <div class="card">#}
+        {#                        <img class="card-img-top"#}
+        {#                             src="{{ asset('images/app/securisation_fonciere/Securisation-fonciere-Benin.jpg') }}"#}
+        {#                             alt="Card image cap">#}
+        {#                        <div class="card-body">#}
+        {#                            <p class="card-text">Dans le levé topographique</p>#}
+        {#                        </div>#}
+        {#                    </div>#}
 
-{#                </div>#}
-{#                <div class="col-md-4 col-sm-2">#}
-{#                    <div class="card">#}
-{#                        <img class="card-img-top"#}
-{#                             src="{{ asset('images/app/securisation_fonciere/Securisation-fonciere-Benin.jpg') }}"#}
-{#                             alt="Card image cap">#}
-{#                        <div class="card-body">#}
-{#                            <p class="card-text">Le paiement des impôts fonciers</p>#}
-{#                        </div>#}
-{#                    </div>#}
+        {#                </div>#}
+        {#                <div class="col-md-4 col-sm-2">#}
+        {#                    <div class="card">#}
+        {#                        <img class="card-img-top"#}
+        {#                             src="{{ asset('images/app/securisation_fonciere/Securisation-fonciere-Benin.jpg') }}"#}
+        {#                             alt="Card image cap">#}
+        {#                        <div class="card-body">#}
+        {#                            <p class="card-text">Le paiement des impôts fonciers</p>#}
+        {#                        </div>#}
+        {#                    </div>#}
 
-{#                </div>#}
-{#                <div class="col-md-4 col-sm-2">#}
-{#                    <div class="card">#}
-{#                        <img class="card-img-top"#}
-{#                             src="{{ asset('images/app/securisation_fonciere/Securisation-fonciere-Benin.jpg') }}"#}
-{#                             alt="Card image cap">#}
-{#                        <div class="card-body">#}
-{#                            <p class="card-text"> Conventions de vente </p>#}
-{#                        </div>#}
-{#                    </div>#}
+        {#                </div>#}
+        {#                <div class="col-md-4 col-sm-2">#}
+        {#                    <div class="card">#}
+        {#                        <img class="card-img-top"#}
+        {#                             src="{{ asset('images/app/securisation_fonciere/Securisation-fonciere-Benin.jpg') }}"#}
+        {#                             alt="Card image cap">#}
+        {#                        <div class="card-body">#}
+        {#                            <p class="card-text"> Conventions de vente </p>#}
+        {#                        </div>#}
+        {#                    </div>#}
 
-{#                </div>#}
-{#            </div>#}
-{#            <div class="row">#}
-{#                <div class="col-md-4 col-sm-2">#}
-{#                    <div class="card">#}
-{#                        <img class="card-img-top"#}
-{#                             src="{{ asset('images/app/securisation_fonciere/Securisation-fonciere-Benin.jpg') }}"#}
-{#                             alt="Card image cap">#}
-{#                        <div class="card-body">#}
-{#                            <p class="card-text">L’obtention de l’attestation de détention coutumière</p>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="col-md-4 col-sm-2">#}
-{#                    <div class="card">#}
-{#                        <img class="card-img-top" src="{{ asset('images/app/securisation_fonciere/recasement.jpg') }}"#}
-{#                             alt="Card image cap">#}
-{#                        <div class="card-body">#}
-{#                            <p class="card-text">Le recasement et l’obtention de l’attestation</p>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div class="col-md-4 col-sm-2">#}
-{#                    <div class="card">#}
-{#                        <img class="card-img-top"#}
-{#                             src="{{ asset('images/app/securisation_fonciere/Securisation-fonciere-Benin.jpg') }}"#}
-{#                             alt="Card image cap">#}
-{#                        <div class="card-body">#}
-{#                            <p class="card-text">L’obtention du titre foncier.</p>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#            <div class="row descr">#}
-{#                <p class="descr"> Pour nous mandater veillez nous contacter au (+229) 99403434 ou remplir le formulaire#}
-{#                    ci-dessous et nous vous contactons. </p>#}
-{#            </div>#}
-{#        </div>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#            <div class="row">#}
+        {#                <div class="col-md-4 col-sm-2">#}
+        {#                    <div class="card">#}
+        {#                        <img class="card-img-top"#}
+        {#                             src="{{ asset('images/app/securisation_fonciere/Securisation-fonciere-Benin.jpg') }}"#}
+        {#                             alt="Card image cap">#}
+        {#                        <div class="card-body">#}
+        {#                            <p class="card-text">L’obtention de l’attestation de détention coutumière</p>#}
+        {#                        </div>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#                <div class="col-md-4 col-sm-2">#}
+        {#                    <div class="card">#}
+        {#                        <img class="card-img-top" src="{{ asset('images/app/securisation_fonciere/recasement.jpg') }}"#}
+        {#                             alt="Card image cap">#}
+        {#                        <div class="card-body">#}
+        {#                            <p class="card-text">Le recasement et l’obtention de l’attestation</p>#}
+        {#                        </div>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#                <div class="col-md-4 col-sm-2">#}
+        {#                    <div class="card">#}
+        {#                        <img class="card-img-top"#}
+        {#                             src="{{ asset('images/app/securisation_fonciere/Securisation-fonciere-Benin.jpg') }}"#}
+        {#                             alt="Card image cap">#}
+        {#                        <div class="card-body">#}
+        {#                            <p class="card-text">L’obtention du titre foncier.</p>#}
+        {#                        </div>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#            <div class="row descr">#}
+        {#                <p class="descr"> Pour nous mandater veillez nous contacter au (+229) 99403434 ou remplir le formulaire#}
+        {#                    ci-dessous et nous vous contactons. </p>#}
+        {#            </div>#}
+        {#        </div>#}
     </section>
 {% endblock %}
