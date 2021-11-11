@@ -19,13 +19,16 @@ class EstimationTerrainType extends AbstractType
         $builder
             ->add('zone', EntityType::class, [
                 'class' => Souszone::class,
-                'choice_label' => 'libelleSouszone'
+                'choice_label' => 'libelleSouszone',
+                'label' => 'Choisir la zone'
+
 
             ])
             ->add('superficeTerrain', IntegerType::class, [
                 "attr" => [
                     'label' => 'Superfice du terrain en metre carré'
-                ]
+                ],
+                'label' => 'Superficie en  m² '
             ])
             ->add('situation', ChoiceType::class, [
                 'choices' => [
@@ -34,7 +37,8 @@ class EstimationTerrainType extends AbstractType
                 ],
                 'expanded' => true,
                 'multiple' => false,
-                "label" => 'La parcelle est-elle située au bord de la voie ou du goudron?',
+                "label" => 'Votre bien est-il situé au bord d’une voie pavé ou
+du goudron?',
             ])
             ->add('proprietaire', ChoiceType::class, [
                 'choices' => [

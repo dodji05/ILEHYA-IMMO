@@ -80,7 +80,8 @@ class EstimationMaisonType extends AbstractType
                 ],
                 'expanded' => true,
                 'multiple' => false,
-                "label" => 'La maison est-elle située au bord de la voie ou du goudron?',
+                "label" => 'Votre bien est-il situé au bord d’une voie pavé ou
+du goudron?',
             ])
             ->add('proprietaire', ChoiceType::class, [
                 'choices' => [
