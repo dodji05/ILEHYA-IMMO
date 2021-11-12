@@ -43,6 +43,13 @@
         .more_mobile {
             display: none;
         }
+        .carousel-item .mobile  {
+            display: none;
+        }
+
+        .carousel-item .deskpot  {
+            display: block;
+        }
         @media screen and (min-width: 320px) and (max-width: 575px) {
             .recent__property-carousel .owl-dots {
                 display: none !important;
@@ -62,6 +69,14 @@
             }
             .featured__property {
 
+            }
+
+            .carousel-item .mobile  {
+                display: flex;
+            }
+
+            .carousel-item .deskpot  {
+                display: none !important;
             }
         }
 
