@@ -21,6 +21,13 @@
             line-height: 35px;
 
         }
+        @media screen and (min-width: 320px) and (max-width: 575px) {
+            .clearfix {
+                padding-top: 0px!important;
+            }
+
+
+        }
     </style>
 
     {# <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.0/nouislider.min.css" integrity="sha512-6JqGSqQ++AEggYltdgSse8pKG90U/5U0bbkZoa94uSDG/BhI5YpYcy2LyWPWjXu40lUVEgEKHZ/2hCrwQvbODw==" crossorigin="anonymous" /> #}
@@ -31,7 +38,7 @@
 
  {% endblock %}
 {% block content %}
-    <div class="clearfix" style="padding-top: 130px!important;"></div>
+    <div class="clearfix clearfix-mobile" style="padding-top: 130px!important;"></div>
 
     <div class="container">
         <div class="row">
