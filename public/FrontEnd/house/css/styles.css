@@ -28119,20 +28119,20 @@ input[type="number"] {
     width: 100%;
     max-width: 100%;
     -o-object-fit: cover;
-    object-fit: cover;
+    object-fit: contain;
     animation: bgburnsEast 25s linear infinite alternate;
     -webkit-animation: bgburnsEast 25s linear infinite alternate
 }
 
 @media screen and (min-width: 320px) and (max-width: 575px) {
     .slider-container .banner-max-height img {
-        height: 450px
+        height: 300px
     }
 }
 
 @media screen and (min-width: 576px) and (max-width: 768px) {
     .slider-container .banner-max-height img {
-        height: 350px
+        height: 250px
     }
 }
 

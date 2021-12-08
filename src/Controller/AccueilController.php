@@ -111,10 +111,10 @@ class AccueilController extends AbstractController
         $form = $this->createForm(SearchPorpertyFormType::class, $datasearch);
 
         if ($nature === 'a-vendre') {
-            $titre = "Biens Immobiliers à vendre";
+            $titre = "Biens immobiliers à vendre";
             $biens = $proprietesRepository->natureannonces(1);
         } else {
-            $titre = "Biens Immobiliers à louer";
+            $titre = "Biens immobiliers à louer";
             $biens = $proprietesRepository->natureannonces(2);
         }
         return $this->render('FrontEnd/listing.html.twig', [

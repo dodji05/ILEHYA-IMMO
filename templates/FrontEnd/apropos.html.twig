@@ -54,9 +54,9 @@
         }
 
         .section__breadcrumb-v1 h1, h2 {
-            /*  font-family: "Montserrat", serif;*/
-            color: #ff9000;
-            font-family: "Montserrat Bold"
+            color: #134363;
+            font-family: "Montserrat Bold";
+            font-size: 22px;
         }
 
         @media screen and (min-width: 320px) and (max-width: 575px) {
@@ -128,11 +128,13 @@
         @media screen and (min-width: 320px) and (max-width: 575px) {
 
             .align-items-center img {
-                width: 100%;
+                /*width: 100%;*/
+                margin-bottom: 1.25rem;
+                text-align: center;
             }
 
             .align-items-center h3 {
-                font-size: 21px;
+                font-size: 19px;
             }
 
         }
@@ -162,7 +164,7 @@
                 <div class="col-lg-12">
                     <div class="section__breadcrumb-v1">
                         <div style="padding: 20px;">
-                            <h1 style="text-align: center;"> {{ soustitre }}</h1></div>
+                            <h1> {{ soustitre }}</h1></div>
 
                     </div>
                 </div>
@@ -173,15 +175,8 @@
     <section style="padding-top: 30px">
         <div class="container decr">
             <div class="row d-flex align-items-center">
-                <div class="col-md-2 col-3">
-                    <img src="{{ asset('images/app/apropos/icone.jpg') }}" alt="" width="175px">
-                </div>
-                <div class="col-md-10 col-9">
-                    <h3 style="color: #212529"> Une société civile immobilière depuis 2015 </h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
+                    <h3 style="color: #134363"> Une société civile immobilière</h3>
                     <p>
                         Ilehya Property Bénin est une société civile immobilière au capitale sociale de 2.000.000
                         FCFA enregistrée sous le numéro ABC 15B640 au Gufe d’Abomey-Calavi et ayant son siège social à
@@ -191,33 +186,22 @@
 
                     </p>
                 </div>
-            </div>
-            <div class="row d-flex align-items-center">
-                <div class="col-md-2 col-3">
-                    <img src="{{ asset('images/app/apropos/notre-mission.jpg') }}" alt="" width="175px">
-                </div>
-                <div class="col-md-10 col-9">
-                    <h3 style="color: #13171b; font-weight: 900"> Notre mission </h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
+
+                <div class="col-md-6">
+                    <h3 style="color: #134363; font-weight: 900"> Notre mission </h3>
+
                     <p>Nous accompagnons nos clients dans tous processus d’acquisition de
                         biens immobiliers de toutes natures, l’administration, la gestion par bail ou autrement, la
                         disposition des biens dont il sera propriétaire par voix d’acquisition, d’échanges, location,
                         d’achats/ventes de domaines, terrains, parcelles, bâtis ou nus. </p>
                 </div>
+
+
             </div>
-            <div class="row d-flex align-items-center">
-                <div class="col-md-2 col-3">
-                    <img src="{{ asset('images/app/apropos/nos-solutions.jpg') }}" alt="" width="175px">
-                </div>
-                <div class="col-md-10 col-9">
-                   <h3 style="color: #212529"> Nos atouts et solutions </h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
+
+            <div class="row d-flex align-items-center" style="margin-top: 12px">
+                <div class="col-md-6">
+                    <h3 style="color: #134363"> Nos atouts et solutions </h3>
                     <p>La gestion et la promotion immobilière ne pouvant véritablement trouver du contenus et être
                         possible sans l’architecture et l’ingénierie du bâtiment, fort de nos expériences et d’une
                         ressource humaine de qualité constituée d'architectes et d’ingénieur en
@@ -227,21 +211,17 @@
                     <p>Nous sommes de même engagé dans les travaux de rénovation de toute sorte de manière à redonner vie
                         à vos bâtisses chargés d’histoire mais usées par le temps. </p>
                 </div>
-            </div>
+                <div class="col-md-6">
+                    <img src="{{ asset('images/app/apropos/une-societe-civile-immobiliere-sci.jpeg') }}" width="100%">
+                </div>
 
-            <div class="row d-flex align-items-center">
-                <div class="col-md-2 col-4 item_icom">
-                    <img src="{{ asset('images/app/apropos/investir-ilehya-property.jpg') }}" alt="" width="175px">
-                </div>
-                <div class="col-md-10 col-8">
-                    <h3 style="color: #212529"> Investir dans l'immobilier</h3>
-                </div>
             </div>
 
 
-            <div class="row">
+            <div class="row d-flex align-items-center" style="margin-top: 12px">
                 <div class="col-md-12">
 
+                <h3 style="color: #134363"> Investir dans l'immobilier</h3>
                     <p>
                         Ilehya Property Bénin a également pour mission de faire tous placements de capitaux sous formes
                         de financement participatif par la souscription pour l’acquisition de biens immobiliers à fort
@@ -273,12 +253,13 @@
                         l’utile, l’immobilier de sureté.
                     </p>
                 </div>
+            </div>
 
                 {#                <div class="col-md-4">#}
                 {#                    <img src="{{ asset('images/app/securisation_fonciere/Securisation-fonciere-Benin.jpg') }}"#}
                 {#                         alt=" ilehya securisation fonciere" class="img-fluid mx-auto d-block">#}
                 {#                </div>#}
-            </div>
+
         </div>
         {#        <div class="container descr">#}
         {#            <div class="row">#}
