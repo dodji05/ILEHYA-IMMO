@@ -27,6 +27,27 @@
     <link rel="apple-touch-icon" href="icon.png">
     <meta name="theme-color" content="#3454d1">
     <link href="{{ asset('FrontEnd/house/css/styles.css') }}" rel="stylesheet">
+    <style>
+    .topbar {
+   
+    background: linear-gradient(90deg, #0f3f60 0%, #3454d1 61%, #009fff 100%); adding: 0;
+    min-height: 50px;
+    color:"#fff";
+}
+.topbar-link {
+ color:"#fff" !important;
+}
+@media screen and (min-width: 320px) and (max-width: 575px) {
+    .topbar .topbar-right .topbar-link {
+       font-size:14px;
+       text-align: left;
+       margin:9px;
+           color:"#fff";
+
+    }
+}
+    </style>
+   
 {% block style%}
 
 
@@ -34,6 +55,7 @@
 </head>
 <body>
 <!-- HEADER -->
+        {% include 'FrontEnd/partials/top_nav_bar.html.twig' %}
 
     {% block navbar %}
         {% include 'FrontEnd/partials/_navbar.html.twig' %}
