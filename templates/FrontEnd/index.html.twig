@@ -91,12 +91,29 @@
     {# {% set link = {{ path('proprietes_show',{'contrattype': bien.typeOptions.contratypes.id,'proprietetype':bien.proprieteOptions.proprietes.id,'id': bien.id}) }} %} #}
 {#    {% include 'FrontEnd/partials/_carousel.html.twig' %}#}
     <!-- END CAROSUEL -->
-    <div class="clearfix"></div>
+{#    <div class="clearfix"></div>#}
     {# <div class="search__area-inner"> #}
-    {# #}
-    {# </div> #}
-    <section class="search__area bg-light" style="padding: 00px!important; margin-top: 35px">
+    {# style="padding: 00px!important;" #}
+
+
+    <section class="search__area bg-light" >
         <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-12">
+                  <h4 style="color: #ff9000">  SOCIETE CIVILE IMMOBILIERE </h4>
+                    <ul>
+                        <li> Gestion d'actifs immobiliére </li>
+                        <li> Construction et renovation  </li>
+                    </ul>
+                </div>
+{#                <div class="col-6 col-md-6">#}
+{#                    <ul>#}
+{#                        <li> Securisation fonciere </li>#}
+{#                        <li> Construction et renovation  </li>#}
+{#                    </ul>#}
+{#                </div>#}
+            </div>
+
             <div class="search__area-inner">
                 {% include 'FrontEnd/partials/_recherche_form.html.twig' %}
             </div>
