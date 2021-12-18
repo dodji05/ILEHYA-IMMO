@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 
+use App\Entity\EstimationTerrain;
 use App\Estimation\EstimationData;
 use App\Estimation\EstimationMaisonData;
 use App\Form\EstimationMaisonType;
@@ -95,7 +96,7 @@ class EstimationController extends AbstractController
      */
     public function estimationTerrain(Request $request, MailerInterface $mailer, SessionInterface $session, PrixReferenceRepository $prixReferenceRepository, ArrondissementRepository $quartierRepository)
     {
-        $data = new EstimationMaisonData();
+        $data = new EstimationTerrain();
         $form = $this->createForm(EstimationTerrainType::class, $data);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -112,7 +113,9 @@ class EstimationController extends AbstractController
             } else {
                 $prixMoyen = $estimation * 1.5;
             }
-
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($data );
+            $entityManager->flush();
 
             return $this->render('FrontEnd/estimation-terrain-fin.html.twig',
                 [

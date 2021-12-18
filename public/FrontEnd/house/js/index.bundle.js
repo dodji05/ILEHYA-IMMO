@@ -15465,8 +15465,8 @@
             smartSpeed: 1200,
             autoHeight: !0,
             responsive: {
-                0: {items: 1, stagePadding: 60,},
-                480: {items: 1, stagePadding: 60,},
+                0: {items: 1, stagePadding: 60,nav: !0},
+                480: {items: 1,stagePadding: 60,nav: !0},
                 600: {items: 2},
                 768: {items: 2},
                 992: {items: 3},

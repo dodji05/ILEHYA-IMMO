@@ -107,7 +107,7 @@ class SearchPorpertyFormType extends AbstractType
 //            ->add('prix_min',IntegerType::class)
             ->add('prix_max', IntegerType::class, [
                 'attr' => [
-                    'placeholder' => 'Prix maximun',]
+                    'placeholder' => 'Prix maximun (en fcfa)',]
             ])
 
         ;

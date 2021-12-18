@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\EstimationTerrain;
 use App\Entity\Souszone;
 use App\Estimation\EstimationMaisonData;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -24,7 +25,7 @@ class EstimationTerrainType extends AbstractType
 
 
             ])
-            ->add('superficeTerrain', IntegerType::class, [
+            ->add('suoerficieTerrain', IntegerType::class, [
                 "attr" => [
                     'label' => 'Superfice du terrain en metre carré'
                 ],
@@ -50,7 +51,7 @@ du goudron?',
                 'multiple' => false,
                 "label" => 'Etes-vous proprietaire?',
             ])
-            ->add('ojectifs', ChoiceType::class,[
+            ->add('objectifs', ChoiceType::class,[
                     'choices' => [
                         'Mettre en vente' => 'Mettre en vente',
                         'Projet d\'achat' => 'Projet d\'achat',
@@ -69,14 +70,15 @@ du goudron?',
             ->add('telephone', null, [
                 "attr" => [
                     'label' => 'Votre numéro de téléphone'
-                ]
+                ],
+                "required" =>true
             ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => EstimationMaisonData::class,
+            'data_class' => EstimationTerrain::class,
 //            'method' => 'GET',
 //            'csrf_protection' => false
         ]);

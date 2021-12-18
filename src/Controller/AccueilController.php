@@ -111,10 +111,10 @@ class AccueilController extends AbstractController
         $form = $this->createForm(SearchPorpertyFormType::class, $datasearch);
 
         if ($nature === 'a-vendre') {
-            $titre = "Biens Immobiliers à vendre";
+            $titre = "Biens immobiliers à vendre";
             $biens = $proprietesRepository->natureannonces(1);
         } else {
-            $titre = "Biens Immobiliers à louer";
+            $titre = "Biens immobiliers à louer";
             $biens = $proprietesRepository->natureannonces(2);
         }
         return $this->render('FrontEnd/listing.html.twig', [
@@ -200,9 +200,20 @@ class AccueilController extends AbstractController
                 $titre = "Biens Immobiliers à louer";
                 $biens = $proprietesRepository->natureannonces(2);
                 break;
-
+            case 'parcelle-vide':
+                $titre = "Parcelle vide";
+                $biens =  $proprietesRepository->proprieteParCategorie($nature);
+                break;
+            case 'appartement-vide':
+                $titre = "Appartement vide";
+                $biens =  $proprietesRepository->proprieteParCategorie($nature);
+                break;
+            case 'bureau':
+                $titre = "Bureau";
+                $biens =  $proprietesRepository->proprieteParCategorie($nature);
+                break;
             default:
-                $titre = "Biens Immobiliers à louer" . $nature;
+                $titre = "" . $nature;
                 $biens = $proprietesRepository->proprieteParCategorie($nature);
                 break;
 

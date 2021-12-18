@@ -1,7 +1,7 @@
 {% extends 'FrontEnd/base.html.twig' %}
 {% block style %}
     {# <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.0/nouislider.min.css" integrity="sha512-6JqGSqQ++AEggYltdgSse8pKG90U/5U0bbkZoa94uSDG/BhI5YpYcy2LyWPWjXu40lUVEgEKHZ/2hCrwQvbODw==" crossorigin="anonymous" /> #}
-    list-titre
+
     <style>
         @media screen and (min-width: 320px) and (max-width: 575px) {
 
@@ -14,22 +14,23 @@
         }
     </style>
 {% endblock %}
-{% block navbar %}
+{# {% block navbar %}
     {% include 'FrontEnd/partials/_navbar_fixed_top.html.twig' %}
 
-{% endblock %}
+
+{% endblock %} #}
 {% block content %}
 
 
-    <section class="section__breadcrumb bg-theme-overlay" style="margin-top: 80px;margin-bottom: 0!important; ">
-        <div class="container">
-            <div class="row d-flex justify-content-center">
-                <div class="col-md-8 text-center" >
-                    <br/> <br/>
-                </div>
-            </div>
-        </div>
-    </section>
+{#    <section class="section__breadcrumb bg-theme-overlay" style="margin-top: 80px;margin-bottom: 0!important; ">#}
+{#        <div class="container">#}
+{#            <div class="row d-flex justify-content-center">#}
+{#                <div class="col-md-8 text-center" >#}
+{#                    <br/> <br/>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </section>#}
 
 
     <section class="search__area bg__shadow" style="padding: 00px!important; ">
@@ -43,7 +44,7 @@
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="col-md-8 text-center">
-                    <h2 class="text-capitalize">{{ titre }}</h2>
+                    <h2 >{{ titre }}</h2>
 
                 </div>
             </div>
@@ -369,7 +370,7 @@
 
                 </div>
                 <div class="col-lg-3">
-                    <a href="#" class="btn btn-light text-uppercase ">Estimer
+                    <a href="{{ path('estimation ') }}" class="btn btn-light text-uppercase ">Estimer
                         <i class="fa fa-angle-right ml-3 arrow-btn "></i></a>
                 </div>
             </div>

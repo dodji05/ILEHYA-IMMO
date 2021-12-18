@@ -124,6 +124,11 @@ class Proprietes
     private $slug;
 
     /**
+     * @ORM\OneToMany(targetEntity=Booking::class, mappedBy="appartement")
+     */
+    private $bookings;
+
+    /**
      * Proprietes constructor.
      */
     public function __construct()
@@ -139,9 +144,35 @@ class Proprietes
         $this->proprietesImages = new ArrayCollection();
 
 //        $this->Quartier = "98";
+$this->bookings = new ArrayCollection();
     }
+ /**
+     * Cette fonction permet d'obtenir un tableau des jours qui ne sont pas disponibles pour cette annonce
+     *
+     * @return array Un tableau d'objets DateTime représentant les jours d'occupation
+     */
+    public function getNotAvailableDays()
+    {
+        $notAvailableDays = [];
 
+        foreach ($this->bookings as $booking) {
+            // Calculer les jours qui se trouvent entre la date d'arrivée et de départ
+            $resultat = range(
+                $booking->getStartDate()->getTimestamp(),
+                $booking->getEndDate()->getTimeStamp(),
+                24 * 60 * 60
+            );
 
+            // Représentation du tableau resultat sous la forme de dates entre la date d'arrivée et la date de départ
+            $days = array_map(function ($dayTimestamp) {
+                return new \DateTime(date('Y-m-d', $dayTimestamp));
+            }, $resultat);
+
+            $notAvailableDays = array_merge($notAvailableDays, $days);
+        }
+
+        return $notAvailableDays;
+    }
     public function getId(): ?int
     {
         return $this->id;
@@ -427,6 +458,36 @@ class Proprietes
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * @return Collection|Booking[]
+     */
+    public function getBookings(): Collection
+    {
+        return $this->bookings;
+    }
+
+    public function addBooking(Booking $booking): self
+    {
+        if (!$this->bookings->contains($booking)) {
+            $this->bookings[] = $booking;
+            $booking->setAppartement($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBooking(Booking $booking): self
+    {
+        if ($this->bookings->removeElement($booking)) {
+            // set the owning side to null (unless already changed)
+            if ($booking->getAppartement() === $this) {
+                $booking->setAppartement(null);
+            }
+        }
+
+        return $this;
     }
 
 

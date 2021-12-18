@@ -3,13 +3,15 @@
     <div class="card__image card__box">
         <div class="card__image-header h-250">
             {% if affichage is defined %}
-                <div class="ribbon text-uppercase">Nouveau</div>
+                <div class="ribbon-feat text-uppercase">Nouveau</div>
             {% endif %}
 
             {% for img in bien.proprietesImages %}
                 {% if loop.first %}
-                    <img src="{{ asset('images/immobiliers/') }}{{ img.name }}" alt=""
+                <a href="{{ path('proprietes_show',{'contrattype': bien.typeOptions.contratypes.slug,'proprietetype':bien.proprieteOptions.proprietes.Slug,'slug': bien.slug}) }}">
+                    <img src="{{ asset('images/immobiliers/') }}{{ img.name }}" alt="{{ bien.slug}}"
                          class="img-fluid w100 img-transition">
+                         </a>
                 {% endif %}
 
             {% endfor %}
@@ -33,12 +35,12 @@
 
             </h6>
 
-            <p class="text-capitalize">
+            {# <p class="text-capitalize">
                 <i class="fa fa-map-marker"></i>
-                {# {{ bien.quartier }}, #}
+                {{ bien.quartier }},
                 {{ bien.quartier ? bien.quartier.LibQuart  : '' }},
                 {{ bien.adresse }}
-            </p>
+            </p> #}
             <ul class="list-inline card__content">
                 {{ bien.proprieteOptions.nbreEtage }}#}
                 {% if bien.proprieteOptions.nbreDouche %}

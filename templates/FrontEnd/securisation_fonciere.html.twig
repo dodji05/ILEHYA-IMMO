@@ -58,9 +58,9 @@ Sécurisation Fonciére
         }
 
         .section__breadcrumb-v1 h1, h2 {
-            /* font-family: "lato", serif;*/
-            color: #ff9000;
-            font-family: "Montserrat Bold"
+            color: #134363;
+            font-family: "Montserrat Bold";
+            font-size: 22px;
         }
 
         @media screen and (min-width: 320px) and (max-width: 575px) {
@@ -88,21 +88,21 @@ Sécurisation Fonciére
         @media screen and (min-width: 320px) and (max-width: 575px) {
 
             .align-items-center img {
-                width: 100%;
+                /*width: 100%;*/
             }
 
             .align-items-center h3 {
-                font-size: 21px;
+                font-size: 19px;
             }
 
         }
     </style>
 
 {% endblock %}
- {% block navbar %}
+ {# {% block navbar %}
      {% include 'FrontEnd/partials/_navbar_fixed_top.html.twig' %}
 
- {% endblock %}
+ {% endblock %} #}
 
 {% block content %}
     {# <div class="en-tete"> #}
@@ -132,7 +132,7 @@ Sécurisation Fonciére
                 <div class="col-lg-12">
                     <div class="section__breadcrumb-v1">
                         <div style="padding: 20px;">
-                            <h1 style="text-align: center;">Sécurisation Fonciére</h1></div>
+                            <h1>Sécurisation Fonciére</h1></div>
 
                     </div>
                 </div>
@@ -143,10 +143,10 @@ Sécurisation Fonciére
     <section style="padding-top: 30px">
         <div class="container decr">
             <div class="row d-flex align-items-center">
-                <div class="col-md-2 col-4">
+                <div class="col-md-2 col-12">
                     <img src="{{ asset('images/app/securisation_fonciere/que-dit-la-loi-ilehya.png') }}" alt="" width="175px">
                 </div>
-                <div class="col-md-10 col-8">
+                <div class="col-md-10 col-12">
                     <h2 style="color: #212529"> Que dit la loi? </h2>
                 </div>
             </div>
@@ -243,7 +243,7 @@ Sécurisation Fonciére
              <div class="col-6 col-md-3">
                   <a href="{{ path('infos_fonciere_new') }}">
                     <figure class="figure">
-                        <img src="{{ asset('images/app/securisation_fonciere/Securisation-fonciere-Benin.jpg') }}" class="img-fluid z-depth-1"
+                        <img src="{{ asset('images/app/securisation_fonciere/titre-foncier.jpg') }}" class="img-fluid z-depth-1"
                              alt="Rénovation maison" style="width:  100%">
                         <figcaption class="figure-caption text-center card-text">
                           L’obtention du TF </figcaption>
@@ -254,8 +254,8 @@ Sécurisation Fonciére
              <div class="col-6 col-md-3">
                        <a href="{{ path('infos_fonciere_new') }}">
                     <figure class="figure">
-                        <img src="{{ asset('images/app/securisation_fonciere/recasement.png') }}" class="img-fluid z-depth-1"
-                             alt="Rénovation maison" style="width:  100%">
+                        <img src="{{ asset('images/app/securisation_fonciere/morcellement.jpg') }}" class="img-fluid z-depth-1"
+                             alt="Rénovation maison" style="height:  100%">
                         <figcaption class="figure-caption text-center card-text">
                        Plan et morcellement</figcaption>
                     </figure>
