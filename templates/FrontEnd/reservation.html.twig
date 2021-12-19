@@ -1,0 +1,259 @@
+{% extends 'FrontEnd/base.html.twig' %}
+{% block style %}
+    <link href="{{ asset('FrontEnd/house/css/jquery.steps.css') }}" rel="stylesheet">
+    <link href="{{ asset('BackEnd/assets/plugins/autocomplete/css/autoComplete.css') }}" rel="stylesheet">
+
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"
+            integrity="sha512-mSYUmp1HYZDFaVKK//63EcZq4iFWFjxSL+Z3T/aCt4IO9Cejm03q3NKKYN6pFQzY0SBOr8h+eCIAZHPXcpZaNw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+    {# <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.0/nouislider.min.css" integrity="sha512-6JqGSqQ++AEggYltdgSse8pKG90U/5U0bbkZoa94uSDG/BhI5YpYcy2LyWPWjXu40lUVEgEKHZ/2hCrwQvbODw==" crossorigin="anonymous" /> #}
+    <style>
+        .boxify {
+            border-radius: 1.25rem;
+            border-style: solid;
+            border-width: 1px;
+            margin: 10px;
+            border-color: #cbcbcb;
+            -webkit-box-shadow: 0 1px 8px 0 rgb(0 0 0 / 8%);
+            box-shadow: 0 1px 8px 0 rgb(0 0 0 / 8%);
+            background-color: #fff;
+        }
+
+        .css-1ecdjof {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .col-sm-offset-3 {
+            margin-left: 25%;
+        }
+
+        /*@media (min-width: 768px) {*/
+        /*    .col-sm-offset-3 {*/
+        /*        margin-left: 25%;*/
+        /*    }*/
+        /*}*/
+
+        .css-1biltnr {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 15px;
+            display: block;
+        }
+
+        .btn-primary-custom {
+            color: #fff;
+            background-color: #0f3f60;
+            border-color: #ffeba5;
+            padding: 10px 30px;
+            font-size: 14px;
+            line-height: 18px;
+            border-radius: 50px;
+        }
+
+        @media screen and(min-width: 320px) and(max-width: 575px) {
+            .col-sm-offset-3 {
+                margin-left: 0 !important;
+            }
+
+            .mb-10 {
+                font-size: 16px;
+            }
+
+        }
+    </style>
+{% endblock %}
+{# {% block navbar %}
+     {% include 'FrontEnd/partials/_navbar_fixed_top.html.twig' %}
+
+ {% endblock %} #}
+{% block content %}
+
+    <section>
+    <h4 class="text-center mb-10">
+        Réservation du bien :
+        <em>{{ propriete.libelle }}
+        </em>
+    </h4>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5  col-7 boxify css-1ecdjof">
+                {{ form_start(form) }}
+                <div class="form-group row">
+
+                    <div class="col">
+                        {{ form_widget(form.DateDebut) }}
+                    </div>
+                    <div class="col">
+                        {{ form_widget(form.DateFin) }}
+                    </div>
+
+                </div>
+
+
+                <div class="form-group row">
+                    {{ form_widget(form.Nom) }}
+                </div>
+                <div class="form-group row">
+                    {{ form_widget(form.Premon) }}
+                </div>
+                <div class="form-group row">
+                    {{ form_widget(form.Telephone) }}
+                </div>
+                <div class="form-group row">
+                    {{ form_widget(form.Email) }}
+                </div>
+                <div class="form-group row">
+                    {{ form_widget(form.note) }}
+                </div>
+
+                <button class="css-1biltnr btn btn-lg btn-primary-custom"
+                        type="submit">{{ button_label|default('Envoyer votre demande') }}</button>
+
+                {{ form_end(form) }}
+            </div>
+            <div class="col-sm-5 col-5  css-1ecdjof">
+                <!-- ONE -->
+                <div class="card__image card__box">
+                    <div class="card__image-header h-200">
+
+
+                        {% for img in propriete.proprietesImages %}
+                            {% if loop.first %}
+                                <a href="{{ path('proprietes_show',{'contrattype': propriete.typeOptions.contratypes.slug,'proprietetype':propriete.proprieteOptions.proprietes.Slug,'slug': propriete.slug}) }}">
+                                    <img src="{{ asset('images/immobiliers/') }}{{ img.name }}"
+                                         alt="{{ propriete.slug }}"
+                                         class="img-fluid w100 img-transition">
+                                </a>
+                            {% endif %}
+
+                        {% endfor %}
+
+
+                    </div>
+                    <div class="card__image-body">
+
+                        <h6 class="text-capitalize">
+                            <a href="{{ path('proprietes_show',{'contrattype': propriete.typeOptions.contratypes.slug,'proprietetype':propriete.proprieteOptions.proprietes.Slug,'slug': propriete.slug}) }}">
+                                {% if propriete.libelle | length > 41 %}
+                                    {{ propriete.libelle | slice(0,45) }}...
+                                {% else %}
+                                    {{ propriete.libelle }}
+                                {% endif %}
+
+                            </a>
+
+                        </h6>
+
+
+{#                        <ul class="list-inline card__content">#}
+{#                            {{ propriete.proprieteOptions.nbreEtage }}#}
+{#                            {% if propriete.proprieteOptions.nbreDouche %}#}
+{#                                <li class="list-inline-item">#}
+{#                                            <span>#}
+{#                                                Douche <br>#}
+{#                                                <i class="fa fa-bath"></i> {{ propriete.proprieteOptions.nbreDouche }}#}
+{#                                            </span>#}
+{#                                </li>#}
+{#                            {% endif %}#}
+{#                            {% if propriete.proprieteOptions.nbreChambre %}#}
+{#                                <li class="list-inline-item">#}
+{#                                            <span>#}
+{#                                                Chambres <br>#}
+{#                                                <i class="fa fa-bed"></i> {{ propriete.proprieteOptions.nbreChambre }}#}
+{#                                            </span>#}
+{#                                </li>#}
+{#                            {% endif %}#}
+{#                            {% if propriete.proprieteOptions.nbreSalon %}#}
+{#                                <li class="list-inline-item">#}
+{#                                            <span>#}
+{#                                                Salon <br>#}
+{#                                                <i class="fa fa-inbox"></i> {{ propriete.proprieteOptions.nbreSalon }}#}
+{#                                            </span>#}
+{#                                </li>#}
+{#                            {% endif %}#}
+
+
+{#                        </ul>#}
+                        <div class="container">
+                            <div class="form-group row">
+
+                                <div class="col">
+                                    Nuité :
+                                </div>
+                                <div class="col">
+                                    22
+                                </div>
+
+                            </div>
+                            <div class="form-group row">
+
+                                <div class="col">
+                                    loyer :
+                                </div>
+                                <div class="col">
+                                    {{ propriete.typeOptions.loyer | number_format(2, ',', ' ') }}
+                                    par mois
+                                </div>
+                                <hr>
+                            </div>
+                            <div class="form-group row">
+
+                                <div class="col">
+                                    Tarif pour
+                                    <span id="days">0</span>
+                                    nuit(s)
+</div>
+                                    <div class="col">
+                                         {{ propriete.typeOptions.loyer | number_format(2, ',', ' ') }}
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                              <div class="col">
+                             <h4 class="mt-2">Montant du séjour :
+                                        <span id="amount"></span>
+                                        CFA</h4>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div></section>{% endblock %}{% block javascripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"
+            integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function () {
+            $('#booking_DateDebut, #booking_DateFin').datepicker({
+                language: "fr",
+                format: 'dd/mm/yyyy',
+                datesDisabled: [{% for day in propriete.notAvailableDays %}"{{ day.format('d/m/Y') }}",{% endfor %}],
+                startDate: new Date()
+            });
+
+            $('#booking_DateDebut, #booking_DateFin').on('change', calculateAmount);
+        });
+
+        function calculateAmount() { // On prends les dates
+            const endDate = new Date($('#booking_DateFin').val().replace(/(\d+)\/(\d+)\/(\d{4})/, '$3-$2-$1'));
+            const startDate = new Date($('#booking_DateDebut').val().replace(/(\d+)\/(\d+)\/(\d{4})/, '$3-$2-$1'));
+
+            if (startDate && endDate && startDate < endDate) {
+                const interval = endDate.getTime() - startDate.getTime();
+                const days = interval / (24 * 60 * 60 * 1000);
+                const amount = days * {{ propriete.typeOptions.loyer }};
+
+                $('#days').text(days);
+                $('#amount').text(amount.toLocaleString('fr-FR'));
+            }
+        }</script>{% endblock %}
+

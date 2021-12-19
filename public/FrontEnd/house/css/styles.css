@@ -26024,17 +26024,18 @@ input[type="number"] {
     backface-visibility: hidden;
     background-color: #ff9000;
     color: #fff;
-    font-size: 14px;
+    font-size: 12px;
     font-family: "Lato", sans-serif;
-    padding: 6px;
+    /* padding: 6px; */
+    padding: 2px 5px;
     position: absolute;
     z-index: 3;
-    left: -30px;
-    top: 15px;
-    width: 120px;
+    left: 10px;
+    top: 10px;
+    width: 90px;
     text-align: center;
     margin: auto;
-    height: 30px;
+    height: 20px;
     bottom: inherit;
     right: inherit
 }

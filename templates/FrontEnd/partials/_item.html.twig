@@ -99,9 +99,16 @@
         <div class="card__image-footer">
 
             <ul class="list-inline my-auto ml-auto">
+            {% if bien.ProprieteOptions.Proprietes.id == 5 %}
+             <li class="list-inline-item ">
+                 <a class="btn btn-success" href="{{path('proprietes_reservation',{'slug': bien.slug}) }}">
+                                Réserver
+                 </a>
+
+                                    </li>
+            {% endif %}              
+
                 <li class="list-inline-item ">
-
-
                     <h6>  {{ bien.typeOptions.montant ?  (bien.typeOptions.montant|number_format(0, ' ', ' ')) ~' Cfa': '' }}
                         {{ bien.typeOptions.loyer ? (bien.typeOptions.loyer|number_format(0, ' ', ' '))~' Cfa/mois' : '' }}
                     </h6>
