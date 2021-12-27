@@ -7,17 +7,22 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 class BookingType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
            
-            ->add('DateDebut', TextType::class,[
+            ->add('DateDebut', DateType::class,[
+                'widget' => 'single_text',
+                'html5' => false,
                 'attr' => [
                     'placeholder'=>' Arrivé',
                 ],])
-            ->add('DateFin', TextType::class,[
+            ->add('DateFin',  DateType::class,[
+                'widget' => 'single_text',
+                'html5' => false,
                 'attr' => [
                     'placeholder'=>' Départ',
                 ],])
