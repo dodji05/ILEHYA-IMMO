@@ -374,18 +374,7 @@
  {% endblock %} #}
 {% block content %}
     <!-- BREADCRUMB -->
-    <div class="bg-theme-overlay" style="margin-top: 50px;margin-bottom: 60px;">
-        <section class="section__breadcrumb ">
-            <div class="container">
-{#                <div class="row d-flex justify-content-center">#}
-{#                    <div class="col-md-8 text-center">#}
-{#                        <h2 class="text-capitalize text-white">ESTIMATION D'UN TERRAIN NU</h2>#}
 
-{#                    </div>#}
-{#                </div>#}
-            </div>
-        </section>
-    </div>
     <!-- END BREADCRUMB -->
     <div class="clearfix"></div>
     {# {{ fo rm_start(form, {'attr':{'id' :'wizard_with_validation'}}) }} #}
@@ -408,13 +397,14 @@
 
             </div>
             <div class="col-md-8">
-
-                {% form_theme form 'bootstrap_4_layout.html.twig' %}
-
                 <div class="form-group">
                     <br>
                     <h4> Arrondissement : {{ zone }} </h4>
                 </div>
+                {{ form_start(form) }}
+                {% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+
                 {{ form_widget(form) }}
 
                 <button type="submit" class="btn btn-success btn-cicle"> Estimer mon bien</button>
