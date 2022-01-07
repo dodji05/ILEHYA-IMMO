@@ -115,13 +115,16 @@
     <section class="search__area bg-light" >
         <div class="container">
             <div class="row">
-                <div class="col-12 col-md-12">
+                <div class="col-12 col-md-4">
                   <h4 style="color: #ff9000">  SOCIETE CIVILE IMMOBILIERE </h4>
                     <ul>
                         <li> Gestion d'actifs immobiliérs </li>
                         <li> Construction et renovation  </li>
                         <li> Estimation de bien immobilier  </li>
                     </ul>
+                </div>
+                <div class="col-12 col-md-8 d-sm-block d-none">
+                    <img src="{{ asset('images/app/pub/banniere-publicitaire.png') }}" width="100%">
                 </div>
 {#                <div class="col-6 col-md-6">#}
 {#                    <ul>#}
@@ -192,6 +195,16 @@
     </div>
 
     {% include 'FrontEnd/partials/_recent_porperty.html.twig' with {'nature_annonce': 'terre'} %}
+
+    <div class="container d-block d-sm-none">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12 col-lg-12 text-center">
+
+                    <img src="{{ asset('images/app/pub/banniere-publicitaire.png') }}" alt="" width="100%" class="img-fluid">
+
+            </div>
+        </div>
+    </div>
 
     <!-- ABOUT -->
     {# {% include 'FrontEnd/partials/_about.html.twig' %} #}
