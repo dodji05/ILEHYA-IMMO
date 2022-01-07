@@ -7536,8 +7536,8 @@
             filter: ["width", "items", "settings"], run: function () {
                 var t = this.settings.stagePadding, e = this._coordinates, i = {
                     width: Math.ceil(Math.abs(e[e.length - 1])) + 2 * t,
-                    "padding-left": t || "",
-                    "padding-right": t || ""
+                    "padding-left": t || ""
+                    // ,                    "padding-right": t || ""
                 };
                 this.$stage.css(i)
             }
@@ -15456,17 +15456,17 @@
             responsive: {0: {items: 1}, 480: {items: 1}, 600: {items: 1}, 1e3: {items: 1}}
         }), $(".recent__property-carousel").owlCarousel({
             loop: !1,
-            margin: 25,
+            margin: 10,
 
             nav: !0,
             dots: !1,
-            autoplay: 0,
-            stagePadding: 50,
+            autoplay: !0,
+
             navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
             smartSpeed: 1200,
             autoHeight: !1,
             responsive: {
-                0: {items: 1, nav: !0, stagePadding: 50, margin: 20},
+                0: {items: 1.3, nav: !0, },
                 480: {items: 1,nav: !0},
                 600: {items: 2},
                 768: {items: 2},
