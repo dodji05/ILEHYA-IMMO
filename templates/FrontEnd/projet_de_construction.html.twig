@@ -1,6 +1,9 @@
 {% extends 'FrontEnd/base.html.twig' %}
 {% block style %}
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+          integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"/>
     <style>
         .resimg {
             margin: 0px;
@@ -55,7 +58,7 @@
             font-family: "Lato", serif;
             font-weight: 900;
             margin-top: 15px;
-    font-size: 19px;
+            font-size: 19px;
             line-height: 1.5;
             text-align: center;
         }
@@ -75,6 +78,7 @@
             line-height: 1.6;
             text-align: justify;
         }
+
         .decr1 {
             font-size: 18px;
             line-height: 1.6;
@@ -90,17 +94,17 @@
 
 {% block content %}
 
-{#     <div class="container-fluid">#}
-{#     <div class="row resimg" style="min-width: 1905px; left: 0px; width: 1905px;">#}
-{#     <img src="{{ asset('images/app/construction/construction.jpg') }}" class="resimg">#}
-{#     </div>#}
-{#     </div>#}
+    {#     <div class="container-fluid"> #}
+    {#     <div class="row resimg" style="min-width: 1905px; left: 0px; width: 1905px;"> #}
+    {#     <img src="{{ asset('images/app/construction/construction.jpg') }}" class="resimg"> #}
+    {#     </div> #}
+    {#     </div> #}
 
-{#    <section id="subheader" data-speed="8" data-type="background"#}
-{#     style="background:url({{ asset('images/app/construction/construction.jpg') }})top fixed;height: 675px;text-align: center;">#}
-{#     <!--<div data-aos="fade-up" class="aos-init aos-animate"> <h1>E-commerce</h1> <h2>La performance e-commerce pour développer votre activité de vente en ligne</h2> </div>-->#}
+    {#    <section id="subheader" data-speed="8" data-type="background" #}
+    {#     style="background:url({{ asset('images/app/construction/construction.jpg') }})top fixed;height: 675px;text-align: center;"> #}
+    {#     <!--<div data-aos="fade-up" class="aos-init aos-animate"> <h1>E-commerce</h1> <h2>La performance e-commerce pour développer votre activité de vente en ligne</h2> </div>--> #}
 
-{#     </section>#}
+    {#     </section> #}
     <div class="bg-light">
         <div class="container">
             <div class="row">
@@ -186,34 +190,37 @@
                         <li></li>
                     </ul>
                 </div>
-                
 
 
             </div>
         </div>
         <div class="container decr">
             <div class="row" style=" margin-bottom: 20px;">
-            <div class="col-6 col-md-4">
-               
+                <div class="col-6 col-md-4">
+
                     <figure class="figure">
-                        <img src="{{ asset('images/app/construction/plan_architectural_construction_Benin.jpg') }}" class="img-fluid z-depth-1"
+                        <img src="{{ asset('images/app/construction/plan_architectural_construction_Benin.jpg') }}"
+                             class="img-fluid z-depth-1"
                              alt="Plan architectural" style="width:  100%">
                         <figcaption class="figure-caption text-center card-text">
-                         Plan architectural  </figcaption>
+                            Plan architectural
+                        </figcaption>
                     </figure>
-              
-            </div>
-            
-            <div class="col-6 col-md-4">
-               
+
+                </div>
+
+                <div class="col-6 col-md-4">
+
                     <figure class="figure">
-                        <img src="{{ asset('images/app/construction/ouvrir-un-cabinet-darchitecte.jpg') }}" class="img-fluid z-depth-1"
+                        <img src="{{ asset('images/app/construction/ouvrir-un-cabinet-darchitecte.jpg') }}"
+                             class="img-fluid z-depth-1"
                              alt="Plan architectural" style="width:  100%">
                         <figcaption class="figure-caption text-center card-text">
-                         Étude Génie civil  </figcaption>
+                            Étude Génie civil
+                        </figcaption>
                     </figure>
-              
-            </div>
+
+                </div>
                 {# <div class="col-md-4 col-sm-2">
                     <div class="card">
                         <img class="card-img-top"
@@ -225,203 +232,224 @@
                     </div>
 
                 </div> #}
-            <div class="col-6 col-md-4">
-               
+                <div class="col-6 col-md-4">
+
                     <figure class="figure">
-                        <img src="{{ asset('images/app/construction/etude_geothechnique_ILEHYA_PROPERTY.jpg') }}" class="img-fluid z-depth-1"
+                        <img src="{{ asset('images/app/construction/etude_geothechnique_ILEHYA_PROPERTY.jpg') }}"
+                             class="img-fluid z-depth-1"
                              alt="Etudes géotechniques" style="width:  100%">
                         <figcaption class="figure-caption text-center card-text">
-                         Etudes géotechniques  </figcaption>
+                            Etudes géotechniques
+                        </figcaption>
                     </figure>
-               
-            </div>
-             <div class="col-6 col-md-4">
-               
+
+                </div>
+                <div class="col-6 col-md-4">
+
                     <figure class="figure">
-                        <img src="{{ asset('images/app/construction/construction_maison.jpg') }}" class="img-fluid z-depth-1"
+                        <img src="{{ asset('images/app/construction/construction_maison.jpg') }}"
+                             class="img-fluid z-depth-1"
                              alt="Construction maison" style="width:  100%">
                         <figcaption class="figure-caption text-center card-text">
-                        Construction maison </figcaption>
+                            Construction maison
+                        </figcaption>
                     </figure>
-               
-            </div>
+
+                </div>
                 <div class="col-6 col-md-4">
-               
+
                     <figure class="figure">
                         <img src="{{ asset('images/app/construction/renovation.jpg') }}" class="img-fluid z-depth-1"
                              alt="Rénovation maison" style="width:  100%">
                         <figcaption class="figure-caption text-center card-text">
-                       Rénovation maison </figcaption>
+                            Rénovation maison
+                        </figcaption>
                     </figure>
-               
+
                 </div>
 
-          
+
                 <div class="col-6 col-md-4">
-               
+
                     <figure class="figure">
-                        <img src="{{ asset('images/app/construction/energie_solaire_LEHYA_PROPERTY_benin.jpg') }}" class="img-fluid z-depth-1"
+                        <img src="{{ asset('images/app/construction/energie_solaire_LEHYA_PROPERTY_benin.jpg') }}"
+                             class="img-fluid z-depth-1"
                              alt="Rénovation maison" style="width:  100%">
                         <figcaption class="figure-caption text-center card-text">
-                      Énergie photovoltaïque </figcaption>
+                            Énergie photovoltaïque
+                        </figcaption>
                     </figure>
-               
-                </div>
-                 
-                
-            </div>
-          
-            
-        </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-lg-6 mx-auto">
-                <div class="title__head">
-                    <h2 class="text-center">
-                       Projet Type
-                    </h2>
 
                 </div>
 
-            </div>
-            <div>
-                <p class="decr1"> Projet de construction d'une maison RDC de type F4, 3 chambres un salon 3 douches une toillete visiteurs</p>
-                <p class="decr1"> Coût estimatif : 32 000 000 FCFA</p>
+
             </div>
 
-            <div class="clearfix"></div>
-        </div>
-    </div>
-      <div class="container">
-        <div class="row">
-<!-- SLIDER IMAGE DETAIL -->
-<div class="slider__image__detail-large-two owl-carousel owl-theme">
-   
-   
-        
-        <div class="item">
-            <div class="slider__image__detail-large-one">
-                <a data-fancybox="gallery" href="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0000.jpg') }}">
 
-                    <img src="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0000.jpg') }}" 
-                         class="img-fluid w-100 img-transition"/>
-                   
-                </a>
-            </div>
         </div>
-        <div class="item">
-            <div class="slider__image__detail-large-one">
-                <a data-fancybox="gallery" href="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0001.jpg') }}">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-lg-6 mx-auto">
+                    <div class="title__head">
+                        <h2 class="text-center">
+                            Projet Type
+                        </h2>
 
-                    <img src="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0001.jpg') }}"
-                         class="img-fluid w-100 img-transition"/>
-                   
-                </a>
-            </div>
-        </div>
-        <div class="item">
-            <div class="slider__image__detail-large-one">
-                <a data-fancybox="gallery" href="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0002.jpg') }}">
+                    </div>
 
-                    <img src="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0002.jpg') }}"
-                         class="img-fluid w-100 img-transition"/>
-                   
-                </a>
-            </div>
-        </div>
-        <div class="item">
-            <div class="slider__image__detail-large-one">
-                <a data-fancybox="gallery" href="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0003.jpg') }}">
+                </div>
+                <div>
+                    <p class="decr1"> Projet de construction d'une maison RDC de type F4, 3 chambres un salon 3 douches
+                        une toillete visiteurs</p>
+                    <p class="decr1"> Coût estimatif : 32 000 000 FCFA</p>
+                </div>
 
-                    <img src="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0003.jpg') }}"
-                         class="img-fluid w-100 img-transition"/>
-                   
-                </a>
+                <div class="clearfix"></div>
             </div>
         </div>
-        <div class="item">
-            <div class="slider__image__detail-large-one">
-                <a data-fancybox="gallery" href="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0004.jpg') }}">
+        <div class="container">
+            <div class="row">
+                <!-- SLIDER IMAGE DETAIL -->
+                <div class="slider__image__detail-large-two owl-carousel owl-theme">
 
-                    <img src="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0004.jpg') }}"
-                         class="img-fluid w-100 img-transition"/>
-                   
-                </a>
-            </div>
-        </div>
-        <div class="item">
-            <div class="slider__image__detail-large-one">
-                <a data-fancybox="gallery" href="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0005.jpg') }}">
 
-                    <img src="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0005.jpg') }}"
-                         class="img-fluid w-100 img-transition"/>
-                   
-                </a>
-            </div>
-        </div>
-    
-<div class="item">
-            <div class="slider__image__detail-large-one">
-                <a data-fancybox="gallery" href="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0006.jpg') }}">
+                    <div class="item">
+                        <div class="slider__image__detail-large-one">
+                            <a data-fancybox="gallery"
+                               href="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0000.jpg') }}">
 
-                    <img src="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0006.jpg') }}"
-                         class="img-fluid w-100 img-transition"/>
-                   
-                </a>
-            </div>
-        </div>
+                                <img src="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0000.jpg') }}"
+                                     class="img-fluid w-100 img-transition"/>
 
-</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="slider__image__detail-large-one">
+                            <a data-fancybox="gallery"
+                               href="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0001.jpg') }}">
 
-<div class="slider__image__detail-thumb-two owl-carousel owl-theme">
-  
-        <div class="item">
-            <div class="slider__image__detail-thumb-one">
-                <img src="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0000.jpg') }}" class="img-fluid w-100 img-transition">
-            </div>
-        </div>
-        
-        <div class="item">
-            <div class="slider__image__detail-thumb-one">
-                <img src="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0001.jpg') }}" class="img-fluid w-100 img-transition">
-            </div>
-        </div>
-        
-        <div class="item">
-            <div class="slider__image__detail-thumb-one">
-                <img src="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0002.jpg') }}" class="img-fluid w-100 img-transition">
-            </div>
-        </div>
-        
-        <div class="item">
-            <div class="slider__image__detail-thumb-one">
-                <img src="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0003.jpg') }}" class="img-fluid w-100 img-transition">
-            </div>
-        </div>
-        
-        <div class="item">
-            <div class="slider__image__detail-thumb-one">
-                <img src="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0004.jpg') }}" class="img-fluid w-100 img-transition">
-            </div>
-        </div>
-        
-        <div class="item">
-            <div class="slider__image__detail-thumb-one">
-                <img src="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0005.jpg') }}" class="img-fluid w-100 img-transition">
-            </div>
-        </div>
-        
-        <div class="item">
-            <div class="slider__image__detail-thumb-one">
-                <img src="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0008.jpg') }}" class="img-fluid w-100 img-transition">
-            </div>
-        </div>
-   
+                                <img src="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0001.jpg') }}"
+                                     class="img-fluid w-100 img-transition"/>
 
-</div>
-<!-- END SLIDER IMAGE DETAIL -->
-        </div>
-        <div class="row descr mt-10" style="margin-top: 25px;">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="slider__image__detail-large-one">
+                            <a data-fancybox="gallery"
+                               href="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0002.jpg') }}">
+
+                                <img src="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0002.jpg') }}"
+                                     class="img-fluid w-100 img-transition"/>
+
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="slider__image__detail-large-one">
+                            <a data-fancybox="gallery"
+                               href="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0003.jpg') }}">
+
+                                <img src="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0003.jpg') }}"
+                                     class="img-fluid w-100 img-transition"/>
+
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="slider__image__detail-large-one">
+                            <a data-fancybox="gallery"
+                               href="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0004.jpg') }}">
+
+                                <img src="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0004.jpg') }}"
+                                     class="img-fluid w-100 img-transition"/>
+
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="slider__image__detail-large-one">
+                            <a data-fancybox="gallery"
+                               href="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0005.jpg') }}">
+
+                                <img src="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0005.jpg') }}"
+                                     class="img-fluid w-100 img-transition"/>
+
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="slider__image__detail-large-one">
+                            <a data-fancybox="gallery"
+                               href="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0006.jpg') }}">
+
+                                <img src="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0006.jpg') }}"
+                                     class="img-fluid w-100 img-transition"/>
+
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="slider__image__detail-thumb-two owl-carousel owl-theme">
+
+                    <div class="item">
+                        <div class="slider__image__detail-thumb-one">
+                            <img src="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0000.jpg') }}"
+                                 class="img-fluid w-100 img-transition">
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="slider__image__detail-thumb-one">
+                            <img src="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0001.jpg') }}"
+                                 class="img-fluid w-100 img-transition">
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="slider__image__detail-thumb-one">
+                            <img src="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0002.jpg') }}"
+                                 class="img-fluid w-100 img-transition">
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="slider__image__detail-thumb-one">
+                            <img src="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0003.jpg') }}"
+                                 class="img-fluid w-100 img-transition">
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="slider__image__detail-thumb-one">
+                            <img src="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0004.jpg') }}"
+                                 class="img-fluid w-100 img-transition">
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="slider__image__detail-thumb-one">
+                            <img src="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0005.jpg') }}"
+                                 class="img-fluid w-100 img-transition">
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="slider__image__detail-thumb-one">
+                            <img src="{{ asset('images/app/construction/projet-type/IMG-20211112-WA0008.jpg') }}"
+                                 class="img-fluid w-100 img-transition">
+                        </div>
+                    </div>
+
+
+                </div>
+                <!-- END SLIDER IMAGE DETAIL -->
+            </div>
+            <div class="row descr mt-10" style="margin-top: 25px;">
                 <div class="col-md-12">
                     <p class="decr1"> Pour nous mandater veillez nous contacter au (+229) 52 74 62 74 ou remplir le
                         formulaire
@@ -429,8 +457,16 @@
                 </div>
 
             </div>
-    </div>
-    
+        </div>
+
+        <div class="row descr mt-10" style="margin-top: 25px">
+            <div class="col-md-12">
+                <h4 style="text-align: center;"> &nbsp; &nbsp;
+                <i class="fa fa-facebook " aria-hidden="true"></i> &nbsp; &nbsp; Visitez notre galerie sur facebook </h4>
+
+            </div>
+        </div>
+
         <div style="margin-top: 25px">
 
             <h1 style="text-align: center;"><a href="{{ path('accueil_demande_devis') }}"
