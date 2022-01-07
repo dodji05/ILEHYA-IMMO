@@ -1,0 +1,89 @@
+{% extends 'FrontEnd/base.html.twig' %}
+{% block style %}
+    <link href="{{ asset('FrontEnd/house/css/jquery.steps.css') }}" rel="stylesheet">
+    <link href="{{ asset('BackEnd/assets/plugins/autocomplete/css/autoComplete.css') }}" rel="stylesheet">
+
+    {# <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.0/nouislider.min.css" integrity="sha512-6JqGSqQ++AEggYltdgSse8pKG90U/5U0bbkZoa94uSDG/BhI5YpYcy2LyWPWjXu40lUVEgEKHZ/2hCrwQvbODw==" crossorigin="anonymous" /> #}
+    <style>
+        .boxify {
+            border-radius: 1.25rem;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #cbcbcb;
+            -webkit-box-shadow: 0 1px 8px 0 rgb(0 0 0 / 8%);
+            box-shadow: 0 1px 8px 0 rgb(0 0 0 / 8%);
+            background-color: #fff;
+        }
+
+        .css-1ecdjof {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .col-sm-offset-3 {
+            margin-left: 25%;
+        }
+
+        @media (min-width: 768px) {
+            .col-sm-offset-3 {
+                margin-left: 25%;
+            }
+        }
+
+        .css-1biltnr {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 15px;
+            display: block;
+        }
+
+        .btn-primary-custom {
+            color: #fff;
+            background-color: #0f3f60;
+            border-color: #ffeba5;
+            padding: 10px 30px;
+            font-size: 14px;
+            line-height: 18px;
+            border-radius: 50px;
+        }
+
+        h4 {
+            line-height : 1.7;
+            font-size : 18px !important;
+        }
+    </style>
+{% endblock %}
+ {# {% block navbar %}
+     {% include 'FrontEnd/partials/_navbar_fixed_top.html.twig' %}
+
+ {% endblock %} #}
+{% block content %}
+
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3 boxify css-1ecdjof">
+                    <h4>
+                        Merci de votre confiance.
+                    </h4>
+                    <h4>
+                       Salut {{ formData.Nom }} {{ formData.Premon }} <br>
+                       La réservation de l'appartement: <br> {{ formData.appartement.Libelle }} <br>
+                        du {{ formData.DateDebut |date("m/d/Y") }} au {{ formData.DateFin |date("m/d/Y") }}  a été bien prise en compte. <br>
+                        Nous vous appelerons pour comfirmation de votre la reservation
+                         {% dump  formData %}
+                    </h4>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row decr m-10" >
+                <div class="col-md-12">
+                    <p> Pour plus de renseignement veillez nous contacter au (+229) 52 74 62 74  </p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

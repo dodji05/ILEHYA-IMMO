@@ -96,8 +96,8 @@ class Booking
      */
     public function getDays()  {
         $resultat = range(
-            $this->startDate->getTimestamp(),
-            $this->endDate->getTimestamp(),
+            $this->DateDebut->getTimestamp(),
+            $this->DateFin->getTimestamp(),
             24*60*60
         );
 

@@ -1,0 +1,30 @@
+{#{% apply inline_css(source("@styles/styles.css")) %}#}
+<html>
+<body>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 boxify css-1ecdjof">
+
+                <h4>
+                   {{ formData.Nom }} {{ formData.Premon }} <br>
+                    vient de faire une reservation pour l'appartement: <br> {{ formData.appartement.Libelle }} <br>
+                    du {{ formData.DateDebut |date("m/d/Y") }} au {{ formData.DateFin |date("m/d/Y") }}  <br>
+                   telephone : {{  formData.Telephone}} <br>
+                    Email : {{  formData.Email}}
+                   note : {{  formData.note}}
+                </h4>
+
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row decr m-10">
+            <div class="col-md-12">
+
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

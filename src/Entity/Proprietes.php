@@ -158,8 +158,8 @@ $this->bookings = new ArrayCollection();
         foreach ($this->bookings as $booking) {
             // Calculer les jours qui se trouvent entre la date d'arrivée et de départ
             $resultat = range(
-                $booking->getStartDate()->getTimestamp(),
-                $booking->getEndDate()->getTimeStamp(),
+                $booking->getDateDebut()->getTimestamp(),
+                $booking->getDateFin()->getTimeStamp(),
                 24 * 60 * 60
             );
 

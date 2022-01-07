@@ -1,0 +1,32 @@
+
+<html>
+<body>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 boxify css-1ecdjof">
+                <h4>
+                    Merci de votre confiance.
+                </h4>
+                <h4>
+                    Salut {{ formData.Nom }} {{ formData.Premon }} <br>
+                    La réservation de l appartement: <br> {{ formData.appartement.Libelle }} <br>
+                    du {{ formData.DateDebut |date("m/d/Y") }} au {{ formData.DateFin |date("m/d/Y") }} a été bien prise
+                    en compte. <br>
+                    Nous vous appelerons pour comfirmation de votre la reservation
+
+                </h4>
+                <p> Pour plus de renseignement veillez nous contacter au (+229) 52 74 62 74 </p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row decr m-10">
+            <div class="col-md-12">
+
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

@@ -72,7 +72,13 @@
 
  {% endblock %} #}
 {% block content %}
-
+    <div class="header-menu-wrapper header-menu-wrapper-left" id="kt_header_menu_wrapper">
+        {% for message in app.flashes('warning') %}
+            <div class="alert alert-warning">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
     <section>
     <h4 class="text-center mb-10">
         Réservation du bien :
@@ -235,7 +241,7 @@
         $(document).ready(function () {
             $('#booking_DateDebut, #booking_DateFin').datepicker({
                 language: "fr",
-                format: 'dd/mm/yyyy',
+                format: 'yyyy-mm-dd',
                 datesDisabled: [{% for day in propriete.notAvailableDays %}"{{ day.format('d/m/Y') }}",{% endfor %}],
                 startDate: new Date()
             });
