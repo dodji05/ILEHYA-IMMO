@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use DateTime;
+use DateTimeInterface;
 use App\Repository\BookingRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -64,6 +66,12 @@ class Booking
      */
     private $DateFin;
 
+
+    public function __construct()
+    {
+        $this->DateReservation = new DateTime();
+    }
+
     public function isBookableDates() {
         // 1) Connaitre les dates impossibles pour cette annonce
         $notAvailableDays = $this->appartement->getNotAvailableDays();
@@ -96,8 +104,8 @@ class Booking
      */
     public function getDays()  {
         $resultat = range(
-            $this->startDate->getTimestamp(),
-            $this->endDate->getTimestamp(),
+            $this->DateDebut->getTimestamp(),
+            $this->DateFin->getTimestamp(),
             24*60*60
         );
 

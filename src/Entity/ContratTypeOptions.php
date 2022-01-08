@@ -69,6 +69,11 @@ class ContratTypeOptions
      */
     private $NombreMenage;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $Nuitee;
+
 //    /**
 //     * @ORM\Column(type="integer", nullable=true)
 //     */
@@ -214,6 +219,25 @@ class ContratTypeOptions
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getNuitee() : ?int
+    {
+        return $this->Nuitee;
+    }
+
+    /**
+     * @param mixed $Nuitee
+     */
+    public function setNuitee(?int $Nuitee): self
+    {
+        $this->Nuitee = $Nuitee;
+        return $this;
+    }
+
+
 
 //    public function getFraisAgence(): ?int
 //    {
