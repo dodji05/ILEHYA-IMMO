@@ -189,10 +189,10 @@
                             <div class="form-group row">
 
                                 <div class="col">
-                                    Nuité :
+                                    Nuitée :
                                 </div>
                                 <div class="col">
-                                    22
+                                    {{ propriete.typeOptions.Nuitee }};
                                 </div>
 
                             </div>
@@ -215,7 +215,7 @@
                                     nuit(s)
 </div>
                                     <div class="col">
-                                         {{ propriete.typeOptions.loyer | number_format(2, ',', ' ') }}
+                                        <span id="amount2"></span>
                                     </div>
                                    
                                 </div>
@@ -256,10 +256,11 @@
             if (startDate && endDate && startDate < endDate) {
                 const interval = endDate.getTime() - startDate.getTime();
                 const days = interval / (24 * 60 * 60 * 1000);
-                const amount = days * {{ propriete.typeOptions.loyer }};
+                const amount = days * {{ propriete.typeOptions.Nuitee }};
 
                 $('#days').text(days);
                 $('#amount').text(amount.toLocaleString('fr-FR'));
+                $('#amount2').text(amount.toLocaleString('fr-FR'));
             }
         }</script>{% endblock %}
 

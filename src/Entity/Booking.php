@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use DateTime;
+use DateTimeInterface;
 use App\Repository\BookingRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -63,6 +65,12 @@ class Booking
      *  @Assert\GreaterThan(propertyPath="DateDebut", message="La date de départ doit être après la date d'arrivée !")
      */
     private $DateFin;
+
+
+    public function __construct()
+    {
+        $this->DateReservation = new DateTime();
+    }
 
     public function isBookableDates() {
         // 1) Connaitre les dates impossibles pour cette annonce

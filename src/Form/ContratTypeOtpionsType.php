@@ -6,6 +6,7 @@ use App\Entity\ContratTypeOptions;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -31,6 +32,10 @@ class ContratTypeOtpionsType extends AbstractType
                 ]*/
             ])
             ->add('Loyer')
+            ->add('Nuitee',IntegerType::class,[
+                'label'=>'La nuitee ',
+                'placeholder' => 'Le prix de la nuit',
+            ])
             ->add('Avance',ChoiceType::class,[
                 'label'=>'Avance loyer',
                 'placeholder' => 'Avance de loyer à payer',
