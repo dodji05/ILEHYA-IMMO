@@ -192,7 +192,7 @@
                                     Nuitée :
                                 </div>
                                 <div class="col">
-                                    {{ propriete.typeOptions.Nuitee }};
+                                    {{ propriete.typeOptions.Nuitee | number_format(2, ',', ' ') }} FCFA
                                 </div>
 
                             </div>
@@ -202,7 +202,7 @@
                                     loyer :
                                 </div>
                                 <div class="col">
-                                    {{ propriete.typeOptions.loyer | number_format(2, ',', ' ') }}
+                                    {{ propriete.typeOptions.loyer | number_format(2, ',', ' ') }} FCFA
                                     par mois
                                 </div>
                                 <hr>
