@@ -101,7 +101,7 @@ class EstimationController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $arrodissement = $session->get("arrondissement");
-            $superfice = $form->getData()->getsuperficeTerrain();
+            $superfice = $form->getData()->getSuoerficieTerrain();
             $zone = $form->getData()->getZone()->getId();
             $reference = $prixReferenceRepository->findOneBy(['souszone' => $zone, 'zone' => $arrodissement,]);
             $estimation = $reference->getPrix() * $superfice;
