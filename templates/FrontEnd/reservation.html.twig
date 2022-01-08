@@ -235,7 +235,7 @@
         $(document).ready(function () {
             $('#booking_DateDebut, #booking_DateFin').datepicker({
                 language: "fr",
-                format: 'dd/mm/yyyy',
+                format: 'yyyy-mm-dd',
                 datesDisabled: [{% for day in propriete.notAvailableDays %}"{{ day.format('d/m/Y') }}",{% endfor %}],
                 startDate: new Date()
             });

@@ -16,13 +16,13 @@ class BookingType extends AbstractType
            
             ->add('DateDebut', DateType::class,[
                 'widget' => 'single_text',
-                'html5' => false,
+
                 'attr' => [
                     'placeholder'=>' Arrivé',
                 ],])
             ->add('DateFin',  DateType::class,[
                 'widget' => 'single_text',
-                'html5' => false,
+
                 'attr' => [
                     'placeholder'=>' Départ',
                 ],])
