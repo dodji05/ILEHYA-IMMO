@@ -29,9 +29,15 @@ class Souszone
      */
     private $prixReferences;
 
+    /**
+     * @ORM\OneToMany(targetEntity=EstimationTerrain::class, mappedBy="zone")
+     */
+    private $estimationTerrains;
+
     public function __construct()
     {
         $this->prixReferences = new ArrayCollection();
+        $this->estimationTerrains = new ArrayCollection();
     }
 
 
@@ -76,6 +82,36 @@ class Souszone
             // set the owning side to null (unless already changed)
             if ($prixReference->getSouszone() === $this) {
                 $prixReference->setSouszone(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|EstimationTerrain[]
+     */
+    public function getEstimationTerrains(): Collection
+    {
+        return $this->estimationTerrains;
+    }
+
+    public function addEstimationTerrain(EstimationTerrain $estimationTerrain): self
+    {
+        if (!$this->estimationTerrains->contains($estimationTerrain)) {
+            $this->estimationTerrains[] = $estimationTerrain;
+            $estimationTerrain->setZone($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEstimationTerrain(EstimationTerrain $estimationTerrain): self
+    {
+        if ($this->estimationTerrains->removeElement($estimationTerrain)) {
+            // set the owning side to null (unless already changed)
+            if ($estimationTerrain->getZone() === $this) {
+                $estimationTerrain->setZone(null);
             }
         }
 

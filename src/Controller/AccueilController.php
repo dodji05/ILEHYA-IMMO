@@ -212,6 +212,10 @@ class AccueilController extends AbstractController
                 $titre = "Bureau";
                 $biens =  $proprietesRepository->proprieteParCategorie($nature);
                 break;
+            case 'appartement-meuble':
+                $titre = "Appartement meublé";
+                $biens =  $proprietesRepository->proprieteParCategorie($nature);
+                break;
             default:
                 $titre = "" . $nature;
                 $biens = $proprietesRepository->proprieteParCategorie($nature);

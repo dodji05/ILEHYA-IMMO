@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\EstimationTerrainRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Souszone;
 
 /**
  * @ORM\Entity(repositoryClass=EstimationTerrainRepository::class)
@@ -17,10 +18,10 @@ class EstimationTerrain
      */
     private $id;
 
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
-    private $zone;
+//    /**
+//     * @ORM\ManyToOne(targetEntity=Souszone::class, inversedBy="proprietesImages")
+//     */
+//    private $zone;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -57,22 +58,16 @@ class EstimationTerrain
      */
     private $demandeur;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Souszone::class, inversedBy="estimationTerrains")
+     */
+    private $zone;
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getZone(): ?string
-    {
-        return $this->zone;
-    }
-
-    public function setZone(?string $zone): self
-    {
-        $this->zone = $zone;
-
-        return $this;
-    }
 
     public function getSuoerficieTerrain(): ?int
     {
@@ -154,6 +149,18 @@ class EstimationTerrain
     public function setDemandeur(string $demandeur): self
     {
         $this->demandeur = $demandeur;
+
+        return $this;
+    }
+
+    public function getZone(): ?Souszone
+    {
+        return $this->zone;
+    }
+
+    public function setZone(?Souszone $zone): self
+    {
+        $this->zone = $zone;
 
         return $this;
     }
