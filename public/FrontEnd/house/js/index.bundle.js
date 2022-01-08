@@ -15460,7 +15460,7 @@
 
             nav: !0,
             dots: !1,
-            autoplay: !0,
+            autoplay: 0,
 
             navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
             smartSpeed: 1200,
