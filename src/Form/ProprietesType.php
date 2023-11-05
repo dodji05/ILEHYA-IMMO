@@ -126,7 +126,7 @@ class ProprietesType extends AbstractType
                 'label' => 'les photos',
                 'multiple' => true,
                 'mapped' => false,
-                'required' => true
+                'required' => false
             ])
 
         ;
@@ -136,6 +136,7 @@ class ProprietesType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Proprietes::class,
+//            'allow_extra_fields' => true,
         ]);
     }
 }

@@ -1,0 +1,81 @@
+{% extends 'administration/index.html.twig' %}
+
+{% block title %}Hello MessageController!{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="utils__title">Details de la demande de renseigment
+
+{#                       <strong> {{ reservation.dateReservation ? reservation.dateReservation |date('d-m-Y') : '' }} </strong>#}
+                    </div>
+
+
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped">
+                            <tbody>
+                            <tr>
+                                <th>Types de demandes  </th>
+                                <td>{{ messages.demandes }}</td>
+                            </tr>
+                            <tr>
+                                <th>Objet  </th>
+                                <td>{{ messages.message }}</td>
+                            </tr>
+                            <tr>
+                                <th>Situation geographique  </th>
+                                <td>{{ messages.situationGeographique }}</td>
+                            </tr>
+                            <tr>
+                                <th>Client </th>
+                                <td>{{ messages.nomDemandeur }} --
+                                    {{ messages.prenomDemandeur }}</td>
+                            </tr>
+                            <tr>
+                                <th>Contact </th>
+                                <td>{{ messages.contactDemandeur }} --
+                                    {{ messages.emailDemandeur }}</td>
+                            </tr>
+                            <tr>
+                                <th>Proprietaire </th>
+                                <td>
+                                    {{ messages.nomProprietaire }} --
+                                    {{ messages.nomProprietaire }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Nationalite du proprietaire </th>
+                                <td>{{ messages.nationaliteProprietaire }}</td>
+                            </tr>
+{#                            <tr>#}
+{#                                <th>Date fin reservation </th>#}
+{#                                <td>{{ reservation.dateFin ? reservation.dateFin |date('d-m-Y') : '' }}</td>#}
+{#                            </tr>#}
+{#                            {% if reservation.note %}#}
+{#                            <tr>#}
+{#                                <th>Note </th>#}
+{#                                <td>{{ reservation.note }}</td>#}
+{#                            </tr>
+                            {% endif %}#}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="float-right">
+                        <form method="post" action="{{ path('admin_message_demande_devis_del', {'id': messages.id}) }}"
+                              onsubmit="return confirm('Etes-vous de vouloir supprimer cet message?');">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ messages.id) }}">
+                            <button class="btn btn-outline-danger"> <i class="fas fa-trash"></i> Supprimer le message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

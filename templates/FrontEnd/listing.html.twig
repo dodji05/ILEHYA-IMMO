@@ -8,8 +8,9 @@
             .list-titre h2 {
                 font-size: 15px;
             }
-            .list-titre  {
-               padding: 0px !important;
+
+            .list-titre {
+                padding: 0px !important;
             }
         }
     </style>
@@ -22,15 +23,15 @@
 {% block content %}
 
 
-{#    <section class="section__breadcrumb bg-theme-overlay" style="margin-top: 80px;margin-bottom: 0!important; ">#}
-{#        <div class="container">#}
-{#            <div class="row d-flex justify-content-center">#}
-{#                <div class="col-md-8 text-center" >#}
-{#                    <br/> <br/>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </section>#}
+    {#    <section class="section__breadcrumb bg-theme-overlay" style="margin-top: 80px;margin-bottom: 0!important; "> #}
+    {#        <div class="container"> #}
+    {#            <div class="row d-flex justify-content-center"> #}
+    {#                <div class="col-md-8 text-center" > #}
+    {#                    <br/> <br/> #}
+    {#                </div> #}
+    {#            </div> #}
+    {#        </div> #}
+    {#    </section> #}
 
 
     <section class="search__area bg__shadow" style="padding: 00px!important; ">
@@ -44,7 +45,7 @@
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="col-md-8 text-center">
-                    <h2 >{{ titre }}</h2>
+                    <h2>{{ titre }}</h2>
 
                 </div>
             </div>
@@ -104,20 +105,24 @@
                                                     <div class="card__image card__box-v1">
                                                         <div class="row no-gutters">
                                                             <div class="col-md-4 col-lg-3 col-xl-4">
-                                                                <div class="card__image__header h-250">
-                                                                    <a href="#">
-                                                                        {# <div class="ribbon text-capitalize">sold out</div> #}
 
-                                                                        {% for img in bien.proprietesImages %}
-                                                                            {% if loop.first %}
-                                                                                <img src="{{ asset('images/immobiliers/') }}{{ img.name }}"
-                                                                                     alt="{{ bien.libelle }}"
-                                                                                     class="img-fluid w100 img-transition">
-                                                                            {% endif %}
-                                                                        {% endfor %}
-                                                                        <div class="info"> {{ bien.typeOptions.contratypes.libelle }}</div>
-                                                                    </a>
-                                                                </div>
+                                                                    <div class="card__image__header h-250">
+{#                                                                        <a href="{{ path('proprietes_show',{'contrattype': bien.typeOptions.contratypes.slug,'proprietetype':bien.proprieteOptions.proprietes.Slug,'slug': bien.slug}) }}">#}
+                                                                            {# <div class="ribbon text-capitalize">sold out</div> #}
+
+                                                                            {% for img in bien.proprietesImages %}
+                                                                                {% if loop.first %}
+                                                                        <a href="{{ path('proprietes_show',{'contrattype': bien.typeOptions.contratypes.slug,'proprietetype':bien.proprieteOptions.typeProprietes.Slug,'slug': bien.slug}) }}">
+                                                                                    <img src="{{ asset('images/immobiliers/') }}{{ img.name }}"
+                                                                                         alt="{{ bien.libelle }}"
+                                                                                         class="img-fluid w100 img-transition">
+                                                                        </a>
+                                                                                {% endif %}
+                                                                            {% endfor %}
+                                                                            <div class="info"> {{ bien.typeOptions.contratypes.libelle }}</div>
+
+                                                                    </div>
+
                                                             </div>
                                                             <div class="col-md-4 col-lg-6 col-xl-5 my-auto">
                                                                 <div class="card__image__body">
@@ -237,6 +242,8 @@
                                             {% for bien in biens %}
                                                 <div class="col-md-4 col-lg-4">
                                                     <div class="card__image card__box-v1">
+                                                        <a href="{{ path('proprietes_show',{'contrattype': bien.typeOptions.contratypes.slug,'proprietetype':bien.proprieteOptions.proprietes.Slug,'slug': bien.slug}) }}">
+
                                                         <div class="card__image-header h-250">
                                                             {# <div class="ribbon text-capitalize">featured</div> #}
                                                             {% for img in bien.proprietesImages %}
@@ -249,6 +256,7 @@
 
                                                             <div class="info"> {{ bien.typeOptions.contratypes.libelle }} </div>
                                                         </div>
+                                                        </a>
                                                         <div class="card__image-body">
                                                         <span
                                                                 class="badge badge-primary text-capitalize mb-2"> {{ bien.proprieteOptions.proprietes.libelle }}</span>
@@ -363,7 +371,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-9">
-                    <h2 class="text-uppercase text-white">Quelle est la valeur de mom bien?</h2>
+                    <h2 class="text-uppercase text-white">Quelle est la valeur de mon bien?</h2>
                     <p class="text-capitalize text-white">Estimer mon bien en ligne
 
                     </p>

@@ -1,5 +1,6 @@
 {% extends 'FrontEnd/base.html.twig' %}
 {% block style%}
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <style>
         section {
             padding: 35px 0 !important;
@@ -118,13 +119,24 @@
                 <div class="col-12 col-md-4">
                   <h4 style="color: #ff9000">  SOCIETE CIVILE IMMOBILIERE </h4>
                     <ul>
-                        <li> Gestion d'actifs immobilièrs </li>
+                        <li> Gestion d'actifs immobiliérs </li>
                         <li> Construction et renovation  </li>
                         <li> Estimation de bien immobilier  </li>
                     </ul>
                 </div>
                 <div class="col-12 col-md-8 d-sm-block d-none">
-                    <img src="{{ asset('images/app/pub/promo.jpg') }}" width="100%">
+                    <div class="slider">
+                        {% for ban in bannieres %}
+                            <div>
+                                <img src="{{ ban |imagine_filter ('pub_banniere') }}" width="100%">
+                            </div>
+                        {% endfor %}
+
+{#                        <div>#}
+{#                            <img src="{{ asset('images/app/pub/banniere-publicitaire.png') }}" width="100%">#}
+{#                        </div>#}
+                    </div>
+
                 </div>
 {#                <div class="col-6 col-md-6">#}
 {#                    <ul>#}
@@ -200,7 +212,7 @@
         <div class="row d-flex justify-content-center">
             <div class="col-md-12 col-lg-12 text-center">
 
-                    <img src="{{ asset('images/app/pub/promo.jpg') }}" alt="" width="100%" class="img-fluid">
+                    <img src="{{ asset('images/app/pub/banniere-publicitaire.png') }}" alt="" width="100%" class="img-fluid">
 
             </div>
         </div>
@@ -215,6 +227,24 @@
 
 {% endblock %}
 {% block javascripts %}
-{#    <script src="{{ asset('FrontEnd/house/js/select-lies.js') }}"></script>#}
+{#    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>#}
+{#    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>#}
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
+
+    <script>
+        $(document).ready(function(){
+            $('.slider').slick({
+                infinite: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false,
+                dots: false,
+                speed: 500,
+                autoplay: true,
+                autoplaySpeed: 2000,
+        });
+        });
+    </script>
+{#    <script src="{{ asset('FrontEnd/house/js/select-lies.js') }}"></script>#}
 {% endblock %}

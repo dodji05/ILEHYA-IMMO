@@ -1,21 +1,21 @@
 {% extends 'administration/index.html.twig' %}
-{# {% block menu %}#}
-{#     {% include 'backEnd/menu/_menu_agent.html.twig' %}#}
-{# {% endblock %}#}
+{# {% block menu %} #}
+{#     {% include 'backEnd/menu/_menu_agent.html.twig' %} #}
+{# {% endblock %} #}
 
-{# {% block right_info %}#}
-{#     <a href="javascript: void(0);" class="btn  btn-success">#}
+{# {% block right_info %} #}
+{#     <a href="javascript: void(0);" class="btn  btn-success"> #}
 
-{#             <i class="icmn-plus" aria-hidden="true"></i>#}
-{#             Ajouter a estate#}
+{#             <i class="icmn-plus" aria-hidden="true"></i> #}
+{#             Ajouter a estate #}
 
-{#     </a>#}
-{#      {% endblock %}#}
-{#{% block  fil_ariane%} Estate{% endblock %}#}
-{#{% block  fil_ariane_desc%} View all estates {% endblock %}#}
+{#     </a> #}
+{#      {% endblock %} #}
+{# {% block  fil_ariane%} Estate{% endblock %} #}
+{# {% block  fil_ariane_desc%} View all estates {% endblock %} #}
 
 {% block style %}
-{#    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>#}
+    {#    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script> #}
 {% endblock %}
 
  {% block body %}
@@ -25,9 +25,9 @@
              <div class="card">
                  <div class="card-header">
                      <div class="utils__title">Mes annonces ({{ biens | length }})</div>
-                     {#                     <div class="utils__titleDescription">#}
+                     {#                     <div class="utils__titleDescription"> #}
                      {#                       #}
-                     {#                     </div>#}
+                     {#                     </div> #}
 
                  </div>
                  <div class="card-body">
@@ -39,8 +39,8 @@
                                  <th>Nom</th>
                                  <th>statut</th>
                                  <th>Type</th>
-{#                                 <th>Ville</th>#}
-{#                                 <th>Quatier</th>#}
+                                 {#                                 <th>Ville</th> #}
+                                 {#                                 <th>Quatier</th> #}
                                  <th>Adresse</th>
                                  <th></th>
                                  <th>Action</th>
@@ -53,26 +53,52 @@
                                      <td>{{ bien.libelle }}</td>
                                      <td>{{ bien.typeOptions.contratypes.libelle }}</td>
                                      <td>{{ bien.proprieteOptions.proprietes.libelle }}</td>
-{#                                     <td>{{ bien.ville }}</td>#}
-{#                                     <td>#}
-{#                                         {{ bien.quartier ? bien.quartier.LibQuart: '' }},#}
-{#                                     </td>#}
+                                     {#                                     <td>{{ bien.ville }}</td> #}
+                                     {#                                     <td> #}
+                                     {#                                         {{ bien.quartier ? bien.quartier.LibQuart: '' }}, #}
+                                     {#                                     </td> #}
                                      <td>{{ bien.adresse }}</td>
-                                     <td><i class="far fa-star"></i></td>
+                                     <td>
+                                         {% if bien.iIsFeatured %}
+                                             <i class="fas fa-star"></i>
+                                         {% else %}
+
+                                             <i class="far fa-star"></i>
+                                         {% endif %}
+                                        </td>
 
 
-                                     {#                                     <td><button type="button" class="btn btn-icon btn-outline-primary mr-2 mb-2"><i class="icmn-pencil" aria-hidden="true"></i></button></td>#}
-                                     {#                                     <td><button type="button" class="btn btn-icon btn-outline-danger mr-2 mb-2"><i class="icmn-cross" aria-hidden="true"></i></button></td>#}
+                                     {#                                     <td><button type="button" class="btn btn-icon btn-outline-primary mr-2 mb-2"><i class="icmn-pencil" aria-hidden="true"></i></button></td> #}
+                                     {#                                     <td><button type="button" class="btn btn-icon btn-outline-danger mr-2 mb-2"><i class="icmn-cross" aria-hidden="true"></i></button></td> #}
                                      <td>
 
                                          <!-- Example single danger button-->
                                          <div class="btn-group">
-                                             <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
+                                             <button type="button" class="btn btn-success dropdown-toggle"
+                                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                 Action
+                                             </button>
                                              <div class="dropdown-menu">
-                                                <a class="dropdown-item js-featured" href="{{ path('admin_proprietes_edit_featured',{'id':bien.id}) }}"> <i class="fas fa-star"></i> Mettre en avant  </a>
-                                                <a class="dropdown-item" href="{{ path('admin_proprietes_edit',{'id':bien.id}) }}"> <i class="fas fa-edit"></i>  Modifier</a>
-                                                 <a class="dropdown-item js-retrait" href="{{ path('admin_proprietes_edit_retirer',{'id':bien.id}) }}"> <i class="fas fa-minus-circle"></i> Retirer</a>
-                                                 <a class="dropdown-item" href="#"> <i class="fas fa-trash"></i>  Supprimer</a>
+                                                 <a class="dropdown-item"
+                                                    href="{{ path('admin_proprietes_show',{'id':bien.id}) }}"> <i
+                                                             class="fas fa-eye"> </i> Details</a>
+                                                 {% if bien.iIsFeatured %}
+                                                     <a class="dropdown-item js-retrait"
+                                                        href="{{ path('admin_proprietes_edit_retirer',{'id':bien.id}) }}">
+                                                         <i class="fas fa-minus-circle"></i> Retirer</a>
+
+                                                 {% else %}
+                                                     <a class="dropdown-item js-featured"
+                                                        href="{{ path('admin_proprietes_edit_featured',{'id':bien.id}) }}">
+                                                         <i class="fas fa-star"></i> Mettre en avant </a>
+
+                                                 {% endif %}
+                                                 <a class="dropdown-item"
+                                                    href="{{ path('admin_proprietes_edit',{'id':bien.id}) }}"> <i
+                                                             class="fas fa-edit"></i> Modifier</a>
+
+                                                 <a class="dropdown-item" href="#"> <i class="fas fa-trash"></i>
+                                                     Supprimer</a>
                                              </div>
                                          </div>
                                      </td>
@@ -90,93 +116,96 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
-        function onclickFeatured(event){
+        function onclickFeatured(event) {
             event.preventDefault();
 
             const url = this.href;
             var parent = this.closest('tr');
 
-            const  icone = parent.querySelector('i')
+            const icone = parent.querySelector('i')
 
-            axios.get(url).then(function(response){
+            axios.get(url).then(function (response) {
                 console.log(response)
-                if(icone.classList.contains('fas')) icone.classList.replace('fas','far');
-                else icone.classList.replace('far','fas');
+                if (icone.classList.contains('fas')) icone.classList.replace('fas', 'far');
+                else icone.classList.replace('far', 'fas');
             });
         }
 
-        function onclickRetrait(event){
+        function onclickRetrait(event) {
             event.preventDefault();
 
             const url = this.href;
             var parent = this.closest('tr');
 
-            const  icone = parent.querySelector('i')
+            const icone = parent.querySelector('i')
+            const ac = parent.querySelector('a.js-featured')
 
-            axios.get(url).then(function(response){
+            axios.get(url).then(function (response) {
                 console.log(response)
-                if(icone.classList.contains('fas')) icone.classList.replace('fas','far');
-                else icone.classList.replace('far','fas');
+                ac.hidden
+                if (icone.classList.contains('fas')) icone.classList.replace('fas', 'far');
+                else icone.classList.replace('far', 'fas');
             });
         }
-        document.querySelectorAll('a.js-featured').forEach(function (link){
-            link.addEventListener('click',onclickFeatured);
+
+        document.querySelectorAll('a.js-featured').forEach(function (link) {
+            link.addEventListener('click', onclickFeatured);
         })
-         document.querySelectorAll('a.js-retrait').forEach(function (link){
-            link.addEventListener('click',onclickRetrait);
+        document.querySelectorAll('a.js-retrait').forEach(function (link) {
+            link.addEventListener('click', onclickRetrait);
         })
     </script>
-{#    <script>#}
-{#        jQuery(document).ready(function () {#}
+    {#    <script> #}
+    {#        jQuery(document).ready(function () { #}
 
 
-{#        });#}
-{#        Swal.fire({#}
-{#            title: 'Error!',#}
-{#            text: 'Do you want to continue',#}
-{#            icon: 'error',#}
-{#            confirmButtonText: 'Cool'#}
-{#        })#}
+    {#        }); #}
+    {#        Swal.fire({ #}
+    {#            title: 'Error!', #}
+    {#            text: 'Do you want to continue', #}
+    {#            icon: 'error', #}
+    {#            confirmButtonText: 'Cool' #}
+    {#        }) #}
 
-{#        const swalWithBootstrapButtons = Swal.mixin({#}
-{#            customClass: {#}
-{#                confirmButton: 'btn btn-success',#}
-{#                cancelButton: 'btn btn-danger'#}
-{#            },#}
-{#            buttonsStyling: false#}
-{#        })#}
-{#        function executeExample(){#}
-{#            swalWithBootstrapButtons.fire({#}
-{#                title: 'Are you sure?',#}
-{#                text: "You won't be able to revert this!",#}
-{#                icon: 'warning',#}
-{#                showCancelButton: true,#}
-{#                confirmButtonText: 'Yes, delete it!',#}
-{#                cancelButtonText: 'No, cancel!',#}
-{#                reverseButtons: true#}
-{#            }).then((result) => {#}
-{#                if (result.isConfirmed) {#}
-{#                    swalWithBootstrapButtons.fire(#}
-{#                        'Deleted!',#}
-{#                        'Your file has been deleted.',#}
-{#                        'success'#}
-{#                    )#}
-{#                } else if (#}
-{#                    /* Read more about handling dismissals below */#}
-{#                    result.dismiss === Swal.DismissReason.cancel#}
-{#                ) {#}
-{#                    swalWithBootstrapButtons.fire(#}
-{#                        'Cancelled',#}
-{#                        'Your imaginary file is safe :)',#}
-{#                        'error'#}
-{#                    )#}
-{#                }#}
-{#            })#}
+    {#        const swalWithBootstrapButtons = Swal.mixin({ #}
+    {#            customClass: { #}
+    {#                confirmButton: 'btn btn-success', #}
+    {#                cancelButton: 'btn btn-danger' #}
+    {#            }, #}
+    {#            buttonsStyling: false #}
+    {#        }) #}
+    {#        function executeExample(){ #}
+    {#            swalWithBootstrapButtons.fire({ #}
+    {#                title: 'Are you sure?', #}
+    {#                text: "You won't be able to revert this!", #}
+    {#                icon: 'warning', #}
+    {#                showCancelButton: true, #}
+    {#                confirmButtonText: 'Yes, delete it!', #}
+    {#                cancelButtonText: 'No, cancel!', #}
+    {#                reverseButtons: true #}
+    {#            }).then((result) => { #}
+    {#                if (result.isConfirmed) { #}
+    {#                    swalWithBootstrapButtons.fire( #}
+    {#                        'Deleted!', #}
+    {#                        'Your file has been deleted.', #}
+    {#                        'success' #}
+    {#                    ) #}
+    {#                } else if ( #}
+    {#                    /* Read more about handling dismissals below */ #}
+    {#                    result.dismiss === Swal.DismissReason.cancel #}
+    {#                ) { #}
+    {#                    swalWithBootstrapButtons.fire( #}
+    {#                        'Cancelled', #}
+    {#                        'Your imaginary file is safe :)', #}
+    {#                        'error' #}
+    {#                    ) #}
+    {#                } #}
+    {#            }) #}
 
-{#        }#}
+    {#        } #}
 
 
-{#    </script>#}
+    {#    </script> #}
 
 
 

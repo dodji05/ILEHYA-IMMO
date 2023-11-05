@@ -18,10 +18,7 @@ class ProprieteTypeOption
     private $id;
 
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\ProprieteType", inversedBy="proprieteTypeOptions")
-     */
-    private $Proprietes;
+
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
@@ -32,6 +29,13 @@ class ProprieteTypeOption
      * @ORM\OneToOne(targetEntity="App\Entity\Proprietes", mappedBy="ProprieteOptions", cascade={"persist", "remove"})
      */
     private $proprietes;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\ProprieteType", inversedBy="proprieteTypeOptions")
+     *
+     *
+     */
+    private $Proprietes;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -183,7 +187,10 @@ class ProprieteTypeOption
     {
         return $this->Proprietes;
     }
-
+    public function getTypeProprietes(): ?ProprieteType
+    {
+        return $this->Proprietes;
+    }
     public function setProprietes(?ProprieteType $Proprietes): self
     {
         $this->Proprietes = $Proprietes;

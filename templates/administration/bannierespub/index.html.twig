@@ -1,0 +1,38 @@
+{% extends 'administration/index.html.twig' %}
+
+{% block title %}BannierePub index{% endblock %}
+{% block actionpath %}
+    {{ path('admin_banniere_pub_new') }}
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            {% for banniere in banniere_pubs %}
+                <div class="col-md-4">
+                    <div class="card card-custom" >
+                        <div class="card-header">
+                            <div class="card-title">
+                                {#                <h3 class="card-label">Card Title</h3>#}
+                            </div>
+                            <div class="card-toolbar">
+
+                                {{ include('administration/bannierespub/_delete_form.html.twig') }}
+
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <img src="{{ banniere |imagine_filter ('pub_banniere') }}" alt="" style="width: 100%">
+                        </div>
+                    </div>
+                </div>
+
+            {% else %}
+                <div class="col-md-6 offset-md-3">
+                    <a href="{{ path('admin_banniere_pub_new') }}" class="btn btn-outline-primary"> Ajouter une banniere </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{#    <a href="{{ path('banniere_pub_new') }}">Create new</a>#}
+{% endblock %}

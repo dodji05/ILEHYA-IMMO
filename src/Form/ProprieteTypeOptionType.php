@@ -48,7 +48,8 @@ class ProprieteTypeOptionType extends AbstractType
             ->add('Annedeconstruction',DateType::class,[
                 'widget' => 'single_text',
                 'label'=>'Année de construction ',
-                'html5' => false,
+                'html5' => true,
+                'required'=>false
             ])
             ->add('titreFoncier',CheckboxType::class,[
                 'label'=>'Titre Foncier',

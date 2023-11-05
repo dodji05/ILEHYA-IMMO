@@ -1,0 +1,36 @@
+{% extends 'administration/index.html.twig' %}
+
+{% block title %}BannierePub index{% endblock %}
+{% block actionpath %}
+    {{ path('admin_banniere_pub_index') }}
+{% endblock %}
+
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-9 col-md-9 ">
+                <div class="card card_spacer">
+                    <div class="card-header small_card_header">
+                        <h6 class="card-title titre"> La banniere de pub</h6>
+
+                    </div>
+                    <div class="card-body">
+                        {{ include('administration/bannierespub/_form.html.twig') }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3 col-md-3">
+
+                    {% if form.vars.data.name |default %}
+                        <img src="{{ vich_uploader_asset (form.vars.data.name)|imagine_filter('squared_thumbnail_small') }}" height="100">
+                    {% endif %}
+
+            </div>
+        </div>
+    </div>
+
+
+    {#    <a href="{{ path('banniere_pub_index') }}">back to list</a> #}
+{% endblock %}

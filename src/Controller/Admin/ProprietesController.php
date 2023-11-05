@@ -87,6 +87,17 @@ class ProprietesController extends AbstractController
             'niveau3' => 'Nouveau'
         ]);
     }
+
+    /**
+     * @Route("/{id}", name="admin_proprietes_show", methods={"GET"})
+     */
+    public function show(Proprietes $proprietes): Response
+    {
+        return $this->render('administration/proprietes/show.html.twig', [
+            'propriete' => $proprietes,
+        ]);
+    }
+
     /**
      * @Route("/{id}/edit", name="admin_proprietes_edit", methods={"GET","POST"})
      */
@@ -107,7 +118,7 @@ class ProprietesController extends AbstractController
 
             $entityManager->flush();
 
-            return $this->redirectToRoute('product_index', [
+            return $this->redirectToRoute('admin_proprietes_index', [
                 'id' => $proprietes->getId(),
             ]);
         }

@@ -8,10 +8,10 @@
 
             {% for img in bien.proprietesImages %}
                 {% if loop.first %}
-                <a href="{{ path('proprietes_show',{'contrattype': bien.typeOptions.contratypes.slug,'proprietetype':bien.proprieteOptions.proprietes.Slug,'slug': bien.slug}) }}">
-                    <img src="{{ asset('images/immobiliers/') }}{{ img.name }}" alt="{{ bien.slug}}"
-                         class="img-fluid w100 img-transition">
-                         </a>
+                    <a href="{{ path('proprietes_show',{'contrattype': bien.typeOptions.contratypes.slug,'proprietetype':bien.proprieteOptions.proprietes.Slug,'slug': bien.slug}) }}">
+                        <img src="{{ asset('images/immobiliers/') }}{{ img.name }}" alt="{{ bien.slug }}"
+                             class="img-fluid w100 img-transition">
+                    </a>
                 {% endif %}
 
             {% endfor %}
@@ -99,21 +99,23 @@
         <div class="card__image-footer">
 
             <ul class="list-inline my-auto ml-auto">
-                    
+
 
                 <li class="list-inline-item ">
                     <h6 style="font-size:14px">  {{ bien.typeOptions.montant ?  (bien.typeOptions.montant|number_format(0, ' ', ' ')) ~' Cfa': '' }}
                         {{ bien.typeOptions.loyer ? (bien.typeOptions.loyer|number_format(0, ' ', ' '))~' Cfa/mois' : '' }}
                     </h6>
                 </li>
- {% if bien.ProprieteOptions.Proprietes.id == 5 %}
-             <li class="list-inline-item ">
-                 <a class="btn btn-success btn-cicle" href="{{path('proprietes_reservation',{'slug': bien.slug}) }}" style="font-size: 10px; color:#fff">
-                                Réserver
-                 </a>
+                {% if bien.ProprieteOptions.Proprietes.id == 5 %}
+                    <li class="list-inline-item ">
+                        <a class="btn btn-success btn-cicle"
+                           href="{{ path('proprietes_reservation',{'slug': bien.slug}) }}"
+                           style="font-size: 10px; color:#fff">
+                            Réserver
+                        </a>
 
-                                    </li>
-            {% endif %}     
+                    </li>
+                {% endif %}
             </ul>
         </div>
     </div>

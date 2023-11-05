@@ -29,7 +29,7 @@
     <link href="{{ asset('FrontEnd/house/css/styles.css') }}" rel="stylesheet">
     <style>
     .topbar {
-   
+
     background: linear-gradient(90deg, #0f3f60 0%, #3454d1 61%, #009fff 100%); adding: 0;
     min-height: 50px;
     color:"#fff";
@@ -47,11 +47,21 @@
     }
 }
     </style>
-   
+
 {% block style%}
 
 
 {% endblock %}
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FJWQR31VCC"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-FJWQR31VCC');
+    </script>
 </head>
 <body>
 <!-- HEADER -->

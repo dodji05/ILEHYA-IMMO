@@ -54,7 +54,7 @@ class EstimationTerrain
     private $telephone;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $demandeur;
 
@@ -146,7 +146,7 @@ class EstimationTerrain
         return $this->demandeur;
     }
 
-    public function setDemandeur(string $demandeur): self
+    public function setDemandeur(?string $demandeur): self
     {
         $this->demandeur = $demandeur;
 

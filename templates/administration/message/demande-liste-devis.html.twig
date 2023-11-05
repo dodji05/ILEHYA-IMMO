@@ -1,0 +1,44 @@
+{% extends 'administration/index.html.twig' %}
+
+{% block title %}Hello MessageController!{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+
+                            <thead class="thead-default">
+                            <tr>
+                                <th>Type de demande</th>
+                                <th>Client</th>
+                                <th>Contact</th>
+
+                                <th>Situation geoagraphique</th>
+
+                               <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for message in messages %}
+                                <tr>
+                                    <th>{{ message.demandes }}</th>
+                                    <th>{{ message.nomDemandeur ~ ' '~ message.prenomDemandeur }}</th>
+<th>{{ message.contactDemandeur~ ' / '~ message.emailDemandeur}}  </th>
+                                    <th>{{ message.situationGeographique }}</th>
+{#                                    <th>{{ reservation.datefin | date('d-m-Y') }}</th>#}
+                                    <th><a href="{{ path('admin_message_demande_devis_details',{id:message.id}) }}"> <i class="fas fa-eye "></i></a></th>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

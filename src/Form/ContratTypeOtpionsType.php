@@ -34,7 +34,10 @@ class ContratTypeOtpionsType extends AbstractType
             ->add('Loyer')
             ->add('Nuitee',IntegerType::class,[
                 'label'=>'La nuitee ',
-                'placeholder' => 'Le prix de la nuit',
+               'attr'=>[
+                   'placeholder' => 'Le prix de la nuitee',
+               ],
+                'required'=>false
             ])
             ->add('Avance',ChoiceType::class,[
                 'label'=>'Avance loyer',

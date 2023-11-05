@@ -5,13 +5,13 @@
                 <div class="title__head">
                     <h2 class="text-center">
                         {% if nature_annonce == 2 %}
-                            Dérnières publications à louer
+                            Dernières publications à louer
                         {% elseif  nature_annonce == 'Meuble' %}
-                            Dérnières publications appartements meublés
+                            Dernières publications appartements meublés
                         {% elseif  nature_annonce == 'terre' %}
                             Domaines & terres agricoles
                         {% else %}
-                            Dérnières publications à vendre
+                            Dernières publications à vendre
                         {% endif %}
                     </h2>
 
@@ -41,7 +41,7 @@
             <div class="col-lg-12">
                 <div class="recent__property-carousel owl-carousel owl-theme">
                     {% if nature_annonce == 'Meuble' %}
-                        {% for bien in biens %}
+                        {% for bien in biens%}
                             {% if bien.ProprieteOptions.Proprietes.id == 5 %}
                                 {% include "FrontEnd/partials/_item.html.twig" %}
                             {% endif %}

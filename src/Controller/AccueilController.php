@@ -9,6 +9,7 @@ use App\Form\DevisType;
 use App\Form\MessagesType;
 use App\Form\SearchPorpertyFormType;
 use App\Recherche\SearchData;
+use App\Repository\BannierePubRepository;
 use App\Repository\ProprietesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,17 +22,25 @@ class AccueilController extends AbstractController
     /**
      * @Route("/", name="accueil")
      */
-    public function index(ProprietesRepository $ProprietesRepository)
+    public function index(ProprietesRepository $ProprietesRepository, BannierePubRepository $bannierePubRepository)
     {
         $biens = $ProprietesRepository->findAll();
+        $bannieres = $bannierePubRepository->findAll();
         $datasearch = new SearchData();
         $form = $this->createForm(SearchPorpertyFormType::class, $datasearch);
+
+        $biensALaUnes = $ProprietesRepository->findBy(['iIs_featured'=>true]);
+       // $appartementMeubles = $ProprietesRepository->findBy(['[ProprieteOptions][getTypeProprietes]'=>5]);
+//        dd($appartementMeubles);
 
         return $this->render('FrontEnd/index.html.twig', [
 
             'biens' => $biens,
             'nature_annonce' => "",
             'form' => $form->createView(),
+            'bannieres'=>$bannieres,
+            'bienALaUnes'=>  $biensALaUnes,
+//            'appartementMeubles' => $appartementMeubles
         ]);
     }
 

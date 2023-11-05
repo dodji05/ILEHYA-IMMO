@@ -18,10 +18,11 @@ class EstimationTerrainType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('zone', EntityType::class, [
+            ->add('zone2', EntityType::class, [
                 'class' => Souszone::class,
                 'choice_label' => 'libelleSouszone',
-                'label' => 'Choisir la zone'
+                'label' => 'Choisir la zone',
+                'mapped'=>false,
 
 
             ])

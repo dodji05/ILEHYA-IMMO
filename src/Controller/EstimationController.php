@@ -102,28 +102,40 @@ class EstimationController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $arrodissement = $session->get("arrondissement");
             $superfice = $form->getData()->getSuoerficieTerrain();
-            $zone = $form->getData()->getZone()->getId();
-            $reference = $prixReferenceRepository->findOneBy(['souszone' => $zone, 'zone' => $arrodissement,]);
-            $estimation = $reference->getPrix() * $superfice;
-            $voie = $form->getData()->getSituation();
-            $prixMoyen = 0;
+//            dd($form);
+            $zone = $form->get('zone2')->getData();
+//            $zone = $request->get('zone2');
 
-            if ($voie == "oui") {
-                $prixMoyen = $estimation * 2;
-            } else {
-                $prixMoyen = $estimation * 1.5;
+
+            $reference = $prixReferenceRepository->findOneBy(['souszone' => $zone->getId(), 'zone' => $arrodissement]);
+//            dd( $zone ,  $reference);
+            if($reference){
+                $estimation = $reference->getPrix() * $superfice;
+                $voie = $form->getData()->getSituation();
+                $prixMoyen = 0;
+
+                if ($voie == "oui") {
+                    $prixMoyen = $estimation * 2;
+                } else {
+                    $prixMoyen = $estimation * 1.5;
+                }
+                $data->setZone($zone->getId());
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($data );
+                $entityManager->flush();
+
+                return $this->render('FrontEnd/estimation-terrain-fin.html.twig',
+                    [
+                        'estimation' => $estimation,
+                        'prixMoyen' => $prixMoyen,
+                        'arrondissement' => $reference->getZone()->getLibelle(),
+                        'zone' => $reference->getSouszone()->getLibelleSouszone()
+                    ]);
             }
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($data );
-            $entityManager->flush();
 
-            return $this->render('FrontEnd/estimation-terrain-fin.html.twig',
-                [
-                    'estimation' => $estimation,
-                    'prixMoyen' => $prixMoyen,
-                    'arrondissement' => $reference->getZone()->getLibelle(),
-                    'zone' => $reference->getSouszone()->getLibelleSouszone()
-                ]);
+
+
+
 
 
         }

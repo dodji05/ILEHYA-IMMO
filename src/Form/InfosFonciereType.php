@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\InfosFonciere;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -58,7 +59,7 @@ class InfosFonciereType extends AbstractType
                     "placeholder" => "Mon contact téléphonique",
                 ]
             ])
-            ->add('emailDemandeur', null, [
+            ->add('emailDemandeur', EmailType::class, [
                 "label" => "E-mail",
                 "attr" => [
 

@@ -90,6 +90,22 @@ class ProprietesRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function typePropriete($nature)
+    {
+        return $this->createQueryBuilder('p')
+           /// ->leftJoin('p.TypeOptions', 't')
+        //    ->leftJoin('t.Contratypes', 'c')
+            ->innerJoin('p.ProprieteOptions','o')
+            ->innerJoin('o.typeProprietes','t')
+            ->andWhere('t.id = :val1')
+            ->setParameter('val1', $nature)
+            ->orderBy('p.id', 'DESC')
+            ->getQuery()
+            ->getSQL()
+           // ->getResult()
+            ;
+    }
+
     public function proprieteParCategorie($categorie)
     {
         return $this->createQueryBuilder('p')
