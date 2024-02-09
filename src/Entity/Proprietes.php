@@ -135,10 +135,11 @@ class Proprietes
     {
         $this->iIs_featured = false;
         $this->nbre_vues = 0;
-        $this->isvisible = false;
+        $this->isvisible = true;
         $this->Disponibilite = true;
         $this->createatAt = new DateTime();
         $this->media = new ArrayCollection();
+
 
         $this->messages = new ArrayCollection();
         $this->proprietesImages = new ArrayCollection();

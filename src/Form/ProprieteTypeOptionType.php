@@ -20,30 +20,38 @@ class ProprieteTypeOptionType extends AbstractType
                 'choice_label' => 'Libelle',
                 'placeholder'=>'Sélectionnez le type de bien',
                 'label'=>'Catégorie',
-                'required'=>'true',
+                'required'=>true,
                 'help'=>'Chambre salon, boutique/magasin, maison locative'
             ])
 
             ->add('NbreChambre',null,[
               'label'=>'Nombre de chambre',
+                'required'=>false,
+
           ])
             ->add('NbreSalon',null,[
                 'label'=>'Nombre de salon',
+                'required'=>false,
             ])
             ->add('NbreCuisine',null,[
                 'label'=>'Nombre de cuisine',
+                'required'=>false,
             ])
             ->add('NbreDouche',null,[
                 'label'=>'Nombre de douche',
+                'required'=>false,
             ])
             ->add('NbreGarage',null,[
                 'label'=>'Nombre de garage',
+                'required'=>false,
             ])
             ->add('Superfice',null,[
                 'label'=>'superficie en m2',
+                'required'=>false,
             ])
             ->add('NbreEtage',null,[
                 'label'=>'Nombre d\' étages ',
+                'required'=>false,
             ])
             ->add('Annedeconstruction',DateType::class,[
                 'widget' => 'single_text',
@@ -58,59 +66,77 @@ class ProprieteTypeOptionType extends AbstractType
             ])
             ->add('autAscenseur',CheckboxType::class,[
                 'label'=>'Cage d\'ascenseur ',
+                'required'=>false,
             ])
             ->add('autBalcon',CheckboxType::class,[
                 'label'=>'Balcon ',
+                'required'=>false,
             ])
             ->add('autCave',CheckboxType::class,[
                 'label'=>'cave ',
+                'required'=>false,
             ])
             ->add('autChauffage',CheckboxType::class,[
                 'label'=>'chauffage ',
+                'required'=>false,
             ])
             ->add('autGuerite',CheckboxType::class,[
                 'label'=>'Guerite ',
+                'required'=>false,
             ])
             ->add('autJardin',CheckboxType::class,[
                 'label'=>'Jardin ',
+                'required'=>false,
             ])
             ->add('autParking',CheckboxType::class,[
                 'label'=>'Parking ',
+                'required'=>false,
             ])
             ->add('autMeuble',CheckboxType::class,[
                 'label'=>'Meublé ',
+                'required'=>false,
             ])
             ->add('autParkingSouterain',CheckboxType::class,[
-                'label'=>'Année de construction ',
+                'label'=>'Parking souterain',
+                'required'=>false,
             ])
             ->add('autPiscine',CheckboxType::class,[
                 'label'=>'Piscine ',
+                'required'=>false,
             ])
             ->add('autSecurite',CheckboxType::class,[
                 'label'=>'Agent de securité ',
+                'required'=>false,
             ])
             ->add('autTerasse',CheckboxType::class,[
                 'label'=>'terrase ',
+                'required'=>false,
             ])
             ->add('comCommerces',CheckboxType::class,[
-                'label'=>'Prés des commerces ',
+                'label'=>'Près des commerces ',
+                'required'=>false,
             ])
 
             ->add('comEcoles',CheckboxType::class,[
                 'label'=>'Proches d\'ecole',
+                'required'=>false,
             ])
 
             ->add('comPlages',CheckboxType::class,[
                 'label'=>'Proches de la plage ',
+                'required'=>false,
             ])
             ->add('comHopitaux',CheckboxType::class,[
                 'label'=>'Proches des hopitaux ',
+                'required'=>false,
             ])
             ->add('comRestaurant',CheckboxType::class,[
                 'label'=>'Pres des restaurants ',
+                'required'=>false,
             ])
             ->add('comPharmacie',CheckboxType::class,[
                 'label'=>'Pres des pharmacies ',
+                'required'=>false,
             ])
 //            ->add('com',null,[
 //                'label'=>'Année de construction ',

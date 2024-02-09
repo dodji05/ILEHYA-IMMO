@@ -24,7 +24,7 @@ class ProprietesController extends AbstractController
      */
     public function index(ProprietesRepository $ProprietesRepository)
     {
-        $biens = $ProprietesRepository->findAll();
+        $biens = $ProprietesRepository->findBy(['isvisible'=>true],['id'=>'DESC']);
         return $this->render('administration/proprietes/index.html.twig', [
             'biens' => $biens,
             'niveau1' => $this->niveau1,
@@ -36,6 +36,9 @@ class ProprietesController extends AbstractController
      */
     public function new(Request $request, QuartierRepository $quartierRepository): Response
     {
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('app_login');
+        }
         $propriete = new Proprietes();
 
         $form = $this->createForm(ProprietesType::class, $propriete);
@@ -45,7 +48,7 @@ class ProprietesController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             (int)$id_quartier = $form->get('quartiers')->getData();
             $quart = $quartierRepository->find($id_quartier);
-
+            $propriete->setIsvisible(true);
             $propriete->setQuartier($quart);
 
             $entityManager = $this->getDoctrine()->getManager();
@@ -192,5 +195,27 @@ class ProprietesController extends AbstractController
                 'message'=>'La propriete est de nouveau active'
             ]);
         }
+    }
+
+
+    /**
+     * @Route("/supprimer/{id}", name="admin_proprietes_supprimer", methods={"GET","POST"})
+     */
+    public function supprimerAnnonces(Proprietes $proprietes) {
+        $entityManager = $this->getDoctrine()->getManager();
+
+            $proprietes->setIsvisible(false);
+            $proprietes->setupdateBy(null);
+            $entityManager->persist($proprietes);
+            $entityManager->flush();
+            $this->addFlash('success', 'La propriete à été supprimee avec succes!');
+//            return $this->json([
+//                'code'=>200,
+//                'status'=>$proprietes->getDisponibilite(),
+//                'message'=>'La propriete a été retirée'
+//            ]);
+            return $this->redirectToRoute('admin_proprietes_index');
+
+
     }
 }

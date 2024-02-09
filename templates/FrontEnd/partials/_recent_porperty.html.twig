@@ -10,6 +10,8 @@
                             Dernières publications appartements meublés
                         {% elseif  nature_annonce == 'terre' %}
                             Domaines & terres agricoles
+                        {% elseif  nature_annonce == 'fond' %}
+                            Fond de commerce
                         {% else %}
                             Dernières publications à vendre
                         {% endif %}
@@ -54,7 +56,9 @@
                         {% endfor %}
                     {% else %}
                         {% for bien in biens %}
-                            {% if bien.typeOptions.contratypes.id == nature_annonce and bien.ProprieteOptions.Proprietes.id != 5 %}
+                            {% if bien.typeOptions.contratypes.id == nature_annonce
+                                and bien.ProprieteOptions.Proprietes.id != 5
+                                and bien.ProprieteOptions.Proprietes.id != 7 %}
                                 {% include "FrontEnd/partials/_item.html.twig" %}
                             {% endif %}
                         {% endfor %}

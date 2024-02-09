@@ -81,10 +81,12 @@ class ProprietesRepository extends ServiceEntityRepository
     public function natureannonces($nature)
     {
         return $this->createQueryBuilder('p')
-            ->leftJoin('p.TypeOptions', 't')
-            ->leftJoin('t.Contratypes', 'c')
+            ->innerJoin('p.TypeOptions', 't')
+            ->innerJoin('t.Contratypes', 'c')
             ->andWhere('c.id = :val1')
+            ->andWhere('p.isvisible  = :visible')
             ->setParameter('val1', $nature)
+            ->setParameter('visible', true)
             ->orderBy('p.id', 'DESC')
             ->getQuery()
             ->getResult();
@@ -111,8 +113,10 @@ class ProprietesRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('p')
             ->innerJoin('p.ProprieteOptions', 'op')
             ->innerJoin('op.Proprietes', 't')
+            ->andWhere('p.isvisible  = :visible')
             ->andWhere('t.Slug = :val1')
             ->setParameter('val1', $categorie)
+            ->setParameter('visible', true)
             ->orderBy('p.id', 'DESC')
             ->getQuery()
             ->getResult();

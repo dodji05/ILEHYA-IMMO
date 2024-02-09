@@ -1,32 +1,34 @@
 <div class="item">
     <!-- ONE -->
     <div class="card__image card__box">
-        <div class="card__image-header h-250">
-            {% if affichage is defined %}
-                <div class="ribbon-feat text-uppercase">Nouveau</div>
-            {% endif %}
-
-            {% for img in bien.proprietesImages %}
-                {% if loop.first %}
-                    <a href="{{ path('proprietes_show',{'contrattype': bien.typeOptions.contratypes.slug,'proprietetype':bien.proprieteOptions.proprietes.Slug,'slug': bien.slug}) }}">
-                        <img src="{{ asset('images/immobiliers/') }}{{ img.name }}" alt="{{ bien.slug }}"
-                             class="img-fluid w100 img-transition">
-                    </a>
+        <a href="{{ path('proprietes_show_ads',{'slug': bien.slug}) }}">
+            <div class="card__image-header h-250">
+                {% if affichage is defined %}
+                    <div class="ribbon-feat text-uppercase">Nouveau</div>
                 {% endif %}
 
-            {% endfor %}
+                {% for img in bien.proprietesImages %}
+                    {% if loop.first %}
 
-            <div class="info"> {{ bien.typeOptions.contratypes.libelle }}</div>
-        </div>
+                        <img src="{{ asset('images/immobiliers/') }}{{ img.name }}" alt="{{ bien.slug }}"
+                             class="img-fluid w100 img-transition">
+
+                    {% endif %}
+
+                {% endfor %}
+
+                <div class="info"> {{ bien.typeOptions.contratypes.libelle }}</div>
+            </div>
+        </a>
         <div class="card__image-body">
                                     <span class="badge badge-primary text-capitalize mb-2">
                                         {{ bien.proprieteOptions.proprietes.libelle }}
 
                                     </span>
             <h6 class="text-capitalize">
-                <a href="{{ path('proprietes_show',{'contrattype': bien.typeOptions.contratypes.slug,'proprietetype':bien.proprieteOptions.proprietes.Slug,'slug': bien.slug}) }}">
-                    {% if bien.libelle | length > 41 %}
-                        {{ bien.libelle | slice(0,35) }}...
+                <a href="{{ path('proprietes_show_ads',{'slug': bien.slug}) }}">
+                    {% if bien.libelle | length > 35 %}
+                        {{ bien.libelle | slice(0,30) }}...
                     {% else %}
                         {{ bien.libelle }}
                     {% endif %}
@@ -120,4 +122,4 @@
         </div>
     </div>
 </div>
-</a>
+{# </a> #}

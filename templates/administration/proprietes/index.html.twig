@@ -84,7 +84,7 @@
                                                              class="fas fa-eye"> </i> Details</a>
                                                  {% if bien.iIsFeatured %}
                                                      <a class="dropdown-item js-retrait"
-                                                        href="{{ path('admin_proprietes_edit_retirer',{'id':bien.id}) }}">
+                                                        href="{{ path('admin_proprietes_edit_featured',{'id':bien.id}) }}">
                                                          <i class="fas fa-minus-circle"></i> Retirer</a>
 
                                                  {% else %}
@@ -97,7 +97,7 @@
                                                     href="{{ path('admin_proprietes_edit',{'id':bien.id}) }}"> <i
                                                              class="fas fa-edit"></i> Modifier</a>
 
-                                                 <a class="dropdown-item" href="#"> <i class="fas fa-trash"></i>
+                                                 <a class="dropdown-item" href="{{ path('admin_proprietes_supprimer',{'id':bien.id}) }}"> <i class="fas fa-trash"></i>
                                                      Supprimer</a>
                                              </div>
                                          </div>
@@ -125,7 +125,7 @@
             const icone = parent.querySelector('i')
 
             axios.get(url).then(function (response) {
-                console.log(response)
+            //    console.log(response)
                 if (icone.classList.contains('fas')) icone.classList.replace('fas', 'far');
                 else icone.classList.replace('far', 'fas');
             });
@@ -142,9 +142,9 @@
 
             axios.get(url).then(function (response) {
                 console.log(response)
-                ac.hidden
-                if (icone.classList.contains('fas')) icone.classList.replace('fas', 'far');
-                else icone.classList.replace('far', 'fas');
+                // ac.hidden
+                if (icone.classList.contains('fas')) icone.classList.replace('far', 'fas');
+                else icone.classList.replace('fas', 'far');
             });
         }
 

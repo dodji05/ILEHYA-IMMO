@@ -28,7 +28,7 @@ class ProprietesType extends AbstractType
                 'required' => 'true'
             ])
             ->add('ProprieteOptions', ProprieteTypeOptionType::class, [
-                'required' => false
+                'required' => true
             ])
 
 //            ->add('ville')

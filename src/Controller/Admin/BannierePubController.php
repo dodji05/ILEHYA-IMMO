@@ -38,8 +38,8 @@ class BannierePubController extends AbstractController
         $form->handleRequest($request);
        // dd($form->getExtraData());
         if ($form->isSubmitted() && $form->isValid()) {
-        //    $images = $form->get('img')->getData();
-            $images = $form->getExtraData();
+          $images = $form->get('img')->getData();
+          //  $images = $form->getExtraData();
 
             $fichier = $fileUploader->upload($images,'banniere','bannieres');
             $bannierePub->setName( $fichier);
